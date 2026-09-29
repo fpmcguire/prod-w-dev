@@ -1,9 +1,13 @@
 ---
 artifact:
   type: MOD-W Product Definition
-  version: 1.0
+  version: 1.1
   created: 2026-09-29
-  status: Draft for Moderator Review
+  updated: 2026-09-30
+  date: 2026-09-30
+  status: Accepted by Moderator
+  accepted_by: Moderator
+  accepted_date: 2026-09-30
 ---
 
 # PROD-W Product Definition
@@ -31,7 +35,7 @@ The product will be developed using MOD-W v5.0.1 as a secondary research artifac
 | **Product name** | PROD-W |
 | **Long form** | Moderated AI-Assisted Product Development Workflow |
 | **Project scope** | Research, definition, and proof-of-concept of a governance protocol and supporting methodology |
-| **Primary output** | Machine-readable protocol specification with supporting human-readable guidance, evidence frameworks, and role definitions |
+| **Primary output** | Normative governance specification with human-readable methodology, evidence frameworks, role definitions, and a machine-readable representation as a core design goal; exact serialization and implementation remain deferred |
 | **Output repository** | `prod-w` (separate from development workspace `prod-w-dev`) |
 | **Governance model** | MOD-W v5.0.1 |
 | **Experimental frame** | MOD-W transferability evaluation (methodology/protocol development vs. software development) |
@@ -106,9 +110,9 @@ PROD-W establishes a **protocol-first governance framework** for AI-assisted pro
 1. **Makes authority explicit** — defines which decisions require human judgment
 2. **Preserves evidence traceability** — connects material claims to their evidence source
 3. **Distinguishes classes of knowledge** — separates evidence, inference, hypothesis, assumption, and decision into visible categories
-4. **Surfaces disagreement** — treats unresolved differences as valid workflow states rather than forcing consensus
+4. **Surfaces disagreement** — keeps unresolved differences visible rather than forcing consensus
 5. **Enables challenge** — provides mechanisms to question claims and require defense or revision
-6. **Enforces discipline** — expresses governance as machine-readable protocol rules, not just guidelines
+6. **Enforces discipline** — expresses governance semantics in forms that can support human review and machine-checkable validation where appropriate
 
 ### Secondary Purpose
 
@@ -125,24 +129,28 @@ This evidence will inform future MOD-W evolution without committing to broad app
 
 ### User Intent
 
-PROD-W is intended to be adopted by:
-- **Product organizations** using AI agents to evaluate, define, and validate product opportunities
-- **Research teams** developing protocols or methodologies where evidence quality and assumption tracking matter
+PROD-W is intended primarily for:
+- **AI-assisted product development teams** evaluating, defining, and validating product opportunities
+- **Product organizations** that need evidence-governed go/build/no-build decisions
 - **Governance-conscious teams** that need human-moderated AI collaboration with auditable decision trails
+
+Methodology and protocol-development teams are part of the `prod-w-dev` MOD-W transferability experiment, but they are not treated as a primary PROD-W target audience unless later product evidence justifies that expansion.
 
 ---
 
 ## Target Users and Stakeholders
 
+The **MOD-W Moderator** governs the `prod-w-dev` development process and MOD-W gates. The **PROD-W Product Moderator** is a role being defined as part of the PROD-W product itself. The future PROD-W role does not govern this repository merely because both roles use the term "Moderator."
+
 | Stakeholder | Primary Interest | Authority Scope |
 |-------------|-----------------|-----------------|
-| **Product Moderator** | Workflow orchestration; human go/no-go gates; consequence of product decisions | Final authority on evidence sufficiency and go/build/no-build decisions |
-| **Product Owner / Product Researcher** | What should be built and why; evidence quality; assumption validity | Authority to define product intent and accept or reject evidence |
-| **Product Skeptic / Validator** (emerging role) | Counter-evidence; assumption challenge; failure scenarios | Authority to demand evidence defense or escalate disagreement |
-| **Product Architect / Tech Lead** | How the product could be built; feasibility assessment; technical risks | Authority on technical constraints and implementation evidence |
-| **Implementation Team / Development Team** | How to build the approved product; capability evidence; learning from building | Authority on implementation feasibility and architecture feedback |
-| **QA / Validator** | Verification against acceptance criteria; evidence collection | Authority to declare when evidence requirements are met |
-| **External Evaluators** (research hypothesis) | Independent validation; pattern-matching to known risks; conformance verification | Advisory authority; not gate authority |
+| **Product Moderator** | Workflow orchestration; human go/no-go gates; consequence of product decisions | Consequential gate acceptance and final go/build/no-build authority where explicitly assigned |
+| **Product Owner / Product Researcher** | What should be built and why; evidence quality; assumption validity | Evidence production, analysis, and recommendation; may not acquire gate authority unless explicitly authorized |
+| **Product Skeptic / Validator** (research hypothesis) | Counter-evidence; assumption challenge; failure scenarios | Evidence challenge and gap identification; role remains hypothetical until justified |
+| **Product Architect / Tech Lead** | How the product could be built; feasibility assessment; technical risks | Technical feasibility assessment and implementation evidence production/challenge |
+| **Implementation Team / Development Team** | How to build the approved product; capability evidence; learning from building | Implementation evidence production and feedback on feasibility constraints |
+| **QA / Validator** | Verification against acceptance criteria; evidence collection | Evidence verification against formal criteria and confirmation that required checks occurred; not consequential gate acceptance by default |
+| **External Evaluators** (research hypothesis) | Independent validation; pattern-matching to known risks; conformance verification | Advisory findings, challenge, counter-evidence, or conformance verification; not gate authority unless a future approved revision explicitly grants it |
 
 ---
 
@@ -203,6 +211,9 @@ Any claim made to customers or stakeholders must be traceable to supporting evid
 **WD-5: Implementation may trigger reconsideration.**  
 Evidence discovered during building (technical constraints, architectural limits, learned customer needs) may legitimately reopen prior decisions.
 
+**WD-6: Dependent decisions require revalidation when material support changes.**  
+Product decisions must not remain silently valid when their material supporting assumptions, evidence, or upstream claims are changed, contradicted, or invalidated.
+
 ---
 
 ## Goals
@@ -210,17 +221,17 @@ Evidence discovered during building (technical constraints, architectural limits
 ### Primary Goals
 
 **G-1: Define PROD-W protocol and governance model**  
-Produce an authoritative specification of roles, authority, states, transitions, evidence requirements, and decision gates that can be implemented in various technical representations.
+Produce an authoritative specification of roles, authority, evidence expectations, challenge paths, provenance, and decision gates that can be implemented in various technical representations.
 
 **G-2: Establish evidence and gate framework**  
-Define what kinds of evidence satisfy different gates (e.g., customer validation, technical feasibility, market viability). Specify who may accept evidence and under what conditions.
+Define what kinds of evidence are required or expected for different gates (e.g., customer validation, technical feasibility, market viability). Distinguish objectively checkable requirements from contextual sufficiency judgments, and specify who may make consequential acceptance decisions.
 
 **G-3: Design machine-readable protocol**  
 Demonstrate that PROD-W governance semantics can be expressed in a form that is:
 - independent of any single AI model or vendor
-- enforceable by automated validation
+- machine-readable enough to validate objectively checkable rules
 - human-reviewable
-- auditable for compliance
+- auditable for protocol conformance
 
 **G-4: Produce usable methodology**  
 Create practical guidance, role definitions, templates, and decision frameworks that product teams can actually use.
@@ -262,37 +273,39 @@ If disagreement about the product approach or research direction is justified, l
 
 ## Core Requirements
 
-Requirements are stable, justified commitments. Research hypotheses (Section 9) remain open.
+Requirements are stable, justified commitments. Research hypotheses (Appendix A) remain open.
 
 ### Functional Requirements
 
 **FR-1: Protocol must define roles and authority**  
 PROD-W protocol must specify:
 - Which roles exist
-- What decisions each role may make
-- Which decisions require multi-role consensus
+- Which roles may produce evidence
+- Which roles may assess, challenge, or verify evidence
+- Which decisions require explicitly authorized human acceptance
 - Which decisions require human authorization
 - Authority scope boundaries and conflicts
 
-**FR-2: Protocol must define states and transitions**  
-The workflow must model legal states for product claims, evidence, and gate transitions. Each transition must have defined preconditions and post-conditions.
+**FR-2: Protocol must define governance semantics for progression**  
+The workflow must define enough product-claim, evidence, challenge, and gate semantics to make valid and invalid governance actions identifiable. Exact lifecycle graphs, state names, transition mechanics, and protocol serialization are downstream design decisions.
 
 **FR-3: Protocol must define evidence requirements**  
 Different gates must specify:
-- What kinds of evidence are acceptable
-- Sufficiency thresholds
+- Required evidence categories where applicable
+- Objectively checkable evidence conditions, such as source identification, provenance, independent challenge, or required artifact presence
+- Contextual sufficiency judgments that remain human-authorized decisions
 - Evidence sourcing rules
 - Provenance requirements
 - Who may accept evidence
 
-**FR-4: Protocol must make self-approval structurally invalid**  
-No role may approve its own output or work. This must be enforced at protocol level, not just instructed.
+**FR-4: PROD-W governance must make self-approval invalid**  
+No role may approve its own output or work. PROD-W must not rely solely on natural-language instruction to prevent self-approval; the governance model must make such approval invalid or detectable as invalid. The exact enforcement mechanism is a downstream architecture/design decision.
 
 **FR-5: Protocol must surface unresolved disagreement**  
-When evidence is insufficient or roles disagree, the protocol must provide a path to surface disagreement rather than force it underground.
+When evidence is insufficient or roles disagree, the protocol must provide a way to keep disagreement visible and route it for challenge, additional evidence, or authorized human decision. Exact disagreement states or labels remain design questions.
 
 **FR-6: Protocol must track provenance**  
-Every material claim must carry metadata:
+Every material claim must retain traceable provenance sufficient to identify:
 - What the claim is
 - Who made it
 - When
@@ -300,11 +313,16 @@ Every material claim must carry metadata:
 - Who accepted/challenged it
 - Current status
 
-**FR-7: Material claims require counter-evidence or independent challenge**  
-Material hypotheses cannot be accepted on single evidence source. They require either:
-- independent confirmation, OR
-- explicit counter-evidence search, OR  
-- documented assumption that they remain unvalidated
+The exact metadata model and whether specific items live in document metadata, protocol state, or another representation remain downstream design decisions.
+
+**FR-7: Material hypotheses require validation or visible unresolved-assumption handling**  
+A material hypothesis may only be treated as validated when required evidence and challenge criteria are satisfied.
+
+A project may continue while a material hypothesis remains unvalidated only when the appropriate human role explicitly authorizes conditional progression. In that case:
+- the hypothesis remains classified as unvalidated
+- the assumption remains visible
+- dependent decisions remain traceable to the unresolved assumption
+- progression under assumption is not represented as validation
 
 ### Governance Requirements
 
@@ -320,11 +338,14 @@ Product assumptions (about customer, market, problem, technical approach) must b
 **GR-4: Confidence must not hide uncertainty**  
 Uncertainty about evidence quality, assumption validity, or inference correctness must not be masked by numerical precision or artificial confidence.
 
-**GR-5: Evidence sufficiency must be gated**  
-Workflow progression from problem definition → customer validation → market evaluation → build decision must each be an explicit gate with evidence criteria.
+**GR-5: Consequential progression must be gated without assuming one universal linear lifecycle**  
+Consequential transitions must have explicit gates, clear evidence requirements where gates exist, traceable progression, and revalidation when material upstream assumptions or evidence change. Product development may loop, branch, revisit earlier assumptions, or reopen prior decisions when new evidence warrants it.
 
 **GR-6: Escalation paths must be defined**  
 When evidence is disputed, gaps are identified, or roles disagree, the path to resolution must be clear and documented.
+
+**GR-7: Gate exceptions must remain visible**  
+Any gate waiver or override must be explicit, identify the authorized human, include rationale, record provenance, identify which requirement or gate was not normally satisfied, and remain visible as an exception rather than ordinary protocol conformance.
 
 ### Research Requirements
 
@@ -344,6 +365,21 @@ Assess whether MOD-W roles remain coherent for protocol development. Document co
 **RR-4: Test protocol-based governance hypothesis**  
 Evaluate whether expressing governance as machine-checkable protocol is more effective than natural-language instruction for maintaining workflow discipline.
 
+### MOD-W Transferability Research Governance
+
+`prod-w-dev` maintains a dedicated evidence record under `research/mod-w-transferability/` to document how MOD-W v5.0.1 behaves when used for methodology/protocol development rather than conventional software development.
+
+Any active MOD-W role may propose observations based on direct project experience. The MOD-W Moderator owns the transferability research record, reviews and classifies observations, determines whether observations enter the accepted research record, authorizes local adaptations, maintains the cumulative assessment, and ensures supporting, contradictory, mixed, and unresolved evidence are retained.
+
+Observations distinguish among transfer without modification, transfer with reinterpretation, local adaptation, apparent domain coupling, and not-yet-tested questions, using the working classifications defined in `research/mod-w-transferability/README.md`:
+- `TRANSFERS_UNCHANGED`
+- `TRANSFERS_WITH_REINTERPRETATION`
+- `REQUIRES_LOCAL_ADAPTATION`
+- `DOMAIN_COUPLED`
+- `NOT_YET_TESTED`
+
+Local adaptations are recorded separately from the observations that trigger them. Canonical MOD-W templates under `mod-w/templates/` must not be modified merely to make the experiment succeed, and no canonical MOD-W change is implied unless a separate canonical MOD-W process later authorizes it.
+
 ---
 
 ## Key Assumptions
@@ -354,10 +390,10 @@ Assumptions are treated as subject to validation or challenge during the project
 Assumption: Governance semantics can be expressed in a form that any agent harness (Claude, Codex, OpenAI, LangGraph, local systems) can evaluate correctly. This is not assumed to be trivial but is assumed to be feasible.
 
 **A-2: Evidence requirements can be operationalized**  
-Assumption: Criteria like "sufficient customer evidence" or "technical feasibility demonstrated" can be made specific enough for protocol enforcement and human judgment to remain aligned.
+Assumption: Criteria like "customer evidence collected with provenance" or "technical feasibility challenged by an appropriate role" can be made specific enough for protocol support while contextual sufficiency judgments remain available for human authority.
 
 **A-3: Unresolved disagreement will occur and must be manageable**  
-Assumption: At least some workflow decisions will reveal justified disagreement (e.g., conflicting evidence, different risk tolerances). The protocol must handle disagreement as valid state, not error condition.
+Assumption: At least some workflow decisions will reveal justified disagreement, such as conflicting evidence or different risk tolerances. PROD-W must preserve unresolved disagreement as a valid condition rather than treating it as an error or forcing artificial consensus. Whether that condition is represented as an explicit protocol state remains an open design question.
 
 **A-4: Product Moderator authority can be defined and enforced**  
 Assumption: A human Moderator role with final decision authority can remain meaningful in workflow even with multiple AI agents. This requires clear authority boundaries and escalation paths.
@@ -374,13 +410,13 @@ Assumption (research): MOD-W's role model, cross-validation, and gating structur
 
 | Risk | Impact | Mitigation |
 |------|--------|-----------|
-| Protocol design becomes too complex to be practical | Users cannot use PROD-W; burden of compliance exceeds value | Start with minimal protocol; expand only when justified by evidence of need |
+| Protocol design becomes too complex to be practical | Users cannot use PROD-W; burden of conformance exceeds value | Start with minimal protocol; expand only when justified by evidence of need |
 | Human authority boundaries remain unclear | Authority either dissolves or becomes capricious | Explicitly define Moderator authority and escalation paths early; review with test users |
 | Unresolved disagreement becomes stuck state | Product work halts when evidence is inconclusive | Define progression rules for disagreement (escalate, gather more evidence, document and proceed under assumptions) |
 | MOD-W assumptions prove too software-specific | Cannot use MOD-W v5.0.1 without major local changes | Document friction carefully; consider forking local adaptation if required; preserve findings as research evidence |
 | Implementation phase reveals structural problems | Major rework of protocol semantics | Validate core protocol concepts with small implementation pilots before full build |
-| External evaluators (if used) acquire de facto gate authority | Governance model undermined | Define evaluator role explicitly in protocol; ensure authority remains with Moderator |
-| Evidence requirements become subjective | Protocol cannot enforce discipline | Define evidence types and sufficiency with specificity; make acceptance criteria auditable |
+| External evaluators (if used) acquire de facto gate authority | Governance model undermined | Define evaluator role explicitly; ensure authority remains advisory unless explicitly changed by an approved PROD-W revision |
+| Evidence sufficiency is treated as fully automatable | Contextual judgment is hidden behind false precision | Separate objectively checkable evidence requirements from human-authorized contextual sufficiency decisions |
 
 ---
 
@@ -392,16 +428,16 @@ These questions are intentionally left unresolved for Moderator review and resea
 MOD-W v5.0.1 does not include these roles. If they are valuable, should they be core or optional in PROD-W?
 
 **OQ-2: What constitutes sufficient customer evidence?**  
-Different products require different evidence rigor. Should PROD-W define thresholds, or remain flexible with Moderator judgment?
+Different products require different evidence rigor. Which evidence conditions can be objectively checked, and which sufficiency judgments should remain human-authorized?
 
 **OQ-3: Should unresolved disagreement have an explicit protocol state?**  
 Can workflow progress with visible disagreement, or does disagreement always require resolution before advancing?
 
-**OQ-4: Who may accept evidence?**  
-Can Product Owner accept evidence alone, or must some evidence be accepted by multi-role consensus?
+**OQ-4: Which human roles may accept evidence for consequential gates?**  
+Product Owner, QA, and evaluator roles may produce, assess, challenge, or verify evidence, but consequential gate acceptance requires explicit human authorization. The exact assignment model remains open.
 
-**OQ-5: Should external evaluators participate as advisors or decision-makers?**  
-If external evaluation is useful, what authority should evaluators have?
+**OQ-5: How should advisory external evaluation be incorporated?**  
+External evaluators may provide independent findings, challenge claims, identify evidence gaps, provide counter-evidence, or perform conformance/verification work. They do not automatically acquire gate authority; any change to that model would require a future explicitly approved PROD-W revision.
 
 **OQ-6: How should PROD-W handle speed vs. rigor tradeoffs?**  
 Is lightweight PROD-W (minimal gates) appropriate for low-risk products? Or should rigor remain consistent?
@@ -434,61 +470,80 @@ Which MOD-W patterns transfer unchanged? Where does local adaptation occur? Is d
 Do existing MOD-W roles remain meaningful for protocol development? Are software-specific assumptions identified?
 
 **E-6: Evidence quality**  
-Does PROD-W governance improve evidence quality and traceability compared to conventional product development?
+Does PROD-W governance improve evidence quality and traceability relative to an identified baseline product-development process, comparison case, or prior workflow? The comparison basis must be explicitly documented before drawing conclusions.
 
 **E-7: Authority clarity**  
 Does explicit authority definition prevent role confusion and silent decision-making?
 
-**E-8: Workflow states**  
-Do the defined states and transitions match the actual workflow of product development, or do gaps emerge?
+**E-8: Workflow progression semantics**  
+Do the defined progression, challenge, and gate semantics match the actual workflow of product development, or do gaps emerge?
+
+**E-9: Automated enforceability boundary**  
+Which governance checks can be automatically validated because they are objective, and which should be surfaced for human interpretation or gate decision?
 
 ---
 
 ## Human Authority Boundary
 
-### Moderator Authority
+### Authority Types
 
-The **Product Moderator** (human only) retains:
+PROD-W distinguishes authority to produce evidence, authority to assess or challenge evidence, authority to verify formal criteria, and authority to accept consequential gates.
 
-- Final go/no-go decision authority on product definition
-- Authority to accept evidence as sufficient or demand additional evidence
+**Evidence production** may include gathering evidence, producing evidence artifacts, and documenting sources.
+
+**Evidence assessment and challenge** may include analyzing evidence, identifying gaps, disputing interpretation, searching for counter-evidence, or verifying whether required evidence exists.
+
+**Evidence verification** may include confirming that defined formal criteria were satisfied and that required checks were performed.
+
+**Consequential gate acceptance** may only be performed by the explicitly authorized human decision role. This includes accepting evidence as sufficient for a consequential product gate, authorizing progression through that gate, or making final go/build/no-build decisions where defined.
+
+### Product Moderator Authority
+
+The **PROD-W Product Moderator** (human only) retains consequential gate authority only where explicitly assigned by the PROD-W workflow. That authority may include:
+
+- Final go/build/no-build decision authority
+- Authority to accept evidence as sufficient for a consequential gate or demand additional evidence
 - Authority to escalate unresolved disagreement
-- Authority to waive or modify gates if justified (with documented reasoning)
+- Authority to authorize conditional progression under unresolved assumptions
 - Authority to resolve role conflicts
 
-### AI Agent Authority
+Any future gate override or waiver must be explicit, identify the authorized human, include rationale, record provenance, identify the unsatisfied requirement or gate, and remain visible as an exception rather than ordinary protocol conformance.
 
-AI agents (Product Owner agent, Tech Lead, Development Team) have authority to:
+### AI Agent and Non-Gate Role Authority
 
-- Research and propose (within evidence constraints)
+AI agents and non-gate roles may:
+
+- Research and propose within evidence constraints
+- Produce or document evidence
 - Identify gaps and ask for evidence
 - Challenge claims and demand justification
 - Synthesize findings and present conclusions
-- Implement approved decisions
+- Verify formal criteria when assigned
+- Implement or apply approved decisions
 - Propose alternative approaches
 
 ### Restrictions
 
-No AI agent may:
+No AI agent or non-authorized role may:
 
-- Silently decide that evidence is sufficient
-- Declare a hypothesis validated without human confirmation
-- Override Moderator gates
+- Silently decide that evidence is sufficient for a consequential gate
+- Declare a hypothesis validated without required evidence and authorized acceptance
+- Override Product Moderator gates
 - Approve its own work
 - Make final go/build/no-build decisions
-- Accept or close disagreement without Moderator involvement
+- Accept or close disagreement without the required human authority
 
 ---
 
 ## Success Criteria / Acceptance Intent
 
-Initial PROD-W development is complete and ready for deployment when:
+Initial PROD-W development is complete and ready for initial release, publication, controlled trial use, or pilot evaluation when:
 
 **Acceptance Criterion 1 — Protocol Definition**  
 PROD-W protocol is documented and specifies:
 - Role definitions and authority boundaries (no silent roles or implicit authority)
-- All legal states and transitions
-- Evidence requirements for each gate
+- Governance semantics sufficient to distinguish valid from invalid actions
+- Evidence requirements and contextual sufficiency decision points for each consequential gate
 - Challenge and escalation procedures
 - Provenance and tracking requirements
 - Self-approval prevention rules
@@ -507,8 +562,10 @@ At least one small product opportunity is taken through PROD-W workflow to demon
 - Protocol rules can be followed without breaking
 - Evidence requirements can be operationalized
 - Roles remain coherent and non-overlapping
-- Unresolved disagreement (if it occurs) is handled as valid state
+- Unresolved disagreement, if it occurs, can remain visible and be handled without forcing false resolution
 - Moderator authority is sufficient to resolve conflicts
+
+One successful proof of concept may provide evidence of feasibility, coherence, usability, gate behavior, role interaction, and protocol execution. It does not prove broad product effectiveness, general commercial value, universal domain applicability, or robustness across product categories.
 
 **Acceptance Criterion 4 — MOD-W Transferability Evidence**  
 Documentation of:
@@ -520,7 +577,7 @@ Documentation of:
 - Recommendations for future MOD-W evaluation
 
 **Acceptance Criterion 5 — Research Hypotheses Disposition**  
-Each research hypothesis (Section 8) is classified as:
+Each research hypothesis (Appendix A) is classified as:
 - Incorporated into PROD-W (with evidence)
 - Deferred (with rationale)
 - Rejected (with evidence)
@@ -577,14 +634,14 @@ prod-w repository
 
 | Component | Status | Notes |
 |-----------|--------|-------|
-| Problem definition | ✓ Accepted | Core problem and failure pattern documented |
-| Purpose and intent | ✓ Accepted | Primary and secondary objectives defined |
-| Core principles | ⊙ In progress | Candidate principles documented; Moderator review needed |
-| Requirements | ⊙ In progress | Core functional and governance requirements drafted; research requirements defined |
-| Protocol concept | ⊙ In progress | Architecture and invariants documented; detailed specification deferred |
-| Methodology concept | ⊙ In progress | Role framework sketched; detailed guidance deferred |
-| MOD-W transferability experiment | ⊙ In progress | Research questions documented; evaluation plan defined |
-| Implementation (code/tooling) | ✗ Not started | Not in scope for Product Definition phase |
+| Problem definition | Drafted for review | Core problem and failure pattern documented; not yet accepted by MOD-W Moderator |
+| Purpose and intent | Drafted for review | Primary and secondary objectives defined; not yet accepted by MOD-W Moderator |
+| Core principles | In progress | Candidate principles documented; Moderator review needed |
+| Requirements | In progress | Functional, governance, and research requirements drafted; Moderator review needed |
+| Protocol concept | In progress | Protocol-first direction stated; detailed specification deferred |
+| Methodology concept | In progress | Role framework sketched; detailed guidance deferred |
+| MOD-W transferability experiment | In progress | Research governance referenced; evidence record governed separately by MOD-W Moderator |
+| Implementation (code/tooling) | Not started | Not in scope for Product Definition phase |
 
 ---
 
@@ -592,13 +649,14 @@ prod-w repository
 
 | Version | Date | Status | Changes |
 |---------|------|--------|---------|
+| 1.1 | 2026-09-30 | Draft for Moderator Review | Incorporates Moderator review; separates product outcomes from premature protocol mechanics; clarifies authority boundaries; distinguishes MOD-W Moderator from PROD-W Product Moderator; fixes FR-7; removes premature linear lifecycle commitment; formalizes MOD-W transferability research governance; preserves research hypotheses as hypotheses; corrects internal inconsistencies; does not begin architecture or implementation. |
 | 1.0 | 2026-09-29 | Draft for Moderator Review | Initial Product Definition. Ready for Moderator review and adjustment before proceeding to next MOD-W phases. |
 
 ---
 
 ## Next Steps (Deferred)
 
-After Moderator approval of this Product Definition:
+After MOD-W Moderator approval of this Product Definition:
 
 1. **Architecture Phase** — Tech Lead (Codex) produces `architecture.md`, `domain-language.md`, `roadmap.md`, and first `step-xx.md` based on accepted Product Definition.
 
@@ -664,6 +722,7 @@ These observations will inform the `prod-w-dev` research report and may (but do 
 - research/topics/prod-w-protocol-first-rationale.md — Protocol-first direction and invariants
 - research/topics/protocol-schema-state-distinction.md — Core conceptual distinctions
 - research/topics/mod-w-beyond-software-experiment.md — MOD-W transferability experiment framing
+- research/mod-w-transferability/README.md — Project-level MOD-W transferability research governance
 - research/topics/agent-harness-conformance.md — Research hypothesis on protocol-based governance testing
 - research/conversations/2026-09-29-prod-w-origin-protocol-research-conversation.md — Research discussion that informed this definition
 - mod-w/templates/MOD-W.md — MOD-W v5.0.1 reference methodology
