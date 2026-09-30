@@ -20,6 +20,8 @@ Observations are maintained chronologically and are identified by ID: `MW-OBS-00
 
 Each observation is preserved in its original form. Later evidence may refine interpretation or disposition, but the observation itself is not rewritten.
 
+**Path relocation note (2026-09-30):** Early accepted observations refer to architecture-planning artifacts at `prod-w/architecture.md`, `prod-w/domain-language.md`, `prod-w/roadmap.md`, and `prod-w/step-01.md` because that was their location when the observations were recorded. Those MOD-W governance artifacts have since been relocated to `mod-w/architecture.md`, `mod-w/domain-language.md`, `mod-w/roadmap.md`, and `mod-w/step-01.md`; `prod-w/` is reserved for concrete PROD-W product artifacts.
+
 **See `README.md` for governance rules and classification definitions.**
 
 ---
@@ -144,7 +146,7 @@ This observation specifically validates the **independence and timing of the rev
 ### Follow-up
 
 - Observe whether Moderator review remains valuable at later gates (architecture, implementation, acceptance)
-- Determine whether this role boundary pattern applies to other MOD-W role pairs (e.g., Tech Lead → QA review)
+- Determine whether this role boundary pattern applies to other MOD-W role pairs (e.g., Tech Lead -> QA review)
 - Evaluate whether the problem-solution conflation tendency is domain-specific or a general product-development risk
 
 ### Moderator Disposition
@@ -232,7 +234,7 @@ This observation is **NOT** evidence of transferability failure or success. It i
 **Project stage:** Architecture planning after Product Definition acceptance  
 **Observed by role:** Tech Lead  
 **Classification:** `TRANSFERS_WITH_REINTERPRETATION`  
-**Status:** Proposed for Moderator review  
+**Status:** Accepted  
 **Significance:** Medium
 
 ### MOD-W Mechanism or Assumption
@@ -432,8 +434,79 @@ This is a unique scenario: MOD-W is being used to develop another governance pro
 
 ---
 
+## MW-OBS-007 - Higher-Depth Review Surfaced Governance-State Drift Missed by Literal Task Execution
+
+**Date:** 2026-09-30  
+**MOD-W area:** Tech Lead responsibilities, review depth, cross-artifact governance consistency  
+**Project stage:** Post-architecture correction and reconciliation  
+**Observed by role:** Tech Lead  
+**Classification:** `LOCAL_ADAPTATION_PROPOSED`  
+**Status:** Proposed for Moderator review  
+**Significance:** Medium
+
+### MOD-W Mechanism or Assumption
+
+MOD-W assigns role responsibilities and review gates intended to separate concerns and prevent self-approval. The Tech Lead role is responsible for architecture coherence, implementation guidance, and technical consistency.
+
+The implicit assumption tested here is that a role prompt plus artifacts may be sufficient to produce consistent review quality across a complex governance correction.
+
+### Observation
+
+The same Tech Lead role produced materially different review quality under different reasoning settings identified in the session as GPT-5.5 Low and GPT-5.5 High.
+
+The lower-depth pass correctly handled the literal file-move instruction but missed several cross-artifact governance consequences, including:
+
+- root-level process artifacts requiring relocation
+- accepted artifacts still marked as draft/proposed
+- STEP-01 decision coverage mismatch
+- risk of silently rewriting accepted transferability observations
+- incomplete governance-context propagation
+- stale prompt/review instructions after architecture acceptance
+
+The higher-depth review identified these conflicts and required a reconciliation pass.
+
+### Evidence
+
+- `mod-w/validation/tech-lead-reconciliation.md`
+- `research/topics/model-depth-tech-lead-self-review.md`
+- Corrected MOD-W governance artifacts under `mod-w/`
+- Repository-structure correction leaving `prod-w/` reserved for concrete product artifacts
+
+### Effect on Work
+
+- A separate reconciliation artifact was required to preserve findings and correction status.
+- Some issues were corrected within Tech Lead authority.
+- One Product Definition status inconsistency was returned to Product Owner / MOD-W Moderator rather than silently changed.
+- The work is now awaiting MOD-W Moderator review before commit.
+
+### Local Adaptation Required
+
+**Proposed:** Consider an explicit post-change cross-artifact governance consistency check for protocol/methodology development work.
+
+Candidate check:
+
+> If this change is correct locally, what governance records, artifact classifications, review statuses, research evidence, and downstream instructions does it invalidate or make stale?
+
+### Interpretation
+
+This is evidence from one project event. It does not prove that higher reasoning settings are always required or that lower reasoning settings are generally unreliable.
+
+It suggests that MOD-W role definition and governance gates do not fully eliminate variation caused by model/reasoning capability. Model or harness configuration may need to be considered separately from workflow-role conformance when work has high governance complexity.
+
+### Follow-up
+
+- Moderator should determine whether the evidence is sufficient to accept this observation.
+- If accepted, classify whether the project needs a local adaptation or simply a stronger Tech Lead review checklist.
+- Future steps should observe whether similar cross-artifact drift occurs during Development Team and QA phases.
+
+### Moderator Disposition
+
+Pending Moderator review.
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-007`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-008`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.

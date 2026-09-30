@@ -4,14 +4,14 @@ artifact:
   version: 0.1
   created: 2026-09-30
   updated: 2026-09-30
-  status: Draft for Moderator Review
+  status: Accepted
 ---
 
 # PROD-W Domain Language
 
 **Project:** PROD-W  
 **Owner:** Tech Lead  
-**Status:** Draft for Moderator Review
+**Status:** Accepted
 
 ---
 
@@ -20,6 +20,14 @@ artifact:
 This file defines domain terms for PROD-W architecture and future implementation work. It is not itself the protocol specification.
 
 Terms should remain stable across product definition, architecture, methodology, schemas, examples, and validation work unless a later accepted change updates this glossary.
+
+---
+
+## Governance Context
+
+**This artifact is authored and reviewed under MOD-W v5.0.1 governance.** The MOD-W Moderator governs this `prod-w-dev` development project and is responsible for acceptance of this glossary.
+
+Terms that describe future PROD-W roles or artifacts are product-domain definitions, not active authority grants inside `prod-w-dev`. In particular, the future Product Moderator role must not be treated as equivalent to the MOD-W Moderator.
 
 ---
 
@@ -66,4 +74,3 @@ Terms should remain stable across product definition, architecture, methodology,
 - Use **evidence**, **inference**, **hypothesis**, **assumption**, and **decision** distinctly.
 - Use **acceptance** for authorized sufficiency/approval, not for truth.
 - Use **external evaluator** generically; do not make DeepPattern a required dependency.
-

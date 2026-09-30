@@ -5,7 +5,7 @@ artifact:
   version: 0.1
   created: 2026-09-30
   updated: 2026-09-30
-  status: Draft for Moderator Review
+  status: Accepted
 ---
 
 # STEP-01 - Define Protocol Semantics and Authority Model
@@ -17,6 +17,14 @@ artifact:
 Define PROD-W's initial normative protocol semantics for roles, authority, permitted actions, constraints, and self-approval invalidity.
 
 This step produces product specification artifacts only. It does not implement tooling, validators, schemas, workflow engines, or a serialized protocol format.
+
+---
+
+## Governance Context
+
+**This artifact is authored and reviewed under MOD-W v5.0.1 governance.** The MOD-W Moderator governs STEP-01 acceptance for `prod-w-dev`.
+
+The future PROD-W Product Moderator is a protocol role being defined by the product. It has no current authority over this STEP-01 work unless MOD-W governance explicitly grants it in a later accepted artifact.
 
 ---
 
@@ -62,8 +70,8 @@ This step produces product specification artifacts only. It does not implement t
 ## Inputs
 
 - `mod-w/product.md`
-- `prod-w/architecture.md`
-- `prod-w/domain-language.md`
+- `mod-w/architecture.md`
+- `mod-w/domain-language.md`
 - `research/topics/protocol-schema-state-distinction.md`
 - `research/topics/prod-w-protocol-first-rationale.md`
 - `research/mod-w-transferability/README.md`
@@ -73,7 +81,7 @@ This step produces product specification artifacts only. It does not implement t
 ## Expected File Changes
 
 - Add `prod-w/protocol-semantics.md`
-- Update `prod-w/domain-language.md` only if new accepted terms are introduced.
+- Update `mod-w/domain-language.md` only if new accepted terms are introduced.
 - Add a proposed transferability observation under `research/mod-w-transferability/observations.md` if this step reveals concrete MOD-W transferability evidence.
 
 ---
@@ -93,7 +101,7 @@ This step produces product specification artifacts only. It does not implement t
 
 ## Acceptance Checks
 
-**Governance Note:** These acceptance checks operationalize Architectural Decisions D1-D6 documented in `prod-w/architecture.md`. STEP-01 produces the normative text that operationalizes D1-D4; STEP-02 and STEP-03 will operationalize D5-D8. Reference the architecture for context and rationale.
+**Governance Note:** These acceptance checks operationalize Architectural Decisions D1-D8 documented in `mod-w/architecture.md`. STEP-01 produces the normative text that primarily operationalizes D1-D4 and validates relevant boundaries from D6 and D8; STEP-02 and STEP-03 will operationalize D5-D8 more fully. Reference the architecture for context and rationale.
 
 - [ ] Protocol semantics distinguish protocol, schema, and state. _(Implements D2, D3)_
 - [ ] Roles and authority are defined without relying on role names alone. _(Implements D4)_

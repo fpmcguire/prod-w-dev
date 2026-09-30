@@ -4,7 +4,7 @@ artifact:
   version: 0.1
   created: 2026-09-30
   updated: 2026-09-30
-  status: Draft for Moderator Review
+  status: Accepted
   governed_by: MOD-W v5.0.1
 source:
   product_definition: mod-w/product.md
@@ -15,7 +15,7 @@ source:
 **Project:** PROD-W  
 **Date:** 2026-09-30  
 **Tech Lead:** Codex  
-**Status:** Draft for Moderator Review
+**Status:** Accepted
 
 ---
 
@@ -113,7 +113,7 @@ Product intent
 
 ### D1 - Protocol Semantics Are Normative
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Related Requirements:** FR-1, FR-2, FR-3, FR-4, FR-5, FR-6, FR-7
 
 **Context:** The Product Definition requires a protocol-first approach but explicitly defers representation choices.
@@ -128,7 +128,7 @@ Product intent
 
 ### D2 - Protocol, Schema, and State Remain Separate
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Related Requirements:** FR-2, G-3
 
 **Context:** Existing research identifies a recurring risk of conflating protocol, schema, and state.
@@ -147,7 +147,7 @@ Product intent
 
 ### D3 - Knowledge Classes Are First-Class Domain Concepts
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Related Requirements:** FR-3, FR-6, FR-7
 
 **Context:** PROD-W exists to prevent weak evidence, inference, assumptions, and agent agreement from hardening into unjustified product confidence.
@@ -162,7 +162,7 @@ Product intent
 
 ### D4 - Authority Is Modeled Separately from Role Labels
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Related Requirements:** FR-1, FR-4
 
 **Context:** The Product Definition distinguishes evidence production, challenge, verification, and consequential gate acceptance.
@@ -177,7 +177,7 @@ Product intent
 
 ### D5 - Disagreement Is a Preserved Condition, Not Necessarily a State Name
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Related Requirements:** FR-5, FR-7
 
 **Context:** The Product Definition requires unresolved disagreement to remain visible but does not require a literal `DIVERGENT` state.
@@ -192,7 +192,7 @@ Product intent
 
 ### D6 - Objectively Checkable Governance Is Separated from Human Judgment
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Related Requirements:** FR-3, FR-4, FR-6, G-3
 
 **Context:** PROD-W must support machine-readable governance without pretending contextual sufficiency can always be automated.
@@ -210,7 +210,7 @@ Product intent
 
 ### D7 - Provenance and Dependencies Support Revalidation
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Related Requirements:** FR-6, FR-7, WD-6
 
 **Context:** Dependent product decisions must not remain silently valid when material support changes.
@@ -225,7 +225,7 @@ Product intent
 
 ### D8 - External Evaluators Are Advisory Interfaces Unless Explicitly Granted Authority
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Related Requirements:** FR-1, FR-3, FR-5
 
 **Context:** External evaluators may inspect, challenge, verify, and produce counter-evidence, but the Product Definition does not grant automatic gate authority.
@@ -240,8 +240,8 @@ Product intent
 
 ### D9 - Working Product Artifacts Live Under `prod-w/` in `prod-w-dev`
 
-**Status:** Proposed  
-**Related Requirements:** Product repository relationship, architecture phase outputs
+**Status:** Accepted  
+**Related Requirements:** Product repository relationship, product artifact staging
 
 **Context:** The Product Definition says the final output repository is separate (`prod-w`) and asks architecture to decide how artifacts should be staged in `prod-w-dev`.
 
@@ -257,15 +257,15 @@ Product intent
 
 | ID | Title | Status | Requirements |
 | --- | --- | --- | --- |
-| D1 | Protocol Semantics Are Normative | Proposed | FR-1-FR-7 |
-| D2 | Protocol, Schema, and State Remain Separate | Proposed | FR-2, G-3 |
-| D3 | Knowledge Classes Are First-Class Domain Concepts | Proposed | FR-3, FR-6, FR-7 |
-| D4 | Authority Is Modeled Separately from Role Labels | Proposed | FR-1, FR-4 |
-| D5 | Disagreement Is a Preserved Condition, Not Necessarily a State Name | Proposed | FR-5, FR-7 |
-| D6 | Objectively Checkable Governance Is Separated from Human Judgment | Proposed | FR-3, FR-4, FR-6, G-3 |
-| D7 | Provenance and Dependencies Support Revalidation | Proposed | FR-6, FR-7, WD-6 |
-| D8 | External Evaluators Are Advisory Interfaces Unless Explicitly Granted Authority | Proposed | FR-1, FR-3, FR-5 |
-| D9 | Working Product Artifacts Live Under `prod-w/` in `prod-w-dev` | Proposed | Repository relationship |
+| D1 | Protocol Semantics Are Normative | Accepted | FR-1-FR-7 |
+| D2 | Protocol, Schema, and State Remain Separate | Accepted | FR-2, G-3 |
+| D3 | Knowledge Classes Are First-Class Domain Concepts | Accepted | FR-3, FR-6, FR-7 |
+| D4 | Authority Is Modeled Separately from Role Labels | Accepted | FR-1, FR-4 |
+| D5 | Disagreement Is a Preserved Condition, Not Necessarily a State Name | Accepted | FR-5, FR-7 |
+| D6 | Objectively Checkable Governance Is Separated from Human Judgment | Accepted | FR-3, FR-4, FR-6, G-3 |
+| D7 | Provenance and Dependencies Support Revalidation | Accepted | FR-6, FR-7, WD-6 |
+| D8 | External Evaluators Are Advisory Interfaces Unless Explicitly Granted Authority | Accepted | FR-1, FR-3, FR-5 |
+| D9 | Working Product Artifacts Live Under `prod-w/` in `prod-w-dev` | Accepted | Repository relationship |
 
 ---
 
@@ -303,4 +303,5 @@ These remain deliberately open:
 | Date | Change | Affected D-IDs | Reason |
 | --- | --- | --- | --- |
 | 2026-09-30 | Initial architecture draft | D1-D9 | First Tech Lead architecture-planning phase after Product Definition acceptance. |
+| 2026-09-30 | Moderator accepted architecture clarifications and repository staging boundary | D1-D9 | MOD-W Moderator approved architecture planning; MOD-W governance artifacts now live under `mod-w/`, while `prod-w/` remains reserved for concrete product artifacts. |
 

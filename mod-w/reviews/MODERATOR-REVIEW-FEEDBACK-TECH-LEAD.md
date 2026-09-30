@@ -5,10 +5,10 @@ artifact:
   to: Tech Lead
   date: 2026-09-30
   review_artifacts:
-    - prod-w/architecture.md
-    - prod-w/domain-language.md
-    - prod-w/roadmap.md
-    - prod-w/step-01.md
+    - mod-w/architecture.md
+    - mod-w/domain-language.md
+    - mod-w/roadmap.md
+    - mod-w/step-01.md
   review_status: ACCEPTED
 ---
 
@@ -32,7 +32,7 @@ Your architecture, domain language, roadmap, and STEP-01 planning have been revi
 
 ### What
 
-Add an explicit "Governance Context" section to `prod-w/architecture.md` immediately after the "Overview" section to clarify MOD-W authority boundaries.
+Add an explicit "Governance Context" section to `mod-w/architecture.md` immediately after the "Overview" section to clarify MOD-W authority boundaries.
 
 ### Why
 
@@ -42,7 +42,7 @@ This is evidence of a local adaptation required when MOD-W governs the developme
 
 ### Exact Change
 
-**Location:** Insert after the "Overview" section in `prod-w/architecture.md`, before the "Requirement to Architecture Mapping" section.
+**Location:** Insert after the "Overview" section in `mod-w/architecture.md`, before the "Requirement to Architecture Mapping" section.
 
 **Content to add:**
 
@@ -62,7 +62,7 @@ Future implementations of PROD-W in separate projects will operate under PROD-W 
 
 ### How to Implement
 
-1. Open `prod-w/architecture.md`
+1. Open `mod-w/architecture.md`
 2. Locate the "Overview" section (ends with "...preserve human judgment for contextual sufficiency decisions.")
 3. Add a blank line, then add the section above
 4. No other changes to the file
@@ -74,7 +74,7 @@ Future implementations of PROD-W in separate projects will operate under PROD-W 
 
 ### What
 
-Add a brief context note to the beginning of the "Acceptance Checks" section in `prod-w/step-01.md` that explains how the checks operationalize architectural decisions.
+Add a brief context note to the beginning of the "Acceptance Checks" section in `mod-w/step-01.md` that explains how the checks operationalize architectural decisions.
 
 ### Why
 
@@ -84,12 +84,12 @@ This keeps STEP-01 grounded in the architecture rather than floating as standalo
 
 ### Exact Change
 
-**Location:** In `prod-w/step-01.md`, replace the "## Acceptance Checks" header with the following:
+**Location:** In `mod-w/step-01.md`, replace the "## Acceptance Checks" header with the following:
 
 ```markdown
 ## Acceptance Checks
 
-**Governance Note:** These acceptance checks operationalize Architectural Decisions D1–D6 documented in `prod-w/architecture.md`. STEP-01 produces the normative text that operationalizes D1–D4; STEP-02 and STEP-03 will operationalize D5–D8. Reference the architecture for context and rationale.
+**Governance Note:** These acceptance checks operationalize Architectural Decisions D1-D8 documented in `mod-w/architecture.md`. STEP-01 produces the normative text that primarily operationalizes D1-D4 and validates relevant boundaries from D6 and D8; STEP-02 and STEP-03 will operationalize D5-D8 more fully. Reference the architecture for context and rationale.
 
 - [ ] Protocol semantics distinguish protocol, schema, and state. _(Implements D2, D3)_
 - [ ] Roles and authority are defined without relying on role names alone. _(Implements D4)_
@@ -104,7 +104,7 @@ This keeps STEP-01 grounded in the architecture rather than floating as standalo
 
 ### How to Implement
 
-1. Open `prod-w/step-01.md`
+1. Open `mod-w/step-01.md`
 2. Locate the "## Acceptance Checks" section header (around line 46)
 3. Replace the header and add the governance note
 4. Add inline D-ID notes to each check (shown above in `*(Implements ...)*` format)
@@ -116,7 +116,7 @@ This keeps STEP-01 grounded in the architecture rather than floating as standalo
 
 ### What
 
-Add a guidance paragraph to the "## Plan" section of `prod-w/step-01.md` that explains how to propose transferability observations during implementation work.
+Add a guidance paragraph to the "## Plan" section of `mod-w/step-01.md` that explains how to propose transferability observations during implementation work.
 
 ### Why
 
@@ -126,7 +126,7 @@ This guidance prevents ad-hoc observations from being lost and ensures they go t
 
 ### Exact Change
 
-**Location:** In `prod-w/step-01.md`, at the end of the "## Plan" section (after item 6), add:
+**Location:** In `mod-w/step-01.md`, at the end of the "## Plan" section (after item 6), add:
 
 ```markdown
 ### Research Governance Route
@@ -145,7 +145,7 @@ See `research/mod-w-transferability/README.md` for full research governance rule
 
 ### How to Implement
 
-1. Open `prod-w/step-01.md`
+1. Open `mod-w/step-01.md`
 2. Locate the "## Plan" section (around line 35)
 3. Find the end of the numbered list (ends with "Record transferability observations if concrete evidence emerges.")
 4. Add a blank line and then add the guidance section above
@@ -171,19 +171,19 @@ This document implements items 1–3 from the verbal review feedback. Here is th
 
 | Original Action Item                                                        | Status                                       | Notes                                                                                                                            |
 | --------------------------------------------------------------------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Address governance boundary clarification in architecture.md             | ✅ **Complete and Approved**                 | Governance Context added to `prod-w/architecture.md`                                                                              |
-| 2. Add guidance note to STEP-01 linking acceptance checks                   | ✅ **Complete and Approved**                 | Acceptance checks linked to Architectural Decisions in `prod-w/step-01.md`                                                        |
-| 3. Add research-governance routing guidance to STEP-01 Plan                 | ✅ **Complete and Approved**                 | Research Governance Route added to `prod-w/step-01.md`                                                                            |
-| 4. Record MOD-W transferability observation for domain-language consistency | ✅ **Already Complete**                      | Recorded as **MW-OBS-005** in `research/mod-w-transferability/observations.md`; classified as `TRANSFERS_UNCHANGED` and Accepted |
-| 5. Development Team begin STEP-01 work                                      | ✅ **Unblocked**                             | Development Team may begin STEP-01 work                                                                                           |
+| 1. Address governance boundary clarification in architecture.md             | **Complete and Approved**                 | Governance Context added to `mod-w/architecture.md`                                                                               |
+| 2. Add guidance note to STEP-01 linking acceptance checks                   | **Complete and Approved**                 | Acceptance checks linked to Architectural Decisions in `mod-w/step-01.md`                                                         |
+| 3. Add research-governance routing guidance to STEP-01 Plan                 | **Complete and Approved**                 | Research Governance Route added to `mod-w/step-01.md`                                                                             |
+| 4. Record MOD-W transferability observation for domain-language consistency | **Already Complete**                      | Recorded as **MW-OBS-005** in `research/mod-w-transferability/observations.md`; classified as `TRANSFERS_UNCHANGED` and Accepted |
+| 5. Development Team begin STEP-01 work                                      | **Unblocked**                             | Development Team may begin STEP-01 work                                                                                           |
 
 ---
 
 ## Next Steps
 
-1. **Tech Lead:** Commit approved clarification work.
+1. **Tech Lead:** Commit approved repository-structure correction and generated-artifact cleanup.
 
-2. **Development Team:** Begin STEP-01 work using `prod-w/step-01.md` as the controlling step artifact.
+2. **Development Team:** Begin STEP-01 work using `mod-w/step-01.md` as the controlling step artifact after the corrected structure is approved.
 
 ---
 
@@ -209,6 +209,7 @@ If any clarification is unclear or you identify a simpler way to express the gui
 
 **Review Date:** 2026-09-30  
 **Clarifications Approved:** 2026-09-30  
+**Repository Correction Approved:** 2026-09-30  
 **Moderator:** MOD-W Moderator  
 **Action Items:** 3 required clarifications (all lightweight)  
 **Blocker Status:** None  

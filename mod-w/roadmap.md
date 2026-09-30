@@ -4,14 +4,14 @@ artifact:
   version: 0.1
   created: 2026-09-30
   updated: 2026-09-30
-  status: Draft for Moderator Review
+  status: Accepted
 ---
 
 # PROD-W Roadmap
 
 **Project:** PROD-W  
 **Date:** 2026-09-30  
-**Status:** Draft for Moderator Review
+**Status:** Accepted
 
 ---
 
@@ -20,6 +20,14 @@ artifact:
 This roadmap stages PROD-W from semantic architecture to normative protocol, methodology guidance, machine-readable representation, proof-of-concept use, and publication preparation.
 
 The roadmap preserves the Product Definition boundary: do not implement tooling or commit to a representation before the protocol semantics and evidence model justify it.
+
+---
+
+## Governance Context
+
+**This artifact is authored and reviewed under MOD-W v5.0.1 governance.** It plans work in the MOD-W-governed `prod-w-dev` repository.
+
+Roadmap outputs that name `prod-w/` are concrete PROD-W product artifacts to be created by future accepted steps. MOD-W planning, review, and step-control artifacts remain under `mod-w/`.
 
 ---
 
@@ -113,4 +121,3 @@ The roadmap preserves the Product Definition boundary: do not implement tooling 
 | AC-3 Proof of Concept | STEP-07 | Planned |
 | AC-4 Transferability Evidence | STEP-08 | Planned |
 | AC-5 Hypothesis Disposition | STEP-08 | Planned |
-
