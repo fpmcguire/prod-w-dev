@@ -31,6 +31,13 @@ The MOD-W Moderator approves the Development Team's work on STEP-02.
 
 The MOD-W Moderator also approves the Tech Lead's approval of STEP-02, recorded in `mod-w/reviews/TECH-LEAD-REVIEW-STEP-02.md`.
 
+### Moderator Confirmation
+
+On 2026-09-30, the MOD-W Moderator reaffirmed:
+
+- Development Team STEP-02 work is approved.
+- Tech Lead's STEP-02 review / approval is approved.
+
 ---
 
 ## Accepted Artifacts
@@ -52,4 +59,3 @@ The Tech Lead review passed after revision and recorded no remaining blockers.
 ## Moderator Disposition
 
 STEP-02 is accepted as of 2026-09-30.
-
