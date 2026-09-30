@@ -649,31 +649,31 @@ prod-w repository
 
 ## Current Product Status
 
-| Component                        | Status             | Notes                                                                                  |
-| -------------------------------- | ------------------ | -------------------------------------------------------------------------------------- |
-| Problem definition               | Drafted for review | Core problem and failure pattern documented; not yet accepted by MOD-W Moderator       |
-| Purpose and intent               | Drafted for review | Primary and secondary objectives defined; not yet accepted by MOD-W Moderator          |
-| Core principles                  | In progress        | Candidate principles documented; Moderator review needed                               |
-| Requirements                     | In progress        | Functional, governance, and research requirements drafted; Moderator review needed     |
-| Protocol concept                 | In progress        | Protocol-first direction stated; detailed specification deferred                       |
-| Methodology concept              | In progress        | Role framework sketched; detailed guidance deferred                                    |
-| MOD-W transferability experiment | In progress        | Research governance referenced; evidence record governed separately by MOD-W Moderator |
-| Implementation (code/tooling)    | Not started        | Not in scope for Product Definition phase                                              |
+| Component                        | Status                                       | Notes                                                                                                                                                            |
+| -------------------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Problem definition               | Accepted                                     | Core problem and failure pattern documented; accepted as part of Product Definition v1.1                                                                         |
+| Purpose and intent               | Accepted                                     | Primary and secondary objectives defined; accepted as part of Product Definition v1.1                                                                            |
+| Core principles                  | Accepted                                     | Candidate principles documented and accepted as part of Product Definition v1.1; protocol-level enforcement mechanism remains a downstream architecture decision |
+| Requirements                     | Accepted                                     | Functional, governance, and research requirements documented and accepted as part of Product Definition v1.1                                                     |
+| Protocol concept                 | Accepted (direction); detailed spec deferred | Protocol-first direction accepted as part of Product Definition v1.1; detailed specification deferred to Architecture phase                                      |
+| Methodology concept              | Accepted (direction); guidance deferred      | Role framework accepted as part of Product Definition v1.1; detailed guidance deferred to Architecture/Implementation phases                                     |
+| MOD-W transferability experiment | Accepted (governance); evidence ongoing      | Research governance accepted as part of Product Definition v1.1; evidence record governed separately by MOD-W Moderator                                          |
+| Implementation (code/tooling)    | Not started                                  | Not in scope for Product Definition phase                                                                                                                        |
 
 ---
 
 ## Version and Change History
 
-| Version | Date       | Status                     | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------- | ---------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.1     | 2026-09-30 | Draft for Moderator Review | Incorporates Moderator review; separates product outcomes from premature protocol mechanics; clarifies authority boundaries; distinguishes MOD-W Moderator from PROD-W Product Moderator; fixes FR-7; removes premature linear lifecycle commitment; formalizes MOD-W transferability research governance; preserves research hypotheses as hypotheses; corrects internal inconsistencies; does not begin architecture or implementation. |
-| 1.0     | 2026-09-29 | Draft for Moderator Review | Initial Product Definition. Ready for Moderator review and adjustment before proceeding to next MOD-W phases.                                                                                                                                                                                                                                                                                                                             |
+| Version | Date       | Status                     | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------- | ---------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.1     | 2026-09-30 | Accepted by Moderator      | Incorporates Moderator review; separates product outcomes from premature protocol mechanics; clarifies authority boundaries; distinguishes MOD-W Moderator from PROD-W Product Moderator; fixes FR-7; removes premature linear lifecycle commitment; formalizes MOD-W transferability research governance; preserves research hypotheses as hypotheses; corrects internal inconsistencies; does not begin architecture or implementation. Status-consistency cleanup (2026-09-30, TLR-014): aligned "Current Product Status" table and this history's status labels with the accepted front matter state; no product scope, requirements, or acceptance criteria changed. Product Owner status-consistency review and cleanup approved by MOD-W Moderator (2026-09-30). |
+| 1.0     | 2026-09-29 | Draft for Moderator Review | Initial Product Definition. Ready for Moderator review and adjustment before proceeding to next MOD-W phases.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 ---
 
 ## Next Steps (Deferred)
 
-After MOD-W Moderator approval of this Product Definition:
+Following MOD-W Moderator acceptance of this Product Definition (v1.1, accepted 2026-09-30):
 
 1. **Architecture Phase** — Tech Lead (Codex) produces `architecture.md`, `domain-language.md`, `roadmap.md`, and first `step-xx.md` based on accepted Product Definition.
 
