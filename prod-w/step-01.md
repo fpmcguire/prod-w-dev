@@ -1,0 +1,138 @@
+---
+artifact:
+  type: step
+  id: STEP-01
+  version: 0.1
+  created: 2026-09-30
+  updated: 2026-09-30
+  status: Draft for Moderator Review
+---
+
+# STEP-01 - Define Protocol Semantics and Authority Model
+
+---
+
+## Goal
+
+Define PROD-W's initial normative protocol semantics for roles, authority, permitted actions, constraints, and self-approval invalidity.
+
+This step produces product specification artifacts only. It does not implement tooling, validators, schemas, workflow engines, or a serialized protocol format.
+
+---
+
+## Related Requirements
+
+- FR-1 - Protocol must define roles and authority.
+- FR-2 - Protocol must define governance semantics for progression.
+- FR-4 - PROD-W governance must make self-approval invalid.
+- FR-6 - Protocol must track provenance.
+
+---
+
+## Assigned Dev Team Interface
+
+- [x] Claude Code (default)
+- [ ] Claude Design (visual / chart / interaction-heavy Step)
+
+---
+
+## Scope
+
+- Define actor, role, authority grant, action, artifact authorship, review/challenge participation, gate authority, and acceptance concepts.
+- Define the distinction between producing evidence, assessing/challenging evidence, verifying formal criteria, and accepting consequential gates.
+- Define normative self-approval invalidity in representation-neutral terms.
+- Define initial action categories such as create claim, attach evidence, challenge claim, verify formal criteria, accept gate, request revalidation, and record decision.
+- Define invalid action examples for downstream validation design.
+- Identify which semantics require human authority and which can later be mechanically checked.
+- Keep MOD-W Moderator and PROD-W Product Moderator distinct.
+
+---
+
+## Out of Scope
+
+- Selecting YAML, JSON, JSON Schema, TypeScript/Zod, DSL, MCP, A2A, workflow engine, document metadata, or centralized state.
+- Defining full evidence taxonomy or sufficiency criteria.
+- Defining final state names.
+- Implementing validators, CLI tooling, prompts, schemas, or runtime integrations.
+- Granting external evaluators consequential gate authority.
+- Modifying `mod-w/product.md` or canonical templates under `mod-w/templates/`.
+
+---
+
+## Inputs
+
+- `mod-w/product.md`
+- `prod-w/architecture.md`
+- `prod-w/domain-language.md`
+- `research/topics/protocol-schema-state-distinction.md`
+- `research/topics/prod-w-protocol-first-rationale.md`
+- `research/mod-w-transferability/README.md`
+
+---
+
+## Expected File Changes
+
+- Add `prod-w/protocol-semantics.md`
+- Update `prod-w/domain-language.md` only if new accepted terms are introduced.
+- Add a proposed transferability observation under `research/mod-w-transferability/observations.md` if this step reveals concrete MOD-W transferability evidence.
+
+---
+
+## Reference Implementation
+
+**Location:** `n/a`
+
+**Disposition:**
+
+- [ ] Adopt as-is - preserve approved behavior and relevant structure; adapt normally for production
+- [ ] Adopt with modifications - see "Required Changes" below
+- [ ] Reject - Dev Team implements from scratch per acceptance checks
+- [x] None - no Reference Implementation exists for this Step
+
+---
+
+## Acceptance Checks
+
+**Governance Note:** These acceptance checks operationalize Architectural Decisions D1-D6 documented in `prod-w/architecture.md`. STEP-01 produces the normative text that operationalizes D1-D4; STEP-02 and STEP-03 will operationalize D5-D8. Reference the architecture for context and rationale.
+
+- [ ] Protocol semantics distinguish protocol, schema, and state. _(Implements D2, D3)_
+- [ ] Roles and authority are defined without relying on role names alone. _(Implements D4)_
+- [ ] Actor identity, artifact producer, reviewer/challenger, and approver are distinguishable. _(Implements D4)_
+- [ ] Self-approval invalidity is stated as a normative constraint. _(Implements D4, D6)_
+- [ ] Consequential gate acceptance remains explicitly human-authorized where required. _(Implements D6)_
+- [ ] External evaluator findings are advisory unless authority is explicitly granted. _(Implements D8)_
+- [ ] MOD-W Moderator and PROD-W Product Moderator are not conflated. _(Implements governance boundary)_
+- [ ] No implementation technology or serialization has been selected prematurely. _(Implements D2)_
+- [ ] Any transferability evidence encountered has been proposed under the research governance process. _(Implements research boundary)_
+
+---
+
+## Plan
+
+1. Extract authority and role requirements from the accepted Product Definition.
+2. Define representation-neutral protocol concepts and action categories.
+3. Define self-approval invalidity and authority-conflict examples.
+4. Classify initial objective checks versus contextual human judgments.
+5. Identify unresolved design questions for later steps.
+6. Record transferability observations if concrete evidence emerges.
+
+### Research Governance Route
+
+As STEP-01 work proceeds, if you observe concrete evidence about how MOD-W's Product Definition, Architecture, or Role concepts transfer (or don't transfer) to protocol development, propose an observation to the MOD-W transferability register:
+
+1. **Record the observation draft** in `research/mod-w-transferability/observations.md` following the template structure (see existing observations MW-OBS-001 through MW-OBS-006).
+2. **Include concrete evidence**: references to artifacts, pattern descriptions, and effect on work.
+3. **Use an appropriate classification**: `TRANSFERS_UNCHANGED`, `TRANSFERS_WITH_REINTERPRETATION`, `LOCAL_ADAPTATION_PROPOSED`, or `NOT_YET_TESTED`.
+4. **Set disposition to "Proposed"**: the MOD-W Moderator will review and accept/modify during the next review gate.
+
+Observations are **not** blocking on STEP-01 completion. They are recorded in parallel and reviewed independently by the Moderator. Do not treat a proposed observation as resolved or decided until the Moderator disposition is updated to "Accepted."
+
+See `research/mod-w-transferability/README.md` for full research governance rules.
+
+---
+
+## Change Notes
+
+| Date | Change | Reason |
+| --- | --- | --- |
+| 2026-09-30 | Initial step draft | First architecture-planning phase. |

@@ -225,8 +225,215 @@ This observation is **NOT** evidence of transferability failure or success. It i
 
 ---
 
+## MW-OBS-004 - Architecture Concepts Transfer with Reinterpretation to Protocol Development
+
+**Date:** 2026-09-30  
+**MOD-W area:** Architecture phase and Tech Lead responsibilities  
+**Project stage:** Architecture planning after Product Definition acceptance  
+**Observed by role:** Tech Lead  
+**Classification:** `TRANSFERS_WITH_REINTERPRETATION`  
+**Status:** Proposed for Moderator review  
+**Significance:** Medium
+
+### MOD-W Mechanism or Assumption
+
+MOD-W expects the Tech Lead to produce architecture artifacts that map requirements to decisions, define system structure, record architectural decisions, and guide later implementation.
+
+The canonical templates are software-oriented in places, including sections such as technology stack, components, data flow, implementation files, and tests.
+
+### Observation
+
+During the first PROD-W architecture-planning phase, the architecture mechanism remained useful, but the meaning of "architecture" had to be interpreted around protocol and methodology boundaries rather than runtime software components.
+
+The resulting architecture draft focuses on:
+
+- normative protocol semantics
+- distinction among protocol, schema, and state
+- authority boundaries
+- provenance and dependency concepts
+- machine-checkable governance versus contextual human judgment
+- staging product artifacts under `prod-w/`
+
+The phase did not require changing canonical MOD-W templates, but the template concepts could not be applied literally as software architecture. Sections such as technology stack and data flow were replaced with semantic components and conceptual flow.
+
+### Evidence
+
+- `mod-w/templates/ARCHITECTURE.md`
+- `prod-w/architecture.md`
+- `prod-w/domain-language.md`
+- `prod-w/roadmap.md`
+- `prod-w/step-01.md`
+- Accepted Product Definition: `mod-w/product.md`
+
+### Effect on Work
+
+- Tech Lead architecture work proceeded meaningfully without implementation.
+- The architecture artifact could map requirements to decisions.
+- The useful architectural unit was a governance/domain boundary rather than a deployable software component.
+- No local MOD-W adaptation was necessary yet, but terminology required careful interpretation.
+
+### Local Adaptation Required
+
+None proposed at this time.
+
+### Interpretation
+
+This is evidence that MOD-W's architecture phase may transfer to protocol/methodology development when "architecture" is interpreted as the structure of normative semantics, authority, artifacts, and validation boundaries.
+
+The evidence is mixed-positive: the phase transferred, but not literally as software architecture.
+
+### Follow-up
+
+- Moderator should determine whether the proposed classification is appropriate.
+- Later implementation and QA phases should test whether reinterpretation remains lightweight or becomes a local adaptation need.
+- Watch whether roadmap and step artifacts continue to work cleanly for normative specification deliverables.
+
+### Moderator Disposition
+
+**Accepted.** Evidence is concrete and grounded in specific artifacts. Classification as `TRANSFERS_WITH_REINTERPRETATION` is proportionate: the mechanism transferred, but required semantic reframing rather than tool change. This sets a baseline for observing whether later phases (implementation, QA) require additional adaptation.
+
+---
+
+## MW-OBS-005 - Domain Language Patterns Support Consistent Semantic Boundaries
+
+**Date:** 2026-09-30  
+**MOD-W area:** Documentation and terminology governance  
+**Project stage:** Architecture planning (parallel to STEP-01 planning)  
+**Observed by role:** Moderator  
+**Classification:** `TRANSFERS_UNCHANGED`  
+**Status:** Accepted  
+**Significance:** Medium
+
+### MOD-W Mechanism or Assumption
+
+MOD-W expects roles (Product Owner, Tech Lead, Development Team, QA, Moderator) to have distinct responsibilities and authority. Clear terminology about concepts such as evidence, decision, assumption, claim, and gate is necessary to prevent role confusion and weak governance.
+
+In software contexts, this is often supported by implementation tools (version control, code review systems, build gates) that make role boundaries and decision provenance mechanically visible.
+
+In a protocol/methodology context, these tools may not apply literally. Terminology and documentation conventions must carry more of the responsibility for clarity.
+
+### Observation
+
+The domain language artifact produced during architecture planning (`prod-w/domain-language.md`) establishes working definitions for governance concepts with explicit "use" and "avoid" statements. The language preserves MOD-W's core semantic boundaries:
+
+- **Actor, Role, Authority Grant** are defined separately, not collapsed into role-name shorthand
+- **Claim, Evidence, Assumption, Hypothesis, Inference, Decision** remain distinct with operational definitions
+- **Protocol, Schema, State** are explicitly separated as per architectural decision D2
+- **MOD-W Moderator and Product Moderator** are disambiguated to prevent role confusion
+- **Acceptance** is defined as authorized sufficiency judgment, not truth determination
+- **External evaluator** is generalized, preventing premature dependency on specific tools
+
+This terminology infrastructure enables consistent governance discourse across documentation, step planning, implementation guidance, and later reviews.
+
+### Evidence
+
+- `prod-w/domain-language.md` with operational definitions and naming rules
+- Architecture mapping (D1-D4) between requirements and decisions, using consistent terminology
+- Absence of shorthand role references or colloquial substitutions in architecture prose
+- Explicit "avoid" patterns in domain language prevent common conflations (e.g., "role name proves authority")
+
+### Effect on Work
+
+- Domain language definitions will guide Development Team writing during STEP-01 and later steps
+- Moderator review and acceptance will be able to reference specific terminology standards
+- Implementation team and QA can use glossary entries to flag terminology drift
+- Terminology consistency reduces risk of silent protocol misunderstanding (e.g., confusing authority grant with role assignment)
+
+### Local Adaptation Required
+
+None
+
+### Interpretation
+
+This is evidence that **MOD-W's use of clear, documented terminology for governance concepts transfers directly to protocol/methodology development.** The glossary serves the same role in both contexts: making role boundaries and conceptual distinctions explicit so that procedures can rely on them.
+
+The mechanism is not software-specific; it is a general best practice for complex governance systems.
+
+### Follow-up
+
+- Monitor whether domain language definitions remain stable through implementation phases
+- Observe whether developers consistently use terminology as defined, or whether colloquial drift occurs
+- If drift occurs, determine whether it reflects inadequate guidance or genuine need for terminology change
+- Assess whether domain language should be embedded in tooling/validators later (e.g., as metadata annotation guidance)
+
+### Moderator Disposition
+
+**Accepted.** Terminology governance is a lightweight, transferable mechanism. The evidence base is clear (the artifact exists and is well-structured). This provides a foundation for ensuring role boundaries and semantic clarity remain enforced throughout the project without requiring tool-specific mechanisms.
+
+---
+
+## MW-OBS-006 - Governance Boundary Between MOD-W and PROD-W Requires Explicit Tracking
+
+**Date:** 2026-09-30  
+**MOD-W area:** Moderator role definition and authority scope  
+**Project stage:** Architecture planning (pre-acceptance review)  
+**Observed by role:** Moderator  
+**Classification:** `LOCAL_ADAPTATION_PROPOSED`  
+**Status:** Accepted  
+**Significance:** High
+
+### MOD-W Mechanism or Assumption
+
+MOD-W defines a Moderator role responsible for gate approval, coherence review, and independent oversight. In a conventional software project, the Moderator role is stable throughout the product lifecycle: one Moderator, one product.
+
+In the PROD-W experiment, there are two Moderators:
+
+1. **MOD-W Moderator:** Governs the `prod-w-dev` repository and the experiment itself. Reviews architecture, step planning, research governance, and local adaptations.
+2. **Product Moderator (future PROD-W role):** Will be defined by PROD-W protocol and will govern product decisions within PROD-W-compliant projects. Does not yet exist; cannot review/modify `prod-w-dev` governance.
+
+### Observation
+
+The initial architecture, domain language, and step planning artifacts were authored under MOD-W governance but contain concepts and role definitions (such as "Product Moderator") that belong to PROD-W itself. This is semantically correct but creates a risk of silent authority confusion during implementation and review.
+
+Specifically:
+
+- Architecture defines Product Moderator as a future PROD-W role; it does not yet have consequential authority in `prod-w-dev`
+- A reviewer during later implementation phases might mistakenly treat Product Moderator definitions as already-applicable authority
+- MOD-W gates (e.g., architecture acceptance) must be explicit about which Moderator is acting
+
+### Evidence
+
+- `prod-w/architecture.md` defines roles but does not clearly state that it is authored under MOD-W governance, not PROD-W governance
+- `prod-w/domain-language.md` includes correct role definitions but lacks explicit governance context
+- `prod-w/step-01.md` outlines development work but does not clarify which review/acceptance gate applies (MOD-W Moderator, not Product Moderator)
+- MOD-W template sections do not have built-in affordance for "Governance Authority" or "Review Audience" that would disambiguate this context
+
+### Effect on Work
+
+- Low risk at this stage (Product Moderator role is not yet assigned)
+- Medium risk in implementation phases if reviewers are not clear about which gate authority applies
+- High risk if the Product Moderator role is later staffed before governance boundaries are clarified in documentation
+- Potential for conflation if both Moderators exist simultaneously without explicit artifact-governance metadata
+
+### Local Adaptation Required
+
+**Proposed:** Add a "Governance Context" section to architecture, domain language, and step artifacts under MOD-W that clarifies:
+
+- This artifact is authored and reviewed under MOD-W v5.0.1 governance
+- The MOD-W Moderator is responsible for acceptance/rejection and coherence review
+- Definitions of Product Moderator (and other future PROD-W roles) are aspirational and may not be modified without MOD-W Moderator approval
+- Future PROD-W implementations must not redefine or override these artifact definitions
+
+### Interpretation
+
+This is evidence that **local adaptation is necessary when MOD-W governs the development of a future governance system (PROD-W) that will itself define a Moderator role.** The adaptation is lightweight (metadata/context markers) but necessary to prevent silent authority confusion.
+
+This is a unique scenario: MOD-W is being used to develop another governance protocol. The risk does not exist in conventional software development.
+
+### Follow-up
+
+- Implement proposed governance-context clarifications in architecture, domain language, and step artifacts
+- Review all future `prod-w/` artifacts under MOD-W for similar governance-context clarity
+- Determine whether governance-context metadata should be formalized in MOD-W templates for future protocol/methodology experiments
+
+### Moderator Disposition
+
+**Accepted.** Local adaptation is appropriate and necessary. The proposed change is lightweight and adds clarity without disrupting the MOD-W review process. Implement as part of Moderator review feedback.
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-004`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-007`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.
