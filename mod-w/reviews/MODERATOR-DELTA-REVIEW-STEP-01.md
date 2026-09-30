@@ -198,7 +198,7 @@ STEP-02 planning need not block on this review completing; `prod-w/protocol-sema
 
 ## 7. Confirmation
 
-`mod-w/product.md` and `mod-w/templates/*` were read for cross-reference only and were not modified by this review. Verified against `git status` (Section 9).
+`mod-w/product.md` and `mod-w/templates/*` were read for cross-reference only and were not modified by this review. Verified against `git status`.
 
 ---
 
@@ -209,6 +209,29 @@ STEP-02 planning need not block on this review completing; `prod-w/protocol-sema
 3. Commission the scoped Tech Lead review per Section 5, or record an explicit waiver.
 4. Add the Section 13 provenance note to `prod-w/protocol-semantics.md` per Section 6 (Tech Lead or Moderator only).
 5. Proceed to STEP-02 planning; `protocol-semantics.md` status remains conditional until item 3 resolves.
+
+---
+
+## 9. Addendum — QA and Product Owner Gate Waiver (2026-09-30)
+
+Raised after the original disposition above, in response to a direct question about remaining MOD-W gates before STEP-02. Canonical MOD-W Phase 3 (`mod-w/templates/MOD-W.md`) requires, in addition to Tech Lead review (3a, dispositioned in Section 5): **3b QA SubAgent validation** (`qa.md`) and **3c Product Owner SubAgent sign-off**. Neither was produced for `prod-w/protocol-semantics.md`, and — unlike the Tech Lead gate — neither had been recorded anywhere as skipped, substituted, or waived until now. That silence was itself a gap this document did not originally catch.
+
+**Ruling: waive both, on the same terms as the Tech Lead gate, recorded as visible exceptions per GR-7/OBJ-12, not silent conformance.**
+
+- **3b (QA SubAgent / `qa.md`)**
+  - Authorized human: Frank McGuire (MOD-W Moderator)
+  - Unsatisfied requirement: independent QA validation of `prod-w/protocol-semantics.md` against STEP-01's acceptance checks and approved intent, per `mod-w/templates/MOD-W.md` Phase 3b
+  - Rationale: the deliverable is a normative specification, not executable behavior — there is no runtime feature for a QA SubAgent to exercise. The acceptance-check traceability table that substituted for the build gate (MW-OBS-008) and the Moderator's own content review (`MODERATOR-REVIEW-FEEDBACK-DEV-TEAM.md` Section 2) already cover what a QA pass would check mechanically. This is a judgment call for this deliverable type, not a finding of domain coupling; no MW-OBS entry is proposed on this basis alone.
+  - Marked as: exception, not routine conformance.
+- **3c (Product Owner SubAgent sign-off)**
+  - Authorized human: Frank McGuire (MOD-W Moderator)
+  - Unsatisfied requirement: Product Owner confirmation of acceptance intent for `prod-w/protocol-semantics.md`, per `mod-w/templates/MOD-W.md` Phase 3c
+  - Rationale: the accepted `mod-w/product.md` already establishes the acceptance intent this step operationalizes (D1-D4; FR-1, FR-2, FR-4), and the Moderator — who also holds the consequential gate — judged the deliverable against it directly rather than routing through a separate Product Owner pass.
+  - Marked as: exception, not routine conformance.
+
+**Re-evaluation condition:** if STEP-02 or a later step produces a deliverable with actual runtime behavior or user-facing acceptance criteria, run 3b/3c in full rather than waiving by default. This waiver is specific to `prod-w/protocol-semantics.md` and STEP-01; it is not a standing decision that these gates are unnecessary for `prod-w-dev` generally.
+
+`mod-w/product.md` and `mod-w/templates/*` were read for cross-reference only and were not modified by this addendum. Verified against `git status` (Section 7).
 
 ---
 
@@ -224,4 +247,5 @@ STEP-02 planning need not block on this review completing; `prod-w/protocol-sema
   - MW-OBS-010: accepted as `REQUIRES_LOCAL_ADAPTATION`, Significance High.
   - MW-ADAPT-001 (Option C, undecided-architecture declaration): authorized.
   - Decision 4: **the scoped Tech Lead review recommended in Section 5 was not commissioned.** Approval of STEP-01 proceeds without it. This is recorded as an explicit, visible waiver of that review, per GR-7 and OBJ-12 — identified requirement: Tech Lead review of architecture-level content (PR-27 §4.1; AUTH-P/A/V/G taxonomy §4.4) in a Development Team deliverable. Rationale: the Moderator judged the content sound on its own independent reading (Section 0) and elected to proceed rather than block STEP-02 on a further review. This is a deviation from this document's own recommendation, made explicitly and visibly rather than silently.
-  - `prod-w/protocol-semantics.md` status updated to Accepted, conditional on the above; see its Section 13 for the corresponding change note.
+  - Section 9 addendum: QA (3b) and Product Owner (3c) gates for `prod-w/protocol-semantics.md` also waived and recorded as visible exceptions per GR-7/OBJ-12, on the rationale stated there.
+  - `prod-w/protocol-semantics.md` status updated to Accepted, conditional on the above; see its Section 13 for the corresponding change notes.

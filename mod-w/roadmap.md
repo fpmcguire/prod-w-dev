@@ -33,17 +33,17 @@ Roadmap outputs that name `prod-w/` are concrete PROD-W product artifacts to be 
 
 ## Steps
 
-| Step | Title | Requirement(s) | Lead interface | Status | Notes |
-| --- | --- | --- | --- | --- | --- |
-| STEP-01 | Define Protocol Semantics and Authority Model | FR-1, FR-2, FR-4 | Development Team | Planned | First implementation step; no tooling. |
-| STEP-02 | Define Evidence, Knowledge, and Provenance Model | FR-3, FR-6, FR-7 | Development Team | Planned | Produces conceptual model and artifact expectations. |
-| STEP-03 | Define Gate, Challenge, Disagreement, and Revalidation Semantics | FR-2, FR-3, FR-5, FR-7 | Development Team | Planned | Defines progression without forcing false consensus. |
-| STEP-04 | Separate Machine-Checkable Rules from Human Judgment | FR-3, FR-4, FR-6, G-3 | Development Team | Planned | Produces validation boundary and candidate rule catalog. |
-| STEP-05 | Evaluate Representation Options | G-3, NG-1 | Tech Lead + Development Team | Planned | Compares YAML, JSON, schemas, metadata, sidecars, centralized state, and hybrids without premature selection. |
-| STEP-06 | Produce Methodology Guidance and Templates | G-4, AC-2 | Development Team | Planned | Human-usable role charters, evidence guidance, and gate templates. |
-| STEP-07 | Proof-of-Concept Product Opportunity Trial | AC-3, E-1-E-9 | Development Team + QA | Planned | Runs one small product opportunity through PROD-W. |
-| STEP-08 | Research Synthesis and Hypothesis Disposition | AC-4, AC-5 | Moderator + Tech Lead | Planned | Disposes research hypotheses and MOD-W transferability findings. |
-| STEP-09 | Publication Package for Separate `prod-w` Repository | Output repository | Development Team | Planned | Prepares only accepted artifacts for promotion. |
+| Step    | Title                                                            | Requirement(s)         | Lead interface               | Status   | Notes                                                                                                                                                                                                                                                                      |
+| ------- | ---------------------------------------------------------------- | ---------------------- | ---------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| STEP-01 | Define Protocol Semantics and Authority Model                    | FR-1, FR-2, FR-4       | Development Team             | Accepted | Accepted by MOD-W Moderator 2026-09-30 (tag `step-01-complete`); Phase 3a (Tech Lead review), 3b (QA), and 3c (Product Owner sign-off) all waived and recorded as visible exceptions per GR-7/OBJ-12 (`mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Sections 5 and 9). |
+| STEP-02 | Define Evidence, Knowledge, and Provenance Model                 | FR-3, FR-6, FR-7       | Development Team             | Planned  | Produces conceptual model and artifact expectations. Blocked on Phase 1 (`mod-w/step-02.md` not yet written by Tech Lead).                                                                                                                                                 |
+| STEP-03 | Define Gate, Challenge, Disagreement, and Revalidation Semantics | FR-2, FR-3, FR-5, FR-7 | Development Team             | Planned  | Defines progression without forcing false consensus.                                                                                                                                                                                                                       |
+| STEP-04 | Separate Machine-Checkable Rules from Human Judgment             | FR-3, FR-4, FR-6, G-3  | Development Team             | Planned  | Produces validation boundary and candidate rule catalog.                                                                                                                                                                                                                   |
+| STEP-05 | Evaluate Representation Options                                  | G-3, NG-1              | Tech Lead + Development Team | Planned  | Compares YAML, JSON, schemas, metadata, sidecars, centralized state, and hybrids without premature selection.                                                                                                                                                              |
+| STEP-06 | Produce Methodology Guidance and Templates                       | G-4, AC-2              | Development Team             | Planned  | Human-usable role charters, evidence guidance, and gate templates.                                                                                                                                                                                                         |
+| STEP-07 | Proof-of-Concept Product Opportunity Trial                       | AC-3, E-1-E-9          | Development Team + QA        | Planned  | Runs one small product opportunity through PROD-W.                                                                                                                                                                                                                         |
+| STEP-08 | Research Synthesis and Hypothesis Disposition                    | AC-4, AC-5             | Moderator + Tech Lead        | Planned  | Disposes research hypotheses and MOD-W transferability findings.                                                                                                                                                                                                           |
+| STEP-09 | Publication Package for Separate `prod-w` Repository             | Output repository      | Development Team             | Planned  | Prepares only accepted artifacts for promotion.                                                                                                                                                                                                                            |
 
 ---
 
@@ -107,17 +107,17 @@ Roadmap outputs that name `prod-w/` are concrete PROD-W product artifacts to be 
 
 ## Coverage Check
 
-| Requirement | Steps | Status |
-| --- | --- | --- |
-| FR-1 Roles and authority | STEP-01 | Planned |
-| FR-2 Governance semantics | STEP-01, STEP-03 | Planned |
-| FR-3 Evidence requirements | STEP-02, STEP-03, STEP-04 | Planned |
-| FR-4 Self-approval invalid | STEP-01, STEP-04 | Planned |
-| FR-5 Unresolved disagreement | STEP-03 | Planned |
-| FR-6 Provenance tracking | STEP-02, STEP-04 | Planned |
-| FR-7 Hypothesis validation / visible assumptions | STEP-02, STEP-03 | Planned |
-| G-3 Machine-readable protocol | STEP-04, STEP-05 | Planned |
-| G-4 Usable methodology | STEP-06 | Planned |
-| AC-3 Proof of Concept | STEP-07 | Planned |
-| AC-4 Transferability Evidence | STEP-08 | Planned |
-| AC-5 Hypothesis Disposition | STEP-08 | Planned |
+| Requirement                                      | Steps                     | Status  |
+| ------------------------------------------------ | ------------------------- | ------- |
+| FR-1 Roles and authority                         | STEP-01                   | Planned |
+| FR-2 Governance semantics                        | STEP-01, STEP-03          | Planned |
+| FR-3 Evidence requirements                       | STEP-02, STEP-03, STEP-04 | Planned |
+| FR-4 Self-approval invalid                       | STEP-01, STEP-04          | Planned |
+| FR-5 Unresolved disagreement                     | STEP-03                   | Planned |
+| FR-6 Provenance tracking                         | STEP-02, STEP-04          | Planned |
+| FR-7 Hypothesis validation / visible assumptions | STEP-02, STEP-03          | Planned |
+| G-3 Machine-readable protocol                    | STEP-04, STEP-05          | Planned |
+| G-4 Usable methodology                           | STEP-06                   | Planned |
+| AC-3 Proof of Concept                            | STEP-07                   | Planned |
+| AC-4 Transferability Evidence                    | STEP-08                   | Planned |
+| AC-5 Hypothesis Disposition                      | STEP-08                   | Planned |

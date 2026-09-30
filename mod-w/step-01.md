@@ -103,15 +103,17 @@ The future PROD-W Product Moderator is a protocol role being defined by the prod
 
 **Governance Note:** These acceptance checks operationalize Architectural Decisions D1-D8 documented in `mod-w/architecture.md`. STEP-01 produces the normative text that primarily operationalizes D1-D4 and validates relevant boundaries from D6 and D8; STEP-02 and STEP-03 will operationalize D5-D8 more fully. Reference the architecture for context and rationale.
 
-- [ ] Protocol semantics distinguish protocol, schema, and state. _(Implements D2, D3)_
-- [ ] Roles and authority are defined without relying on role names alone. _(Implements D4)_
-- [ ] Actor identity, artifact producer, reviewer/challenger, and approver are distinguishable. _(Implements D4)_
-- [ ] Self-approval invalidity is stated as a normative constraint. _(Implements D4, D6)_
-- [ ] Consequential gate acceptance remains explicitly human-authorized where required. _(Implements D6)_
-- [ ] External evaluator findings are advisory unless authority is explicitly granted. _(Implements D8)_
-- [ ] MOD-W Moderator and PROD-W Product Moderator are not conflated. _(Implements governance boundary)_
-- [ ] No implementation technology or serialization has been selected prematurely. _(Implements D2)_
-- [ ] Any transferability evidence encountered has been proposed under the research governance process. _(Implements research boundary)_
+- [x] Protocol semantics distinguish protocol, schema, and state. _(Implements D2, D3)_
+- [x] Roles and authority are defined without relying on role names alone. _(Implements D4)_
+- [x] Actor identity, artifact producer, reviewer/challenger, and approver are distinguishable. _(Implements D4)_
+- [x] Self-approval invalidity is stated as a normative constraint. _(Implements D4, D6)_
+- [x] Consequential gate acceptance remains explicitly human-authorized where required. _(Implements D6)_
+- [x] External evaluator findings are advisory unless authority is explicitly granted. _(Implements D8)_
+- [x] MOD-W Moderator and PROD-W Product Moderator are not conflated. _(Implements governance boundary)_
+- [x] No implementation technology or serialization has been selected prematurely. _(Implements D2)_
+- [x] Any transferability evidence encountered has been proposed under the research governance process. _(Implements research boundary)_
+
+Checked 2026-09-30 per `mod-w/reviews/MODERATOR-REVIEW-FEEDBACK-DEV-TEAM.md` Section 2 (all nine checks Pass) and `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md`. Phase 3a (Tech Lead review), 3b (QA), and 3c (Product Owner sign-off) were none of them run for this deliverable; all three are recorded as explicit waivers per GR-7/OBJ-12 (delta review Sections 5 and 9), not as satisfaction of this checklist by another means.
 
 ---
 
