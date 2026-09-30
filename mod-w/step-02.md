@@ -139,21 +139,23 @@ Do not modify accepted Product Definition, Architecture, Roadmap, STEP-01 delive
 
 ## Acceptance Checks
 
-- [ ] `prod-w/evidence-knowledge-model.md` distinguishes claim, material claim, evidence, counter-evidence, assumption, hypothesis, inference, decision, challenge, dependency, provenance, and revalidation trigger. _(Implements D3, FR-3, FR-6, FR-7)_
-- [ ] The model treats counter-evidence and negative findings as first-class evidence artifacts. _(Implements AH-3, FR-3)_
-- [ ] Agent agreement is explicitly excluded as independent evidence unless source evidence is separately present and attributable. _(Implements PE-2)_
-- [ ] Material claims require traceable provenance sufficient to identify producer, time, evidence basis, challenge/acceptance history where applicable, and dependency links. _(Implements PE-1, FR-6)_
-- [ ] Evidence presence and provenance are separated from contextual sufficiency judgments. _(Implements D6, FR-3)_
-- [ ] Assumptions and hypotheses remain distinct; unvalidated material hypotheses cannot be treated as validated without required evidence and authorized acceptance. _(Implements AH-1, AH-2, FR-7)_
-- [ ] Inferences are represented as interpretations derived from evidence or assumptions, not as evidence or observed facts. _(Implements PE-3)_
-- [ ] Decisions cite supporting claims/evidence/assumptions/challenges and retain authority/provenance links without changing STEP-01 gate authority rules. _(Implements D4, D7, FR-6)_
-- [ ] Dependencies identify downstream items that may require revalidation when material support changes. _(Implements D7, WD-6)_
-- [ ] Revalidation triggers are defined conceptually without selecting state names, lifecycle graphs, workflow engines, or protocol serialization. _(Implements D2, D7)_
-- [ ] Challenges, counter-evidence, and conflicting inferences can create visible unresolved disagreement without forcing consensus or adopting a final `DIVERGENT` state. _(Implements D5, FR-5)_
-- [ ] External evaluator outputs remain advisory findings unless authority is explicitly granted by accepted PROD-W protocol. _(Implements D8)_
-- [ ] The artifact includes an "Undecided Architecture Declaration" section listing any decisions the Development Team had to make beyond accepted upstream architecture, or explicitly states that none were made. _(Implements MW-ADAPT-001)_
-- [ ] No implementation technology, schema language, storage model, protocol transport, or validator is selected prematurely. _(Implements D2, NG-1)_
-- [ ] Any transferability evidence encountered has been proposed under the research governance process. _(Implements RG-1 / AC-4 boundary)_
+- [x] `prod-w/evidence-knowledge-model.md` distinguishes claim, material claim, evidence, counter-evidence, assumption, hypothesis, inference, decision, challenge, dependency, provenance, and revalidation trigger. _(Implements D3, FR-3, FR-6, FR-7)_
+- [x] The model treats counter-evidence and negative findings as first-class evidence artifacts. _(Implements AH-3, FR-3)_
+- [x] Agent agreement is explicitly excluded as independent evidence unless source evidence is separately present and attributable. _(Implements PE-2)_
+- [x] Material claims require traceable provenance sufficient to identify producer, time, evidence basis, challenge/acceptance history where applicable, and dependency links. _(Implements PE-1, FR-6)_
+- [x] Evidence presence and provenance are separated from contextual sufficiency judgments. _(Implements D6, FR-3)_
+- [x] Assumptions and hypotheses remain distinct; unvalidated material hypotheses cannot be treated as validated without required evidence and authorized acceptance. _(Implements AH-1, AH-2, FR-7)_
+- [x] Inferences are represented as interpretations derived from evidence or assumptions, not as evidence or observed facts. _(Implements PE-3)_
+- [x] Decisions cite supporting claims/evidence/assumptions/challenges and retain authority/provenance links without changing STEP-01 gate authority rules. _(Implements D4, D7, FR-6)_
+- [x] Dependencies identify downstream items that may require revalidation when material support changes. _(Implements D7, WD-6)_
+- [x] Revalidation triggers are defined conceptually without selecting state names, lifecycle graphs, workflow engines, or protocol serialization. _(Implements D2, D7)_
+- [x] Challenges, counter-evidence, and conflicting inferences can create visible unresolved disagreement without forcing consensus or adopting a final `DIVERGENT` state. _(Implements D5, FR-5)_
+- [x] External evaluator outputs remain advisory findings unless authority is explicitly granted by accepted PROD-W protocol. _(Implements D8)_
+- [x] The artifact includes an "Undecided Architecture Declaration" section listing any decisions the Development Team had to make beyond accepted upstream architecture, or explicitly states that none were made. _(Implements MW-ADAPT-001)_
+- [x] No implementation technology, schema language, storage model, protocol transport, or validator is selected prematurely. _(Implements D2, NG-1)_
+- [x] Any transferability evidence encountered has been proposed under the research governance process. _(Implements RG-1 / AC-4 boundary)_
+
+Checked 2026-09-30 per `prod-w/evidence-knowledge-model.md` Section 14.3, Tech Lead approval in `mod-w/reviews/TECH-LEAD-REVIEW-STEP-02.md`, and MOD-W Moderator approval in `mod-w/reviews/MODERATOR-REVIEW-STEP-02.md`.
 
 ---
 
@@ -209,5 +211,6 @@ Observations are not blocking on STEP-02 completion unless the Moderator explici
 
 | Date       | Change             | Reason                                                      |
 | ---------- | ------------------ | ----------------------------------------------------------- |
+| 2026-09-30 | STEP-02 deliverable accepted | MOD-W Moderator approved the Development Team's STEP-02 work and approved the Tech Lead's STEP-02 approval. |
 | 2026-09-30 | Accepted by Moderator | Moderator approved STEP-02 definition for Development Team implementation. |
 | 2026-09-30 | Initial step draft | Prepare evidence and knowledge model step for Dev Team use. |

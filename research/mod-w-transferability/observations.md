@@ -772,6 +772,129 @@ A scoped Tech Lead review of `prod-w/protocol-semantics.md` for architecture-lev
 
 ---
 
+## MW-OBS-011 - First Application of MW-ADAPT-001: The Declaration Is Operable, but "Did Not Already Decide" Has No Criterion and the Producer Is the Only Auditor
+
+**Date:** 2026-09-30  
+**MOD-W area:** Tech Lead to Development Team boundary (Phase 1 to Phase 2); MW-ADAPT-001  
+**Project stage:** STEP-02 implementation (second Development Team step)  
+**Observed by role:** Development Team (reporting on its own output)  
+**Classification (Proposed):** `REQUIRES_LOCAL_ADAPTATION`  
+**Status:** Proposed for Moderator review  
+**Significance:** Medium  
+**Related:** MW-OBS-010, MW-ADAPT-001, MW-OBS-009
+
+### MOD-W Mechanism or Assumption
+
+`mod-w/templates/MOD-W.md` line 40 relies on role separation to keep planning and implementation independent. MW-OBS-010 recorded that this loses its enforcement when both roles produce normative prose. MW-ADAPT-001 (authorized 2026-09-30) responds by requiring every Development Team deliverable to list the decisions it had to make that accepted upstream artifacts did not decide, routed to the Tech Lead. Its re-evaluation condition: "at the STEP-02 gate: did the declaration section produce any findings, and did any architecture-level content still slip past it?"
+
+### Observation
+
+`prod-w/evidence-knowledge-model.md` Section 12 is the first deliverable produced under MW-ADAPT-001. Three things occurred.
+
+**1. The declaration was operable and produced a list.** An audit pass over the finished draft identified sixteen choices not settled by accepted upstream artifacts. The Development Team self-assessed four as architecture-level candidates (UAD-04 item identity across change; UAD-05 presumed materiality; UAD-06 the layered reading of PR-26 with ACT-06/HJ-10; UAD-07 the trigger set and exposure). In the case of UAD-06 the choice arose from an apparent tension between two accepted STEP-01 provisions, not from a gap.
+
+**2. MW-ADAPT-001 gives no criterion for "did not already decide."** To compile the list the Development Team had to write its own working test (Section 12.1 of the deliverable): declare a choice if a reasonable alternative reading of upstream artifacts would have produced a materially different model, or if it touches authority, actor identity, independence, revalidation semantics, or what counts as evidence. Another producer could have drawn the line elsewhere and produced a shorter or longer list. The boundary between "operationalizing an accepted principle" and "making a new decision" is itself a judgment, and MW-ADAPT-001 leaves it to the producer.
+
+**3. The audit was performed by the producer.** The list was compiled after drafting rather than kept as a running record, which means choices made in the flow of writing had to be recognized in retrospect. The deliverable states that it cannot show nothing was missed (Section 12.5). This is the same limitation MW-OBS-009 identifies for controlled re-execution: the producing actor cannot supply independence over its own output.
+
+### Evidence
+
+- `prod-w/evidence-knowledge-model.md` Section 12 (declaration, working test, self-assessed levels) and Section 12.5
+- `research/mod-w-transferability/adaptations.md` MW-ADAPT-001, including its re-evaluation condition
+- `research/mod-w-transferability/observations.md` MW-OBS-010 (the failure mode addressed) and MW-OBS-009 (the independence limit)
+- `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Sections 0 and 4 (the precedent that PR-27 was architecture-level and passed review unflagged)
+
+### Effect on Work
+
+- Architecture-adjacent choices were made visible in one reviewable list rather than left inside the model text.
+- The list is only as complete as the producer's judgment. No independent check of its completeness exists yet. The Tech Lead review is what would provide one, and has not occurred.
+- Compiling the list added a bounded amount of work at the end of the step.
+
+### Local Adaptation Required
+
+None proposed by the Development Team as authorized action. Offered for Moderator consideration only: MW-ADAPT-001 could state a criterion for "did not already decide," or require the Tech Lead to review a sample of the deliverable's unlisted choices in addition to the declared ones, so that completeness is checked by someone other than the producer. The Development Team does not select between these and has applied neither.
+
+### Interpretation
+
+This is evidence that MW-ADAPT-001 can be executed and does surface architecture-adjacent choices. It is also evidence that the adaptation's effectiveness depends on the level-of-decision judgment that MW-OBS-010 showed to be hard to make from inside the producing artifact.
+
+Evidence both ways is preserved. For the adaptation working: the list exists and includes choices, notably UAD-04 to UAD-07, that would not otherwise be labeled as decisions. Against it being sufficient: the same actor drew its boundary, and an omitted architecture-level choice would be invisible to it.
+
+**Conclusion (deliberately limited):** one deliverable, one producer, one project. This does not establish that the adaptation is sufficient or insufficient. Whether any architecture-level content slipped past it can only be determined by an actor other than the producer.
+
+### Follow-up
+
+- At the STEP-02 gate, the Tech Lead reviews Section 12 and, at the Moderator's discretion, a sample of unlisted choices, so the re-evaluation condition can be answered by someone other than the producer.
+- Observe whether STEP-03 produces a comparably sized list, or whether the list shrinks as upstream artifacts accumulate.
+- Watch for an architecture-level choice found in a deliverable that the declaration did not list.
+
+### Moderator Disposition
+
+Pending Moderator review.
+
+---
+
+## MW-OBS-012 - The Blocking Build Gate and the Restate-and-Plan Gate Are Again Not Instantiated at STEP-02
+
+**Date:** 2026-09-30  
+**MOD-W area:** Development Team role, Phase 2a and Phase 2b, Phase 3 gates  
+**Project stage:** STEP-02 implementation (second Development Team step)  
+**Observed by role:** Development Team  
+**Classification (Proposed):** `DOMAIN_COUPLED` for the blocking build gate (recurrence of MW-OBS-008's accepted classification); no new classification proposed for the plan gate  
+**Status:** Proposed for Moderator review  
+**Significance:** Low to Medium  
+**Related:** MW-OBS-008, MW-OBS-010
+
+### MOD-W Mechanism or Assumption
+
+Phase 2a (`mod-w/templates/MOD-W.md`) has the Development Team restate the Step and propose a plan for Moderator approval before implementing. Phase 2b has it run a blocking build gate (`{{BUILD_COMMAND}}` + `{{TEST_COMMAND}}`). MW-OBS-008 recorded that the build gate had no instantiation for a specification deliverable and asked that STEP-02 and STEP-03 observe whether that recurs and whether any defect later traces to it.
+
+### Observation
+
+**Build gate.** At STEP-02 the repository still has no build or test configuration, no CI definition, and no package manifest, and `.claude/settings.json` still contains `{}`. The STEP-02 deliverable is again a normative specification. No mechanical pre-review gate existed to run.
+
+**What substituted for it.** As in STEP-01, an acceptance-check-to-section traceability table (`prod-w/evidence-knowledge-model.md` Section 14.3), plus a manual cross-reference and forbidden-term scan by the Development Team. The scan is by the producer and is not independent verification.
+
+**Plan gate.** The STEP-02 briefing directed direct implementation of the accepted step. The Development Team read the inputs and proceeded; no separate restate-and-plan checkpoint was held for Moderator approval. This is the deviation MW-OBS-010 recorded for STEP-01, occurring again. The briefing was detailed and the step file was already Moderator-accepted, which arguably pre-empts the plan gate, as MW-OBS-010 noted.
+
+**Review gates.** No Phase 3a, 3b, or 3c has been run for this deliverable and none has been waived. The STEP-01 waiver was stated to be specific to STEP-01 (`mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 9).
+
+### Evidence
+
+- Repository inspection at STEP-02 start: no `package.json`, no test or CI configuration; `.claude/settings.json` = `{}`; `prod-w/` contained only `protocol-semantics.md`
+- `mod-w/step-02.md`: acceptance checks are all statements about document content
+- `prod-w/evidence-knowledge-model.md` Section 14.3 (substitute traceability)
+- `research/mod-w-transferability/observations.md` MW-OBS-008 (follow-up asking for recurrence evidence) and MW-OBS-010 (secondary conformance note on the plan gate)
+- `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Sections 3 and 9
+
+### Effect on Work
+
+- The step proceeded without friction from the absence of a build gate, as in STEP-01. As in STEP-01, that may mean the gate is unnecessary for specification work or that a defect class goes undetected; this step cannot distinguish the two.
+- No defect has been traced to the gate's absence at this point. That is a statement about the time of writing, not a finding, and nothing here shows it will stay true.
+- Correctness pressure again rests on Moderator review, and on a Tech Lead review that has not yet happened.
+
+### Local Adaptation Required
+
+None proposed. MW-OBS-008 Options A and B remain open as the Moderator left them; this observation adds recurrence evidence only.
+
+### Interpretation
+
+This is evidence that the STEP-01 finding was not a one-time artifact: a second specification deliverable met the same absence in the same way. It is consistent with the accepted `DOMAIN_COUPLED` classification of the build-gate component, and it does not extend it. Recurrence of a gate's absence is weaker evidence than a defect traced to that absence, and none has been observed.
+
+**Conclusion (deliberately limited):** two steps, one deliverable type, one project. This does not establish that specification work needs a mechanical gate, or that it does not.
+
+### Follow-up
+
+- Moderator determines whether recurrence changes the standing disposition of MW-OBS-008 Options A and B.
+- Moderator decides whether Phase 3a, 3b, and 3c are run or waived for STEP-02, as the STEP-01 waiver did not carry over.
+- STEP-03 should be observed for the same pattern, and for the first defect, if any, that traces to the missing gate or the missing plan checkpoint.
+
+### Moderator Disposition
+
+Pending Moderator review.
+
+---
+
 ## Open Observation Log
 
 Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-008`, etc.), include concrete evidence, and use an appropriate classification.

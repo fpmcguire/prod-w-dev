@@ -87,6 +87,30 @@ These terms were introduced by the Development Team while producing `prod-w/prot
 
 ---
 
+## Terms Proposed Under STEP-02 (Pending MOD-W Moderator Acceptance)
+
+These terms were introduced by the Development Team while producing `prod-w/evidence-knowledge-model.md` under STEP-02. They are **not yet accepted**. The Development Team cannot accept its own terminology proposals; the MOD-W Moderator decides whether to accept, modify, or return them. Terms that STEP-02 uses from the STEP-01 pending set (for example advisory finding, producer, independence, producing configuration) inherit that set's pending status.
+
+| Term | Definition | Use | Avoid |
+| --- | --- | --- | --- |
+| Knowledge item | Attributable, recorded unit belonging to exactly one knowledge class at a time. | "Every knowledge item records its producer." | Treating a generic note as a knowledge item without a class. |
+| Negative finding | Evidence that a defined search, test, or attempt to observe something did not find or confirm it, or found the opposite; recorded with its attempt record. | "The failed competitor search is a negative finding with a stated scope." | Treating absence of discovered evidence as evidence without a recorded attempt. |
+| Source | Where information came from; need not be an actor in the protocol. | "The interview subject is the source; the interviewer is the producer." | Confusing source with the actor that produced the evidence item. |
+| Source lineage | Identification of the items an evidence item is derived from, making shared sources visible. | "Three articles share one lineage." | Counting items that share a source as independent sources. |
+| Material dependency | Dependency whose upstream item, if changed, contradicted, or withdrawn, would put the dependent's standing in question. | "The decision has a material dependency on the demand claim." | Assuming every citation is material, or that a producer alone decides non-materiality of support for a consequential decision. |
+| Reliance under assumption | Dependency on a hypothesis or assumption that remains unvalidated, authorized by an identified human as conditional progression. | "The plan relies on the pricing hypothesis under assumption." | Representing reliance as validation. |
+| Validation | Recorded acceptance that a hypothesis's required evidence and challenge criteria are satisfied for a stated scope; acceptance of sufficiency, not truth. | "The hypothesis was validated for the pilot scope." | Using validation as a synonym for verification or truth. |
+| Invalidation | Authorized determination that an item can no longer be relied on; distinct from being contested. | "The claim was invalidated after the retest." | Treating a challenge or counter-evidence as invalidation. |
+| Withdrawal | Producer's retraction of its own item; the item remains recorded. | "The producer withdrew the claim." | Deleting or overwriting an item. |
+| Supersession | Replacement of an item by another for purposes of reliance; the replaced item remains recorded. | "The revised finding supersedes the earlier one." | Treating a meaning-changing edit as a correction. |
+| Correction | Change to an item that leaves its meaning unchanged, visible in history, and not a trigger. | "The typo was recorded as a correction." | Using correction for a change that alters meaning. |
+| Revalidation trigger | Recorded event affecting an upstream item that, through a dependency, means a dependent item may no longer be justified. | "Recorded counter-evidence is a revalidation trigger." | Treating a trigger as the outcome of revalidation. |
+| Revalidation requirement | Obligation created on a dependent item by a trigger, visible until an authorized actor reaffirms, revises, or retires it. | "The decision has an open revalidation requirement." | Treating silence or elapsed time as closing it. |
+| Exposure | Visible fact that an item depends, directly or indirectly, on an item that is contested or has an open trigger or requirement. | "The go decision is exposed through the demand inference." | Treating exposure as a requirement, or as nothing. |
+| Evaluative claim | Claim whose content is a value judgment, identified as such; not established by evidence or inference alone. | "That the product is desirable is an evaluative claim." | Presenting a value judgment as observation or inference. |
+
+---
+
 ## Naming Rules
 
 - Use **protocol**, **schema**, and **state** only with their distinct meanings.
