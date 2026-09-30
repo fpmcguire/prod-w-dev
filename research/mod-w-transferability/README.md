@@ -153,6 +153,10 @@ Evidence suggests that the MOD-W mechanism is materially tied to software develo
 
 The transferability question has been identified as an explicit research target, but insufficient evidence exists to classify it. Use this sparingly for tracked open questions, not as a default for unexamined assumptions.
 
+### `PARTIALLY_TESTED` (synthesis-level status; not an observation classification)
+
+Used only in `assessment.md`'s Summary Table, for a named area where some sub-parts have accepted supporting observations and others remain untested. Never applied to an individual `MW-OBS-XXX` entry — every observation must use one of the five classifications above. Added 2026-09-30 per DTD-03 (`mod-w/validation/dev-team-step-01-discrepancy-report.md`; disposed in `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 1), replacing an undefined ad-hoc use of this term in `assessment.md`.
+
 ---
 
 ## Observation vs. Adaptation: Critical Distinction

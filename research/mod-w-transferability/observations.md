@@ -432,6 +432,8 @@ This is a unique scenario: MOD-W is being used to develop another governance pro
 
 **Accepted.** Local adaptation is appropriate and necessary. The proposed change is lightweight and adds clarity without disrupting the MOD-W review process. Implement as part of Moderator review feedback.
 
+**Vocabulary normalization note (2026-09-30, appended per DTD-01 disposition, confirmed by Frank McGuire):** This observation's recorded classification `LOCAL_ADAPTATION_PROPOSED` is drawn from `mod-w/step-01.md`'s vocabulary, since superseded. `research/mod-w-transferability/README.md` and the accepted `mod-w/product.md` are the authoritative vocabulary and use `REQUIRES_LOCAL_ADAPTATION` for the same disposition state. The original text and classification label above are preserved unchanged per Historical Integrity. Treat this observation as `REQUIRES_LOCAL_ADAPTATION` going forward. See `mod-w/validation/dev-team-step-01-discrepancy-report.md` DTD-01 and `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 1.
+
 ---
 
 ## MW-OBS-007 - Higher-Depth Review Surfaced Governance-State Drift Missed by Literal Task Execution
@@ -502,6 +504,271 @@ It suggests that MOD-W role definition and governance gates do not fully elimina
 ### Moderator Disposition
 
 Pending Moderator review.
+
+---
+
+## MW-OBS-008 - Development Team "Implementation" Transfers as Normative Specification, but the Blocking Build Gate Has No Instantiation
+
+**Date:** 2026-09-30  
+**MOD-W area:** Development Team role, implementation semantics, Phase 2 blocking build gate  
+**Project stage:** STEP-01 implementation (first Development Team step)  
+**Observed by role:** Development Team  
+**Classification (Accepted, mixed):** `TRANSFERS_WITH_REINTERPRETATION` for implementation semantics; `DOMAIN_COUPLED` for the blocking build gate (reclassified from the originally proposed `LOCAL_ADAPTATION_PROPOSED` per the DTD-01/DTD-02 vocabulary correction; see `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 3)  
+**Status:** Accepted  
+**Significance:** Medium
+
+### MOD-W Mechanism or Assumption
+
+MOD-W assigns the Development Team the role of producing "Implementation - code, tests, docs for each Step" (`mod-w/templates/MOD-W.md`, role table). Phase 2 then specifies a blocking gate:
+
+> 2b. **Development Team** implements the approved scope only and runs the blocking build gate (`{{BUILD_COMMAND}}` + `{{TEST_COMMAND}}`).
+
+The underlying assumption is that a Step's output is executable, that correctness is demonstrated mechanically before review, and that the build gate blocks handoff independently of any reviewer's judgment.
+
+This observation supplies the first concrete evidence for two questions registered as open in MW-OBS-003 (Development Team as a code-producing role; build/runtime acceptance assumptions). It does not resolve the remaining questions registered there.
+
+### Observation
+
+STEP-01 was the first Development Team step in `prod-w-dev`. Two distinct things happened.
+
+**1. The implementation concept transferred once "implementation" was read broadly.**
+
+The step's work was recognisably implementation: it took an accepted architecture (D1-D4, with D6 and D8 boundaries), an accepted domain language, and a scoped step artifact, and produced a concrete, traceable deliverable constrained by them. Scope discipline, Reference Implementation disposition, "Expected File Changes", and per-check acceptance criteria all applied literally and usefully. The deliverable was a normative specification (`prod-w/protocol-semantics.md`) rather than executable code, but nothing in the step mechanism required reinterpretation beyond the word "code" in the role table.
+
+**2. The blocking build gate had nothing to instantiate.**
+
+`{{BUILD_COMMAND}}` and `{{TEST_COMMAND}}` remain uninstantiated placeholders. The repository contains no build or test configuration and no CI definition; `.claude/settings.json` is empty (`{}`). There was therefore no mechanical gate to run before handoff, and no automated signal separating "the Development Team believes this is done" from "this is verifiably done".
+
+What substituted for the build gate was entirely documentary: an acceptance-check-to-section traceability table (`prod-w/protocol-semantics.md` Section 12.3) that a human reviewer must read and confirm. That is a reviewer-dependent check, not a blocking one. The difference matters because MOD-W positions the build gate as protection _before_ review, and that protection was simply absent for this step.
+
+### Evidence
+
+- `mod-w/templates/MOD-W.md` line 17 (Development Team role defined as "code, tests, docs") and line 72 (Phase 2b blocking build gate)
+- `mod-w/templates/CLAUDE.md` line 52 and `mod-w/templates/ai-agents.md` line 64, which also instruct the Development Team to run the build gate
+- `mod-w/step-01.md`: acceptance checks are all statements about the content of a document; none references runtime behavior
+- Repository inspection: no `package.json`, no test configuration, no CI workflow; `.claude/settings.json` contains `{}`
+- Deliverable produced: `prod-w/protocol-semantics.md`
+- Substitute check used: `prod-w/protocol-semantics.md` Section 12.3, acceptance-check traceability table
+
+### Effect on Work
+
+- The step proceeded without friction on scope, inputs, and acceptance-check structure.
+- No mechanical pre-review verification occurred, because none exists for this deliverable type.
+- The Development Team added a traceability table to make each acceptance check reviewable at a specific location, which is a documentary compensation, not an equivalent to a blocking gate.
+- Review burden shifts entirely onto the MOD-W Moderator. For a governance specification this is arguably appropriate, but it is a change in where correctness pressure sits, and it should not be silently absorbed.
+- Contradictory evidence worth preserving: the absence of a build gate did not obstruct the step. That may mean the gate is unnecessary for specification work, or it may mean a defect class went undetected. This step alone cannot distinguish those.
+
+### Local Adaptation Required
+
+**Proposed, not authorized.** Two options are offered for Moderator consideration; the Development Team does not select between them and has not applied either.
+
+- **Option A (minimal):** Record that for normative-specification steps in `prod-w-dev`, the Phase 2b blocking gate is deemed not applicable, and the step's acceptance checks plus a required traceability mapping serve as the handoff condition. This is honest about the absence rather than pretending a gate ran.
+- **Option B (substantive):** Define a non-code blocking gate for specification steps - for example, a mechanical check that every acceptance check in the active `step-xx.md` maps to a named location in the deliverable, and that no file outside the step's "Expected File Changes" was modified. This preserves the gate's _function_ (mechanical, reviewer-independent, blocking) without assuming executable output.
+
+Either option, if authorized, belongs in `adaptations.md` and not in this observation.
+
+### Interpretation
+
+Separating the two components:
+
+- **Implementation semantics.** This is evidence that MOD-W's Development Team role and step-execution mechanism transfer to protocol/methodology work when "implementation" is read as production of the step's normative deliverable. The reinterpretation required is terminological, not structural - consistent with the pattern MW-OBS-004 recorded for the architecture phase.
+- **Build gate.** This is evidence of genuine software coupling in a specific MOD-W mechanism. The gate is not merely worded for software; its defining properties (mechanical, blocking, reviewer-independent) depend on the deliverable being executable. That is a narrower and harder finding than a terminology problem.
+
+**Conclusion (deliberately limited):** one step, one deliverable type, one project. This does not establish that MOD-W's build gate is domain-coupled in general, nor that specification work needs no mechanical gate. It establishes that for this step, the gate had no instantiation and a documentary substitute was used.
+
+### Follow-up
+
+- Moderator determines whether the mixed classification is appropriate or whether this should be split into two observations.
+- Moderator determines whether either proposed adaptation is warranted, or whether a stronger Development Team handoff checklist suffices.
+- STEP-02 and STEP-03 should observe whether the same gate absence recurs and whether any defect later traces to it.
+- The QA phase should be observed specifically: if MOD-W's QA concept also assumes runtime behavior, the two findings together would be stronger evidence than either alone.
+- Cross-reference MW-OBS-003, which registered these as open questions; this observation partially answers two of them and leaves the rest open.
+
+### Post-Proposal Note (2026-09-30, added by proposing role)
+
+The proposed classification of the build-gate component is **under question**, and the proposing role flags it rather than changing it.
+
+`LOCAL_ADAPTATION_PROPOSED` was selected from the four-value list in `mod-w/step-01.md` line 133. That list omits `DOMAIN_COUPLED`, which `research/mod-w-transferability/README.md` line 146 and `mod-w/product.md` line 390 both define. The evidence above - that the gate's defining properties depend on the deliverable being executable - is a candidate `DOMAIN_COUPLED` finding under the fuller vocabulary.
+
+The proposed classification is left exactly as first recorded, so that `mod-w/reviews/MODERATOR-REVIEW-FEEDBACK-DEV-TEAM.md` Section 5 item 2, which references it, remains accurate. The Moderator should resolve the vocabulary question before disposing of this observation.
+
+See `mod-w/validation/dev-team-step-01-discrepancy-report.md`, DTD-02.
+
+### Moderator Disposition
+
+**Accepted**, per `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 3, confirmed by Frank McGuire (MOD-W Moderator) 2026-09-30. Implementation semantics: `TRANSFERS_WITH_REINTERPRETATION`. Blocking build gate: `DOMAIN_COUPLED` — the gate's mechanical, blocking, reviewer-independent properties depend on the deliverable being executable, and none of that was available to substitute for this step. This does not foreclose a local adaptation; Option A/B remain open, deferred pending STEP-02/03 recurrence evidence.
+
+---
+
+## MW-OBS-009 - Controlled Re-Execution Is in Deliberate Use, and MOD-W's Independence Model Does Not Describe It
+
+**Date:** 2026-09-30  
+**MOD-W area:** Role independence and cross-validation; tooling assumptions; Development Team role  
+**Project stage:** STEP-01 implementation  
+**Observed by role:** Development Team  
+**Classification (Accepted):** `TRANSFERS_WITH_REINTERPRETATION`  
+**Status:** Accepted  
+**Significance:** Medium  
+**Related:** MW-OBS-007 (same phenomenon, Tech Lead role, still Proposed)
+
+### Scope caveat, stated first
+
+This register exists to record evidence about MOD-W's transferability to **non-software** development. The finding below may not be a non-software finding at all: it may be an **AI-assistance** finding that would arise equally in a conventional software project run with AI agents. The Development Team cannot resolve that, and flags it so the Moderator can decide whether this observation belongs in this register, in a separate record, or in both. It should not be counted as non-software transferability evidence unless the Moderator determines that it is.
+
+### MOD-W Mechanism or Assumption
+
+MOD-W builds independence out of **role separation**: Tech Lead plans and reviews, a different Development Team role implements, QA verifies, Moderator holds the final gate. `mod-w/templates/MOD-W.md` line 40 calls the Tech Lead to Development Team boundary "the single most-protected boundary". The assumption is that assigning work to a different role is what makes a second look independent.
+
+MOD-W does not describe a second dimension that exists in AI-assisted work: the same role, with the same prompt and the same inputs, can be executed by different models or reasoning configurations, producing materially different output.
+
+### Observation
+
+Controlled re-execution is in deliberate use in this project, and is now confirmed as intentional Moderator practice rather than incidental.
+
+Two instances are on record:
+
+1. **Tech Lead, prior stage.** Initial Tech Lead work produced under one configuration was re-reviewed under a higher-effort configuration, which surfaced 15 findings the first pass had missed - repository-structure errors, stale status metadata, a decision-coverage mismatch, and a risk of rewriting accepted transferability observations. Recorded as MW-OBS-007 and `mod-w/validation/tech-lead-reconciliation.md`.
+
+2. **Development Team, this step.** The STEP-01 prompt was re-issued unchanged, in the same Development Team role, after a model change. The Moderator has confirmed that this was requested specifically to compare different models against the same prompt and the same role.
+
+The disposition pattern in instance 1 is the important part of the evidence. Of 15 findings, 13 were corrected within the role's own authority, 1 was returned to the Product Owner, and 1 to the Moderator. The reconciliation artifact closes: "No implementation, QA, or self-approval has been performed." The re-execution fed **revision and escalation**, and fed acceptance nowhere.
+
+### Evidence
+
+- `mod-w/templates/MOD-W.md` line 40 (role separation as the protected boundary) and the Phase 1-4 role sequence
+- `mod-w/validation/tech-lead-reconciliation.md`, including the finding table, the authority column, and the stop condition
+- `research/topics/model-depth-tech-lead-self-review.md`
+- MW-OBS-007 in this register
+- This session: the STEP-01 prompt re-issued verbatim, same role, different model configuration
+- Moderator confirmation that the re-execution was requested for model comparison
+
+### Effect on Work
+
+- The practice produced real defect detection in instance 1, at a stage where no other mechanism would have caught the issues before Moderator review.
+- It created a classification question the Development Team could not answer from MOD-W alone: is a second run by a different model an independent review, or the same actor looking twice? MOD-W's role-based independence model does not address the question, because the role is identical in both runs.
+- The question had to be settled inside the product artifact, since PROD-W must state when acceptance is valid. `prod-w/protocol-semantics.md` now settles it: producing configuration is provenance and not actor identity (PR-27), and re-execution yields revisions, advisory findings, escalations and research evidence but never independence or acceptance (PR-28, Section 6.5).
+- No local MOD-W adaptation was required to proceed. The existing disposition pattern from instance 1 was already correct; it simply was not described anywhere in MOD-W.
+
+### Local Adaptation Required
+
+None proposed. The project's existing behaviour already matches the rule the product artifact now states. What is arguably missing is documentation, not mechanism.
+
+Offered for Moderator consideration only: MOD-W role prompts and review artifacts could record the producing configuration alongside the role, so that a later reader can distinguish two runs of one role from two roles. The Development Team does not propose this as an adaptation and has not applied it.
+
+### Interpretation
+
+MOD-W's cross-validation concept **transfers, but is under-specified for AI-assisted execution**. Role separation remains the right primitive, and nothing observed suggests it should be replaced. What MOD-W does not say is that varying the configuration of a single role is not a substitute for varying the role - a gap that only becomes visible when a project deliberately varies configuration, as this one does.
+
+Evidence both ways is preserved. _For_ configuration variance being valuable: instance 1 caught 15 real findings. _Against_ it being independence: both runs shared prompt, inputs and accountability, so any defect originating in the prompt or the inputs would be invisible to both, and agreement between them would be agreement rather than corroboration.
+
+**Conclusion (deliberately limited):** two instances, one project, one methodology. This does not establish how MOD-W should handle configuration variance generally, and as noted in the scope caveat, it may not be a non-software finding at all.
+
+### Follow-up
+
+- Moderator determines whether this belongs in this register, given the scope caveat.
+- Moderator determines whether MW-OBS-007 and this observation should be considered together, since they record the same phenomenon in two different roles.
+- Later steps should observe whether controlled re-execution continues to find issues as the artifacts mature, or whether its yield falls off.
+- Watch for the failure mode this observation predicts but has not seen: a defect originating in a step prompt or its inputs, missed identically by every configuration.
+
+### Moderator Disposition
+
+**Accepted** as `TRANSFERS_WITH_REINTERPRETATION`, confirmed by Frank McGuire (MOD-W Moderator) 2026-09-30. Kept in this register with the scope caveat intact; whether this is non-software transferability evidence or a general AI-assistance finding remains open. No adaptation authorized — none was proposed, and PR-27/PR-28 already state the substantive rule this observation asked for.
+
+---
+
+## MW-OBS-010 - The Tech Lead to Development Team Boundary Loses Its Enforcement Mechanism When Both Roles Produce Normative Prose
+
+**Date:** 2026-09-30  
+**MOD-W area:** Tech Lead and Development Team role separation; the Phase 1 to Phase 2 boundary  
+**Project stage:** STEP-01 implementation, post-delivery, post-Moderator-review  
+**Observed by role:** Development Team (reporting on its own output)  
+**Classification (Accepted):** `REQUIRES_LOCAL_ADAPTATION`  
+**Status:** Accepted  
+**Significance:** High  
+**Related:** MW-OBS-003 (registered this area as `NOT_YET_TESTED`), MW-OBS-008 (implementation semantics)
+
+### Vocabulary note
+
+This observation uses `REQUIRES_LOCAL_ADAPTATION` from `research/mod-w-transferability/README.md` line 142, not `LOCAL_ADAPTATION_PROPOSED` from `mod-w/step-01.md` line 133. The two vocabularies conflict; see `mod-w/validation/dev-team-step-01-discrepancy-report.md`, DTD-01. The Moderator should normalize the value when disposing of this observation.
+
+### MOD-W Mechanism or Assumption
+
+`mod-w/templates/MOD-W.md` line 40: "The single most-protected boundary is Tech Lead to Development Team: Codex plans and reviews; a different implementation role executes the approved Step."
+
+The stated assumption is that **role assignment** is what separates planning from implementation.
+
+There is an unstated second mechanism. In conventional software development the boundary is also enforced by **medium**: architecture is prose, implementation is code, and the two are not interchangeable. A developer cannot accidentally emit an architectural decision from a compiler-checked artifact. The decision would have nowhere to live. Role separation and media separation reinforce each other, and MOD-W only names the first.
+
+### Observation
+
+In `prod-w-dev`, both sides of the boundary produce normative prose in markdown, in the same register, in the same repository. The Tech Lead produced `mod-w/architecture.md` and `mod-w/domain-language.md`; the Development Team produced `prod-w/protocol-semantics.md`. The media separation is gone. Enforcement collapses onto role discipline and reviewer attention alone.
+
+**The boundary was crossed, in this step, by the reporting role.**
+
+The clearest instance is **PR-27** in `prod-w/protocol-semantics.md`: "producing configuration is part of provenance and is not part of actor identity." That is a decision about the identity model. Architectural decision D4 requires actor identity to be separated from role labels; it does not decide whether configuration belongs to identity. The Development Team decided it, inside an implementation deliverable, during a mid-step correction, and stated a rationale for it (that the alternative would let an actor manufacture independence by switching configurations).
+
+A milder instance is the four-class authority taxonomy AUTH-P / AUTH-A / AUTH-V / AUTH-G. It is traceable to the "Authority Types" section of the accepted `mod-w/product.md`, so it is grounded, but D4 does not enumerate it. The Development Team structured the authority model.
+
+**The review did not catch it.** `mod-w/reviews/MODERATOR-REVIEW-FEEDBACK-DEV-TEAM.md` Section 2 passes acceptance check 3 citing Section 4.1 of the deliverable, which is where PR-27's rationale sits, and Section 3 concludes "No defects found." This is not a criticism of the review: PR-27 reads as protocol semantics, which it also genuinely is. An architecture-level decision expressed in the same medium and register as implementation output is difficult to see.
+
+**A secondary conformance note.** MOD-W Phase 2a requires the Development Team to restate the step, propose a plan, and wait for Moderator approval before implementing. That did not occur in this step; implementation began directly from the briefing. The briefing was detailed enough - scope, constraints, acceptance checks, required report format - that it arguably pre-empted the plan gate, and the prior Moderator feedback had already recorded STEP-01 as unblocked. Recorded as a deviation rather than an accusation, because a skipped restate-and-plan gate is one of the few places where a boundary crossing would have surfaced before the work was written.
+
+### Evidence
+
+- `mod-w/templates/MOD-W.md` line 40 (boundary statement), lines 70-72 (Phase 2a and 2b)
+- `mod-w/architecture.md` D4 and its Consequences paragraph
+- `prod-w/protocol-semantics.md` PR-27, Section 4.1 subsection "Producing configuration is provenance, not identity", and the Section 13 change note recording that it was added mid-step
+- `prod-w/protocol-semantics.md` Section 4.4 (authority class taxonomy) against `mod-w/product.md` "Authority Types"
+- `mod-w/reviews/MODERATOR-REVIEW-FEEDBACK-DEV-TEAM.md` Sections 2 and 3
+- Absence of any Tech Lead review artifact for `prod-w/protocol-semantics.md` in `mod-w/reviews/`, confirmed by the Moderator review Section 4
+
+### Effect on Work
+
+- An architecture-level decision entered a product artifact without Tech Lead review, and passed Moderator review unflagged.
+- The outcome was not bad. PR-27 was judged sound, and the Development Team believes it is correct. **The defect is procedural, not substantive**, and the distinction matters: the boundary did not fail by producing a wrong decision, it failed by producing a decision at the wrong level for the wrong reviewer. A boundary that only fails visibly when the output is also wrong is not a boundary.
+- The absence of a Tech Lead review artifact compounds it. Per the Moderator review Section 4, Moderator review is currently standing in for both Tech Lead review and the build gate, so the one gate designed to catch architecture-level drift in implementation output did not run at all.
+
+### Contradictory Evidence, Preserved
+
+The separation earned its keep in this same step. Executing against the governance artifacts closely enough to implement them, the Development Team found four inconsistencies in them, including one that materially affected its own output - the omission of `DOMAIN_COUPLED` from the classification vocabulary handed to evidence-producing roles. A single merged planning-and-implementing role would have written both the instruction and the evidence, and would have had no occasion to read the instruction adversarially.
+
+Recorded in `mod-w/validation/dev-team-step-01-discrepancy-report.md`.
+
+So the evidence is genuinely mixed: the boundary is **valuable and under-enforced at the same time**. Neither half should be dropped.
+
+### Local Adaptation Required
+
+**Proposed, not authorized.** Restore the boundary's enforcement with an explicit declaration, since the medium no longer supplies it:
+
+> Every Development Team deliverable in `prod-w-dev` declares the decisions it had to make that the accepted architecture did not decide, with the reasoning and the input each was derived from. That list routes to the Tech Lead.
+
+Properties: cheap, produced by the role best placed to know, and it targets the specific failure rather than the general one. It converts an invisible crossing into a visible, reviewable list.
+
+This is offered as **Option C for MW-OBS-008**, and the proposing role considers it stronger than its own Options A and B. Those address the build gate that vanished; this addresses the risk that took its place. A mechanical check that every acceptance check maps to a location (Option B) would not have caught PR-27, because PR-27 does map to a location and is well-traced.
+
+### Interpretation
+
+MOD-W's role-separation concept **transfers**; its implicit enforcement does not. The mechanism relies on a property of software development that MOD-W never had to state, because in software it is free.
+
+The generalization worth testing: MOD-W boundaries that are enforced by artifact type in software may need explicit substitutes wherever every role's output is prose. If that holds, it applies to the Tech Lead to Development Team boundary, and likely to any other boundary where planning and output share a medium.
+
+**Conclusion (deliberately limited):** one step, one deliverable, one crossing with a benign outcome, in a project whose subject matter is authority boundaries and is therefore unusually likely to notice its own. This does not establish that the boundary fails generally, nor that the proposed adaptation is the right one.
+
+### Follow-up
+
+- Moderator determines whether the classification, and the vocabulary it is drawn from, are appropriate.
+- Moderator determines whether Option C is authorized, and whether it supersedes or complements the MW-OBS-008 options.
+- Moderator determines whether a Tech Lead review of `prod-w/protocol-semantics.md` should be run now, specifically for architecture-level content, or whether the gate is formally waived and recorded as a visible exception per the Moderator review Section 5 item 4.
+- STEP-02 should be observed with this specifically in mind: whether crossings recur, and whether a declaration list surfaces them.
+- Watch for the harder version of this failure: a boundary crossing whose outcome is also wrong, which is the case this step did not produce and therefore did not test.
+
+### Moderator Disposition
+
+**Accepted** as `REQUIRES_LOCAL_ADAPTATION`, Significance High, confirmed by Frank McGuire (MOD-W Moderator) 2026-09-30 — on the strength of an independent re-read of `prod-w/protocol-semantics.md` Section 4 against `mod-w/architecture.md` D4 (`mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 0), not on the strength of this self-report alone. PR-27 is confirmed architecture-level content that entered without Tech Lead review.
+
+The proposed adaptation (Option C: every Development Team deliverable declares the decisions it had to make that the accepted architecture did not decide, routed to Tech Lead) is **authorized**. Recorded as `MW-ADAPT-001` in `adaptations.md`.
+
+A scoped Tech Lead review of `prod-w/protocol-semantics.md` for architecture-level content (PR-27 §4.1; AUTH-P/A/V/G taxonomy §4.4) was recommended but not commissioned. The Moderator approved STEP-01 without it. This is recorded as an explicit, visible waiver of that review, per GR-7 and OBJ-12 — not as a finding that no architecture-level content exists. See `prod-w/protocol-semantics.md` Section 13 and `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 5.
 
 ---
 

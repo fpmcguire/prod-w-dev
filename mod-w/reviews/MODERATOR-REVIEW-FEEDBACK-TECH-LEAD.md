@@ -135,7 +135,7 @@ As STEP-01 work proceeds, if you observe concrete evidence about how MOD-W's Pro
 
 1. **Record the observation draft** in `research/mod-w-transferability/observations.md` following the template structure (see existing observations MW-OBS-001 through MW-OBS-006).
 2. **Include concrete evidence**: references to artifacts, pattern descriptions, and effect on work.
-3. **Use an appropriate classification**: `TRANSFERS_UNCHANGED`, `TRANSFERS_WITH_REINTERPRETATION`, `LOCAL_ADAPTATION_PROPOSED`, or `NOT_YET_TESTED`.
+3. **Use an appropriate classification**: `TRANSFERS_UNCHANGED`, `TRANSFERS_WITH_REINTERPRETATION`, `REQUIRES_LOCAL_ADAPTATION`, `DOMAIN_COUPLED`, or `NOT_YET_TESTED`. See `research/mod-w-transferability/README.md` for definitions. (Corrected 2026-09-30 per DTD-01/DTD-02; this list previously omitted `DOMAIN_COUPLED`.)
 4. **Set disposition to "Proposed"**: the MOD-W Moderator will review and accept/modify during the next review gate.
 
 Observations are **not** blocking on STEP-01 completion. They are recorded in parallel and reviewed independently by the Moderator. Do not treat a proposed observation as resolved or decided until the Moderator disposition is updated to "Accepted."
@@ -157,9 +157,9 @@ See `research/mod-w-transferability/README.md` for full research governance rule
 
 | Change                            | Status   | Review Gate | Notes                                                 |
 | --------------------------------- | -------- | ----------- | ----------------------------------------------------- |
-| Governance boundary clarification | Approved | Complete | Prevents authority confusion. Lightweight.            |
-| Acceptance checks linked to D-IDs | Approved | Complete | Improves Development Team understanding. Lightweight. |
-| Research governance routing       | Approved | Complete | Ensures observations are captured. Lightweight.       |
+| Governance boundary clarification | Approved | Complete    | Prevents authority confusion. Lightweight.            |
+| Acceptance checks linked to D-IDs | Approved | Complete    | Improves Development Team understanding. Lightweight. |
+| Research governance routing       | Approved | Complete    | Ensures observations are captured. Lightweight.       |
 
 All three changes were implemented as clarifications/guidance additions. **No rewrites, no scope changes.**
 
@@ -169,13 +169,13 @@ All three changes were implemented as clarifications/guidance additions. **No re
 
 This document implements items 1–3 from the verbal review feedback. Here is the complete status:
 
-| Original Action Item                                                        | Status                                       | Notes                                                                                                                            |
-| --------------------------------------------------------------------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Address governance boundary clarification in architecture.md             | **Complete and Approved**                 | Governance Context added to `mod-w/architecture.md`                                                                               |
-| 2. Add guidance note to STEP-01 linking acceptance checks                   | **Complete and Approved**                 | Acceptance checks linked to Architectural Decisions in `mod-w/step-01.md`                                                         |
-| 3. Add research-governance routing guidance to STEP-01 Plan                 | **Complete and Approved**                 | Research Governance Route added to `mod-w/step-01.md`                                                                             |
-| 4. Record MOD-W transferability observation for domain-language consistency | **Already Complete**                      | Recorded as **MW-OBS-005** in `research/mod-w-transferability/observations.md`; classified as `TRANSFERS_UNCHANGED` and Accepted |
-| 5. Development Team begin STEP-01 work                                      | **Unblocked**                             | Development Team may begin STEP-01 work                                                                                           |
+| Original Action Item                                                        | Status                    | Notes                                                                                                                            |
+| --------------------------------------------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Address governance boundary clarification in architecture.md             | **Complete and Approved** | Governance Context added to `mod-w/architecture.md`                                                                              |
+| 2. Add guidance note to STEP-01 linking acceptance checks                   | **Complete and Approved** | Acceptance checks linked to Architectural Decisions in `mod-w/step-01.md`                                                        |
+| 3. Add research-governance routing guidance to STEP-01 Plan                 | **Complete and Approved** | Research Governance Route added to `mod-w/step-01.md`                                                                            |
+| 4. Record MOD-W transferability observation for domain-language consistency | **Already Complete**      | Recorded as **MW-OBS-005** in `research/mod-w-transferability/observations.md`; classified as `TRANSFERS_UNCHANGED` and Accepted |
+| 5. Development Team begin STEP-01 work                                      | **Unblocked**             | Development Team may begin STEP-01 work                                                                                          |
 
 ---
 

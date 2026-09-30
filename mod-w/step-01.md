@@ -130,7 +130,7 @@ As STEP-01 work proceeds, if you observe concrete evidence about how MOD-W's Pro
 
 1. **Record the observation draft** in `research/mod-w-transferability/observations.md` following the template structure (see existing observations MW-OBS-001 through MW-OBS-006).
 2. **Include concrete evidence**: references to artifacts, pattern descriptions, and effect on work.
-3. **Use an appropriate classification**: `TRANSFERS_UNCHANGED`, `TRANSFERS_WITH_REINTERPRETATION`, `LOCAL_ADAPTATION_PROPOSED`, or `NOT_YET_TESTED`.
+3. **Use an appropriate classification**: `TRANSFERS_UNCHANGED`, `TRANSFERS_WITH_REINTERPRETATION`, `REQUIRES_LOCAL_ADAPTATION`, `DOMAIN_COUPLED`, or `NOT_YET_TESTED`. See `research/mod-w-transferability/README.md` for definitions. (Corrected 2026-09-30: this list previously omitted `DOMAIN_COUPLED` and used the non-canonical name `LOCAL_ADAPTATION_PROPOSED`; see `mod-w/validation/dev-team-step-01-discrepancy-report.md` DTD-01/DTD-02 and `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 1.)
 4. **Set disposition to "Proposed"**: the MOD-W Moderator will review and accept/modify during the next review gate.
 
 Observations are **not** blocking on STEP-01 completion. They are recorded in parallel and reviewed independently by the Moderator. Do not treat a proposed observation as resolved or decided until the Moderator disposition is updated to "Accepted."
@@ -141,6 +141,6 @@ See `research/mod-w-transferability/README.md` for full research governance rule
 
 ## Change Notes
 
-| Date | Change | Reason |
-| --- | --- | --- |
+| Date       | Change             | Reason                             |
+| ---------- | ------------------ | ---------------------------------- |
 | 2026-09-30 | Initial step draft | First architecture-planning phase. |

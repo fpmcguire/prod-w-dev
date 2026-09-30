@@ -66,6 +66,27 @@ Terms that describe future PROD-W roles or artifacts are product-domain definiti
 
 ---
 
+## Terms Proposed Under STEP-01 (Pending MOD-W Moderator Acceptance)
+
+These terms were introduced by the Development Team while producing `prod-w/protocol-semantics.md` under STEP-01. They are recorded here so terminology stays in one place, but they are **not yet accepted**. The Development Team cannot accept its own terminology proposals; the MOD-W Moderator decides whether to accept, modify, or return them, and whether to merge them into the accepted Terms table above.
+
+| Term | Definition | Use | Avoid |
+| --- | --- | --- | --- |
+| Action | Attributable protocol event by which an actor changes the record, carrying actor identity, capacity, target, and time. | "Accepting a gate is an action." | Treating an unattributed record change as an action. |
+| Authority class | One of the four separable kinds of authority: production, assessment/challenge, verification, and consequential gate acceptance. | "Verification is a distinct authority class." | Collapsing the classes into generic "permission". |
+| Authority scope | Bounded set of items, artifact classes, or gates to which an authority grant applies. | "The grant's scope is the feasibility gate." | Treating a grant as unbounded. |
+| Gate authority | Authority to perform consequential gate acceptance; human-only in PROD-W. | "Only a human actor holds gate authority." | Delegating gate authority to an agent or evaluator. |
+| Participation capacity | The function in which an actor participated with respect to a specific item: producer, challenger/reviewer, verifier, or acceptor. | "The actor participated in the capacity of challenger." | Inferring capacity from a role label. |
+| Producer | Actor recorded as having created or originated an item. | "Every artifact records its producer." | Treating authorship as authority over the item. |
+| Independence | Property of an actor relationship in which the acting actor is not a recorded producer of the item acted upon, evaluated by actor identity. | "Acceptance requires an independent acceptor." | Inferring independence from a different role label. |
+| Self-approval | Acceptance of an item by an actor who is a recorded producer of it; invalid under PROD-W. | "Self-approval invalidates the acceptance." | Treating self-approval as merely discouraged. |
+| Verification | Confirmation that defined formal criteria were satisfied and required checks occurred. | "QA verified the formal criteria." | Using verification as a synonym for acceptance. |
+| Advisory finding | Output of an actor lacking gate authority for the matter in question; informs acceptance without performing it. | "The evaluator produced an advisory finding." | Recording an advisory finding as a decision. |
+| Producing configuration | Model, reasoning effort, harness, tooling, and instructions that produced an action; part of provenance, not of actor identity. | "The producing configuration is recorded with the action." | Treating a configuration change as a change of actor. |
+| Controlled re-execution | Deliberate re-running of the same role on the same inputs under a different model, configuration, or agent instance, in order to compare outputs. | "Controlled re-execution surfaced findings the first pass missed." | Treating the second run as an independent reviewer or acceptor. |
+
+---
+
 ## Naming Rules
 
 - Use **protocol**, **schema**, and **state** only with their distinct meanings.

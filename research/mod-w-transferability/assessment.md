@@ -15,7 +15,7 @@ context:
 
 **Status:** Early experiment — Insufficient evidence for broad conclusions
 
-**Project stage:** Product Definition phase, pre-acceptance
+**Project stage:** STEP-01 accepted by MOD-W Moderator (2026-09-30); see `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md`
 
 **Last updated:** 2026-09-30
 
@@ -37,7 +37,7 @@ Synthesis updates at each major gate (e.g., after Product Definition acceptance,
 
 ### Transfers Unchanged
 
-**Accepted observations:** 2 (MW-OBS-001, MW-OBS-002)
+**Accepted observations:** 3 (MW-OBS-001, MW-OBS-002, MW-OBS-005)
 
 - **Product Definition concept:** MOD-W's Product Definition structure applies meaningfully to protocol/methodology development without substantive reinterpretation. Clarity about what you're building is prior to how you build it, regardless of software/non-software domain.
 
@@ -47,27 +47,27 @@ Synthesis updates at each major gate (e.g., after Product Definition acceptance,
 
 ### Transfers With Reinterpretation
 
-**Accepted observations:** None yet
+**Accepted observations:** 2 (MW-OBS-004, MW-OBS-009)
 
-No accepted observations show that a MOD-W mechanism requires **significant reinterpretation** (as opposed to unchanged transfer or local adaptation).
+MW-OBS-004 shows MOD-W's architectural thinking transfers to protocol design once "component" is read broadly. MW-OBS-009 shows the cross-validation concept transfers but is under-specified for AI-assisted, same-role configuration variance.
 
-**Pending:** Architecture phase should test whether MOD-W's architectural thinking applies to protocol design. If reinterpretation is required (e.g., "components" → "protocol roles/concepts"), it will be recorded here.
+**Pending:** Further evidence expected as STEP-02/03 proceed.
 
 ### Requires Local Adaptation
 
-**Accepted observations:** None yet
+**Accepted observations:** 2 (MW-OBS-006, MW-OBS-010)
 
-No local adaptations have been authorized to date. Project is proceeding with canonical MOD-W.
+One adaptation authorized to date: `MW-ADAPT-001` (Development Team undecided-architecture declaration, source MW-OBS-010).
 
-**Pending areas:** Potential adaptations may emerge in implementation semantics (what does "implementation" mean for a protocol spec?), testing/validation (what gates replace runtime testing?), and role responsibilities (does Tech Lead code review translate?).
+**Pending areas:** MW-OBS-008's build-gate component is classified `DOMAIN_COUPLED`, not local adaptation (see below); Options A/B for a substitute gate remain open pending STEP-02/03 evidence.
 
 ### Apparent Domain Coupling
 
-**Accepted observations:** None yet
+**Accepted observations:** 1 (MW-OBS-008, build-gate component only)
 
-No observations have yet classified any MOD-W mechanism as systematically domain-coupled to software.
+MOD-W's Phase 2b blocking build gate (`{{BUILD_COMMAND}}`/`{{TEST_COMMAND}}`) has no instantiation for a normative-specification deliverable; its defining properties (mechanical, blocking, reviewer-independent) depend on executable output. Per README, this does not imply canonical MOD-W should change.
 
-**Tracked but unconfirmed:** MW-OBS-003 identifies several potentially software-centric areas (Development Team as code producer, Tech Lead code review, QA/testing, build gates) but classifies them as `NOT_YET_TESTED`, not as confirmed domain coupling.
+**Tracked but unconfirmed:** MW-OBS-003 identifies other potentially software-centric areas (Tech Lead code review, QA/testing) still classified `NOT_YET_TESTED`.
 
 ### Not Yet Tested
 
@@ -243,19 +243,19 @@ At project completion, synthesize all observations into:
 
 ## Summary Table
 
-| Area                           | Status              | Evidence                                   | Confidence |
-| ------------------------------ | ------------------- | ------------------------------------------ | ---------- |
-| Product Definition concept     | TRANSFERS_UNCHANGED | MW-OBS-001                                 | Medium     |
-| Product Definition review gate | TRANSFERS_UNCHANGED | MW-OBS-002                                 | Medium     |
-| Product Definition acceptance  | NOT_YET_TESTED      | —                                          | —          |
-| Architecture concepts          | NOT_YET_TESTED      | —                                          | —          |
-| Tech Lead role                 | NOT_YET_TESTED      | —                                          | —          |
-| Implementation semantics       | NOT_YET_TESTED      | —                                          | —          |
-| Review/approval processes      | PARTIALLY_TESTED    | MW-OBS-001, MW-OBS-002 (early phases only) | Low-Medium |
-| QA/acceptance gates            | NOT_YET_TESTED      | —                                          | —          |
-| Testing semantics              | NOT_YET_TESTED      | —                                          | —          |
-| Repository conventions         | NOT_YET_TESTED      | —                                          | —          |
-| Artifact lifecycle             | NOT_YET_TESTED      | —                                          | —          |
+| Area                           | Status                          | Evidence                                                                                          | Confidence |
+| ------------------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------- | ---------- |
+| Product Definition concept     | TRANSFERS_UNCHANGED             | MW-OBS-001                                                                                        | Medium     |
+| Product Definition review gate | TRANSFERS_UNCHANGED             | MW-OBS-002                                                                                        | Medium     |
+| Product Definition acceptance  | NOT_YET_TESTED                  | —                                                                                                 | —          |
+| Architecture concepts          | TRANSFERS_WITH_REINTERPRETATION | MW-OBS-004                                                                                        | Medium     |
+| Tech Lead role                 | NOT_YET_TESTED                  | —                                                                                                 | —          |
+| Implementation semantics       | PARTIALLY_TESTED                | MW-OBS-008 (`TRANSFERS_WITH_REINTERPRETATION` for semantics; `DOMAIN_COUPLED` for the build gate) | Medium     |
+| Review/approval processes      | PARTIALLY_TESTED                | MW-OBS-001, MW-OBS-002 (early phases only)                                                        | Low-Medium |
+| QA/acceptance gates            | NOT_YET_TESTED                  | —                                                                                                 | —          |
+| Testing semantics              | NOT_YET_TESTED                  | —                                                                                                 | —          |
+| Repository conventions         | NOT_YET_TESTED                  | —                                                                                                 | —          |
+| Artifact lifecycle             | NOT_YET_TESTED                  | —                                                                                                 | —          |
 
 ---
 

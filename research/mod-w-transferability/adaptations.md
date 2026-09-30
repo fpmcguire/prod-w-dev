@@ -26,14 +26,57 @@ Local adaptations are authorized by the Moderator and must be supported by evide
 
 ## Current Status
 
-**No local adaptations have yet been authorized.**
+**One local adaptation has been authorized: `MW-ADAPT-001`** (below), authorized by Frank McGuire (MOD-W Moderator) on 2026-09-30 per `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 4.
 
-The project has identified potential areas requiring future observation (see `observations.md`, MW-OBS-003), but these are not yet confirmed as necessitating adaptation. The project will:
+The project otherwise continues to:
 
 1. Proceed with canonical MOD-W as baseline through early phases
 2. Record observations as friction or reinterpretation needs emerge
 3. Request Moderator authorization only when evidence demonstrates that canonical MOD-W cannot be applied effectively
 4. Avoid premature adaptation; use canonical MOD-W until it demonstrably fails
+
+---
+
+## MW-ADAPT-001 — Development Team Undecided-Architecture Declaration
+
+**Date:** 2026-09-30  
+**Source observation:** MW-OBS-010  
+**Affected MOD-W area:** Tech Lead to Development Team boundary (Phase 1 to Phase 2)  
+**Proposed by:** Development Team (as Option C for MW-OBS-008)  
+**Authorized by:** Frank McGuire (MOD-W Moderator)  
+**Status:** Active
+
+### Canonical MOD-W Behavior
+
+`mod-w/templates/MOD-W.md` line 40 relies on role separation alone (Codex plans and reviews; a different role implements) to keep planning and implementation independent. It assumes the two outputs are in different media (prose vs. code), which is not true in `prod-w-dev`.
+
+### Local Adaptation
+
+Every Development Team deliverable in `prod-w-dev` must include a declaration section listing the decisions it had to make that the accepted architecture (or other accepted upstream artifact) did not already decide, with the reasoning and the input each was derived from. This section routes to the Tech Lead, in addition to whatever Moderator review already occurs.
+
+### Reason
+
+Role separation alone does not surface an architecture-level decision made inside an implementation artifact when both are prose in the same repository. MW-OBS-010 demonstrated this concretely (PR-27), and an independent Moderator re-read of `prod-w/protocol-semantics.md` Section 4 against `mod-w/architecture.md` D4 confirmed it (`mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 0). A mechanical acceptance-check-to-location check (MW-OBS-008 Option B) would not have caught it, because the decision was well-traced to a location — the defect was in the level of the decision, not its documentation.
+
+### Scope and Reversibility
+
+Applies to all Development Team deliverables in `prod-w-dev` from this point forward. Temporary/experimental: reconsider if it produces no findings for two consecutive steps (may be unnecessary overhead) or if it fails to catch a recurrence (may need strengthening, e.g. combined with Option B).
+
+### Effect on Canonical MOD-W
+
+This is a local experimental adaptation. Canonical MOD-W v5.0.1 is unchanged.
+
+### Interaction with Other Adaptations
+
+Complements, does not replace, any adaptation later authorized for MW-OBS-008 (Option A/B address the vanished build gate; this addresses the boundary-enforcement gap that took its place). No conflict. No other adaptation exists yet.
+
+### Re-evaluation Condition
+
+Re-evaluate at the STEP-02 gate: did the declaration section produce any findings, and did any architecture-level content still slip past it?
+
+### Moderator Rationale
+
+Authorized on the same date as STEP-01 acceptance. The adaptation is cheap, reversible, targeted at a demonstrated failure mode (PR-27), and produced by the role best placed to know what it decided. It does not substitute for, and does not need to wait on, disposition of MW-OBS-008's build-gate options (A/B remain open).
 
 ---
 
