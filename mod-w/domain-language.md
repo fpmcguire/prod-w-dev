@@ -3,7 +3,7 @@ artifact:
   type: domain-language
   version: 0.1
   created: 2026-09-30
-  updated: 2026-10-01
+  updated: 2026-10-02
   status: Accepted
 ---
 
@@ -110,6 +110,41 @@ Several STEP-02 terms are load-bearing for STEP-03, especially Validation, Inval
 | Revalidation requirement | Obligation created on a dependent item by a trigger, visible until an authorized actor reaffirms, revises, or retires it. | "The decision has an open revalidation requirement." | Treating silence or elapsed time as closing it. |
 | Exposure | Visible fact that an item depends, directly or indirectly, on an item that is contested or has an open trigger or requirement. | "The go decision is exposed through the demand inference." | Treating exposure as a requirement, or as nothing. |
 | Evaluative claim | Claim whose content is a value judgment, identified as such; not established by evidence or inference alone. | "That the product is desirable is an evaluative claim." | Presenting a value judgment as observation or inference. |
+
+---
+
+## Terms Accepted from STEP-03
+
+These terms were introduced by the Development Team while producing `prod-w/gate-challenge-revalidation-semantics.md` under STEP-03. They are accepted by MOD-W Moderator disposition recorded on 2026-10-02 in `mod-w/reviews/MODERATOR-REVIEW-STEP-03.md`. They remain in this provenance table rather than being merged into the main accepted table so their source step stays visible.
+
+Several are load-bearing for STEP-04 to STEP-06: Accepted set, Standing item, Standing record, Conditional progression authorization, Exception, and Authority gap. Where STEP-03 states a more specific reading of an accepted STEP-02 term (Correction, Withdrawal, Revalidation requirement, Exposure), the accepted governing text is in the STEP-03 artifact (Sections 3.3, 4 to 12).
+
+| Term | Definition | Use | Avoid |
+| --- | --- | --- | --- |
+| Accepted set | The items over which independence is evaluated for a consequential acceptance: the subject, the material basis followed transitively, the materiality and dependency designations, the challenge responses relied on, and the verification records relied on. | "The acceptor is a producer of no member of the accepted set." | Treating the decision record's own text as "the accepted item." |
+| Acceptance-act content | What the acceptor itself contributes in making a determination: the determination, rationale, treatments, conditions, residual-risk statement, and independence declaration. Not production of the accepted set. | "The independence declaration is part of the acceptance-act content." | Using an acceptor's commitment to launder its own earlier recommendation. |
+| Standing item | An item that has been validly accepted, or that belongs to the accepted set of a consequential acceptance or decision. | "A correction designation on a standing item needs independent confirmation." | Treating every cited item as standing. |
+| Standing record | What is recorded against or around an acceptance's basis at the acceptance act: challenges, contradicting items, exposure, open requirements, reliance marks, earlier refusals and deferrals, and exceptions. | "Every item in the standing record is cited with a treatment." | Omitting opposition because it is unanswered. |
+| Treatment | The recorded handling of a standing-record item at an acceptance: answered, conceded or withdrawn by the challenger, moot, accepted as residual, or covered by an exception. | "The challenge was accepted as residual." | Treating an unlisted or omitted item as handled. |
+| Gate definition | The recorded definition of a gate before use: progression, scope, acceptor grants, acceptance rule, and the semantic slots. | "The gate definition predates the acceptance." | Amending the definition to fit a basis already refused. |
+| Gate basis | The accepted set together with the standing record bearing on it. | "The gate basis includes the open challenges." | Treating the basis as only the favorable items. |
+| Refusal | A gate authority holder's determination that sufficiency is not found for the basis as it stands. | "The gate was refused pending independent challenge." | Treating refusal as final or as invalidation. |
+| Deferral | A gate authority holder's statement that no determination is made yet, naming what is awaited. | "Acceptance was deferred pending the response." | Treating elapsed time as converting a deferral into acceptance. |
+| Conditional progression authorization | An explicit act by an independent human with gate authority to progress or rely while a named condition (unvalidated hypothesis or assumption, or an open revalidation requirement) stays unresolved and tracked. | "The pricing hypothesis is relied on under a conditional progression authorization." | Using it as validation, as ordinary acceptance, or as a waiver. |
+| Reliance while open | A dependency mark showing reliance on an item that has an open revalidation requirement, authorized as conditional progression. | "The build decision is relied on while the requirement is open." | Relying silently on an item with an open requirement. |
+| Exception | A dispensation, by an independent human with gate authority, from a specific unsatisfied gate requirement for a specific progression, visibly marked. Includes an override. | "The gate was accepted with an exception for the independent-challenge requirement." | Using an exception to cure invalid independence, or presenting it as ordinary conformance. |
+| Accepted as residual | A treatment in which the acceptor judges the basis sufficient notwithstanding a named unresolved matter, with rationale and a visible marker. | "The decision was accepted with an unresolved feasibility challenge." | Treating it as an exception or as resolution. |
+| Contestation | The visible fact that an item, relationship, or decision is under challenge or contradiction. | "The claim is contested by an unanswered challenge." | Treating contestation as a state name or as invalidation. |
+| Challenge closure | The recorded ending of a challenge: challenger resolution, authority closure, or mootness by withdrawal of the target. A response never closes a challenge. | "The challenger recorded resolution." | Treating a producer's response, time, or silence as closure. |
+| Escalation | The act of routing an unresolved matter to the authority able to resolve it. It resolves nothing itself. | "The disputed designation was escalated." | Treating escalation as a closure or a decision. |
+| Resolving authority | The grant class and scope able to resolve a matter, with its independence condition, determined from grants and not role names. | "The resolving authority for a correction confirmation is a gate authority holder who produced neither item nor change." | Naming a role label as the resolver. |
+| Authority gap | A visible condition in which no identity meeting the independence condition can fill the resolving authority for a matter. | "No independent holder exists, so the matter is an authority gap." | Curing it by a conflicted holder's act, a waiver, a collective identity, or time. |
+| Reaffirmation | A determination that a dependent, as it now stands and is now supported, remains justified; an acceptance-type act, not validation. | "The decision was reaffirmed on its current basis." | Treating reaffirmation as a trigger or as truth. |
+| Revision | A change to a dependent in light of revalidation reasons; a revision that changes meaning is a successor. | "The producer revised the inference." | Treating a producer's revision of a standing item as independent closure. |
+| Retirement | A determination or act that a dependent is no longer relied on; it remains recorded. | "The claim was retired." | Deleting the item. |
+| Assumption-rooted | Describing a basis item whose every support chain ends only in assumptions or unvalidated hypotheses, with no evidence item. | "The demand inference is assumption-rooted." | Reading a cited, traced chain as evidence-backed. |
+| Collective identity | A team, organization, or agent fleet recorded as a producer with recorded membership; it expands to its members for independence. | "Team T is recorded as producer with its members listed." | Treating a collective as one identity for independence or as an acceptor. |
+| Assignment | A recorded relation in which one actor assigns work to another. Provenance; conveys no authority. | "The Product Owner assigned the survey analysis to an agent." | Treating assignment as delegation of authority, or as making the assigner a producer without substance or adoption. |
 
 ---
 

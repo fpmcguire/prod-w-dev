@@ -4,8 +4,8 @@ artifact:
   id: STEP-03
   version: 0.1
   created: 2026-10-01
-  updated: 2026-10-01
-  status: Draft
+  updated: 2026-10-02
+  status: Accepted
 ---
 
 # STEP-03 - Define Gate, Challenge, Disagreement, and Revalidation Semantics
@@ -161,30 +161,32 @@ Do not modify accepted `prod-w/protocol-semantics.md` or `prod-w/evidence-knowle
 
 ## Acceptance Checks
 
-- [ ] `prod-w/gate-challenge-revalidation-semantics.md` defines gate, gate basis, required evidence, required challenge criteria, acceptance, refusal, deferral, conditional progression, waiver/exception, escalation, unresolved disagreement, exposure, revalidation requirement, revalidation closure, correction, supersession, withdrawal, reaffirmation, revision, and retirement in protocol-operational terms.
-- [ ] EK-OQ-05 is resolved first in the artifact: "the accepted item" for consequential gate acceptance and consequential decisions is defined clearly enough to apply STEP-01 independence rules to the decision record and its material basis.
-- [ ] EK-OQ-17 is resolved: correction designation authority, original-acceptor notice/consultation, acceptance inheritance, producer correction designation, and producer withdrawal of its own item/counter-evidence are defined without permitting self-approval through item identity.
-- [ ] D-05b is resolved by separating producer-owned withdrawal/supersession from authority over another actor's item for reliance purposes, including visibility rules for withdrawn own counter-evidence.
-- [ ] EK-OQ-04 / D-08 is resolved for challenges, source-identified counter-evidence, bare contradicting claims, and bare contradicting inferences: each is classified as producing exposure, a revalidation requirement, or no dependent effect, with rationale and any required thresholds.
-- [ ] The artifact states whether reliance may continue while exposure exists or while a revalidation requirement is open, and who may authorize any such reliance.
-- [ ] The artifact defines how unanswered challenges cited in a decision basis must be recorded, answered, escalated, waived, or accepted as residual risk at gates.
-- [ ] Challenge lifecycle semantics include target scope, basis, response, closure, escalation, and unresolved visibility without forcing consensus.
-- [ ] Disagreement semantics preserve unresolved disagreement visibly and define how, if at all, conditional progression can occur under it.
-- [ ] Conditional progression is distinguished from validation, ordinary gate acceptance, waiver/exception, and reliance under assumption.
-- [ ] Revalidation closure authority is defined for consequential decisions and for non-decision dependents, including EK-OQ-16.
-- [ ] Validation authority for material hypotheses not tied to a consequential gate is defined or explicitly routed with a constrained interim rule, including EK-OQ-02.
-- [ ] Disputed materiality and dependency redesignation handling is defined, including EK-OQ-07.
-- [ ] Time/evidence-age effects are defined as exposure, request, requirement, or no direct effect, including EK-OQ-10.
-- [ ] Actor identity, team/organization/agent-fleet identity, and delegation are addressed to the extent needed for STEP-03 authority and independence semantics, without over-taking later representation work.
-- [ ] Verification independence is addressed at the semantic level or deliberately routed to STEP-04 with a safe interim constraint.
-- [ ] External evaluator outputs remain advisory findings unless authority is explicitly granted by accepted PROD-W protocol.
-- [ ] Objectively checkable conditions are separated from contextual human judgments at an initial level, without replacing STEP-04's full rule catalog.
-- [ ] The artifact includes an Undecided Architecture Declaration that applies MW-ADAPT-001 and declares choices touching authority, actor identity, independence, evidence standing, disagreement, gates, correction/supersession, withdrawal, and revalidation.
-- [ ] The Development Team declaration is followed by Tech Lead or QA sampling for unlisted choices in authority, independence, evidence standing, and revalidation before acceptance.
-- [ ] The artifact identifies which open questions remain routed to STEP-04, STEP-05, STEP-06, pilot/proof-of-concept, or later work, without duplicating their ownership.
-- [ ] No implementation technology, schema language, storage model, protocol transport, validator, workflow engine, lifecycle graph, or final serialized state vocabulary is selected prematurely.
-- [ ] Any transferability evidence encountered has been proposed under the research governance process.
-- [ ] STEP-03 final acceptance is not recorded until Phase 3a Tech Lead review, Phase 3b QA, and Phase 3c Product Owner sign-off have occurred, or the MOD-W Moderator has explicitly waived any missing review before final acceptance.
+- [x] `prod-w/gate-challenge-revalidation-semantics.md` defines gate, gate basis, required evidence, required challenge criteria, acceptance, refusal, deferral, conditional progression, waiver/exception, escalation, unresolved disagreement, exposure, revalidation requirement, revalidation closure, correction, supersession, withdrawal, reaffirmation, revision, and retirement in protocol-operational terms.
+- [x] EK-OQ-05 is resolved first in the artifact: "the accepted item" for consequential gate acceptance and consequential decisions is defined clearly enough to apply STEP-01 independence rules to the decision record and its material basis.
+- [x] EK-OQ-17 is resolved: correction designation authority, original-acceptor notice/consultation, acceptance inheritance, producer correction designation, and producer withdrawal of its own item/counter-evidence are defined without permitting self-approval through item identity.
+- [x] D-05b is resolved by separating producer-owned withdrawal/supersession from authority over another actor's item for reliance purposes, including visibility rules for withdrawn own counter-evidence.
+- [x] EK-OQ-04 / D-08 is resolved for challenges, source-identified counter-evidence, bare contradicting claims, and bare contradicting inferences: each is classified as producing exposure, a revalidation requirement, or no dependent effect, with rationale and any required thresholds.
+- [x] The artifact states whether reliance may continue while exposure exists or while a revalidation requirement is open, and who may authorize any such reliance.
+- [x] The artifact defines how unanswered challenges cited in a decision basis must be recorded, answered, escalated, waived, or accepted as residual risk at gates.
+- [x] Challenge lifecycle semantics include target scope, basis, response, closure, escalation, and unresolved visibility without forcing consensus.
+- [x] Disagreement semantics preserve unresolved disagreement visibly and define how, if at all, conditional progression can occur under it.
+- [x] Conditional progression is distinguished from validation, ordinary gate acceptance, waiver/exception, and reliance under assumption.
+- [x] Revalidation closure authority is defined for consequential decisions and for non-decision dependents, including EK-OQ-16.
+- [x] Validation authority for material hypotheses not tied to a consequential gate is defined or explicitly routed with a constrained interim rule, including EK-OQ-02.
+- [x] Disputed materiality and dependency redesignation handling is defined, including EK-OQ-07.
+- [x] Time/evidence-age effects are defined as exposure, request, requirement, or no direct effect, including EK-OQ-10.
+- [x] Actor identity, team/organization/agent-fleet identity, and delegation are addressed to the extent needed for STEP-03 authority and independence semantics, without over-taking later representation work.
+- [x] Verification independence is addressed at the semantic level or deliberately routed to STEP-04 with a safe interim constraint.
+- [x] External evaluator outputs remain advisory findings unless authority is explicitly granted by accepted PROD-W protocol.
+- [x] Objectively checkable conditions are separated from contextual human judgments at an initial level, without replacing STEP-04's full rule catalog.
+- [x] The artifact includes an Undecided Architecture Declaration that applies MW-ADAPT-001 and declares choices touching authority, actor identity, independence, evidence standing, disagreement, gates, correction/supersession, withdrawal, and revalidation.
+- [x] The Development Team declaration is followed by Tech Lead or QA sampling for unlisted choices in authority, independence, evidence standing, and revalidation before acceptance.
+- [x] The artifact identifies which open questions remain routed to STEP-04, STEP-05, STEP-06, pilot/proof-of-concept, or later work, without duplicating their ownership.
+- [x] No implementation technology, schema language, storage model, protocol transport, validator, workflow engine, lifecycle graph, or final serialized state vocabulary is selected prematurely.
+- [x] Any transferability evidence encountered has been proposed under the research governance process.
+- [x] STEP-03 final acceptance is not recorded until Phase 3a Tech Lead review, Phase 3b QA, and Phase 3c Product Owner sign-off have occurred, or the MOD-W Moderator has explicitly waived any missing review before final acceptance.
+
+Checked 2026-10-02 per `prod-w/gate-challenge-revalidation-semantics.md` Section 17.4 and MOD-W Moderator approval in `mod-w/reviews/MODERATOR-REVIEW-STEP-03.md`.
 
 ---
 
@@ -262,4 +264,5 @@ Observations are not blocking on STEP-03 completion unless the Moderator explici
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-10-02 | STEP-03 deliverable accepted | MOD-W Moderator approved the Development Team's STEP-03 work, approved the Tech Lead review, and waived Phase 3b QA and Phase 3c Product Owner sign-off before final acceptance. |
 | 2026-10-01 | Initial STEP-03 draft | Prepare gate, challenge, disagreement, and revalidation semantics work package after STEP-02 completion and carry-forward disposition. |

@@ -4,8 +4,8 @@ artifact:
   kind: observations
   version: 0.1
   created: 2026-09-30
-  updated: 2026-10-01
-  evidence_as_of: 2026-10-01
+  updated: 2026-10-02
+  evidence_as_of: 2026-10-02
 context:
   project: prod-w-dev
   status: research
@@ -1081,8 +1081,78 @@ Pending.
 
 ---
 
+## MW-OBS-015 - Third Specification Step Without a Plan or Build Gate: Document-Native Consistency Checks Found Real Defects, the Declaration Audit Pass Added Findings Beyond the Drafting Plan, and "Phase 3a" Names Two Different Reviews
+
+**Date:** 2026-10-02  
+**MOD-W area:** Development Team role (Phase 2a and 2b), MW-ADAPT-001, Tech Lead review (setup versus deliverable), Phase 3 sequencing  
+**Project stage:** STEP-03 implementation (third Development Team step)  
+**Observed by role:** Development Team  
+**Classification (Proposed):** `DOMAIN_COUPLED` for the blocking build gate (third recurrence of the accepted MW-OBS-008 and MW-OBS-012 finding); `TRANSFERS_WITH_REINTERPRETATION` for the mechanical pre-review check, which has a document-native instantiation; no new classification proposed for MW-ADAPT-001 or for the Phase 3a labeling, which are recorded as evidence only  
+**Status:** Accepted  
+**Significance:** Low to Medium  
+**Related:** MW-OBS-008, MW-OBS-010, MW-OBS-011, MW-OBS-012, MW-OBS-013, MW-ADAPT-001
+
+### MOD-W Mechanism or Assumption
+
+Phase 2a has the Development Team restate the Step and propose a plan for Moderator approval. Phase 2b has it run a blocking build gate. MW-OBS-008 and MW-OBS-012 recorded that, for specification deliverables, the build gate has no executable instantiation and the plan gate was bypassed by a directive to implement directly. MW-OBS-012 asked that STEP-03 be observed again, and for the first defect traceable to the missing gate. MW-ADAPT-001 requires a declaration of undecided architecture choices and, after the STEP-02 re-evaluation, independent sampling afterward. MOD-W numbers the Tech Lead's post-implementation review as Phase 3a (`mod-w/reviews/STEP-03-CARRY-FORWARD.md` Section F).
+
+### Observation
+
+**1. Plan and build gates, third occurrence.** The STEP-03 directive said "Proceed" with direct implementation. No restate-and-plan checkpoint was held for Moderator approval. The repository still has no build, test, or CI configuration. The deliverable is again a normative specification. This repeats MW-OBS-012 and extends it to a third step.
+
+**2. What substituted for the build gate, and what it found.** Before submission the Development Team ran document-native mechanical checks: (a) every rule, condition, judgment, declaration, and open-question identifier (`GCR-`, `GCO-`, `GCJ-`, `UAD3-`, `GC-OQ-`) was checked for being both defined and resolvable; (b) every section cross-reference was checked against the heading list; (c) a forbidden-term scan was run; (d) a re-read against the acceptance checks. Check (a) found no unresolved identifiers. Check (b) was run after renumbering, and the Development Team's manual verification of the pointers it listed found five references to the wrong subsection (for example, a pointer to the challenge-closure subsection that had moved). The re-read found one rule that contradicted another (a closure-authority rule against a tier table) and an inconsistency about whether a missing validation can be waived. All were corrected before submission. These are the defect classes a mechanical pre-review gate exists to catch, and the checks that caught them were not independent: the producer ran them.
+
+**3. The declaration audit pass versus the drafting plan.** The Development Team's drafting plan covered every question in `mod-w/step-03.md`. The end-of-draft audit pass against the declaration test added three items the plan had not treated as choices: non-retroactivity of authorizing acts, extension of challenge targets to determinations, and the "standing item" concept (which had been treated as notation). The Tech Lead's setup recommendations and the carry-forward list functioned as pre-declared constraints: several design choices (accepted set, correction confirmation, the split for bare contradictions, treatment of withdrawal) followed the recommendations directly and did not have to be re-derived. Whether anything else slipped past the audit cannot be established by the producer.
+
+**4. "Phase 3a" names two reviews.** `mod-w/step-03.md` requires "Phase 3a Tech Lead review, Phase 3b QA, and Phase 3c Product Owner sign-off" before final acceptance. The Moderator's setup record (`mod-w/reviews/MODERATOR-REVIEW-STEP-03-SETUP.md`) states "Phase 3a (Tech Lead) review is complete," and refers to the Tech Lead's review of the _work package_ (`mod-w/reviews/TECH-LEAD-REVIEW-STEP-03-SETUP.md`). In MOD-W's numbering, a review of the Step definition before briefing is point 1b, and 3a is the review of the implementation. The Development Team could not tell from the records whether a deliverable-level Tech Lead review, in addition to the MW-ADAPT-001 sampling, is still expected, and asked the Moderator in the deliverable (`prod-w/gate-challenge-revalidation-semantics.md` Section 2.3).
+
+### Evidence
+
+- STEP-03 directive of 2026-10-02 ("Proceed."); `mod-w/reviews/MODERATOR-REVIEW-STEP-03-SETUP.md`; `.claude/settings.json` and repository contents (no build or test configuration)
+- `prod-w/gate-challenge-revalidation-semantics.md`: Section 17 (traceability), Section 15.1 (what the audit pass added), Section 2.3 (review sequence status)
+- The Development Team's pre-submission checks and their results as described above
+- `mod-w/step-03.md` Governance Context and Acceptance Checks; `mod-w/reviews/STEP-03-CARRY-FORWARD.md` Section F; `research/mod-w-transferability/adaptations.md` (STEP-02 re-evaluation)
+
+### Effect on Work
+
+- The step proceeded without friction from the absence of a build gate, but the substituted mechanical checks found real, if minor, defects. That is weak evidence that a mechanical pre-review check has value for specification deliverables. It is not evidence that the executable build gate is needed.
+- Cross-reference drift after renumbering is a defect class specific to long, numbered prose specifications. It would not be visible to a reviewer reading a section at a time.
+- The pre-declared constraints reduced re-litigation and made the independence-first ordering natural to follow.
+- The ambiguity about Phase 3a cost a clarification request and leaves open whether an expected review has been counted as done.
+
+### Local Adaptation Required
+
+None proposed. Offered for Moderator consideration: (a) treat an identifier-and-cross-reference resolution check as the document-native instantiation of the Phase 2b pre-review check for specification steps, and name it as such, rather than leaving the gate "not instantiated"; (b) in Step files and Moderator records, distinguish "setup review" (point 1b) from "deliverable review" (3a), as MW-OBS-013 distinguished executable tests from document-native validation.
+
+### Interpretation
+
+This is recurrence evidence for the accepted `DOMAIN_COUPLED` build-gate finding and does not extend it. The new content is that the _function_ of the gate, a mechanical check before review, does have an instantiation in prose work, and that it caught defects. The finding is deliberately small: one step, one producer, self-run checks, and no independent comparison. It does not show that MW-ADAPT-001 is sufficient or insufficient, and it does not show how many choices the audit missed.
+
+**Conclusion (deliberately limited):** three steps, one deliverable type, one project. The plan-gate bypass is now a repeated, visible pattern. Whether it matters has not been tested, and no defect has been traced to it.
+
+### Follow-up
+
+- Moderator decides whether the plan-gate pattern now warrants a standing disposition rather than a per-step note.
+- Moderator decides whether the identifier-and-cross-reference check should be named as the Phase 2b analogue.
+- Moderator clarifies whether Phase 3a for STEP-03 includes a deliverable-level Tech Lead review in addition to MW-ADAPT-001 sampling.
+- Observe whether the independent Tech Lead or QA sampling finds unlisted authority, independence, evidence-standing, or revalidation choices. That is the test the producer cannot run.
+- The carry-forward-consolidation experiment named in `research/topics/agent-skills-and-protocol-relationship.md` was not run by this step. The carry-forward list was used here only as an input, and nothing in this observation tests it.
+
+### Moderator Disposition
+
+**Accepted** as STEP-03 transferability evidence, confirmed by Frank McGuire (MOD-W Moderator) 2026-10-02.
+
+Classification accepted as:
+
+- `DOMAIN_COUPLED` for the blocking build gate's executable form in this third specification step, continuing MW-OBS-008 and MW-OBS-012.
+- `TRANSFERS_WITH_REINTERPRETATION` for the document-native mechanical pre-review check, because identifier and cross-reference resolution performed part of the gate function for prose work.
+
+No standing local adaptation is authorized from this observation alone. The Phase 3a label ambiguity is resolved for STEP-03 by `mod-w/reviews/MODERATOR-REVIEW-STEP-03.md`: the setup review and deliverable review are distinct, and the Moderator approved the deliverable-level Tech Lead review before final acceptance.
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-014`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-016`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.
