@@ -3,7 +3,7 @@ artifact:
   type: domain-language
   version: 0.1
   created: 2026-09-30
-  updated: 2026-09-30
+  updated: 2026-10-01
   status: Accepted
 ---
 
@@ -49,11 +49,11 @@ Terms that describe future PROD-W roles or artifacts are product-domain definiti
 | Counter-evidence | Evidence that contradicts, weakens, or complicates a claim, hypothesis, or inference. | "Failed customer interest is counter-evidence." | Burying negative findings in notes. |
 | Assumption | Unverified proposition being relied on. | "Assumptions must remain visible." | Treating assumptions as facts. |
 | Hypothesis | Testable proposition that can be validated, weakened, or rejected by evidence. | "A hypothesis needs validation criteria." | Calling untestable beliefs hypotheses. |
-| Inference | Reasoned interpretation drawn from evidence. | "Evidence X suggests Y." | Presenting inference as observed fact. |
+| Inference | Reasoned interpretation derived from cited evidence, assumptions, or other inferences. | "Evidence X and assumption Y suggest Z." | Presenting inference as observed fact or evidence. |
 | Decision | Authorized commitment or selection among alternatives. | "Proceed to prototype is a decision." | Treating a recommendation as a decision. |
 | Consequential decision | Decision that commits resources, validates a major claim, changes product direction, or authorizes progression through a gate. | "Go/build/no-build is consequential." | Allowing silent or agent-only acceptance. |
 | Gate | Defined decision point requiring specified evidence, checks, challenge, or authority before progression. | "Commercial viability gate." | Generic milestone without governance meaning. |
-| Challenge | Attributable act of questioning, testing, disputing, or seeking counter-evidence for a claim, inference, or decision. | "The validator challenged the customer claim." | Informal disagreement with no record. |
+| Challenge | Attributable act of questioning, testing, disputing, or seeking counter-evidence against an item, relationship, or decision. | "The validator challenged the customer claim." | Informal disagreement with no record. |
 | Acceptance | Authorized determination that a defined artifact, evidence condition, or gate is sufficient for its stated scope. | "Gate acceptance is human-authorized where consequential." | Confusing acceptance with truth. |
 | Disagreement | Visible unresolved conflict among claims, interpretations, evidence, or role judgments. | "Disagreement remains routable." | Forcing artificial consensus. |
 | Provenance | Trace of source, author, time, evidence basis, review/challenge history, and acceptance history. | "Material claims retain provenance." | Anonymous or source-free assertion. |
@@ -66,9 +66,9 @@ Terms that describe future PROD-W roles or artifacts are product-domain definiti
 
 ---
 
-## Terms Proposed Under STEP-01 (Pending MOD-W Moderator Acceptance)
+## Terms Accepted from STEP-01
 
-These terms were introduced by the Development Team while producing `prod-w/protocol-semantics.md` under STEP-01. They are recorded here so terminology stays in one place, but they are **not yet accepted**. The Development Team cannot accept its own terminology proposals; the MOD-W Moderator decides whether to accept, modify, or return them, and whether to merge them into the accepted Terms table above.
+These terms were introduced by the Development Team while producing `prod-w/protocol-semantics.md` under STEP-01. They are accepted by MOD-W Moderator disposition recorded on 2026-10-01 in `mod-w/reviews/MODERATOR-REVIEW-STEP-02.md`. They remain in this provenance table rather than being merged into the main accepted table so their source step stays visible.
 
 | Term | Definition | Use | Avoid |
 | --- | --- | --- | --- |
@@ -87,9 +87,11 @@ These terms were introduced by the Development Team while producing `prod-w/prot
 
 ---
 
-## Terms Proposed Under STEP-02 (Pending MOD-W Moderator Acceptance)
+## Terms Accepted from STEP-02
 
-These terms were introduced by the Development Team while producing `prod-w/evidence-knowledge-model.md` under STEP-02. They are **not yet accepted**. The Development Team cannot accept its own terminology proposals; the MOD-W Moderator decides whether to accept, modify, or return them. Terms that STEP-02 uses from the STEP-01 pending set (for example advisory finding, producer, independence, producing configuration) inherit that set's pending status.
+These terms were introduced by the Development Team while producing `prod-w/evidence-knowledge-model.md` under STEP-02. They are accepted by MOD-W Moderator disposition recorded on 2026-10-01 in `mod-w/reviews/MODERATOR-REVIEW-STEP-02.md`. They remain in this provenance table rather than being merged into the main accepted table so their source step stays visible.
+
+Several STEP-02 terms are load-bearing for STEP-03, especially Validation, Invalidation, Material dependency, Correction, Supersession, Withdrawal, Revalidation trigger, Revalidation requirement, and Exposure. They are accepted as the STEP-02 vocabulary baseline; STEP-03 may revise them through a later accepted change if gate, challenge, disagreement, or revalidation semantics require it.
 
 | Term | Definition | Use | Avoid |
 | --- | --- | --- | --- |

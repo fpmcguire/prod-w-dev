@@ -123,3 +123,93 @@ Completion of STEP-02 (Phase 4a) is re-recorded as of 2026-10-01, on the basis o
 The "Accepted Artifacts" list above is ambiguous about the pending terms and proposed observations. Until the Moderator disposes of D-02 and D-03, their own status text governs.
 
 **Not done by this addendum:** no `step-02-complete` Git tag created (MOD-W 4a requires an annotated tag); `mod-w/roadmap.md` STEP-02 row unchanged.
+
+---
+
+## Addendum 2026-10-01: Remaining STEP-02 Defect and Advisory Dispositions
+
+Recorded by Codex at the MOD-W Moderator's direction (Frank McGuire) after the Tech Lead follow-up review in `mod-w/reviews/TECH-LEAD-REVIEW-STEP-02-FOLLOWUP.md` (commit `8e200b1`). This addendum disposes the STEP-02 record items left open by the Gate Ratification and Completion Re-record addendum. It does not reopen `prod-w/evidence-knowledge-model.md` or write `step-03.md`.
+
+### Basis
+
+- `mod-w/reviews/qa.md` D-02 to D-08.
+- `mod-w/reviews/PRODUCT-OWNER-SIGNOFF-STEP-02.md` advisories A-1 to A-9.
+- `mod-w/reviews/TECH-LEAD-REVIEW-STEP-02-FOLLOWUP.md`.
+- `mod-w/reviews/STEP-03-CARRY-FORWARD.md`.
+
+### QA D-02 and D-06 - Domain terms
+
+**Disposition:** Resolved by Moderator-authorized correction to `mod-w/domain-language.md`.
+
+The MOD-W Moderator accepts the STEP-01 and STEP-02 proposed terms as accepted glossary terms while preserving their source-step provenance tables. The Moderator also accepts the Tech Lead recommendation to revise the accepted terms **Challenge** and **Inference** so they match the accepted STEP-02 model:
+
+- **Challenge** may target an item, relationship, or decision, not only a claim, inference, or decision.
+- **Inference** may be derived from cited evidence, assumptions, or other inferences; it must not be presented as evidence or observed fact.
+
+The load-bearing STEP-02 terms Validation, Invalidation, Material dependency, Correction, Supersession, Withdrawal, Revalidation trigger, Revalidation requirement, and Exposure are accepted as the STEP-02 vocabulary baseline. STEP-03 may revise them through a later accepted change if gate, challenge, disagreement, or revalidation semantics require it.
+
+### QA D-03 - Transferability observations
+
+**Disposition:** Resolved by Moderator-authorized dispositions in `research/mod-w-transferability/observations.md`.
+
+MW-OBS-011, MW-OBS-012, and MW-OBS-013 are accepted with Moderator dispositions appended. Their original bodies are not rewritten, even where later records supersede stale statements. The disposition text governs current status.
+
+### QA D-04 - MW-ADAPT-001 re-evaluation
+
+**Disposition:** Resolved by Moderator-authorized update to `research/mod-w-transferability/adaptations.md`.
+
+The re-evaluation answer is:
+
+1. **Did the declaration section produce findings?** Yes. STEP-02 Section 12 produced 16 declared choices, including architecture-adjacent UAD-04 to UAD-07.
+2. **Did architecture-level or authority/revalidation-level content still slip past it?** Yes, partially. QA D-05 and the Tech Lead follow-up show that D-05a to D-05d met the declaration test but were not listed in Section 12. EK-OQ-17 also shows an architecture-adjacent self-approval risk around correction designation.
+
+MW-ADAPT-001 remains active for STEP-03. It is strengthened by expectation: after the Development Team declaration, Tech Lead or QA should sample for unlisted choices in authority, independence, evidence standing, and revalidation before acceptance.
+
+### QA D-05 - Undeclared authority and revalidation choices
+
+**Disposition:** Resolved for STEP-02 by Tech Lead confirmation and Moderator ratification; carried to STEP-03 where specified.
+
+The Moderator ratifies the Tech Lead follow-up dispositions:
+
+| Ref | Moderator disposition |
+| --- | --- |
+| D-05a | Confirm as operationalization. AUTH-A may attach counter-evidence without gaining supporting-evidence, validation, challenge-closing, or gate authority. |
+| D-05b | Confirm with STEP-03 change. Own-item withdrawal/supersession and authority over another actor's item must be separated in STEP-03, including the visibility rules for withdrawal of own counter-evidence. |
+| D-05c | Confirm as operationalization. Human, independent closure is required where the dependent is a consequential decision or is cited by one. EK-OQ-16 remains for other non-decision dependents. |
+| D-05d | Confirm as operationalization. EKR-18 is a valid affirmative evidence-conduct duty, with the model's stated detection limits. |
+
+No accepted STEP-02 model text is changed by this disposition. STEP-03 must use these dispositions as inputs.
+
+### QA D-07 - Stale delivery statement
+
+**Disposition:** Resolved by this Moderator record; no edit to the accepted model.
+
+The statement in `prod-w/evidence-knowledge-model.md` Section 15 that no accepted Roadmap or STEP-02 definition was modified is treated as a Development Team delivery statement about the STEP-02 product delivery, not as a complete account of later Moderator-owned status corrections. The later edits to `mod-w/roadmap.md` and `mod-w/step-02.md` were Moderator-authorized governance/status updates connected to STEP-02 acceptance. This addendum records that authorization explicitly so the discrepancy is not silent.
+
+### QA D-08 - Challenge and bare contradicting claims
+
+**Disposition:** Resolved for STEP-02 by routing and recommendation; must be decided in STEP-03.
+
+The Moderator accepts the Tech Lead recommendation that STEP-03 widen EK-OQ-04 to cover both challenges and bare contradicting claims/inferences. STEP-03 must state whether each produces exposure, a revalidation requirement, or no dependent effect, and why bare contradicting claims/inferences are or are not treated differently from challenges and source-identified counter-evidence.
+
+### Product Owner advisories A-1 to A-9
+
+**Disposition:** Accepted as carry-forward guidance or resolved as record items below.
+
+| Advisory | Disposition |
+| --- | --- |
+| A-1 | Accepted. EK-OQ-05 is first-priority STEP-03 entry work. |
+| A-2 | Accepted. D-08/EK-OQ-04 must be widened as above. |
+| A-3 | Accepted as STEP-03/STEP-04 consideration: identify assumption-rooted support where useful. |
+| A-4 | Accepted as pilot/proof-of-concept observation target. |
+| A-5 | Accepted as burden-check guidance for STEP-03/pilot work. |
+| A-6 | Accepted as STEP-05 constraint: EKR-09, EKR-33, and EKR-40 do not select a ledger or central state model. |
+| A-7 | Resolved by D-02/D-06 disposition above. |
+| A-8 | Resolved by D-05 disposition above. |
+| A-9 | Resolved by D-03, D-04, and D-07 dispositions above. |
+
+### Completion effect
+
+With this addendum, QA D-02 through D-08 and Product Owner advisories A-1 through A-9 are disposed for STEP-02. Open questions and advisory items routed to STEP-03 or later remain open in their target step; they no longer block STEP-02 completion.
+
+The remaining STEP-02 completion action is the annotated Git tag `step-02-complete`.

@@ -830,7 +830,11 @@ Evidence both ways is preserved. For the adaptation working: the list exists and
 
 ### Moderator Disposition
 
-Pending Moderator review.
+**Accepted** as `REQUIRES_LOCAL_ADAPTATION`, Significance Medium, confirmed by Frank McGuire (MOD-W Moderator) 2026-10-01.
+
+STEP-02 confirmed both halves of the observation. MW-ADAPT-001 was operable and produced findings: `prod-w/evidence-knowledge-model.md` Section 12 listed 16 UAD choices. The later QA D-05 and Tech Lead follow-up review (`mod-w/reviews/TECH-LEAD-REVIEW-STEP-02-FOLLOWUP.md`) also confirmed the limitation: the producer's declaration missed choices touching authority, evidence conduct, and revalidation.
+
+Current disposition for the adaptation is recorded in `research/mod-w-transferability/adaptations.md`: MW-ADAPT-001 remains active, but STEP-03 should add independent sampling by Tech Lead or QA for unlisted choices in authority, independence, evidence standing, and revalidation.
 
 ---
 
@@ -891,7 +895,11 @@ This is evidence that the STEP-01 finding was not a one-time artifact: a second 
 
 ### Moderator Disposition
 
-Pending Moderator review.
+**Accepted** as recurrence evidence for MW-OBS-008's `DOMAIN_COUPLED` build-gate finding, Significance Low to Medium, confirmed by Frank McGuire (MOD-W Moderator) 2026-10-01.
+
+The observation body is preserved as originally written. Later STEP-02 records supersede one factual statement in the body: Phase 3a, 3b, and 3c were eventually recorded for STEP-02, but 3b and 3c were ratified after initial acceptance and recorded as a sequence deviation in `mod-w/reviews/MODERATOR-REVIEW-STEP-02.md` Addendum 2026-10-01.
+
+The accepted interpretation is limited: the blocking build gate again had no executable instantiation for a specification deliverable. The plan-gate deviation and late review-gate ratification are recorded process signals to watch in STEP-03, not a new local adaptation by themselves.
 
 ---
 
@@ -960,7 +968,14 @@ This is small but concrete evidence that MOD-W's verification concept transfers 
 
 ### Moderator Disposition
 
-Pending Moderator review.
+**Accepted** as mixed transferability evidence, confirmed by Frank McGuire (MOD-W Moderator) 2026-10-01.
+
+Classification accepted as:
+
+- `TRANSFERS_WITH_REINTERPRETATION` for verification reporting: document-native review, QA, traceability, and Moderator disposition perform the validation function in a document-only project.
+- `DOMAIN_COUPLED` for unqualified executable-test wording when used without naming the document-native validation that did occur.
+
+No local adaptation is authorized from this observation alone. Future close-outs in `prod-w-dev` should distinguish executable/build tests from document-native validation.
 
 ---
 

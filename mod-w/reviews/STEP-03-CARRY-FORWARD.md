@@ -9,7 +9,7 @@ artifact:
 
 # STEP-03 Carry-Forward List
 
-**Purpose:** Gather, in one place, everything STEP-02 left open that STEP-03 (and later steps) must inherit, so the Tech Lead writing `step-03.md` does not have to find them across `qa.md`, the Product Owner sign-off, the Moderator addenda, and the model.
+**Purpose:** Gather, in one place, everything STEP-02 left open or routed forward that STEP-03 (and later steps) must inherit, so the Tech Lead writing `step-03.md` does not have to find it across `qa.md`, the Product Owner sign-off, the Moderator addenda, the Tech Lead follow-up, and the model.
 
 **This file is a pointer list.** The sources govern. If this list disagrees with a source, the source is right and this file should be corrected. Nothing here disposes of any item. "Owner" means who would act next, not who has decided.
 
@@ -50,10 +50,10 @@ Source: `prod-w/evidence-knowledge-model.md` Section 13.1 unless noted.
 
 | Ref | Item | Source | Owner (next action) |
 | --- | --- | --- | --- |
-| QA D-05a to D-05d | Four authority- and revalidation-touching choices not listed in the model's Section 12 | `mod-w/reviews/qa.md`; Product Owner sign-off Section 2.3 | Tech Lead review requested: `mod-w/reviews/TECH-LEAD-BRIEF-STEP-02-FOLLOWUP.md` |
-| QA D-08 | Ambiguity between EKR-39 ("challenge takes visible effect immediately") and Section 10.5 ("challenge alone is not a trigger"); a bare contradicting claim triggers revalidation by itself | `qa.md`; Product Owner A-2 | Tech Lead recommendation; Moderator ruling; resolve in STEP-03 |
-| QA D-06 | Accepted terms "Challenge" and "Inference" disagree with the model's use | `qa.md`; Product Owner A-7 | Moderator, with Tech Lead recommendation |
-| QA D-02 | 16 pending STEP-02 terms in `mod-w/domain-language.md` have no per-term disposition | `qa.md`; Product Owner A-7 | Moderator |
+| QA D-05a to D-05d | Four authority- and revalidation-touching choices not listed in the model's Section 12 | `qa.md`; `TECH-LEAD-REVIEW-STEP-02-FOLLOWUP.md`; Moderator review final addendum | Confirmed for STEP-02; D-05b details feed STEP-03 |
+| QA D-08 | Ambiguity between EKR-39 ("challenge takes visible effect immediately") and Section 10.5 ("challenge alone is not a trigger"); a bare contradicting claim triggers revalidation by itself | `qa.md`; Product Owner A-2; Tech Lead follow-up; Moderator review final addendum | Resolve in STEP-03 by widening EK-OQ-04 |
+| QA D-06 | Accepted terms "Challenge" and "Inference" disagreed with the model's use | `qa.md`; Product Owner A-7; Tech Lead follow-up; `mod-w/domain-language.md` | Resolved for STEP-02 by glossary correction; STEP-03 may revise later |
+| QA D-02 | STEP-01 and STEP-02 proposed terms needed disposition | `qa.md`; Product Owner A-7; Moderator review final addendum; `mod-w/domain-language.md` | Resolved for STEP-02; load-bearing terms remain STEP-03-sensitive |
 
 ## D. Product Owner advisory items (3c)
 
@@ -67,9 +67,9 @@ Source: `mod-w/reviews/PRODUCT-OWNER-SIGNOFF-STEP-02.md` Section 3.2. All adviso
 | A-4 | Observe in the proof of concept whether product assumption A-5 (background knowledge distinct from material claims) collides with EKR-22 (every relied-on unverified proposition is recorded); record as pilot evidence | Pilot |
 | A-5 | Plan a burden check (E-2, Acceptance Criterion 3) on the all-dependents revalidation scope and presumed materiality; treat friction as evidence for narrowing, not for dropping intent | STEP-03 / pilot |
 | A-6 | In STEP-05, do not treat EKR-09, EKR-33 or EKR-40 as selecting a ledger or central state model (NG-1, NG-4, Appendix A) | STEP-05 |
-| A-7 | When disposing of pending terms, reconcile "Inference" and "Challenge"; treat Validation, Invalidation, Material dependency and Revalidation requirement as load-bearing | Moderator |
-| A-8 | Confirm EKR-18 and the Section 10.5 withdraw/supersede/invalidate split as declared choices | Tech Lead or Moderator (QA D-05b, D-05d) |
-| A-9 | Record items D-03, D-04, D-07 (stale observation text, missing MW-ADAPT-001 re-evaluation, stale delivery statement) | Moderator |
+| A-7 | When disposing of pending terms, reconcile "Inference" and "Challenge"; treat Validation, Invalidation, Material dependency and Revalidation requirement as load-bearing | Resolved for STEP-02 by glossary correction; STEP-03 may revise later |
+| A-8 | Confirm EKR-18 and the Section 10.5 withdraw/supersede/invalidate split as declared choices | Resolved for STEP-02 by Tech Lead follow-up and Moderator final addendum |
+| A-9 | Record items D-03, D-04, D-07 (stale observation text, missing MW-ADAPT-001 re-evaluation, stale delivery statement) | Resolved by Moderator final addendum and register updates |
 
 ## E. Model passages near gate mechanics that STEP-03 should revisit
 
@@ -85,11 +85,11 @@ Flagged in `mod-w/reviews/qa.md` Notes. Not defects.
 
 | Item | Source | Note |
 | --- | --- | --- |
-| MW-ADAPT-001 re-evaluation not recorded | `qa.md` D-04; `adaptations.md` | Decides whether the Undecided Architecture Declaration is required of STEP-03 as is, or changed |
-| Plan gate (2a) and build gate (2b) not instantiated for specification work | MW-OBS-012 (proposed, no disposition); MW-OBS-008 (accepted) | Observe again at STEP-03 |
-| MW-OBS-011 and MW-OBS-012 have no Moderator disposition and carry stale text | `qa.md` D-03 | Moderator |
+| MW-ADAPT-001 re-evaluation recorded | `qa.md` D-04; `adaptations.md`; Tech Lead follow-up; Moderator review final addendum | Declaration remains required for STEP-03; add independent sampling for unlisted choices |
+| Plan gate (2a) and build gate (2b) not instantiated for specification work | MW-OBS-012 (accepted); MW-OBS-008 (accepted) | Observe again at STEP-03 |
+| MW-OBS-011, MW-OBS-012, and MW-OBS-013 dispositions recorded | `observations.md`; Moderator review final addendum | Bodies preserve historical text; dispositions govern current status |
 | 3b/3c ran after acceptance (sequence deviation) | Moderator review, Addendum 2026-10-01 | Hold 3a/3b/3c before acceptance at STEP-03, or record any waiver beforehand |
-| `step-02-complete` tag not created | MOD-W 4a | Moderator |
+| `step-02-complete` tag | MOD-W 4a | Create after final STEP-02 closure commit |
 
 ## G. STEP-01 questions still open
 

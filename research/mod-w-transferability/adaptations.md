@@ -4,8 +4,8 @@ artifact:
   kind: adaptations
   version: 0.1
   created: 2026-09-30
-  updated: 2026-09-30
-  evidence_as_of: 2026-09-30
+  updated: 2026-10-01
+  evidence_as_of: 2026-10-01
 context:
   project: prod-w-dev
   status: research
@@ -73,6 +73,16 @@ Complements, does not replace, any adaptation later authorized for MW-OBS-008 (O
 ### Re-evaluation Condition
 
 Re-evaluate at the STEP-02 gate: did the declaration section produce any findings, and did any architecture-level content still slip past it?
+
+### STEP-02 Re-evaluation - 2026-10-01
+
+**Disposition:** Re-evaluated; remains Active with strengthened review expectation.
+
+**Did the declaration section produce findings?** Yes. `prod-w/evidence-knowledge-model.md` Section 12 produced 16 declared choices, including architecture-adjacent UAD-04 to UAD-07. The Tech Lead review confirmed the declared UADs as valid STEP-02 operationalization after revision.
+
+**Did any architecture-level or authority/revalidation-level content still slip past it?** Yes, partially. QA D-05 identified four choices that met the Section 12.1 declaration test but were not listed in Section 12. The Tech Lead follow-up review confirmed D-05a, D-05c, and D-05d as operationalization and confirmed D-05b with a STEP-03 change. The Product Owner's R-1, recorded as EK-OQ-17, also shows an architecture-adjacent self-approval risk around correction designation.
+
+**Effect on adaptation:** MW-ADAPT-001 remains useful because it produced findings. It is not sufficient by self-audit alone. For STEP-03, after the Development Team declaration, Tech Lead or QA should sample for unlisted choices in authority, independence, evidence standing, and revalidation before acceptance.
 
 ### Moderator Rationale
 
