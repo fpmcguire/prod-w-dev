@@ -4,8 +4,8 @@ artifact:
   kind: observations
   version: 0.1
   created: 2026-09-30
-  updated: 2026-09-30
-  evidence_as_of: 2026-09-30
+  updated: 2026-10-01
+  evidence_as_of: 2026-10-01
 context:
   project: prod-w-dev
   status: research
@@ -895,8 +895,77 @@ Pending Moderator review.
 
 ---
 
+## MW-OBS-013 - "Tests Not Run" Close-out Language Exposes Software-Centric Verification Defaults
+
+**Date:** 2026-10-01  
+**MOD-W area:** Tech Lead review, QA/testing terminology, verification reporting  
+**Project stage:** STEP-02 follow-up review  
+**Observed by role:** Tech Lead (self-observation after Moderator correction)  
+**Classification (Proposed):** `TRANSFERS_WITH_REINTERPRETATION` for verification reporting; `DOMAIN_COUPLED` for executable-test wording when used without qualification  
+**Status:** Proposed for Moderator review  
+**Significance:** Low to Medium  
+**Related:** MW-OBS-003, MW-OBS-008, MW-OBS-012
+
+### MOD-W Mechanism or Assumption
+
+MOD-W's software-project defaults treat "tests" as executable verification: unit tests, build checks, CI, lint, or runtime validation. In `prod-w-dev`, the product is document-only and the verification artifacts are review records, QA reports, traceability checks, term comparisons, and Moderator dispositions.
+
+The implicit software assumption is that a delivery close-out should report whether "tests were run." In a document-governed methodology project, that phrase is ambiguous: it may refer to executable tests that do not exist, or it may appear to discount document-native validation that did occur.
+
+### Observation
+
+After producing `mod-w/reviews/TECH-LEAD-REVIEW-STEP-02-FOLLOWUP.md`, the Tech Lead close-out said: "No tests were run since this was a documentation-only review file."
+
+The Moderator corrected the framing: because `prod-w-dev` is a document-only project, similar to MOD-W but not for coding projects, flagging that "tests have not been run" is itself an observation to record. The correction distinguishes executable code tests from document-native validation and review.
+
+This shows that even when the working role understands the project as document-only, its default completion language can still import software-project verification expectations. The issue is not that review was absent: the follow-up relied on `qa.md`, Product Owner sign-off, Moderator review addenda, the model, protocol semantics, domain language, and transferability records. The issue is that the word "tests" was used without saying "executable tests" or naming the document validation that did happen.
+
+### Evidence
+
+- `mod-w/reviews/TECH-LEAD-REVIEW-STEP-02-FOLLOWUP.md` was produced as a Markdown review artifact, not executable code.
+- The Tech Lead close-out for that work stated that no tests were run because the file was documentation-only.
+- The Moderator correction on 2026-10-01 stated that, in this document-only project, flagging tests as not run is an observation to record.
+- `mod-w/reviews/qa.md` shows that document-native QA did run for STEP-02, including full reading of cited artifacts, git-history checks, forbidden-term scan, and comparison of accepted terms with model usage.
+- MW-OBS-008 and MW-OBS-012 already record that executable build/test gates have no instantiation for specification deliverables.
+
+### Effect on Work
+
+- The close-out could be read as saying verification was absent, even though document-native review and QA artifacts were central inputs.
+- The project now has additional evidence that MOD-W's testing vocabulary needs explicit reinterpretation in methodology/protocol work.
+- The distinction matters for future reviews: "no executable tests were run" is not equivalent to "no validation occurred."
+
+### Local Adaptation Required
+
+None authorized here. Offered for Moderator consideration: review and delivery close-outs in `prod-w-dev` should distinguish:
+
+1. executable/build tests;
+2. document-native QA or review checks;
+3. artifact rendering or formatting checks, where applicable;
+4. checks not run because no corresponding gate exists.
+
+This could be handled as a wording convention rather than a new workflow gate.
+
+### Interpretation
+
+This is small but concrete evidence that MOD-W's verification concept transfers better than its software-test vocabulary. The validation function still exists: review artifacts, QA reports, traceability tables, and Moderator dispositions perform it. The unqualified term "tests," however, remains domain-coupled enough to mislead when the deliverable is prose.
+
+**Conclusion (deliberately limited):** one close-out, one review artifact, one correction. This does not show that QA itself failed to transfer. It shows that verification reporting needs more precise language in document-only projects.
+
+### Follow-up
+
+- Use "executable tests" when referring to code/build/CI checks.
+- Name document-native validation explicitly when it is performed.
+- Observe STEP-03 close-outs for whether the distinction is maintained without prompting.
+- Consider whether `mod-w/templates/REVIEW.md` or role prompts should include the distinction if the pattern recurs.
+
+### Moderator Disposition
+
+Pending Moderator review.
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-008`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-014`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.
