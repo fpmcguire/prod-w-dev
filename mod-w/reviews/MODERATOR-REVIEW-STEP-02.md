@@ -86,7 +86,7 @@ Recorded by QA at the MOD-W Moderator's direction, following `mod-w/reviews/PROD
 
 ## Addendum 2026-10-01: Gate Ratification and Completion Re-record
 
-Recorded by QA at the MOD-W Moderator's direction (Frank McGuire). The Moderator chose to ratify 3b and 3c and then re-record completion. QA drafted this wording; it takes effect as the Moderator's act only when the Moderator confirms it.
+Recorded by QA at the MOD-W Moderator's direction (Frank McGuire). The Moderator chose to ratify 3b and 3c and then re-record completion. QA drafted this wording. The Moderator confirmed the wording, and the three points below, on 2026-10-01 (commit `7cad830`): (1) the wording of this addendum; (2) QA D-02 to D-08 and Product Owner advisory items A-1 to A-9 remain open and undisposed; (3) no `step-02-complete` tag was created and the STEP-02 roadmap row is unchanged.
 
 ### What each acceptance is
 
