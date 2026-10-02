@@ -2,15 +2,20 @@
 artifact:
   type: rule-judgment-boundary
   id: PROD-W-RJB
-  version: 0.1
+  version: 0.2
   created: 2026-10-02
   updated: 2026-10-02
-  status: Draft - submitted for review; not accepted
+  status: Draft - narrow revision after QA return; not accepted
   produced_by: Development Team
   produced_under: STEP-04
 source:
   step: mod-w/step-04.md
   setup_review: mod-w/reviews/MODERATOR-REVIEW-STEP-04-SETUP.md
+  revision_basis:
+    - mod-w/reviews/MODERATOR-REVIEW-STEP-04-REVISION-BRIEF.md
+    - mod-w/reviews/TECH-LEAD-STEP-04-REVISION-BRIEF.md
+    - mod-w/reviews/MODERATOR-REVIEW-STEP-04-QA.md
+    - mod-w/reviews/QA-REVIEW-STEP-04.md
   architecture: mod-w/architecture.md
   domain_language: mod-w/domain-language.md
   product_definition: mod-w/product.md
@@ -27,7 +32,7 @@ context:
 **Product:** PROD-W - Moderated AI-Assisted Product Development Workflow
 **Artifact:** Representation-neutral boundary between objectively checkable protocol conditions and contextual human judgments; candidate rule catalog; human judgment catalog; semantic violation handling
 **Produced under:** STEP-04
-**Status:** Draft submitted by the Development Team. Not accepted. Acceptance is the MOD-W Moderator's decision after the reviews in Section 2.3.
+**Status:** Draft (v0.2), revised narrowly by the Development Team after the QA return of v0.1. Not accepted. Acceptance is the MOD-W Moderator's decision after the reviews in Section 2.3.
 
 ---
 
@@ -89,12 +94,12 @@ The open questions this step owns, and where each is resolved. The sections give
 | Question | Resolution in one line | Section |
 | --- | --- | --- |
 | **GC-OQ-01 / EK-OQ-14 / PS-OQ-10** Which conditions become catalog rules; how violations are handled | All 61 source conditions classified: 48 catalogued rules, 12 recorded-judgment checks, 1 deferred to representation (GCO-22), none out of catalog. 64 candidate entries. Seven semantic handling categories on two layers: protocol consequence is fixed by accepted semantics, handling is what detection must or may do. | 6, 9, 13.1, 13.7 |
-| **GC-OQ-02 / PS-OQ-05** Authority grants | Granting is an act. Conferral needs a human holding AUTH-G whose conferral scope covers what is conferred; every non-root grant chains to a root recorded at project establishment. **Self-conferral is invalid.** Grants take effect when recorded and are never retroactive. Conferral by a conflicted producer is flagged and escalation-eligible, not invalid. Conferral practice and grant representation are routed. | 10.2, 13.2 |
-| **GC-OQ-03 / PS-OQ-08 / PS-OQ-02** AI-held AUTH-V; verifier independence | A non-human actor may hold AUTH-V. Its verification satisfies a gate-required check only for criteria decidable from the record, with its examined inputs recorded. Verifier independence is non-membership in the producers of every verified item, by identity. No set of verifications is acceptance. | 10.3, 13.3 |
+| **GC-OQ-02 / PS-OQ-05** Authority grants | Granting is an act. Conferral needs a human holding AUTH-G whose conferral scope covers what is conferred. A project has exactly one establishing act, which precedes every other recorded act; root grants are only the grants it records, and every other grant chains acyclically to one. **Self-conferral is invalid** for every later grant; the establishing identity is a root grantee only in the establishing act itself. Grants take effect when recorded and are never retroactive. Revocation or narrowing cascades prospectively to grants downstream of it, without reaching acts already performed under an effective chain. Conferral by a conflicted producer, at any link of the chain, and revocation of a challenger's standing are flagged and escalation-eligible, not invalid. Conferral practice and grant representation are routed. Read with PR-04 and GCR-08 as a reading tension that is Moderator-visible (Section 3.3). | 3.3, 10.2, 13.2 |
+| **GC-OQ-03 / PS-OQ-08 / PS-OQ-02** AI-held AUTH-V; verifier independence | A non-human actor may hold AUTH-V. Its verification satisfies a gate-required check only for criteria decidable from the record, with its examined inputs recorded. The same decidability bound governs a non-human finding that an acceptance is invalid. Verifier independence is non-membership in the producers of every verified item, by identity. No set of verifications is acceptance. | 10.3, 13.3 |
 | **GC-OQ-09** Protocol-effective authorization terms | **Not adopted.** A lapse date would be time ending an authorization, which GCR-42 and GCR-67 exclude. Review events stay non-effective. Retained as a pilot question and as a possible Moderator-visible change. | 12.8, 13.4 |
 | **GC-OQ-11** Assumption-rooted identification; never-a-correction tripwires | **Both become candidate catalog rules.** Assumption-rooted identification is a flagging rule that gains validity force only through CRC-19. Never-a-correction tripwires make the correction _designation_ ineffective and leave the change as a supersession. | 12.7, 13.5 |
 | **EK-OQ-09 / PS-OQ-13** Configuration and lineage granularity; invalidate or weaken | Configuration is recorded at facet level (model, reasoning effort, harness, tooling, instructions), with "not determinable" a permitted visible statement. Lineage is recorded at immediate-derivation and source-comparability level. Insufficient configuration provenance is **flagged and left to judgment, not invalidating**, unless a gate definition requires more. Missing class-defining provenance is a different matter: the item is not evidence. | 11, 13.6 |
-| **PS-OQ-10** Handling of detected invalid actions | Invalid actions never produce effect, whether or not detected. Blocking prevents effect, never record. Detection is a formal-check result, advisory unless the producing actor holds the grant. | 9, 13.8 |
+| **PS-OQ-10** Handling of detected invalid actions | Invalid actions never produce effect, whether or not detected. Blocking may prevent reliance on an act, never the record of it. Detection is a formal-check result, advisory unless the producing actor holds the grant. A finding that an acceptance is invalid must name the rule or rules violated, the evaluation point, and the record elements examined; a bare assertion is not that finding. | 9, 13.8 |
 
 ### 1.6 Reading conventions and identifiers
 
@@ -124,14 +129,14 @@ STEP-04 follows the active local adaptation **MW-ADAPT-001** (`research/mod-w-tr
 | 1b Setup review | Tech Lead packaging, Moderator approval | Complete: `mod-w/reviews/MODERATOR-REVIEW-STEP-04-SETUP.md`. This approved the work package, not this artifact. |
 | 2a Plan approval | Development Team may proceed directly from the work package unless the Moderator requests a separate checkpoint | Not held as a separate checkpoint. The work package and setup review authorize direct implementation. |
 | 2b Development Team work product | Development Team drafts the artifact | This artifact. |
-| 3a Tech Lead review | Expected before final acceptance; includes MW-ADAPT-001 sampling unless QA is assigned it | **Pending.** |
-| 3b QA | Expected before final acceptance unless the Moderator waives it beforehand. Samples classifications, traceability, forbidden representation choices | **Pending.** |
-| 3c Product Owner sign-off | Expected before final acceptance unless waived beforehand | **Pending.** |
+| 3a Tech Lead review | Expected before final acceptance; includes MW-ADAPT-001 sampling unless QA is assigned it | The v0.1 review stands as a record of v0.1. Targeted Tech Lead re-review of this revision is **pending**. |
+| 3b QA | Expected before final acceptance unless the Moderator waives it beforehand. Samples classifications, traceability, forbidden representation choices | The v0.1 QA review is approved as a review record and returned the artifact for narrow revision. Targeted QA re-sample of this revision is **pending**. |
+| 3c Product Owner sign-off | Expected before final acceptance unless waived beforehand | **Held.** Pending this revised artifact. No waiver recorded. |
 | 4a Moderator acceptance | Only after required reviews or recorded waivers | **Pending.** The Development Team records no acceptance. |
 
 ### 2.4 Production note
 
-Produced by the Development Team using Claude Code (model `claude-sonnet-5-5`). Before submission the Development Team ran document-native consistency checks (identifier and cross-reference resolution, a forbidden-term scan, and a re-read against the acceptance checks); Section 17 records what they found. The checks were run by the producer. That is self-review: it produced revisions and the Section 14 audit pass, and it confers no independence and no verification for gate purposes (PR-27, PR-28).
+Produced by the Development Team using Claude Code (model `claude-sonnet-5-5`). Before submission the Development Team ran document-native consistency checks (identifier and cross-reference resolution, a forbidden-term scan, and a re-read against the acceptance checks); Section 17 records what they found. The checks were run by the producer. That is self-review: it produced revisions and the Section 14 audit pass, and it confers no independence and no verification for gate purposes (PR-27, PR-28). The v0.2 revision (Section 17.5) was produced by the same Development Team under the approved Tech Lead revision brief and its self-checks carry the same standing.
 
 ---
 
@@ -165,16 +170,19 @@ Where this artifact says an act needs authority, independence, or human authoriz
 
 ### 3.3 Readings the catalog applies together
 
-STEP-02 and STEP-03 are accepted and are not edited. STEP-03 Section 3.4 states a reading hazard: a reader who opens one artifact alone can reach a different answer from the unedited text. A rule catalog cannot avoid the hazard because it must apply all three artifacts to every condition. The tensions below were found while building the catalog. **None is a direct conflict requiring Moderator-visible routing.** Each is a reading, declared so that Tech Lead or QA can confirm or reject it. If any had been a direct conflict, it would have been routed to the Moderator and not resolved here (`mod-w/step-04.md`, Out of Scope).
+STEP-02 and STEP-03 are accepted and are not edited. STEP-03 Section 3.4 states a reading hazard: a reader who opens one artifact alone can reach a different answer from the unedited text. A rule catalog cannot avoid the hazard because it must apply all three artifacts to every condition. The tensions below were found while building the catalog. **None is a direct conflict.** Each is a reading, declared so that Tech Lead or QA can confirm or reject it. One of them, the last row (PR-04 and GCR-08 against conferral), is also made **Moderator-visible** because the accepted upstream text did not name conferral scope. If any had been a direct conflict, it would have been routed to the Moderator and not resolved here (`mod-w/step-04.md`, Out of Scope).
 
 | Tension | Where it appears | Reading applied | Declared |
 | --- | --- | --- | --- |
 | A contradicting claim or inference "creates a requirement by itself" | STEP-02 TRG-2, EKR-37, EKO-19; STEP-03 GCO-28 says "a trigger event of any kind" | STEP-03 Section 3.3 narrows TRG-2: a bare contradicting claim or inference produces contestation and exposure; source-identified counter-evidence produces a requirement. CRC-29 and CRC-51 follow STEP-03. | UAD4-08 |
-| EKO-15 lists "a conditional-progression authorization by an identified human exists" for any reliance on an unvalidated hypothesis | STEP-02 EKO-15; STEP-03 Section 9.2 reads "progression" as progression through a gate or consequential commitment | Ordinary work records reliance under assumption and needs no authorization; consequential reliance needs one (CRC-47, CRC-19). | UAD4-08 |
+| EKO-15 lists "a conditional-progression authorization by an identified human exists" for any reliance on an unvalidated hypothesis | STEP-02 EKO-15; STEP-03 Section 9.2 reads "progression" as progression through a gate or consequential commitment | Ordinary work records reliance under assumption and needs no authorization; consequential reliance needs one (CRC-47, CRC-19). CRC-19 invalidates an acceptance that relies under assumption without it. For a consequential commitment that is not an acceptance, this step records the accepted STEP-03 reading and adds no rule (RJ-OQ-12). | UAD4-08 |
 | Evidence "is expected to carry" the listed elements, and every evidence item "records" them | STEP-02 EKR-14 versus EKO-05 | Elements split into class-defining (absence means the item is not evidence for that target) and descriptive (absence is flagged). CRC-36, CRC-37. | UAD4-09 |
 | EKO-04 joins three tests of different objectivity | STEP-02 EKO-04, EKR-13, and STEP-02 Section 7.6 | Split: source identified and not a concurrence record are objective; "not the asserting actor's assertion" is objective only for record-internal references and is otherwise judgment. | UAD4-09 |
 | Material-claim provenance (EKR-08, PR-09) and presumed materiality (EKR-35) | STEP-01 INV-10; STEP-02 EKR-35 | Timing split: designated material at creation is a creation requirement; presumed material because later cited is a flagged obligation. STEP-03 Section 5.4 lists no validity condition for it. | UAD4-10 |
 | HJ-05 and EKJ-14 list "none" as paired check | STEP-01 Section 9.3; STEP-03 GCJ-03 pairs GCO-08 | GCO-08 (a treatment is recorded) is the pair. Residual risk acceptance is recorded as a treatment. | UAD4-24 |
+| PR-04 says authority "is neither transitive nor inheritable" and "one authority class does not confer another." GCR-08 says "delegation never conveys authority." CRC-61 has a human AUTH-G holder confer grants, including other classes and AUTH-G itself | STEP-01 PR-04; STEP-03 GCR-08; STEP-03 GC-OQ-02 (routed here); CRC-60 to CRC-64 | PR-04 and GCR-08 prohibit authority by mere transitivity, inheritance, delegation, role label, or work assignment. CRC-61 is none of these. It is not delegation and not class-confers-class. Holding AUTH-G, or any class, confers nothing. A conferral creates a **new explicit grant** (PR-02: explicit, attributable, scoped) by a human AUTH-G holder whose **conferral scope**, itself an explicit grant, authorizes that class and scope. A conferral scope is a scope of AUTH-G and not a fifth class (Section 10.2.1). This is a STEP-04 operationalization of GC-OQ-02, not a direct conflict with PR-04 or GCR-08. Because the accepted text did not name conferral scope, the reading is **acknowledged as a tension and routed as Moderator-visible**. No upstream artifact is edited. If the Moderator reads it as a direct conflict, UAD4-13 returns for disposition and is not resolved inside this artifact | UAD4-13 |
+
+**Terms used for the two kinds of assignment.** To keep a reading of PR-04 and GCR-08 from reaching the wrong relation, this artifact uses two terms. **Work assignment** (or production assignment) is the provenance relationship under GCR-08 and PR-27: an actor assigns production of an item or part of it to another. It is recorded as provenance, confers no authority, and makes the assigner a producer only where the assigner supplied the item's substance or adopted it (CRC-11, HJC-12). **Grant-bearing role-position appointment** (also "role-position appointment") is appointing an actor to a role position that carries grants. It is a conferral and is evaluated under CRC-61 and CRC-62 (Section 10.2.5; UAD4-13).
 
 ### 3.4 What this artifact does not modify
 
@@ -225,7 +233,7 @@ This is the sense in which STEP-04's scope says an objective check does not judg
 
 **Definition.** A **contextual human judgment** is a determination that requires authorized human interpretation of sufficiency, relevance, warrant, risk, persuasion, adequacy, materiality, acceptability, or substantive independence.
 
-It is "contextual" because the answer depends on the situation the record describes. It is "human" and "authorized" where it determines a consequential protocol effect: gate-class determinations (acceptance, refusal, deferral, closure, confirmation, validation, waiver, reaffirmation, invalidation, conditional progression) belong to a human holding AUTH-G for the scope (PR-05, PR-13). Other actors, including AI agents and external evaluators, may record the same kind of content only as a designation, assertion, challenge, counter-evidence, or advisory finding. Its effect is then what upstream semantics give it, and a human with the authority may adopt, challenge, or override it (PR-15, PR-22; EKR-04).
+It is "contextual" because the answer depends on the situation the record describes. It is "human" and "authorized" where it determines a consequential protocol effect: gate-class determinations (acceptance, refusal, deferral, closure, confirmation, validation, waiver, reaffirmation, invalidation of a hypothesis or of another actor's item, conditional progression) belong to a human holding AUTH-G for the scope (PR-05, PR-13). A finding that an acceptance is invalid is a different thing: a formal-check result recorded under CRC-59. Other actors, including AI agents and external evaluators, may record the same kind of content only as a designation, assertion, challenge, counter-evidence, or advisory finding. Its effect is then what upstream semantics give it, and a human with the authority may adopt, challenge, or override it (PR-15, PR-22; EKR-04).
 
 A judgment is never converted into a number, grade, weight, or confidence value (BDR-14).
 
@@ -247,6 +255,8 @@ A recorded-judgment check may confirm any of these **facets** of a recorded judg
 | **Direction** | The act is of the kind the recorder may perform (favorable or conservative) | A producer performs no favorable act over its own set (CRC-09) |
 
 A rationale is **present or absent**. Whether it is adequate is judgment. A declaration is **present or absent**. Whether it is true is judgment (CRC-11, HJC-12).
+
+**The facets and the CR/RJC disposition.** The facets above say what any check of a determination act may confirm (BDR-05). They do not by themselves make a row RJC. A rule that decides the **protocol validity** of a determination act from record facts, such as who acted, under what grant, whether independent, when, of what kind, and in what direction, and that does not evaluate the determination's substance, may remain CR (CRC-02, CRC-03, CRC-07, CRC-09). A row is RJC where the thing it requires is the determination's **content-bearing record** (a rationale, treatment, designation, declaration, the elements of an authorization, or a disposition for each reason), as Section 5.1 states.
 
 ### 4.6 Candidate rule
 
@@ -284,11 +294,11 @@ A candidate whose rule shape is settled but whose computation or parameters depe
 
 ### 4.10 Formal-check result
 
-A **formal-check result** is the record of one application of a candidate rule: the rule applied, the evaluation point, the record elements examined (by reference), and the outcome (satisfied, violated, satisfied under exception, or unresolved). Its standing is set by Section 9.4.
+A **formal-check result** is the record of one application of a candidate rule: the rule applied, the evaluation point, the record elements examined (by reference), and the outcome (satisfied, violated, satisfied under exception, or unresolved). The outcomes are what a result may **say**. They are not a serialized value set or a state vocabulary (BDR-11). Its standing is set by Section 9.4. A result that asserts a violation names the rule or rules violated; a finding that an acceptance is invalid is such a result and has the further content CRC-59 requires.
 
 ### 4.11 Terms introduced for later glossary disposition
 
-Not edited into `mod-w/domain-language.md`. For the Moderator's later disposition: _recorded-judgment check_, _candidate rule_, _detected violation_, _formal-check result_, _handling category_, _recorded designation_, _evaluation point_, _conferral scope_, _root grant_, _unresolved condition_ (in the sense of Section 4.8).
+Not edited into `mod-w/domain-language.md`. For the Moderator's later disposition: _recorded-judgment check_, _candidate rule_, _detected violation_, _formal-check result_, _handling category_, _recorded designation_, _evaluation point_, _conferral scope_, _establishing act_, _root grant_, _work assignment_, _grant-bearing role-position appointment_, _unresolved condition_ (in the sense of Section 4.8).
 
 ### 4.12 Boundary rules
 
@@ -318,7 +328,13 @@ Every candidate condition receives exactly one **primary disposition**. A residu
 | **HJ** | Contextual human judgment | No record-only test exists. Enters the human judgment catalog (Section 7) |
 | **OOC** | Out of catalog, with rationale | Not a per-record check: a definition, a constraint on any representation, a duty whose breach is not detectable from a record, or a statement enforced through other entries |
 
-**CR versus RJC.** A condition is **RJC** where the thing checked is a _determination act_: an acceptance, treatment, designation of materiality or correction, waiver, validation, declaration, closure, confirmation, or authorization. It is **CR** where the thing checked is a _record element or relation_ that is not itself a determination: an identity, a link, a type, a time, a count, a reference.
+**CR versus RJC.** The discriminator is **what the rule requires of the record**, not whether a determination act is somewhere in view.
+
+- A condition is **RJC** where the rule requires the **content-bearing record of a determination**: the rationale, treatment, designation, declaration, authorization elements, or disposition of each reason through which a determination act records its judgment. The rule confirms that record is present in the required form (BDR-05), and the substance is paired as judgment (Section 8).
+- A condition is **CR** where the rule requires a _record element or relation_ (an identity, a link, a type, a time, a count, a reference) **or decides the protocol validity of an act from validity facets** (who acted, under what grant, whether independent, when, of what kind, in what direction) without opening the determination's own content-bearing record. This holds even where the act checked is a determination act. A rule that checks only those facets of an acceptance or closure, and does not evaluate its substance, is CR (CRC-02, CRC-03, CRC-07, CRC-09, CRC-26, CRC-27, CRC-57).
+- A row whose rule joins validity facets with a content-bearing record takes **RJC** on the strength of the content-bearing part. Its validity-facet part is still catalogued in its CR entry (for example, EKO-11 is RJC through CRC-46 and relies on CRC-07).
+
+**Closure, worked both ways.** GCO-12 checks that a closure is of a recognized kind and that the closer meets its authority conditions. Kind and authority are validity facets decided from record facts, so GCO-12 is CR (CRC-27). GCO-20 checks that a closure of a requirement names and addresses every reason present. That reaches the closure's reason-addressing record, which is content-bearing, so GCO-20 is RJC with an HJC-16 residue (CRC-52). The same two checks, applied to the same kind of act, come out differently because they ask for different things. The existing classification of all 61 rows is unchanged by this explanation (UAD4-03).
 
 ### 5.2 Decision tests
 
@@ -330,7 +346,7 @@ Apply in order to each candidate. Stop at the first outcome.
 | **Q2** | Is the answer determined by those elements alone, without interpreting what a source says about the world (T2)? | **HJ** | Q3 |
 | **Q3** | Does reaching the answer require forming a view on sufficiency, relevance, persuasion, risk, materiality, acceptability, warrant, or substantive independence, other than by applying a recorded designation (T3)? | Q4 | **HJ** |
 | **Q4** | Would two competent evaluators always agree (agreement corollary)? | **HJ** (BDR-02) | Q5 |
-| **Q5** | Is the checked thing a determination act (Section 5.1, CR versus RJC)? | **CR** | **RJC** |
+| **Q5** | Does the rule require the content-bearing record of a determination (a rationale, treatment, designation, declaration, authorization elements, or a disposition of each reason), and not only the validity facets or a record element or relation (Section 5.1, CR versus RJC)? | **CR** | **RJC** |
 | **Q6** | Does the condition also contain a judgment part (BDR-03)? | Done | Catalog the objective core; name the residue as an **HJ** entry and pair it |
 | **Q7** | Does computing the answer depend on a representation or ordering choice? | Done | Keep the rule; record the computation as a **DR** item |
 
@@ -352,9 +368,9 @@ Each candidate rule carries one or more evaluation kinds.
 | --- | --- | --- | --- |
 | **Act-time** | A | Over the record as of the act, to decide whether the act is valid | Authority, independence, required content, gate acceptance validity |
 | **Standing** | S | Over the record at any later point, to decide whether the record still shows what the rule requires | Carry-over, derived effects, reliance marks, requirement presence |
-| **Historical** | H | By comparing successive recorded states | Append-only producers, history preservation, non-retroactivity, never-a-correction changes |
+| **Historical** | H | By comparing what was recorded earlier with what was recorded later, over the record's history | Append-only producers, history preservation, non-retroactivity, never-a-correction changes |
 
-A rule is **blocking-eligible** (code B in Section 6) if it is act-time and every input it needs is available in the record as of the act (declared: UAD4-23). Eligibility is a semantic property. It is not a decision to block (Section 9.2, BDR-09, BDR-10).
+A rule is **blocking-eligible** (code B in Section 6) if it is act-time and every input it needs is available in the record as of the act (declared: UAD4-23). Eligibility is a semantic property. It is not a decision to block (Section 9.2, BDR-09, BDR-10). **Where an input is a derived condition** (exposure, open requirement, assumption-rooted basis item; DR-01, DR-04), eligibility holds for a given representation only if that representation makes the derived condition available at the evaluation point. Where it does not, the rule is not blocking-eligible there, and a violation of the rule is still a violation (BDR-07). The B tags of CRC-18 and CRC-19 are conditional in this way.
 
 ### 5.5 Reclassification
 
@@ -371,7 +387,7 @@ Operationalizes D6, G-3. Resolves **GC-OQ-01** and **EK-OQ-14** for catalog memb
 
 ### 6.1 How to read the catalog
 
-Each entry states a condition, the accepted IDs it traces to, how it is evaluated, how a detected violation is handled, and the judgment it is paired with. The entry is a **derived grouping over accepted IDs**: several accepted conditions that make the same decidable test are catalogued once, and the sources are listed so no accepted ID is lost (Section 15.1). No entry adds a protocol requirement beyond the accepted rules it traces to, except where Section 14 declares a choice and the entry says so.
+Each entry states a condition, the accepted IDs it traces to, how it is evaluated, how a detected violation is handled, and the judgment it is paired with. The entry is a **derived grouping over accepted IDs**: several accepted conditions that make the same decidable test are catalogued once, and the sources are listed so no accepted ID is lost (Section 15.1). No entry adds a protocol requirement beyond the accepted rules it traces to, except where Section 14 declares a choice and the entry says so. **The entry says so in its last column**: where an entry applies a declared choice, the column lists the UAD4 identifier (for example, `UAD4-13`). An entry that lists no UAD4 identifier applies no declared choice beyond the global ones (UAD4-01 to UAD4-06, UAD4-08, UAD4-17, UAD4-23, and UAD4-25).
 
 **Evaluation (Eval):** A act-time, S standing, H historical (Section 5.4).
 
@@ -380,142 +396,142 @@ Each entry states a condition, the accepted IDs it traces to, how it is evaluate
 | Code | Handling |
 | --- | --- |
 | **I** | Invalidating: the act or designation lacks its intended effect, and stays visible |
-| **B** | Blocking-eligible: act-time, all inputs in the record; effect may be prevented before it is relied on. Never prevents the _record_ of the attempt |
+| **B** | Blocking-eligible: act-time, all inputs in the record; reliance on the act may be prevented before anyone relies on it. Never prevents the _record_ of the attempt |
 | **F** | Flagging: made visible to reviewers and to those who rely on the item; effect unchanged |
 | **E** | Escalation-eligible: the matter needs a determination by a particular authority |
 | **U** | Recorded as unresolved: cannot be decided from the record, no default applies |
 | **X** | Coverable by a visible exception, where the requirement is waivable (Section 9.6) |
 | **N** | No automated conclusion: the judgment residue is not decided |
 
-**Judgment pair** points to Section 7. **DR** points to the deferred items in Section 6.6.
+**Judgment pair** points to Section 7. **DR** points to the deferred items in Section 6.6. **UAD4** points to the declared choice in Section 14.2.
 
 ### 6.2 The catalog
 
 #### Family A. Attribution and authority
 
-| ID | Condition | Sources | Eval | Handling | Pair / deferral |
+| ID | Condition | Sources | Eval | Handling | Pair / deferral / declared |
 | --- | --- | --- | --- | --- | --- |
 | CRC-01 | Each action records exactly one acting actor identity, one capacity, a target, a time, and the content its category requires. Attribution resolves to a recorded identity. A relationship is recorded as an assertion by exactly one identity | OBJ-01; PR-06, PR-07, PR-08, PR-10; EKR-03; EKO-02 (part); ACT-01 to ACT-07 (Section 5.1 of STEP-01) | A | I, B | HJC-21; DR-07 |
 | CRC-02 | At the act's recorded time, the acting identity holds a well-formed grant of the class the act requires, covering the target's scope. Authority is resolved through grants, never through role names, seniority, prior participation, convention, or a document naming a role | OBJ-02; GCO-02 (part); PR-01, PR-03, PR-04, PR-10, PR-24; INV-09, INV-15 | A | I, B | HJC-25; DR-08 |
 | CRC-03 | An act requiring AUTH-G is recorded under an identity whose recorded actor kind is human | OBJ-04; GCO-02 (part); PR-05; INV-04 | A | I, B | HJC-21; DR-07 |
-| CRC-04 | An output of an actor lacking the authority an act requires is not recorded as that act. Acceptance, refusal, deferral, conditional progression, waiver or exception, authority closure, correction confirmation, reaffirmation, invalidation, validation, consequential decision, and progression authorization are recorded only under AUTH-G. The output is re-typed as the nearest act the actor may make (advisory finding, challenge, counter-evidence; declared: UAD4-22). Evaluator and automated outputs are typed advisory unless a recorded grant says otherwise | OBJ-09; EKO-12, EKO-20; GCO-27; PR-15, PR-22, PR-23; EKR-04, EKR-20; GCR-18, GCR-22; ACT-07; INV-05, INV-16 | A | I, B | HJC-17 |
+| CRC-04 | An output of an actor lacking the authority an act requires is not recorded as that act. Acceptance, refusal, deferral, conditional progression, waiver or exception, authority closure, correction confirmation, reaffirmation, invalidation of a hypothesis or of another actor's item, validation, consequential decision, and progression authorization are recorded only under AUTH-G. The output is re-typed as the nearest act the actor may make (advisory finding, challenge, counter-evidence; declared: UAD4-22). Evaluator and automated outputs are typed advisory unless a recorded grant says otherwise. "Invalidation" here is the STEP-02 and CRC-57 sense (EKO-12): invalidating a hypothesis or an item. A **finding that an acceptance is invalid** is a different thing: a formal-check result whose recorders and required content CRC-59 fixes (UAD4-29). It is not an act on this list | OBJ-09; EKO-12, EKO-20; GCO-27; PR-15, PR-22, PR-23; EKR-04, EKR-20; GCR-18, GCR-22; ACT-07; INV-05, INV-16 | A | I, B | HJC-17; UAD4-22, UAD4-29 |
 | CRC-05 | A verification names the formal criteria it verified; a record naming none is not a verification. A verification is never recorded as acceptance, validation, or progression | OBJ-13; PR-14; ACT-04; INV-07 | A | I, B | none |
 
 #### Family B. Independence and self-approval
 
-| ID | Condition | Sources | Eval | Handling | Pair / deferral |
+| ID | Condition | Sources | Eval | Handling | Pair / deferral / declared |
 | --- | --- | --- | --- | --- | --- |
 | CRC-06 | The accepted set is computable at the act: every basis link resolves, the closure is computed under the effective designations, and every member has recorded, resolvable producers | GCO-01; GCR-01, GCR-04; EKR-32 | A | I, B | DR-01 |
 | CRC-07 | The acceptor, with collective identities expanded to recorded members, is a recorded producer of no member of the accepted set. Disputed attributions count against the disputed actor (CRC-14); acceptance-act content is not production. Identity is the only basis: a second role label, capacity, tool, session, configuration, or elapsed time does not make an actor independent of itself | OBJ-03; GCO-03; EKO-11 (part); PR-16, PR-17, PR-21, PR-27, PR-28; GCR-02, GCR-03, GCR-08, GCR-38 (part); INV-01, INV-02, INV-17 | A | I, B | HJC-12 |
 | CRC-08 | Where a gate requires several independent acceptances, the number counted excludes any acceptance by a producer of the accepted set. The default requirement is one valid independent acceptance | PR-18; GCR-16; INV-03 | A | I (the counted acceptance), B | none |
-| CRC-09 | A favorable act over an accepted set (acceptance, waiver, conditional progression authorization, correction confirmation, reaffirmation, closure of a challenge in the set's favor, acceptance of residual risk) is not performed by a recorded producer of any member of that set. Conservative acts (refusal, deferral, escalation, request, challenge, withdrawal or retirement of own item, invalidation) are not restricted. Direction is read from the closed list, not interpreted | GCR-05, GCR-18 (part); GCO-03 (generalized) | A | I, B | none |
+| CRC-09 | A favorable act over an accepted set (acceptance, waiver, conditional progression authorization, correction confirmation, reaffirmation, closure of a challenge in the set's favor, acceptance of residual risk) is not performed by a recorded producer of any member of that set. Conservative acts (refusal, deferral, escalation, request, challenge, withdrawal or retirement of own item, invalidation of an item or hypothesis, a finding under CRC-59) are not restricted. **Direction is read from this closed list of act kinds, not interpreted.** For a closure, the kind is read from CRC-27's list: authority closure of a challenge against a member of the set, and challenger resolution of such a challenge, are on the favorable list (each ends opposition to the set while leaving the target standing); closure by withdrawal of the target with no successor is the producer's own withdrawal and is conservative. A closure whose kind is not on either list, or whose kind the record does not name, has its direction recorded as unresolved, and the matter is escalation-eligible. It is not interpreted | GCR-05, GCR-18 (part), GCR-26; GCO-03 (generalized) | A | I, B, U, E | UAD4-31 |
 | CRC-10 | No waiver, exception, deferral, conditional progression, escalation outcome, relabeling, or recorded cure is treated as validating an act that CRC-07 or CRC-09 invalidates. An exception record naming independence as the waived requirement is ineffective | GCR-06, GCR-46 (item 1); GCO-10 (part) | A | I, B | none |
-| CRC-11 | The acceptance-act content of every consequential acceptance carries an independence declaration (the acceptor's knowledge of production, assignment, or contribution to the accepted set, and the assignment relations it knows of). Presence is checked. Truth is not | GCO-11 (part); GCR-09 | A | I, B, N | HJC-12 |
+| CRC-11 | The acceptance-act content of every consequential acceptance carries an independence declaration (the acceptor's knowledge of production, work assignment, or contribution to the accepted set, and the work-assignment relations it knows of). Presence is checked. Truth is not | GCO-11 (part); GCR-09 | A | I, B, N | HJC-12 |
 | CRC-12 | Where a gate requires a challenge, a challenge on the stated target exists. Where independence is required, its challenger is a producer of nothing challenged. A challenge by a producer of the challenged item is recorded and not counted | OBJ-06; GCO-06; PR-19, PR-28; GCR-15; INV-14 | A | I, X | HJC-07, HJC-12 |
-| CRC-13 | Where a gate requires a formal check, a verification exists, names its criteria (CRC-05), has a verifier who is a producer of nothing verified, and was not performed by the acceptor. A producer's self-verification is recorded and not counted | OBJ-13; GCO-07; PR-14, PR-19, PR-28; GCR-10 | A | I, X | HJC-12 |
+| CRC-13 | Where a gate requires a formal check, a verification exists, names its criteria (CRC-05), has a verifier who is a producer of nothing verified, and was not performed by the acceptor. A producer's self-verification is recorded and not counted | OBJ-13; GCO-07; PR-14, PR-19, PR-28; GCR-10 | A | I, X | HJC-12; UAD4-26 |
 | CRC-14 | Recorded producers of an item are added and never removed or transferred out for independence purposes. A recorded removal or transfer is ineffective for independence. A disputed producer attribution treats the disputed actor as a producer for that actor's favorable acts until an independent gate authority holder resolves it | GCO-23; GCR-07; PS-OQ-07 | H, A | I, U | HJC-12 |
 
 #### Family C. Gate acts
 
-| ID | Condition | Sources | Eval | Handling | Pair / deferral |
+| ID | Condition | Sources | Eval | Handling | Pair / deferral / declared |
 | --- | --- | --- | --- | --- | --- |
-| CRC-15 | A verification by a non-human actor satisfies a gate-required formal check only if (a) the actor holds AUTH-V covering the gate or artifact class; (b) every named criterion is designated in the gate definition as decidable from the record; (c) the verification record states the record elements it examined and its evaluation point; and (d) CRC-13 holds. Otherwise the output is an advisory finding | GCR-10, GCR-11; PR-14, PR-15; GC-OQ-03 | A | I (as verification; re-typed advisory), B | HJC-24; DR-09 |
+| CRC-15 | A verification by a non-human actor satisfies a gate-required formal check only if (a) the actor holds AUTH-V covering the gate or artifact class; (b) every named criterion is designated in the gate definition as decidable from the record; (c) the verification record states the record elements it examined and its evaluation point; and (d) CRC-13 holds. Otherwise the output is an advisory finding. **The decidability bound of (b) and (c) also governs a non-human actor's finding that an acceptance is invalid (CRC-59):** such a finding counts only where each rule asserted violated is decidable from the record and the finding states the elements examined and its evaluation point; otherwise it stays advisory or request-like and does not itself trigger TRG-6 | GCR-10, GCR-11; PR-14, PR-15; GC-OQ-03 | A | I (as verification; re-typed advisory), B | HJC-24; DR-09; UAD4-16, UAD4-29 |
 | CRC-16 | A gate definition was recorded before the act and covers the progression. A consequential decision with no governing definition is recorded as a recommendation and the missing definition is visible. A definition amended after a refusal or deferral on the same basis applies to it only as a recorded exception | GCO-04; GCR-12, GCR-13; ACT-05, ACT-07 | A | I, F, X (amendment only), B | HJC-20 |
 | CRC-17 | Each required-evidence slot and required artifact of the gate is filled by present items carrying the designations CRC-36 requires. A visible absence statement does not fill it. A gate-defined recency criterion is checked against recorded observation times at the act | GCO-05; OBJ-07; GCR-14, GCR-68; EKO-04, EKO-05 | A | I, X | HJC-01, HJC-02; DM-01 |
-| CRC-18 | Every standing-record item (opposition including withdrawn, exposure, open requirements, reliance marks, earlier refusals and deferrals on the same gate and basis, applying exceptions) is cited with a recorded treatment from the recognised list, determined by the actor the list prescribes. For each basis item, challenges and contradicting items recorded before the decision are cited with how each stood | GCO-08; EKO-17; GCR-17, GCR-38 (part), GCR-39; EKR-30 | A | I, B | HJC-07, HJC-08, HJC-09 |
-| CRC-19 | Every relied-on unvalidated material hypothesis or assumption (including assumption-rooted basis items) is covered by a conditional progression authorization, and every open requirement on a basis item by a closure or a reliance-while-open authorization, recorded at or before the acceptance. New reliance on a dependent with an open requirement needs one of them | GCO-09; EKO-15 (part); GCR-16, GCR-33, GCR-42, GCR-47 | A | I, B | HJC-14 |
+| CRC-18 | Every standing-record item (opposition including withdrawn, exposure, open requirements, reliance marks, earlier refusals and deferrals on the same gate and basis, applying exceptions) is cited with a recorded treatment from the recognised list, determined by the actor the list prescribes. For each basis item, challenges and contradicting items recorded before the decision are cited with how each stood. A gate-defined stricter _response_ rule is a gate requirement and may be waived (CRC-22); the visibility of what exists in the standing record may not (Section 9.6 item 3). **Exposure and open requirements are derived conditions** (DR-04): B holds only where the representation makes them available at the act | GCO-08; EKO-17; GCR-17, GCR-38 (part), GCR-39; EKR-30 | A | I, B (conditional: DR-04) | HJC-07, HJC-08, HJC-09; DR-04 |
+| CRC-19 | Every relied-on unvalidated material hypothesis or assumption (including assumption-rooted basis items) is covered by a conditional progression authorization, and every open requirement on a basis item by a closure or a reliance-while-open authorization, recorded at or before the acceptance. New reliance on a dependent with an open requirement needs one of them. This entry invalidates an _acceptance_ that relies under assumption without the required authorization. It adds no rule for a consequential commitment that is not an acceptance (RJ-OQ-12). **Assumption-rooted basis items and open requirements are derived conditions** (DR-01, DR-04): B holds only where the representation makes them available at the act | GCO-09; EKO-15 (part); GCR-16, GCR-33, GCR-42, GCR-47 | A | I, B (conditional: DR-01, DR-04) | HJC-14; DR-01, DR-04; UAD4-08 |
 | CRC-20 | Every unsatisfied gate requirement is covered by an exception recording the authorized human, grant, rationale, unsatisfied requirement, scope, provenance, and exception marker. The exception-giver is a human AUTH-G holder independent of the accepted set. None of the six non-waivable conditions is the waived requirement. An override names the overridden determination or check. An instrument that leaves the requirement open and tracked is typed conditional progression and not exception | GCO-10; OBJ-12; GCR-45, GCR-46, GCR-48 | A | I, X | HJC-15 |
 | CRC-21 | An acceptance is an explicit, attributable act that states its determination and precedes the progression it authorizes. Silence, elapsed time, absence of objection, completion of prior acts, structural completeness, and agreement are not acceptance. A progression record with no preceding acceptance for its gate is invalid | GCO-11 (part); OBJ-11; PR-13; GCR-20; ACT-05; INV-06 | A | I, B | none |
-| CRC-22 | **Composite.** An acceptance is valid only if CRC-02, CRC-03, CRC-06, CRC-07, CRC-08, CRC-11, CRC-12, CRC-13, CRC-16, CRC-17, CRC-18, CRC-19, CRC-20, and CRC-21 hold at the act, or, for a waivable gate requirement (CRC-12, CRC-13, CRC-16 amendment, CRC-17), the shortfall is covered by an exception meeting CRC-20. Failing any, it has no intended effect, remains visible, and its finding is a TRG-6 event (CRC-59) | GCR-16; PR-10, PR-11, PR-12 | A | I, B | none |
+| CRC-22 | **Composite.** An acceptance is valid only if CRC-02, CRC-03, CRC-06, CRC-07, CRC-08, CRC-11, CRC-12, CRC-13, CRC-16, CRC-17, CRC-18, CRC-19, CRC-20, and CRC-21 hold at the act, or, for a gate requirement that is **waivable under STEP-03 Section 9.4**, the shortfall is covered by a valid exception meeting CRC-20. Waivable requirements include the gate-required slots, challenges, and formal checks (CRC-12, CRC-13, CRC-17), a gate-definition amendment treated as an exception (CRC-16), **gate-required configuration facets** (CRC-39; Section 11.4), and **gate-defined stricter treatment (response) requirements** (CRC-18). The six non-waivable conditions of Section 9.6 cannot be covered. Failing any, the acceptance has no intended effect and remains visible. A finding of that failure is a TRG-6 event only when it meets CRC-59 | GCR-16; PR-10, PR-11, PR-12 | A | I, B, X | UAD4-25, UAD4-26 |
 | CRC-23 | A conditional progression authorization records the nine elements of STEP-03 Section 9.2, by a human AUTH-G holder independent of the accepted set, on ground G1 or G2, and states that the unmet requirement remains open. It is not inherited by a later gate and is effective when recorded. It ends only as GCR-42 lists | GCO-21; GCR-42, GCR-43, GCR-44, GCR-48 | A, S | I, B | HJC-14 |
 | CRC-24 | An authorization, waiver, exception, confirmation, grant, or closure takes effect when recorded. One recorded after an act does not validate the act. An effective-from earlier than the recording is not honored | GCR-47; UAD3-33 | H | I | DR-03 |
-| CRC-25 | A refusal states why. A deferral states what is awaited and from which position. Both are by a human AUTH-G holder for the gate. A defective refusal or deferral has no effect, but it stays visible and is read as a recorded attempt for CRC-18 | GCR-18, GCR-19 | A | I, B | none |
+| CRC-25 | A refusal states why. A deferral states what is awaited and from which position. Both are by a human AUTH-G holder for the gate. A defective refusal or deferral has no effect, but it stays visible and is read as a recorded attempt for CRC-18 | GCR-18, GCR-19 | A | I, B | UAD4-21 |
 
 #### Family D. Challenge, disagreement, escalation
 
-| ID | Condition | Sources | Eval | Handling | Pair / deferral |
+| ID | Condition | Sources | Eval | Handling | Pair / deferral / declared |
 | --- | --- | --- | --- | --- | --- |
 | CRC-26 | A challenge records challenger, target, target scope, and basis. Absent any, it is invalid and visible. Any AUTH-A actor may challenge. A producer's challenge of its own item is recorded and not independent | GCO-12 (part); GCR-23, GCR-24; ACT-03 | A | I, B | HJC-07 |
 | CRC-27 | A challenge is closed only by challenger resolution, authority closure, or withdrawal of its target with no successor. A response, supersession, elapsed time, silence, agreement, or a verification does not close. Authority closure is by a human AUTH-G holder independent of the challenged item's accepted set and not the author of a challenged determination | GCO-12 (part); GCR-25, GCR-26 | A | I, B | HJC-07 |
 | CRC-28 | A challenge, and any contradicting or qualifying relationship, recorded against an item is carried to its recorded successor and shown as carried | GCO-13; GCR-28 | S | F | HJC-16; DR-05 |
-| CRC-29 | Each contribution has its effect: a challenge produces contestation and exposure; source-identified counter-evidence produces a requirement on direct material dependents; a bare contradicting claim or inference produces contestation and exposure, and a requirement only by P1, P2, or P3; qualifying items have no automatic effect; no contribution has no visible effect | GCO-14; GCR-30, GCR-31; EKO-19 (part) | S | F | HJC-16; DR-04 |
+| CRC-29 | Each contribution has its effect: a challenge produces contestation and exposure; source-identified counter-evidence produces a requirement on direct material dependents; a bare contradicting claim or inference produces contestation and exposure, and a requirement only by P1, P2, or P3; qualifying items have no automatic effect; no contribution has no visible effect | GCO-14; GCR-30, GCR-31; EKO-19 (part) | S | F | HJC-16; DR-04; UAD4-08 |
 | CRC-30 | A revalidation request is by an actor holding AUTH-A, AUTH-V, or AUTH-G and records requester, dependent, contested or changed item, and a stated basis. Absent any, it creates no requirement | GCO-15; GCR-32; ACT-06 | A | I, B | HJC-16 |
 | CRC-31 | An escalation records the escalating actor and capacity, the matter, the resolving authority sought (derived from grants), the reason, and the determination asked for. It closes nothing | GCO-26; GCR-37 | A | I, B | none |
-| CRC-32 | Where no identity can satisfy the independence condition of a matter's resolving authority, an authority gap is recorded against the matter. No act by a conflicted holder, collective, agent, evaluator, waiver, elapsed time, or self-conferred grant is treated as a cure | GCO-25; GCR-40 | S | U, E | HJC-12 |
+| CRC-32 | Where no identity can satisfy the independence condition of a matter's resolving authority, an authority gap is recorded against the matter. No act by a conflicted holder, collective, agent, evaluator, waiver, elapsed time, or self-conferred grant is treated as a cure | GCO-25; GCR-40 | S | U, E | HJC-12; UAD4-22 |
 | CRC-33 | A disagreement is recorded as cleared only by challenger resolution, authority closure, concession with closure or carry-over, or resolution by decision. Elapsed time, silence, absence of objection, headcount, agent agreement, recency, and downstream completion do not clear it | GCR-35 (part), GCR-36, GCR-41; EKR-05, EKR-06 | A | I | HJC-09 |
 
 #### Family E. Provenance, evidence, lineage, configuration
 
-| ID | Condition | Sources | Eval | Handling | Pair / deferral |
+| ID | Condition | Sources | Eval | Handling | Pair / deferral / declared |
 | --- | --- | --- | --- | --- | --- |
 | CRC-34 | Every item has exactly one recorded class (prior classifications retained), at least one recorded producer identity, and a time | EKO-01, EKO-02; EKR-01, EKR-07 | A | I, B | DR-03 |
-| CRC-35 | An item designated material at creation carries the class-specific provenance elements at creation. An item presumed material because a consequential decision or gate acceptance cites it carries them from the citation, unless a non-material designation with rationale is recorded; a designation without rationale is ineffective and the presumption holds. A material claim carries producer, time, and an evidence reference or a visible absence statement | EKO-13, EKO-14; OBJ-05; PR-09; EKR-08, EKR-35; ACT-01; INV-10 | A | I (designated at creation; designation without rationale), F (presumed later) | HJC-03 |
-| CRC-36 | An item recorded as evidence for a target carries the class-defining elements: an identified source that is not solely a concurrence or agreement record and not a resolvable reference to an item by the actor asserting the target; the target and polarity toward it; and, for a negative finding, its attempt record (what, where, when, method, limits). Absent any, the designation as evidence for that target is ineffective and the item is recorded as the class it is | EKO-04, EKO-05 (part), EKO-08; EKR-13, EKR-14 (part), EKR-15, EKR-16, EKR-17; PR-20; INV-11 | A | I, B | HJC-01, HJC-06, HJC-12; DR-06 |
-| CRC-37 | An evidence item records the descriptive elements: category designation (basis kind, and evaluation dimension where relevant), evidence basis, limitations statement ("none identified" is a permitted, challengeable entry), and time recorded with the observation time or period. A shortfall is flagged on the item and in the standing record of any acceptance citing it | EKO-05 (part); EKR-14 (part) | S | F | HJC-02 |
-| CRC-38 | Derived evidence identifies the items it derives from. Evidence items sharing an identified source are identifiable as sharing it. Lineage is recorded at the granularity of Section 11.3 | EKO-06; EKR-11 | A, S | I (derived evidence with no inputs named), F (comparability gap) | HJC-12, HJC-26; DR-06 |
-| CRC-39 | An item or action produced by an AI actor records its producing configuration at facet level (Section 11.2). A facet that cannot be determined is stated as not determinable. Absence of any configuration statement is flagged. Recording configuration confers no independence | EKO-03; EKR-12; PR-27 | A, S | F | HJC-26 |
+| CRC-35 | An item designated material at creation carries the class-specific provenance elements at creation. An item presumed material because a consequential decision or gate acceptance cites it carries them from the citation, unless a non-material designation with rationale is recorded; a designation without rationale is ineffective and the presumption holds. A material claim carries producer, time, and an evidence reference or a visible absence statement | EKO-13, EKO-14; OBJ-05; PR-09; EKR-08, EKR-35; ACT-01; INV-10 | A | I (designated at creation; designation without rationale), F (presumed later) | HJC-03; UAD4-10 |
+| CRC-36 | An item recorded as evidence for a target carries the class-defining elements: an identified source that is not solely a concurrence or agreement record (**where the record distinguishes sourced evidence from a concurrence or agreement record**; otherwise the residue is HJC-12 and the remedy is challenge, Section 10.5) and not a resolvable reference to an item by the actor asserting the target; the target and polarity toward it; and, for a negative finding, its attempt record (what, where, when, method, limits). Absent any, the designation as evidence for that target is ineffective and the item is recorded as the class it is | EKO-04, EKO-05 (part), EKO-08; EKR-13, EKR-14 (part), EKR-15, EKR-16, EKR-17; PR-20; INV-11 | A | I, B | HJC-01, HJC-06, HJC-12; DR-06; UAD4-09 |
+| CRC-37 | An evidence item records the descriptive elements: category designation (basis kind, and evaluation dimension where relevant), evidence basis, limitations statement ("none identified" is a permitted, challengeable entry), and time recorded with the observation time or period. A shortfall is flagged on the item and in the standing record of any acceptance citing it | EKO-05 (part); EKR-14 (part) | S | F | HJC-02; UAD4-09 |
+| CRC-38 | Derived evidence identifies the items it derives from. Evidence items sharing an identified source are identifiable as sharing it. Lineage is recorded at the granularity of Section 11.3 | EKO-06; EKR-11 | A, S | I (derived evidence with no inputs named), F (comparability gap) | HJC-12, HJC-26; DR-06; UAD4-12 |
+| CRC-39 | An item or action produced by an AI actor records its producing configuration at facet level (Section 11.2). A facet that cannot be determined is stated as not determinable. Absence of any configuration statement is flagged. Recording configuration confers no independence | EKO-03; EKR-12; PR-27 | A, S | F | HJC-26; UAD4-11 |
 | CRC-40 | Evidence, dependency, provenance, basis, and relationship references in an action resolve to recorded items at the evaluation point | OBJ-08; EKR-32 (part), EKR-34 | A | I, B | none |
 | CRC-41 | Withdrawal, revision, supersession, invalidation, challenge, acceptance, trigger, and invalid-action events are added to the record. No item, contradiction, or invalid action is overwritten or deleted. Contradicting and challenging items recorded against an item remain resolvable | EKO-07; EKR-05, EKR-09; PR-11 | H | I | DR-03 |
 
 #### Family F. Knowledge-class distinctions, decisions, dependencies, revalidation
 
-| ID | Condition | Sources | Eval | Handling | Pair / deferral |
+| ID | Condition | Sources | Eval | Handling | Pair / deferral / declared |
 | --- | --- | --- | --- | --- | --- |
 | CRC-42 | Acceptance applies to the item as it stood. Post-acceptance change is recorded as a correction or a supersession. A decision's basis is preserved as of the decision. Later change to a cited item is an event, not an edit to the basis | EKR-10, EKR-31; GCR-20 | H | I | DR-02 |
 | CRC-43 | A hypothesis carries recorded validation criteria. A proposition without them is classified and handled as an assumption. Changing between the two is a recorded, attributable reclassification | EKO-09; EKR-21 | A | I (the hypothesis designation), B | HJC-10 |
 | CRC-44 | An inference cites at least one evidence item, assumption, or inference; every citation chain reaches an evidence item or an assumption; and the item is not typed as evidence or as observed fact. Derived support is distinguishable from evidential support | EKO-10; EKR-26, EKR-27 | A | I, B | HJC-05; DR-01 |
-| CRC-45 | A claim designated evaluative is not presented as observed fact or as established by evidence alone. The designation is checked. Whether content is evaluative is not | EKR-28 | S | N | HJC-18 |
+| CRC-45 | A claim recorded with an evaluative designation is not also recorded under an observed-fact form or as established by evidence alone. **What is checked is the recorded evaluative designation and whether the record presents the claim under an observed-fact or evidence-only form.** Whether the content is in fact evaluative, or the evaluative claim warranted, is not checked (HJC-18) | EKR-28 | S | N | HJC-18; UAD4-32 |
 | CRC-46 | A validation is recorded by a human AUTH-G holder for the scope, independent over the validation's accepted set. It states its scope and cites the criteria, the results (favorable or not), and the challenge responses relied on. It is never inferred from accumulation, agreement, elapsed time, absence of objection, completion of dependent work, a verification, or a gate acceptance | EKO-11; EKR-24, EKR-25; GCR-21, GCR-64, GCR-65 | A | I, B | HJC-11 |
-| CRC-47 | Reliance on an unvalidated material hypothesis or assumption is marked on every dependency link to it. The item is surfaced with unresolved assumptions. Progression under it is not recorded as validation. Where the reliance is consequential, CRC-19 applies | EKO-15; EKR-22 (part), EKR-23; GCR-44 | S | F | HJC-14 |
+| CRC-47 | Reliance on an unvalidated material hypothesis or assumption is marked on every dependency link to it. **The dependent shows its unresolved assumptions wherever it appears.** This is a visibility requirement on any conforming representation (Section 1.6, "visible"); the means of showing it, and any view, are not selected (DR-04; EK-OQ-15). Progression under it is not recorded as validation. Where the reliance is consequential and the commitment is an acceptance, CRC-19 applies. For any other consequential commitment, RJ-OQ-12 | EKO-15; EKR-22 (part), EKR-23; GCR-44 | S | F | HJC-14; DR-04; UAD4-08 |
 | CRC-48 | A decision record identifies its basis (or states it has none), its authority basis, and its nature. A consequential decision meets the human, grant, and independence conditions. A record that does not is a recommendation | EKO-16; EKR-29; ACT-07; INV-16 | A | I (re-typed), B | none |
 | CRC-49 | A dependency link records dependent, upstream item, kind, materiality designation with its recorder and time, and the link's recorder and time. Removal and re-designation as non-material record a rationale. Citation implies dependency. A dependency change on a decision is a TRG-5 event | EKO-18; EKR-33, EKR-34, EKR-36; TRG-5 | A | I, B | HJC-04 |
 | CRC-50 | A challenged non-material designation on a presumed-material item restores the presumption until an independent gate authority holder resolves it. A redesignation or link removal on a standing dependent is treated as still material, for triggers and later accepted sets, until confirmed by a human AUTH-G holder who produced none of the dependent, the upstream item, or the change | GCR-34; EKR-35, EKR-36 | A, S | I (ineffective confirmation), U (while pending) | HJC-04 |
-| CRC-51 | Each trigger event (TRG-1, TRG-2 as narrowed, TRG-3, TRG-4, TRG-5, TRG-6) on a material dependency has a corresponding single open requirement on the dependent, with a reason per event. A dependent with an open requirement is not recorded as current without an authorized outcome | EKO-19; GCO-28; OBJ-10; PR-26; EKR-37, EKR-38, EKR-39; GCR-58, GCR-62; TRG-1, TRG-2, TRG-3, TRG-4, TRG-5, TRG-6; INV-12 | S | F (missing requirement), I (currency mark) | HJC-16; DR-04 |
-| CRC-52 | A requirement closes only by reaffirmation, revision, or retirement that meets the tiered authority conditions and addresses every reason present. No other act, and no passage of time, closes it. Tier 1 reaffirmation is a fresh acceptance over the current accepted set | GCO-20; EKR-38; GCR-59, GCR-60, GCR-61, GCR-63 | A | I | HJC-16 |
-| CRC-53 | A gate basis identifies each assumption-rooted item: one whose every support or derivation chain ends only in assumptions or unvalidated hypotheses, derived from recorded classes | GCO-24; GCR-66 | A | F | HJC-10, HJC-14; DR-01 |
-| CRC-54 | **Deferred to representation.** The derived conditions (contested, exposed, open requirement, current validity, disagreement) and the enumeration of dependents and dependencies are derivable from the record, enumerable, attributable, and cleared only by recorded acts | GCO-22; EKR-40; GCR-29, GCR-35 | S | none until DR-04 | DR-04 |
+| CRC-51 | Each trigger event (TRG-1, TRG-2 as narrowed, TRG-3, TRG-4, TRG-5, TRG-6) on a material dependency has a corresponding single open requirement on the dependent, with a reason per event. A dependent with an open requirement is not recorded as current without an authorized outcome | EKO-19; GCO-28; OBJ-10; PR-26; EKR-37, EKR-38, EKR-39; GCR-58, GCR-62; TRG-1, TRG-2, TRG-3, TRG-4, TRG-5, TRG-6; INV-12 | S | F (missing requirement), I (currency mark) | HJC-16; DR-04; UAD4-08 |
+| CRC-52 | A requirement closes only by reaffirmation, revision, or retirement that meets the tiered authority conditions and whose closure record **names each reason open on the requirement and records a disposition for each**. That presence is what is checked. Whether a disposition adequately addresses its reason is not (HJC-16). No other act, and no passage of time, closes it. Tier 1 reaffirmation is a fresh acceptance over the current accepted set. A requirement is a derived or recorded condition (DR-04) | GCO-20; EKR-38; GCR-59, GCR-60, GCR-61, GCR-63 | A | I | HJC-16; DR-04; UAD4-32 |
+| CRC-53 | A gate basis identifies each assumption-rooted item: one whose every support or derivation chain ends only in assumptions or unvalidated hypotheses, derived from recorded classes | GCO-24; GCR-66 | A | F | HJC-10, HJC-14; DR-01; UAD4-18 |
+| CRC-54 | **Deferred to representation.** The derived conditions (contested, exposed, open requirement, current validity, disagreement) and the enumeration of dependents and dependencies are derivable from the record, enumerable, attributable, and cleared only by recorded acts | GCO-22; EKR-40; GCR-29, GCR-35 | S | none until DR-04 | DR-04; UAD4-08 |
 
 #### Family G. Correction, supersession, withdrawal
 
-| ID | Condition | Sources | Eval | Handling | Pair / deferral |
+| ID | Condition | Sources | Eval | Handling | Pair / deferral / declared |
 | --- | --- | --- | --- | --- | --- |
 | CRC-55 | A producer's correction designation on a standing item takes effect only on confirmation by a human AUTH-G holder who is a producer of neither the item nor the change, with notice recorded to the original acceptor and no pending objection. Otherwise the change is treated as supersession for reliance. Later confirmation reclassifies from that point. An overturned designation is supersession as of the change. A non-standing item's designation stands unless challenged | GCO-17; GCR-50, GCR-51, GCR-52 | A | I (the designation), U (while pending) | HJC-13; DR-02 |
-| CRC-56 | A change of any of the five kinds in STEP-03 Section 10.3 (criteria changed after results are recorded; reclassification between classes; polarity, target, or source of an evidence item; stated scope of an acceptance, validation, or decision; dependency links or materiality designations) is recorded as supersession whatever its designation says | GCO-18; GCR-53, GCR-65; UAD3-25 | H | I (the correction designation) | HJC-13; DR-02 |
+| CRC-56 | A change of any of the five kinds in STEP-03 Section 10.3 (criteria changed after results are recorded; reclassification between classes; polarity, target, or source of an evidence item; stated scope of an acceptance, validation, or decision; dependency links or materiality designations) is recorded as supersession whatever its designation says | GCO-18; GCR-53, GCR-65; UAD3-25 | H | I (the correction designation) | HJC-13; DR-02; UAD4-19 |
 | CRC-57 | Supersession or invalidation of another actor's item is recorded only by a human AUTH-G holder for the item's scope. Supersession also requires independent acceptance of the replacing item. Reinstatement requires fresh independent acceptance. A producer's own revision, withdrawal, supersession, and retirement need no independent review and erase nothing. Attempts by others are typed as challenge, counter-evidence, or advisory finding | GCO-19; GCR-49, GCR-56; EKR-04 | A | I, B | none |
 | CRC-58 | A withdrawal records producer, time, and rationale. The withdrawn item stays recorded and is cited as withdrawn in later decision bases. A requirement created by withdrawn counter-evidence stays open. Withdrawal by fewer than all recorded producers withdraws that producer's endorsement only | GCO-16; GCR-49, GCR-54, GCR-55 | A, S | I (defective withdrawal) | HJC-19 |
-| CRC-59 | A finding that an acceptance is invalid, and an acceptor's withdrawal of its own acceptance, are recorded events. Each is the TRG-6 event for what relied on the acceptance. A finding is recorded by an actor holding AUTH-V for the scope or by a human AUTH-G holder. Any actor holding AUTH-A, AUTH-V, or AUTH-G may in any case request revalidation of the dependents | GCR-57; TRG-6; UAD3-06 | A | F, E | HJC-16; DR-09 |
+| CRC-59 | A finding that an acceptance is invalid, and an acceptor's withdrawal of its own acceptance, are recorded events. Each is the TRG-6 event for what relied on the acceptance. **A CRC-59 finding is a formal-check result (Section 4.10) that names the rule or rules violated, states the evaluation point, and identifies the record elements examined.** A bare assertion that an acceptance is invalid is not a CRC-59 finding and does not trigger TRG-6. It is typed as a challenge, counter-evidence, an advisory finding, or a revalidation request, according to the authority its recorder actually holds. A finding is recorded by an actor holding AUTH-V for the scope or by a human AUTH-G holder. **A non-human AUTH-V holder** may record a CRC-59 finding only where each rule asserted violated is decidable from the record (the bound of CRC-15 (b) and (c)). Where the asserted invalidity depends on interpretation, the non-human output stays advisory or request-like and does not itself trigger TRG-6. **A human AUTH-G holder** states the same three elements but is not limited to that decidability bound where the human is exercising authorized judgment. Any actor holding AUTH-A, AUTH-V, or AUTH-G may in any case request revalidation of the dependents (CRC-30). How findings are recorded and attributed is not selected (DR-09) | GCR-57; TRG-6; UAD3-06 | A | F, E, I (a non-conforming record as a CRC-59 finding; re-typed), B | HJC-16, HJC-24; DR-09; UAD4-07, UAD4-29 |
 
 #### Family H. Authority grants
 
-| ID | Condition | Sources | Eval | Handling | Pair / deferral |
+| ID | Condition | Sources | Eval | Handling | Pair / deferral / declared |
 | --- | --- | --- | --- | --- | --- |
-| CRC-60 | A grant records grantee (an identity or a role position), authority class, scope, and granting authority (identity and capacity), with a time. Absent any, it is not a grant. It takes effect when recorded, not from an earlier asserted date | PR-02; GCR-47 (extended to grants) | A | I, B | HJC-25; DR-03, DR-08 |
-| CRC-61 | A grant is conferred by a human holding AUTH-G whose conferral scope covers the class and scope conferred, as of the conferral. Every non-root grant has an acyclic chain to a root grant. Root grants are those recorded at project establishment, before any act relying on them | PR-01, PR-02, PR-04, PR-05; GCR-40 | A, S | I, B | HJC-22, HJC-25; DR-08 |
-| CRC-62 | **Self-conferral is invalid.** A grant whose grantee is the conferring identity, or a collective or role position whose recorded members or assignees include the conferrer, or whose chain returns to the conferrer. An assignment of an actor to a role position that carries grants is a conferral | GCR-08, GCR-40; GC-OQ-02 | A | I, B | HJC-23 |
-| CRC-63 | A revocation or narrowing is made by the grantee (renunciation) or by a human holding AUTH-G whose conferral scope covers the grant. It is recorded with a rationale and takes effect when recorded. It does not reach acts performed while the grant was effective. Acts under the grant after revocation are invalid. Renunciation by the grantee is valid. Widening is a new conferral | GCR-47; GC-OQ-02 | A | I | HJC-23 |
-| CRC-64 | Where the conferrer of a grant relied on for a favorable act is a recorded producer of a member of that act's accepted set, or where a revocation is by a recorded producer of an item against which the revoked holder has an open challenge, the relation is flagged and the matter is escalation-eligible | GCR-05 (by analogy), GCR-40; GC-OQ-02 | S | F, E | HJC-23 |
+| CRC-60 | A grant records grantee (an identity or a role position), authority class, scope, and granting authority (identity and capacity), with a time. Absent any, it is not a grant. It takes effect when recorded, not from an earlier asserted date | PR-02; GCR-47 (extended to grants) | A | I, B | HJC-25; DR-03, DR-08; UAD4-13 |
+| CRC-61 | Every grant is either a root grant or is conferred by a human holding AUTH-G whose conferral scope covers the class and scope conferred, as of the conferral. **A project has exactly one establishing act for its authority chain**: a recorded act by an identified human, marked as the establishing act, that precedes every other recorded act of the project. **Root grants are the grants recorded by the establishing act itself, and only those.** Every other grant has an acyclic chain to a root grant, and each link of that chain is effective (recorded, and not revoked or narrowed under CRC-63) at the act that relies on the grant. A later act marked as establishing or as root is not a second root. Any grant it records is an ordinary conferral under this entry. This entry checks that the recorded project-root form exists. It does not decide whether the establishing identity had real-world standing (HJC-22). Establishment practice is DM-03 | PR-01, PR-02, PR-04, PR-05; GCR-40; GCR-47 | A, S | I, B | HJC-22, HJC-25; DR-03, DR-08; DM-03; UAD4-13, UAD4-27, UAD4-30 |
+| CRC-62 | **Self-conferral is invalid.** A grant other than a root grant recorded by the establishing act is invalid where its grantee is the conferring identity, or is a collective or role position whose recorded members or appointees include the conferrer, or where its chain returns to the conferrer. This applies to **any later grant**, including a later grant by the establishing identity to itself, to a role position that includes it, to a collective that includes it, or through a cycle returning to it. The establishing identity as a root grantee, **for grants recorded by the establishing act itself**, is not self-conferral under this entry (CRC-61). A **grant-bearing role-position appointment** is a conferral and is evaluated under CRC-61 and this entry. A **work assignment** is provenance and confers nothing (Section 3.3) | GCR-08, GCR-40; GC-OQ-02 | A | I, B | HJC-22, HJC-23; UAD4-14, UAD4-27 |
+| CRC-63 | A revocation or narrowing is made by the grantee (renunciation) or by a human holding AUTH-G whose conferral scope covers the grant. It is recorded with a rationale and takes effect when recorded. **Grants downstream of a revoked or narrowed grant fall prospectively with the chain**: those whose CRC-61 chain passes through it, to the extent it no longer covers what they confer. From the recording, they do not validate acts unless independently re-conferred through a valid chain to root. Acts performed while the whole chain was effective are not retroactively invalidated by the later revocation (GCR-47). An act relying on a revoked, narrowed, or fallen grant, recorded after the revocation takes effect, is invalid (CRC-02). Renunciation by the grantee is valid and cascades in the same way. Widening is a new conferral | GCR-47; GC-OQ-02 | A | I | HJC-23; DR-03, DR-08; DM-07; UAD4-15, UAD4-30 |
+| CRC-64 | A grant relied on for a favorable act is **flagged**, and the matter is **escalation-eligible**, where **any conferrer along the CRC-61 chain relied on**, from the immediate conferrer up to the root, is a recorded producer of a member of that act's accepted set. A **revocation or narrowing** is likewise flagged and escalation-eligible where it is made by a recorded producer of an item (or of a member of the accepted set the item belongs to) and the grant revoked or narrowed is held by an actor with **standing to challenge** that item or set, **whether or not that actor has a challenge open**. A revocation whose cascade (CRC-63) removes such a grant counts as a revocation of it. Handling is F and E, not I, for this revision. The purpose of the conferral or revocation is HJC-23 | GCR-05 (by analogy), GCR-40; GC-OQ-02 | S | F, E | HJC-23; DP-04; UAD4-14, UAD4-28 |
 
 ### 6.3 Classification of every STEP-01 OBJ, STEP-02 EKO, and STEP-03 GCO condition
 
-This table is the explicit classification the work package requires. Primary dispositions are CR (catalogued rule), RJC (recorded-judgment check), and DR (deferred to representation). **No OBJ, EKO, or GCO condition was classified out of catalog.** Two are catalogued only as read together with a later accepted artifact (EKO-15, GCO-28, Section 3.3). One is deferred (GCO-22).
+This table is the explicit classification the work package requires. Primary dispositions are CR (catalogued rule), RJC (recorded-judgment check), and DR (deferred to representation). **No OBJ, EKO, or GCO condition was classified out of catalog.** Two are catalogued only as read together with a later accepted artifact (EKO-15, GCO-28, Section 3.3). One is deferred (GCO-22). The **Note** column gives the paired judgment (HJC) and deferral (DR) references for the entries a row maps to, and short primary notes. Section 8.2 is the complete pairing.
 
 #### STEP-01 OBJ
 
 | ID | Condition (short) | Disposition | Entry | Handling | Note |
 | --- | --- | --- | --- | --- | --- |
-| OBJ-01 | Every action has one identified acting actor | CR | CRC-01 | I, B | DR-07 |
-| OBJ-02 | Actor holds a grant of the required class covering the scope | CR | CRC-02 | I, B | DR-08 |
-| OBJ-03 | Acceptor is not a recorded producer | CR | CRC-07 | I, B | Section 10.4 |
-| OBJ-04 | Consequential acceptor is a human | CR | CRC-03 | I, B | DR-07 |
-| OBJ-05 | Material claim carries provenance | CR | CRC-35 | I, F | Timing split, UAD4-10 |
-| OBJ-06 | Required independent challenge exists, challenger independent | CR | CRC-12 | I, X | Adequacy is HJC-07 |
-| OBJ-07 | Gate-required artifacts and evidence present | CR | CRC-17 | I, X | Which are required: DM-01 |
+| OBJ-01 | Every action has one identified acting actor | CR | CRC-01 | I, B | HJC-21; DR-07 |
+| OBJ-02 | Actor holds a grant of the required class covering the scope | CR | CRC-02 | I, B | HJC-25; DR-08 |
+| OBJ-03 | Acceptor is not a recorded producer | CR | CRC-07 | I, B | HJC-12; Section 10.4 |
+| OBJ-04 | Consequential acceptor is a human | CR | CRC-03 | I, B | HJC-21; DR-07 |
+| OBJ-05 | Material claim carries provenance | CR | CRC-35 | I, F | HJC-03; timing split, UAD4-10 |
+| OBJ-06 | Required independent challenge exists, challenger independent | CR | CRC-12 | I, X | Adequacy is HJC-07; HJC-12 |
+| OBJ-07 | Gate-required artifacts and evidence present | CR | CRC-17 | I, X | HJC-01, HJC-02; which are required: DM-01 |
 | OBJ-08 | References resolve | CR | CRC-40 | I, B | none |
-| OBJ-09 | Non-AUTH-G output not recorded as acceptance or decision | CR | CRC-04 | I, B | none |
-| OBJ-10 | Decision with an open requirement not recorded as current | CR | CRC-51 | I, F | none |
+| OBJ-09 | Non-AUTH-G output not recorded as acceptance or decision | CR | CRC-04 | I, B | HJC-17 |
+| OBJ-10 | Decision with an open requirement not recorded as current | CR | CRC-51 | I, F | HJC-16; DR-04 |
 | OBJ-11 | Progression preceded by attributable acceptance | CR | CRC-21 | I, B | none |
 | OBJ-12 | Waiver or exception record complete and marked | RJC | CRC-20 | I, X | Warrant is HJC-15 |
-| OBJ-13 | Verification names its criteria | CR | CRC-05, CRC-13 | I, B | none |
+| OBJ-13 | Verification names its criteria | CR | CRC-05, CRC-13 | I, B | HJC-12 (CRC-13); HJC-24 for a non-human verifier (CRC-15) |
 
 #### STEP-02 EKO
 
@@ -523,57 +539,57 @@ This table is the explicit classification the work package requires. Primary dis
 | --- | --- | --- | --- | --- | --- |
 | EKO-01 | One class per item; priors retained | CR | CRC-34 | I, B | DR-03 |
 | EKO-02 | Producer(s) and time recorded | CR | CRC-34 | I, B | none |
-| EKO-03 | AI-produced item records producing configuration | CR | CRC-39 | F | Granularity: Section 11 |
-| EKO-04 | Evidence identifies a source; not a concurrence record; not the actor's own assertion | CR | CRC-36 | I, B | Composite, BDR-03; residue HJC-01, HJC-12 |
-| EKO-05 | Evidence records target, polarity, category, basis, limitations, times | CR | CRC-36, CRC-37 | I (class-defining), F (descriptive) | UAD4-09 |
-| EKO-06 | Derived evidence identifies inputs | CR | CRC-38 | I, F | DR-06 |
+| EKO-03 | AI-produced item records producing configuration | CR | CRC-39 | F | HJC-26; granularity: Section 11 |
+| EKO-04 | Evidence identifies a source; not a concurrence record, **where the record distinguishes sourced evidence from a concurrence or agreement record**; not the actor's own assertion | CR | CRC-36 | I, B | Composite, BDR-03; residue HJC-01, HJC-12; UAD4-09 |
+| EKO-05 | Evidence records target, polarity, category, basis, limitations, times | CR | CRC-36, CRC-37 | I (class-defining), F (descriptive) | HJC-02; UAD4-09 |
+| EKO-06 | Derived evidence identifies inputs | CR | CRC-38 | I, F | HJC-12, HJC-26; DR-06 |
 | EKO-07 | Contradicting and challenging items resolvable and visible | CR | CRC-41 | I | DR-03; views: DR-04 |
-| EKO-08 | Negative finding records its attempt | CR | CRC-36 | I, B | none |
+| EKO-08 | Negative finding records its attempt | CR | CRC-36 | I, B | HJC-06 |
 | EKO-09 | Hypothesis carries validation criteria | CR | CRC-43 | I, B | Adequacy HJC-10 |
-| EKO-10 | Inference cites, is grounded, not typed as evidence | CR | CRC-44 | I, B | DR-01 |
+| EKO-10 | Inference cites, is grounded, not typed as evidence | CR | CRC-44 | I, B | HJC-05; DR-01 |
 | EKO-11 | Validation by an authorized, independent, human acceptor | RJC | CRC-46, CRC-07 | I, B | Substance HJC-11 |
-| EKO-12 | Unauthorized validation or invalidation not recorded as one | CR | CRC-04 | I, B | none |
-| EKO-13 | Material items carry class-specific provenance | CR | CRC-35 | I, F | UAD4-10 |
+| EKO-12 | Unauthorized validation or invalidation (of a hypothesis or item) not recorded as one | CR | CRC-04 | I, B | HJC-17 |
+| EKO-13 | Material items carry class-specific provenance | CR | CRC-35 | I, F | HJC-03; UAD4-10 |
 | EKO-14 | Cited items carry a materiality designation or are treated as material | RJC | CRC-35 | I (designation without rationale) | Warrant HJC-03 |
-| EKO-15 | Reliance on an unvalidated hypothesis is marked, surfaced, and authorized | RJC | CRC-47, CRC-19 | F, I | Read with STEP-03 Section 9.2 (Section 3.3) |
+| EKO-15 | Reliance on an unvalidated hypothesis is marked, visible, and authorized | RJC | CRC-47, CRC-19 | F, I | CR part: reliance marks on dependency links (CRC-47). RJC part: the recorded authorization (CRC-19). Visibility: DR-04. HJC-14. Read with STEP-03 Section 9.2 (Section 3.3). Non-acceptance commitments: RJ-OQ-12 |
 | EKO-16 | Decision record carries basis, authority basis, nature | CR | CRC-48 | I, B | none |
 | EKO-17 | Decision cites opposition and how each stood | RJC | CRC-18 | I, B | Adequacy HJC-07 |
 | EKO-18 | Dependency link elements and rationales recorded | CR | CRC-49 | I, B | Warrant HJC-04 |
-| EKO-19 | Trigger on a material dependency has an open requirement | CR | CRC-51 | F, I | TRG-2 as narrowed (Section 3.3) |
-| EKO-20 | Advisory output typed as advisory | CR | CRC-04 | I, B | none |
+| EKO-19 | Trigger on a material dependency has an open requirement | CR | CRC-51 | F, I | HJC-16; DR-04; TRG-2 as narrowed (Section 3.3) |
+| EKO-20 | Advisory output typed as advisory | CR | CRC-04 | I, B | HJC-17 |
 
 #### STEP-03 GCO
 
 | ID | Condition (short) | Disposition | Entry | Handling | Note |
 | --- | --- | --- | --- | --- | --- |
 | GCO-01 | Accepted set computable | CR | CRC-06 | I, B | DR-01 |
-| GCO-02 | Acceptor is a human holding AUTH-G for the scope | CR | CRC-02, CRC-03 | I, B | none |
+| GCO-02 | Acceptor is a human holding AUTH-G for the scope | CR | CRC-02, CRC-03 | I, B | HJC-25, HJC-21 |
 | GCO-03 | Acceptor produced no member of the accepted set | CR | CRC-07, CRC-09 | I, B | Substance HJC-12 |
 | GCO-04 | Gate definition precedes the act; no moved standard | CR | CRC-16 | I, F, X | HJC-20 |
 | GCO-05 | Required evidence slots filled; absence statement does not fill | CR | CRC-17 | I, X | Sufficiency HJC-01 |
 | GCO-06 | Required challenge exists, independent, treated | CR | CRC-12, CRC-18 | I, X | HJC-07 |
-| GCO-07 | Required formal check independently verified | CR | CRC-13, CRC-15 | I, X | none |
-| GCO-08 | Every standing-record item cited with a treatment | RJC | CRC-18 | I, B | HJC-07, HJC-08, HJC-09 |
-| GCO-09 | Relied-on unresolved items covered by authorization or closure | RJC | CRC-19 | I, B | HJC-14 |
+| GCO-07 | Required formal check independently verified | CR | CRC-13, CRC-15 | I, X | HJC-12; HJC-24 (CRC-15) |
+| GCO-08 | Every standing-record item cited with a treatment | RJC | CRC-18 | I, B | HJC-07, HJC-08, HJC-09; B conditional on derived exposure (DR-04) |
+| GCO-09 | Relied-on unresolved items covered by authorization or closure | RJC | CRC-19 | I, B | HJC-14; B conditional on derived conditions (DR-01, DR-04) |
 | GCO-10 | Shortfalls covered by a valid exception; none non-waivable | RJC | CRC-20, CRC-10 | I, X | HJC-15 |
 | GCO-11 | Declaration and determination recorded; precedes progression | RJC | CRC-11, CRC-21 | I, B, N | HJC-12 |
-| GCO-12 | Valid challenge form; closure of a recognized kind and authority | CR | CRC-26, CRC-27 | I, B | HJC-07 |
-| GCO-13 | Challenge and relationships carried to successor | CR | CRC-28 | F | DR-05 |
-| GCO-14 | Each contribution has its STEP-03 Section 7.3 effect | CR | CRC-29 | F | DR-04 |
-| GCO-15 | Request records its stated basis | CR | CRC-30 | I, B | none |
+| GCO-12 | Valid challenge form; closure of a recognized kind and authority | CR | CRC-26, CRC-27 | I, B | HJC-07; closure kind and authority are validity facets (Section 5.1) |
+| GCO-13 | Challenge and relationships carried to successor | CR | CRC-28 | F | HJC-16; DR-05 |
+| GCO-14 | Each contribution has its STEP-03 Section 7.3 effect | CR | CRC-29 | F | HJC-16; DR-04 |
+| GCO-15 | Request records its stated basis | CR | CRC-30 | I, B | HJC-16 |
 | GCO-16 | Withdrawal records producer, time, rationale; effects persist | CR | CRC-58 | I | HJC-19 |
 | GCO-17 | Correction confirmed independently, notice recorded | RJC | CRC-55 | I, U | HJC-13; receipt not checkable |
-| GCO-18 | Five kinds of change recorded as supersession | CR | CRC-56 | I | DR-02 |
+| GCO-18 | Five kinds of change recorded as supersession | CR | CRC-56 | I | HJC-13; DR-02 |
 | GCO-19 | Acts on another actor's item only by authorized human | CR | CRC-57 | I, B | none |
-| GCO-20 | Single requirement record; closure addresses every reason | RJC | CRC-52, CRC-51 | I, F | HJC-16 |
+| GCO-20 | Single requirement record; closure addresses every reason | RJC | CRC-52, CRC-51 | I, F | HJC-16; the closure's reason-addressing record is content-bearing (Section 5.1) |
 | GCO-21 | Conditional progression authorization has its nine elements | RJC | CRC-23 | I, B | HJC-14 |
 | GCO-22 | Exposure is derivable | DR | CRC-54 | none until DR-04 | Representation conformance property |
-| GCO-23 | Producer sets append-only | CR | CRC-14 | I, U | none |
-| GCO-24 | Assumption-rooted basis items identified | CR | CRC-53 | F | GC-OQ-11 |
-| GCO-25 | Authority gap recorded; no purported cure | CR | CRC-32 | U, E | none |
+| GCO-23 | Producer sets append-only | CR | CRC-14 | I, U | HJC-12 |
+| GCO-24 | Assumption-rooted basis items identified | CR | CRC-53 | F | HJC-10, HJC-14; DR-01; GC-OQ-11 |
+| GCO-25 | Authority gap recorded; no purported cure | CR | CRC-32 | U, E | HJC-12 |
 | GCO-26 | Escalation records its elements | CR | CRC-31 | I, B | none |
-| GCO-27 | Advisory outputs typed; not recorded as acts | CR | CRC-04 | I, B | none |
-| GCO-28 | Trigger of any kind on a material dependency has an open requirement | CR | CRC-51 | F, I | TRG-2 as narrowed (Section 3.3); includes TRG-6 |
+| GCO-27 | Advisory outputs typed; not recorded as acts | CR | CRC-04 | I, B | HJC-17 |
+| GCO-28 | Trigger of any kind on a material dependency has an open requirement | CR | CRC-51 | F, I | HJC-16; DR-04; TRG-2 as narrowed (Section 3.3); includes TRG-6, which a CRC-59 finding triggers only when it meets CRC-59 |
 
 ### 6.4 What the catalog is not
 
@@ -593,7 +609,7 @@ Some accepted rules are definitions, constraints on any representation, duties w
 | EKR-06 | No inference is elevated by headcount or agreement. The clearing of disagreement is checked; the "weighing" is judgment | CRC-33; HJC-09 |
 | EKR-18 | The duty to record contradicting information an actor holds. Breach is not detectable from a record that lacks the information. It is detectable when the information surfaces | CRC-18 (once recorded); challenge; Section 1.4 |
 | EKR-22 (first part) | Every assumption is recorded and visible. An unrecorded assumption is not detectable | CRC-47 (recorded ones); HJC-10 |
-| EKR-41 | Restates the boundary rule for EKO. Superseded here by BDR-14 and BDR-05 | BDR-05, BDR-14 |
+| EKR-41 | Restates the boundary rule for EKO. Restated and enforced through BDR-05 and BDR-14. The accepted rule is preserved, not changed (Section 3.1) | BDR-05, BDR-14 |
 | GCR-27 | Defines unanswered and unresolved without clocks. A definition | CRC-27, CRC-33 |
 | GCR-67 | Time never acts. Enforced through the entries that would be the vehicle of a time effect | CRC-04, CRC-27, CRC-33, CRC-52 |
 
@@ -603,15 +619,15 @@ Some accepted rules are definitions, constraints on any representation, duties w
 
 | ID | What is deferred | Needed by | Routing |
 | --- | --- | --- | --- |
-| DR-01 | Computation of the accepted-set closure, citation-chain grounding, and assumption-rooted derivation | CRC-06, CRC-44, CRC-53 | GC-OQ-04 |
+| DR-01 | Computation of the accepted-set closure, citation-chain grounding, and assumption-rooted derivation | CRC-06, CRC-19, CRC-44, CRC-53 | GC-OQ-04 |
 | DR-02 | Item identity across change: how a successor, a correction, and a never-correction change are related to the item they change | CRC-42, CRC-55, CRC-56 | EK-OQ-12; GC-OQ-04 |
-| DR-03 | Record order, effective-from-recording, and history preservation | CRC-24, CRC-34, CRC-41, CRC-60 | RJ-OQ-01 |
-| DR-04 | Derived conditions and dependency enumeration; whether derived or stored | CRC-29, CRC-51, CRC-54 | EK-OQ-11; GC-OQ-04 |
+| DR-03 | Record order, effective-from-recording, and history preservation. Includes the ordering by which the establishing act precedes every other recorded act | CRC-24, CRC-34, CRC-41, CRC-60, CRC-61, CRC-63 | RJ-OQ-01 |
+| DR-04 | Derived conditions and dependency enumeration; whether derived or stored. Where a derived condition (exposure, open requirement, assumption-rooted status) is an input to a B-tagged rule, whether the representation makes it available at the evaluation point. Visibility of unresolved assumptions on the dependent (CRC-47) is a semantic requirement on any conforming representation. How it is made visible is this item's to decide | CRC-18, CRC-19, CRC-29, CRC-47, CRC-51, CRC-52, CRC-54 | EK-OQ-11; EK-OQ-15; GC-OQ-04 |
 | DR-05 | Whether carry-over is derived or stored | CRC-28 | GC-OQ-04 |
 | DR-06 | Source identity comparability: how two sources are determined to be the same | CRC-36, CRC-38 | RJ-OQ-10 |
 | DR-07 | Attribution integrity, actor-kind designation, and authentication | CRC-01, CRC-03 | RJ-OQ-02 |
-| DR-08 | Scope vocabulary, scope containment, and grant-chain reconstruction as of a point in time | CRC-02, CRC-60, CRC-61 | RJ-OQ-04 |
-| DR-09 | How formal-check results and findings are recorded and attributed | Section 9.4; CRC-15, CRC-59 | RJ-OQ-03 |
+| DR-08 | Scope vocabulary, scope containment, and grant-chain reconstruction as of a point in time, including which downstream grants have fallen with a revoked or narrowed link (CRC-63) | CRC-02, CRC-60, CRC-61, CRC-63 | RJ-OQ-04 |
+| DR-09 | How formal-check results and findings are recorded and attributed. The content a CRC-59 finding must state (rules violated, evaluation point, record elements examined) is fixed semantically by CRC-59. How it is recorded and attributed is not | Section 9.4; CRC-15, CRC-59 | RJ-OQ-03a |
 | DR-10 | Evaluation-point semantics: act-time versus standing evaluation | Section 4.1, 5.4 | RJ-OQ-01 |
 
 #### Deferred to methodology (STEP-06)
@@ -620,11 +636,12 @@ Some accepted rules are definitions, constraints on any representation, duties w
 | --- | --- | --- | --- |
 | DM-01 | Evidence categories, thresholds, and gate-slot contents by product category | CRC-17 | GC-OQ-06; EK-OQ-01 |
 | DM-02 | Role positions and who holds gate-definition, validation, and conferral scopes | CRC-61 | GC-OQ-06 |
-| DM-03 | Practice for project establishment and root grants | CRC-61 | RJ-OQ-05 |
-| DM-04 | Independence, assignment disclosure, and the substance test for teams of one or two | CRC-07, CRC-11 | GC-OQ-07 |
+| DM-03 | Practice for project establishment and root grants. STEP-04 decides the protocol effect (one establishing act, first, whose own grants are the roots; CRC-61). STEP-06 owns how a project carries out establishment | CRC-61 | RJ-OQ-05 |
+| DM-04 | Independence, work-assignment disclosure, and the substance test for teams of one or two | CRC-07, CRC-11 | GC-OQ-07 |
 | DM-05 | Conventions for stating producing configuration, including "not determinable" and what counts as instructions | CRC-39 | RJ-OQ-05 |
 | DM-06 | Guidance on designating formal-check criteria as decidable from the record | CRC-15 | RJ-OQ-05 |
-| DM-07 | Grant review practice and role rotation | CRC-63 | RJ-OQ-05 |
+| DM-07 | Grant review practice and role rotation, including re-conferral after a revocation or renunciation cascades downstream | CRC-63 | RJ-OQ-05 |
+| DM-08 | Guidance on stating the required content of a formal-check result or finding (rules violated, evaluation point, record elements examined) and on typing a bare assertion as a challenge, counter-evidence, advisory finding, or request | CRC-15, CRC-59 | RJ-OQ-03b |
 
 #### Deferred to pilot (STEP-07)
 
@@ -633,7 +650,7 @@ Some accepted rules are definitions, constraints on any representation, duties w
 | DP-01 | Burden of detection: flag volume, false positives, effort to record treatments, configuration recording burden | GC-OQ-08; RJ-OQ-06 |
 | DP-02 | Whether blocking-eligible rules are better blocked or detected-and-flagged in use | RJ-OQ-06 |
 | DP-03 | Whether authorizations or grants need protocol-effective terms | GC-OQ-09; RJ-OQ-07 |
-| DP-04 | Strength of handling for conflicted conferral and revocation (flag versus invalidate) | RJ-OQ-09 |
+| DP-04 | Strength of handling for conflicted conferral and revocation (flag and escalation, F/E, versus invalidating, I). **Evidence sought:** adversarial or near-adversarial cases of proxy conferral, ancestor-chain conflict (a conflicted conferrer upstream of the grant relied on), and challenger-standing suppression (revocation or narrowing of a challenger's grant before a challenge is recorded). **Trigger for reconsidering F/E versus I:** observed use, or plausible rehearsal, showing that a flagged conflicted conferral or revocation can materially enable a favorable acceptance or suppress challenge standing before review. **Pilot owner: STEP-07.** Targeted Tech Lead review of the pilot evidence is a review need before any strengthening is proposed. The Tech Lead is not a step owner. A strengthening is an accepted revision of this artifact (BDR-16) | RJ-OQ-09 |
 | DP-05 | Adequacy of the five never-a-correction kinds and of any classification in this artifact | RJ-OQ-08; RJ-OQ-11 |
 | DP-06 | Whether non-human verification is adopted and its effect | RJ-OQ-06 |
 
@@ -674,9 +691,9 @@ Each entry is a **derived grouping over accepted judgment IDs**: judgments that 
 | HJC-19 | Whether a withdrawal's rationale is genuine | GCJ-10 | A challenger; the closer | Whether a stated reason is the real one |
 | HJC-20 | Whether a gate definition's slots are adequate for the product category | GCJ-14 | The gate definer; later challengers | Adequacy of a standard |
 | HJC-21 | **Derived.** Whether a recorded attribution or actor-kind designation is accurate: that an act recorded under an identity was in substance performed by it, and that an identity designated human is a human | The limits of CRC-01, CRC-03 | A challenger (target: validity of the act); authority closure | A check applies the record. It cannot decide whether the record describes who acted |
-| HJC-22 | **Derived.** Whether a root grant legitimately establishes the project's authority | The limits of CRC-61 | Outside the record (project establishment); recorded as root | Root legitimacy is a fact about the world the protocol cannot check |
-| HJC-23 | **Derived.** Whether a conferral, revocation, or narrowing was done to enable or defeat a particular act | The limits of CRC-62, CRC-63, CRC-64 | A challenger; an independent human AUTH-G | Purpose is not in the record |
-| HJC-24 | **Derived.** Whether a named formal-check criterion is decidable from the record without interpretation | GCR-11 (applied to CRC-15) | The gate definer records the designation; any AUTH-A actor may challenge | The decidability test (BDR-01) applied to a particular criterion |
+| HJC-22 | **Derived.** Whether the establishing act, and so its root grants, legitimately establishes the project's authority, including whether the establishing identity had real-world standing to do so | The limits of CRC-61, CRC-62 | Outside the record (project establishment); recorded as root | Root legitimacy is a fact about the world the protocol cannot check |
+| HJC-23 | **Derived.** Whether a conferral (at any link of the chain), revocation, or narrowing was done to enable or defeat a particular act, or to suppress a challenger's standing | The limits of CRC-62, CRC-63, CRC-64 | A challenger; an independent human AUTH-G | Purpose is not in the record |
+| HJC-24 | **Derived.** Whether a named formal-check criterion, or a rule asserted violated in a non-human CRC-59 finding, is decidable from the record without interpretation | GCR-11 (applied to CRC-15 and, for non-human findings, CRC-59) | The gate definer records the designation; any AUTH-A actor may challenge | The decidability test (BDR-01) applied to a particular criterion |
 | HJC-25 | **Derived.** Whether a scope stated without resolvable references contains another scope, and whether a stated scope is the right one | The limits of CRC-02, CRC-60, CRC-61 | The conferrer designates; a challenger disputes | Containment of descriptions requires interpretation |
 | HJC-26 | **Derived.** Whether recorded producing configuration and lineage are adequate for weighing an item | EK-OQ-09 (applied to CRC-38, CRC-39) | The acceptor | Adequacy of provenance is a sufficiency question |
 
@@ -705,19 +722,19 @@ For every judgment, the **paired objective check** is the mechanical fact that c
 | HJC-09 | CRC-18, CRC-33 | Unresolved challenges and contradictions are present and cited; clearing was by a recognized act | Whether disagreement is resolved enough to proceed |
 | HJC-10 | CRC-43, CRC-53 | Validation criteria exist; assumption-rooted items are identified from recorded classes | Whether the proposition is testable; whether criteria are adequate |
 | HJC-11 | CRC-46, CRC-07 | The validator is a human with authority, independent; scope, criteria, results, and responses are cited | Whether the criteria are met; whether to validate |
-| HJC-12 | CRC-07, CRC-11, CRC-12, CRC-13, CRC-14, CRC-32, CRC-36, CRC-38 | Identities are distinct; the declaration exists; assignment relations are recorded; lineage is identified where recorded | Whether the distinct identities are substantively independent; unrecorded lineage |
+| HJC-12 | CRC-07, CRC-11, CRC-12, CRC-13, CRC-14, CRC-32, CRC-36, CRC-38 | Identities are distinct; the declaration exists; work-assignment relations are recorded; lineage is identified where recorded | Whether the distinct identities are substantively independent; unrecorded lineage |
 | HJC-13 | CRC-55, CRC-56 | Designation exists, is attributed, retained; confirmed independently; never-a-correction kinds are recognized | Whether meaning changed, outside the five kinds |
 | HJC-14 | CRC-19, CRC-23, CRC-47, CRC-53 | The authorization is complete and recorded before the acceptance; reliance is marked | Whether proceeding is warranted |
 | HJC-15 | CRC-20 | The exception record is complete and marked; independence holds; no non-waivable condition is waived | Whether the exception is warranted |
-| HJC-16 | CRC-28, CRC-29, CRC-30, CRC-51, CRC-52 | The effect classification applies; the requirement exists with its reasons; a closure meets authority conditions | Whether the change undermines the dependent; the outcome |
+| HJC-16 | CRC-28, CRC-29, CRC-30, CRC-51, CRC-52, CRC-59 | The effect classification applies; the requirement exists with its reasons; a closure meets authority conditions and names each open reason with a recorded disposition; a finding of an invalid acceptance names the rule, evaluation point, and elements examined | Whether the change undermines the dependent; whether a disposition adequately addresses its reason; the outcome |
 | HJC-17 | CRC-04 | The output is typed as advisory | What weight it deserves |
-| HJC-18 | CRC-45 | An evaluative designation exists and is not presented as observed fact | Whether content is evaluative; whether it is warranted |
+| HJC-18 | CRC-45 | An evaluative designation exists and the record does not present the claim under an observed-fact or evidence-only form | Whether content is evaluative; whether it is warranted |
 | HJC-19 | CRC-58 | A rationale is recorded | Whether the rationale is genuine |
 | HJC-20 | CRC-16 | A gate definition exists before the act | Whether its slots are adequate |
 | HJC-21 | CRC-01, CRC-03 | An identity and an actor-kind designation are recorded | Whether they are accurate |
-| HJC-22 | CRC-61 | A root grant is recorded as such, at establishment | Whether it is legitimate |
-| HJC-23 | CRC-62, CRC-63, CRC-64 | Self-conferral is detected; the producer-of-set relation is flagged | The purpose of the conferral or revocation |
-| HJC-24 | CRC-15 | A checkability designation is recorded for each criterion | Whether the criterion is decidable from the record |
+| HJC-22 | CRC-61, CRC-62 | A single establishing act is recorded, precedes every other recorded act, and records the root grants. The root-grantee case is limited to that act | Whether the establishing act is legitimate; whether the establishing identity had real-world standing |
+| HJC-23 | CRC-62, CRC-63, CRC-64 | Later self-conferral is detected; the producer-of-set relation is flagged along the whole chain; a conflicted revocation or narrowing affecting a challenger's standing is flagged | The purpose of the conferral or revocation |
+| HJC-24 | CRC-15, CRC-59 | A checkability designation is recorded for each criterion; a non-human finding states the elements examined and the evaluation point | Whether the criterion, or a rule asserted violated, is decidable from the record |
 | HJC-25 | CRC-02, CRC-60, CRC-61 | Scope references resolve; containment is decided where scopes are references | Containment of scopes stated by description |
 | HJC-26 | CRC-38, CRC-39 | A configuration statement and lineage identification exist | Whether they are adequate for weighing the item |
 
@@ -757,17 +774,17 @@ Two questions are easily run together.
 
 | Category | Meaning | Must | May | Must not |
 | --- | --- | --- | --- | --- |
-| **I. Invalidating** | The detection recognizes that the act lacked, or the designation lacks, its intended effect | Never be presented as having effect. Stay visible as invalid or ineffective. Be recorded as the event the source rule names (for an invalid acceptance, TRG-6) | Be recognized at the act or later | Erase the record. Be treated as a decision about substance |
-| **B. Blocking candidate** | The rule is act-time and all its inputs are in the record, so a conforming practice could prevent the act from taking effect before anyone relies on it | Record the attempt as visible and invalid | Prevent the _effect_ | Prevent the _record_ of the attempt (BDR-09). Prevent a challenge, counter-evidence, withdrawal, retirement, request, escalation, refusal, or deferral from being recorded (BDR-10). Decide substance |
+| **I. Invalidating** | The detection recognizes that the act lacked, or the designation lacks, its intended effect | Never be presented as having effect. Stay visible as invalid or ineffective. Be recorded as the event the source rule names (for an invalid acceptance, a CRC-59 finding, which is the TRG-6 event) | Be recognized at the act or later | Erase the record. Be treated as a decision about substance |
+| **B. Blocking candidate** | The rule is act-time and all its inputs are in the record, so a conforming practice could prevent _reliance_ on the act before anyone relies on it. An invalid act never has effect whether or not it is blocked (Section 9.1). Blocking does not give it effect otherwise | Record the attempt as visible and invalid | Prevent reliance on the act | Prevent the _record_ of the attempt (BDR-09). Prevent a challenge, counter-evidence, withdrawal, retirement, request, escalation, refusal, or deferral from being recorded (BDR-10). Decide substance |
 | **F. Flagging** | The condition is made visible to reviewers and to those who rely on the item. The act keeps its effect | Show the flag wherever the item appears, and in the standing record of any acceptance citing it where the entry says so. Keep it until a recorded act cures it | Surface it in any view | Clear it by elapsed time, silence, or absence of objection. Change the item's effect |
 | **E. Escalating** | The matter needs a determination by a particular authority. The detection routes it there | Make an escalation record (STEP-03 Section 8.4, CRC-31) by an actor entitled to make one. Where the detector holds no applicable grant, surface the result so a human with one may escalate | Be made by an automated actor holding an applicable grant | Close, resolve, or decide the matter |
 | **U. Recorded as unresolved** | The condition cannot be decided from the record, and accepted semantics give no interim default | Record it as unresolved and keep it visible. Draw no conclusion | Become decidable when the missing element or determination is recorded | Be cleared by time. Be reported as satisfied or violated |
 | **X. Visible exception** | A shortfall of a waivable gate requirement is covered by a valid exception | Report the result as _satisfied under exception_, distinct from satisfied. Keep the marker visible wherever the acceptance is cited | Be raised only with the content CRC-20 requires | Cover a non-waivable condition. Be recorded after the act and relied on retroactively (CRC-24) |
 | **N. No automated conclusion** | The entry has a judgment residue | Report presence or absence of the recorded element only | Surface the residue for a human | Report sufficient, insufficient, adequate, acceptable, warranted, or independent in substance. Convert the residue into a score, grade, weight, or confidence value |
 
-Categories combine. An invalid acceptance is **I** and, once found, also **F** to dependents (through TRG-6) and **E** toward an authority able to reaffirm.
+Categories combine. An invalid acceptance is **I** and, once found in a finding that meets CRC-59, also **F** to dependents (through TRG-6) and **E** toward an authority able to reaffirm.
 
-### 9.3 Assignment principles
+### 9.3 Handling-assignment principles
 
 Each catalog entry's handling follows from its source, not from a preference.
 
@@ -781,19 +798,19 @@ Each catalog entry's handling follows from its source, not from a preference.
 | The entry has a judgment residue | **N** on the residue |
 | The detection concerns a conservative or opposition act | Never prevented from being recorded (BDR-10) |
 
-Section 3.3 lists the three places where the assignment is a declared choice (UAD4-09, UAD4-10, UAD4-11): the class-defining versus descriptive split of evidence elements, the timing of presumed materiality, and producing configuration.
+Section 3.3 lists the three places where the handling assignment is a declared choice (UAD4-09, UAD4-10, UAD4-11): the class-defining versus descriptive split of evidence elements, the timing of presumed materiality, and producing configuration.
 
 ### 9.4 Detection, protocol effect, and the standing of detection results
 
 #### 9.4.1 Invalidity does not depend on detection
 
-An invalid act does not produce its intended effect. It does not become valid because nobody noticed. It does not become invalid because someone noticed. The record of the attempt stays visible (PR-11). Discovery is a recorded event that starts the consequences the source rules attach to _finding_ (TRG-6), not a moment at which the act becomes invalid (STEP-03 Section 4.7).
+An invalid act does not produce its intended effect. It does not become valid because nobody noticed. It does not become invalid because someone noticed. The record of the attempt stays visible (PR-11). Discovery is a recorded event that starts the consequences the source rules attach to _finding_ (TRG-6, through a finding that meets CRC-59), not a moment at which the act becomes invalid (STEP-03 Section 4.7).
 
 #### 9.4.2 What "no intended effect" withholds
 
 | Act or designation | What does not happen | What stays visible |
 | --- | --- | --- |
-| Acceptance | Progression is not authorized. Dependents that relied on it are given TRG-6 on a finding | The attempt, as invalid |
+| Acceptance | Progression is not authorized. Dependents that relied on it are given TRG-6 on a finding that meets CRC-59 | The attempt, as invalid |
 | Refusal or deferral, defective | Nothing about progression changes. The record has no effect of its own | The attempt, read as recorded for CRC-18 |
 | Challenge, invalid form | No contestation or exposure arises | The attempt, as invalid |
 | Closure, purported | The challenge or requirement stays open | The attempt, as invalid |
@@ -813,22 +830,30 @@ An invalid act does not produce its intended effect. It does not become valid be
 A detection result is a **formal-check result** (Section 4.10). It is produced by any actor, human or non-human, or by a representation's own enforcement.
 
 - It is **advisory**. It informs reviewers. It does not itself change protocol effect, because the effect was fixed by the source rule (BDR-08, BDR-13, BDR-17).
-- It gains **additional standing** only in two cases: when it is relied on to satisfy a gate-required formal check, in which case the producing actor must hold AUTH-V and CRC-13 and CRC-15 apply; and when it is recorded as a **finding that an acceptance is invalid** (CRC-59), in which case the producing actor must hold AUTH-V for the scope or be a human holding AUTH-G.
+- It gains **additional standing** only in two cases: when it is relied on to satisfy a gate-required formal check, in which case the producing actor must hold AUTH-V and CRC-13 and CRC-15 apply; and when it is recorded as a **finding that an acceptance is invalid** (CRC-59), in which case the producing actor must hold AUTH-V for the scope or be a human holding AUTH-G, and the finding must name the rule or rules violated, state the evaluation point, and identify the record elements examined. A bare assertion has no such standing (Section 9.4.5). The decidability bound of CRC-15 governs a non-human finding.
 - It is **challengeable**. A dispute about whether the record supports a detection is a dispute about the validity of an act (GCR-23). It is resolved by authority closure under GCR-26. A pending challenge does **not** suspend TRG-6, in line with EKR-39: effects do not wait for adjudication. A finding that proves wrong is answered by reaffirmation under CRC-52.
 - It confers **no independence and no corroboration**. Two detectors agreeing is agreement (PR-20). A detector that is a producer of the checked item is a producer for CRC-13.
 - It is **record-relative**. A result of "satisfied" says the record shows the condition. It does not say the record is complete or accurate (BDR-06).
 
 #### 9.4.4 Blocking
 
-Blocking is the semantic possibility of preventing an act from taking effect. It is not a mechanism and not a requirement. It matches D6, which leaves block-or-flag to the implementation. This artifact adds three constraints that any practice of blocking must respect.
+Blocking is the semantic possibility of preventing **reliance** on an act that is invalid. An invalid act never has effect, blocked or not (Section 9.1). Blocking is not a mechanism and not a requirement. It matches D6, which leaves block-or-flag to the implementation. This artifact adds three constraints that any practice of blocking must respect.
 
-1. Blocking prevents **effect**, never **record**. The attempt is recorded and visible as invalid (BDR-09).
+1. Blocking may prevent **reliance**, never the **record**. The attempt is recorded and visible as invalid (BDR-09).
 2. Blocking never prevents the recording of an opposition or conservative act, even a malformed one. A malformed challenge is recorded and visible as invalid (BDR-10; GCR-23).
 3. Blocking does not decide substance. A rule is blockable only because its answer is in the record (BDR-01, Section 5.4).
 
 #### 9.4.5 The finding of an invalid acceptance
 
-STEP-03 Section 4.7 makes "an acceptance on which a dependent relied is found invalid, or withdrawn by its acceptor" the TRG-6 event, without saying who finds. CRC-59 answers: a finding is recorded by an AUTH-V holder or a human AUTH-G holder, and any AUTH-A, AUTH-V, or AUTH-G actor may in any case raise a request for the dependents (GCR-31, route P3). The choice is declared (UAD4-07). It adds no authority class. It does mean a mechanical detection of invalidity, recorded by a checker that holds AUTH-V, creates a requirement on dependents. That is consistent with this boundary: the detection decides validity of an act from the record, not sufficiency, and the requirement it creates is closed only by a human (CRC-52).
+STEP-03 Section 4.7 makes "an acceptance on which a dependent relied is found invalid, or withdrawn by its acceptor" the TRG-6 event, without saying who finds or what a finding contains. CRC-59 answers both.
+
+- **Who.** A finding is recorded by an AUTH-V holder or a human AUTH-G holder. Any AUTH-A, AUTH-V, or AUTH-G actor may in any case raise a request for the dependents (GCR-31, route P3).
+- **What it contains.** A CRC-59 finding is a formal-check result (Section 4.10) that names the rule or rules violated, states the evaluation point, and identifies the record elements examined. This is the reproducible basis that makes its TRG-6 effect proportionate. A **bare assertion** that an acceptance is invalid is not a CRC-59 finding and does not trigger TRG-6. It is typed as a challenge, counter-evidence, an advisory finding, or a revalidation request, according to the authority the recorder actually holds.
+- **Non-human recorders.** The CRC-15 decidability bound governs. A non-human AUTH-V holder may record a CRC-59 finding only where each rule asserted violated is decidable from the record, and the finding states the elements examined and the evaluation point. Where the asserted invalidity depends on interpretation, the output stays advisory or request-like and does not itself trigger TRG-6.
+- **Human AUTH-G recorders.** A human holding AUTH-G states the same three elements. The human is not limited to the non-human decidability criteria where the human is exercising authorized judgment.
+- **Recording.** DR-09 still owns how findings are recorded and attributed. This section fixes content semantically and selects no representation.
+
+The choice is declared (UAD4-07, UAD4-29). It adds no authority class. It does mean a mechanical detection of invalidity, recorded by a checker that holds AUTH-V and meets the bound, creates a requirement on dependents. That is consistent with this boundary: the detection decides validity of an act from the record, not sufficiency, and the requirement it creates is closed only by a human (CRC-52). Section 10.6 keeps the cost of a mistaken finding visible.
 
 ### 9.5 Fail-closed, defaults, and unresolved
 
@@ -842,6 +867,8 @@ STEP-03 Section 4.7 makes "an acceptance on which a dependent relied is found in
 ### 9.6 Visible exception
 
 A waivable gate requirement that is unsatisfied may be covered by a recorded exception with the content CRC-20 requires. The check result is then **satisfied under exception**, which is a distinct result. The exception marker travels with the acceptance and is visible wherever it is cited (GCR-45).
+
+**Which requirements are waivable.** A gate requirement waivable under STEP-03 Section 9.4 can be covered by a valid CRC-20 exception. That includes gate-required slots, challenges, and formal checks, gate-required configuration facets (Section 11.4), and gate-defined stricter treatment (response) requirements. A condition in the list below cannot (CRC-22).
 
 Not coverable by any exception (GCR-46; CRC-10, CRC-20):
 
@@ -880,11 +907,11 @@ STEP-01 Section 8 gave seventeen invalid action examples as targets for this ste
 | ID | Rule |
 | --- | --- |
 | BDR-08 | Detection reveals a violation. It does not create one. An invalid act was invalid from the outset, an undetected invalid act is not valid, and a detection result is not a finding of truth. |
-| BDR-09 | An invalid act or ineffective designation produces no intended effect, and the attempt stays recorded and visible. Blocking prevents effect, never record. |
+| BDR-09 | An invalid act or ineffective designation produces no intended effect, and the attempt stays recorded and visible. Blocking may prevent reliance on the act, never the record of it. |
 | BDR-10 | No handling prevents the recording of a challenge, counter-evidence, withdrawal, retirement, request, escalation, refusal, deferral, or invalid attempt. A defect in such an act makes it ineffective or flagged as the catalog says. It never makes it unrecordable. |
-| BDR-11 | Handling categories are semantic effects. They are not state names, serialized values, or enforcement mechanisms. |
+| BDR-11 | Handling categories are semantic effects. They are not state names, serialized values, or enforcement mechanisms. The same holds for the outcomes a formal-check result may state (Section 4.10): they are what a result may say, not a selected value set. |
 | BDR-12 | Where a source rule makes a record element a validity condition, its absence is a violation. Where a source rule supplies a conservative default pending a determination, the default applies and the pending matter is recorded as unresolved. Otherwise the condition is recorded as unresolved with no conclusion. |
-| BDR-13 | A detection result is a formal-check result. It is advisory, challengeable, and does not suspend a trigger it creates. It gains standing only as Section 9.4.3 states. A result relied on to satisfy a gate-required formal check is subject to CRC-13 and CRC-15. |
+| BDR-13 | A detection result is a formal-check result. It is advisory, challengeable, and does not suspend a trigger it creates. It gains standing only as Section 9.4.3 states. A result relied on to satisfy a gate-required formal check is subject to CRC-13 and CRC-15. A result recorded as a finding that an acceptance is invalid must meet CRC-59 (rule or rules violated, evaluation point, record elements examined), and a non-human finding is also bounded by the decidability criteria of CRC-15 (UAD4-29). |
 | BDR-14 | Mechanical detection may block, flag, escalate, record as unresolved, or show invalidity only at the semantic level. It must not decide a contextual judgment, present one as decided, convert one into a score, grade, weight, or confidence value, or replace human gate acceptance. No number or combination of satisfied checks is acceptance, validation, or progression. |
 | BDR-15 | A shortfall covered by a valid exception is reported as satisfied under exception and stays visible. A non-waivable condition is never covered. |
 | BDR-17 | Evaluator outputs, automated checks, verification records, and validator findings remain advisory or formal-check results unless accepted PROD-W protocol grants the relevant authority (PR-22). |
@@ -903,6 +930,9 @@ Authority and independence are the area where the protocol's headline constraint
 | --- | --- | --- |
 | Who acted, in what capacity, at what time | Objective | CRC-01 |
 | Whether the actor held a grant of the required class over the scope | Objective, given the grant records | CRC-02, CRC-60, CRC-61 |
+| Whether the project's single establishing act is recorded, precedes every other recorded act, and records the root grants | Objective, given record order (DR-03) | CRC-61 |
+| Whether a grant's chain is effective at the act, after any revocation or narrowing upstream | Objective, given the grant records and their order | CRC-61, CRC-63 |
+| Whether a finding that an acceptance is invalid names its rule, evaluation point, and elements examined | Objective | CRC-59 |
 | Whether the actor is recorded as human | Objective against a recorded designation | CRC-03 |
 | Whether the acceptor, verifier, or challenger is a recorded producer | Objective given recorded producers | CRC-07, CRC-12, CRC-13, CRC-14 |
 | Whether an output may be recorded as the act it claims to be | Objective | CRC-04 |
@@ -917,12 +947,12 @@ STEP-01 Section 4.3 defines a grant as an explicit, attributable, scoped permiss
 
 | Facet | Disposition | Rule | What remains |
 | --- | --- | --- | --- |
-| **Creation** | Granting is an **act**, recorded and attributable (PR-06). It requires a **human holding AUTH-G whose conferral scope covers** the class and scope conferred. Every non-root grant has an acyclic chain to a root grant | CRC-60, CRC-61 | Who holds conferral scopes in a project: DM-02. Establishment practice: DM-03 |
+| **Creation** | Granting is an **act**, recorded and attributable (PR-06). It requires a **human holding AUTH-G whose conferral scope covers** the class and scope conferred. A project has exactly one establishing act, preceding every other recorded act. Root grants are only the grants it records. Every other grant has an acyclic chain, effective at the relying act, to a root grant (Section 10.2.2) | CRC-60, CRC-61 | Who holds conferral scopes in a project: DM-02. Establishment practice: DM-03 |
 | **Scope** | A grant's scope is stated and resolvable (PR-02). A conferrer cannot confer beyond its own conferral scope. Containment is decided where scopes are references. A scope stated by description is a designation with a judgment residue | CRC-02, CRC-60, CRC-61; HJC-25 | Scope vocabulary and containment computation: DR-08 |
 | **Change** | Widening is a new conferral under CRC-61. Narrowing is a revocation of the wider grant and a conferral of the narrower | CRC-63 | none |
-| **Revocation** | By the grantee (renunciation) or by a human holding AUTH-G whose conferral scope covers the grant. Recorded with a rationale. Effective when recorded, never retroactive. Acts under the grant after revocation are invalid. Challengeable | CRC-63 | Conflicted revocation: CRC-64 (flag and escalation) |
+| **Revocation** | By the grantee (renunciation) or by a human holding AUTH-G whose conferral scope covers the grant. Recorded with a rationale. Effective when recorded, never retroactive. Grants downstream of the revoked or narrowed grant fall prospectively with the chain. Acts relying on a revoked or fallen grant after revocation are invalid. Acts performed while the whole chain was effective stand (Section 10.2.4). Challengeable | CRC-63 | Conflicted revocation, including revocation of a challenger's standing: CRC-64 (flag and escalation) |
 | **Audit** | Grants and grant acts are records, cumulative and never erased (EKR-09). Every act's authority basis cites the grant it relied on (STEP-02 Section 9.3), and through it the chain to root. Reconstructing who held what authority as of a point in time is a requirement on any representation | CRC-41, CRC-60, CRC-61 | As-of reconstruction: DR-03, DR-08. Review practice: DM-07 |
-| **Self-conferral** | **Invalid.** A grant whose grantee is the conferring identity, a collective or role position whose recorded members or assignees include the conferrer, or whose chain returns to the conferrer. An assignment to a role position that carries grants is a conferral | CRC-62 | Purpose of a conferral: HJC-23 |
+| **Self-conferral** | **Invalid** for every later grant: one whose grantee is the conferring identity, a collective or role position whose recorded members or appointees include the conferrer, or whose chain returns to the conferrer. The establishing identity as a root grantee, in the establishing act's own grants, is the one bounded case and is not self-conferral. A grant-bearing role-position appointment is a conferral (Section 10.2.5) | CRC-62 | Purpose of a conferral: HJC-23. Legitimacy of the establishing act: HJC-22 |
 
 #### 10.2.1 Why AUTH-G with a conferral scope
 
@@ -932,17 +962,56 @@ STEP-01 has four authority classes. None names the power to confer grants. Three
 - **Conferral by any actor holding a grant covering the scope.** Rejected. It would let AUTH-P and AUTH-A holders, including AI agents, expand authority. HA-1 and HA-2 require consequential authority decisions to be explicit and human.
 - **Conferral as a scope of AUTH-G.** Adopted. STEP-03 already treats "the project's gate-definition scope" as a scope of AUTH-G (Section 5.2), so a conferral scope follows an accepted precedent and adds no class. It is human-only by PR-05.
 
-This is an architecture-level choice and is declared at level A (UAD4-13).
+This is an architecture-level choice and is declared at level A (UAD4-13). It is not delegation and not class-confers-class, and Section 3.3 states the reading of PR-04 and GCR-08 that follows.
 
 #### 10.2.2 Root grants and establishment
 
-A chain of conferrals has to end somewhere. A **root grant** is a grant whose granting authority is an **establishing act**: a recorded act by an identified human at project establishment, marked as root, before any act relies on it. The protocol checks that a root is recorded as such and that every non-root grant chains to one (CRC-61). It cannot check that the root is legitimate: whether that person had standing to establish the project is a fact about the world (HJC-22). A root grant recorded after acts rely on the chain is not a root and has no in-record authority; it can only be conferred under CRC-61. Establishment practice and role positions are methodology (DM-02, DM-03).
+A chain of conferrals has to end somewhere. This artifact fixes where, and keeps the end from being movable.
+
+1. **One establishing act.** A PROD-W project has exactly one protocol-establishing act for its authority chain: a recorded act by an identified human, marked as the establishing act.
+2. **First.** The establishing act precedes every other recorded act of the project. A later act cannot become a second root merely because no later act has yet relied on it.
+3. **Roots come only from it.** A **root grant** is a grant recorded by the establishing act itself. Every other grant chains acyclically to a root grant (CRC-61). A later act that is marked as establishing or as root is not a second root. Any grant it records is an ordinary conferral, and is invalid unless its conferrer holds a conferral scope covering it.
+4. **The establishing identity as a root grantee.** The establishing identity may be a root grantee, but only for grants recorded by the establishing act itself. This is what lets a team of one exist: a founder establishes the project and grants themselves authority in the same act. CRC-62 does not treat that case as self-conferral. CRC-62 applies in full to any later grant, including a later grant by the establishing identity to itself, to a role position that includes it, to a collective that includes it, or through a cycle returning to it. A founder therefore records every grant the founder needs for itself in the establishing act. Anything later is a conferral by a holder whose scope covers it.
+5. **Legitimacy is not checked.** The protocol checks that the recorded project-root form exists. It does not decide whether the establishing identity had real-world standing to establish the project (HJC-22).
+
+Establishment practice, such as how a project begins its record so that the establishing act comes first, is methodology (DM-03). STEP-04 decides the protocol effect, and STEP-06 owns the practice. Role positions and who holds conferral scopes are methodology (DM-02). Record order is a representation question (DR-03). The choice is declared at level A (UAD4-27).
 
 #### 10.2.3 Conferral by a conflicted holder
 
 STEP-03 Section 8.6 allows an authority gap to be cured by a grant to an independent human by a granting authority. A conferrer who is itself a producer of the matter's accepted set can confer authority on someone who then performs an act favorable to that set. Calling that conferral invalid would make a gap incurable whenever the only available conferrer is conflicted, which is the common case in a small team. Calling it unrestricted would reopen the self-approval path through a proxy.
 
-The selected handling sits between: the relation is **objectively detectable** (the conferring identity is a recorded producer of a member of the accepted set of the act performed under the grant), so it is **flagged** and **escalation-eligible** (CRC-64), and it is challengeable as the validity of the grant (GCR-23). Whether the conferral was done to enable the act is judgment (HJC-23). A project may stop at an authority gap (STEP-03 Section 8.6). The choice is declared at level A, named as a known soft spot (Section 10.6), and its strength is a pilot question (DP-04, RJ-OQ-09).
+The selected handling sits between: the relation is **objectively detectable**, so it is **flagged** and **escalation-eligible** (CRC-64), and it is challengeable as the validity of the grant (GCR-23). Whether the conferral was done to enable the act is judgment (HJC-23). A project may stop at an authority gap (STEP-03 Section 8.6).
+
+**The whole chain is evaluated.** CRC-61 already requires a recorded chain from the grant relied on to the root, so every link is available to the check. CRC-64 evaluates every link: a grant relied on for a favorable act is flagged and escalation-eligible if **any** conferrer along that chain is a recorded producer of a member of the act's accepted set. Testing only the immediate conferrer would leave an avoidable laundering path: a conflicted holder confers a conferral scope on an unconflicted intermediary, who confers the gate grant. The argument for flagging a proxy conferral applies equally to the second hop.
+
+**Revocation covers standing to challenge.** CRC-64 also covers revocation or narrowing of a grant held by any actor with **standing to challenge** the relevant item or set, not only a holder who already has a challenge open when the revocation is recorded. Standing to challenge is the standing CRC-26 gives: an actor holding AUTH-A covering the target's scope. A conflicted holder who revokes a challenger's grant before the challenger records anything would otherwise use a conferral-layer act to suppress opposition. The flag applies where the revoker is a recorded producer of the item, or of a member of the accepted set the item belongs to. It applies equally where the revocation works by cascade (CRC-63).
+
+**What does not change.** The handling stays **F and E, not I**, for this revision. The recorded challenge is still recordable (BDR-10). A challenge recorded after a revocation of standing is typed by CRC-26 and stays visible. The purpose of the conferral or revocation remains HJC-23.
+
+The choices are declared at level A (UAD4-14, UAD4-28) and named as a known soft spot (Section 10.6). Whether F/E is strong enough is a pilot question with a named owner, evidence, and trigger (DP-04, RJ-OQ-09).
+
+#### 10.2.4 Revocation, narrowing, and downstream grants
+
+CRC-61 makes an effective chain to a root part of a grant's validity. It follows that a grant cannot stay valid after the chain that supports it has been cut. This section states the consequence, which UAD4-15 left undeclared.
+
+- **Prospective cascade.** Grants downstream of a revoked or narrowed grant fall prospectively with the chain. A downstream grant falls to the extent that the revoked or narrowed grant no longer covers what the downstream grant confers. From the revocation's recording, a fallen grant validates no act, unless it is independently re-conferred through a valid chain to a root.
+- **Re-conferral.** An independent re-conferral is a new conferral under CRC-61 by a human holding a conferral scope that covers it, recorded after the revocation. It takes effect when recorded. A revoked or fallen holder cannot re-confer on its own behalf.
+- **No retroactivity.** Acts performed while the whole chain was effective are not retroactively invalidated by a later revocation. This preserves GCR-47: effects begin when recorded and are not undone by a later record.
+- **Acts after the cut.** An act relying on a revoked, narrowed, or fallen grant, recorded after the revocation takes effect, fails CRC-02 and is invalid.
+- **Renunciation.** A grantee's renunciation is a revocation and cascades in the same way. A conferrer who renounces its conferral scope therefore leaves its own appointees to be re-conferred. This is a cost (Section 10.6; DM-07).
+
+The choice is declared at level A (UAD4-15, UAD4-30). Computation of which grants have fallen, as of a point in time, is DR-08.
+
+#### 10.2.5 Work assignment and role-position appointment
+
+The words "assignment" and "assign" appear in the sources for two different relations. This artifact keeps them apart.
+
+| Term | Meaning | Effect | Where |
+| --- | --- | --- | --- |
+| **Work assignment** (production assignment) | Provenance: an actor assigns production of an item, or part of one, to another | Confers no authority. Makes the assigner a producer only where the assigner supplied the item's substance or adopted it | GCR-08; PR-27; CRC-11; HJC-12 |
+| **Grant-bearing role-position appointment** | Appointing an actor to a role position that carries grants | A conferral. Evaluated under CRC-61 for the conferrer's scope and under CRC-62 for self-conferral | CRC-61, CRC-62; UAD4-13, UAD4-14 |
+
+Appointment to a role position that carries no grants is not a conferral. Which role positions exist and who holds them is DM-02. Reading CRC-62 as reaching work assignment, or reading work assignment as appointment, would misapply both. Section 3.3 carries the reading of PR-04 and GCR-08 that goes with this distinction.
 
 ### 10.3 Verification, AI-held AUTH-V, and verifier independence (GC-OQ-03)
 
@@ -955,6 +1024,7 @@ The selected handling sits between: the relation is **objectively detectable** (
 | **Grant** | A non-human actor holds AUTH-V only by a grant conferred under CRC-61, covering the gate or artifact class | CRC-15 (a), CRC-61 |
 | **Criteria** | A gate-required formal check names its criteria. For a non-human verifier, each criterion carries a recorded designation, in the gate definition, that it is decidable from the record. The designation is itself a recorded judgment (HJC-24), challengeable, and checked by the test of BDR-01 | CRC-15 (b) |
 | **Reproducibility** | The verification record states the record elements it examined and its evaluation point, so that a human or another verifier can re-run it. This goes beyond OBJ-13 and is declared (UAD4-16) | CRC-15 (c) |
+| **Findings of invalid acceptance** | The same decidability bound governs a non-human finding under CRC-59. A non-human AUTH-V holder may record one only where each rule asserted violated is decidable from the record, and the finding states the elements examined and its evaluation point. If the asserted invalidity depends on interpretation, the output stays advisory or request-like and does not itself trigger TRG-6. Declared (UAD4-29) | CRC-59, CRC-15 |
 | **Otherwise** | Where a criterion requires interpretation, the output is an advisory finding (GCR-11) | CRC-04, CRC-15 |
 
 #### 10.3.2 Verifier independence, rule form
@@ -966,7 +1036,7 @@ Independence of a verifier is **non-membership in the producers of every verifie
 - a producer's self-verification is recorded and not counted (PR-19, PR-28);
 - re-running a role under a different configuration produces a verification by the same identity, not an independent one (PR-27).
 
-What is not checked is substantive independence: whether a non-human verifier whose identity differs from the producer's shares an operator, a model, or a set of instructions with it. That is HJC-12, supported by the acceptor's independence declaration (CRC-11) and by recorded assignment relations, and by recorded configuration (CRC-39).
+What is not checked is substantive independence: whether a non-human verifier whose identity differs from the producer's shares an operator, a model, or a set of instructions with it. That is HJC-12, supported by the acceptor's independence declaration (CRC-11) and by recorded work-assignment relations, and by recorded configuration (CRC-39).
 
 #### 10.3.3 Verification never becomes acceptance
 
@@ -974,7 +1044,7 @@ A verification is bounded by its criteria (PR-14). Its output is typed as a veri
 
 #### 10.3.4 Relation to detection
 
-A checker that produces a detection result relied on to satisfy a gate-required formal check is performing an AUTH-V act and is subject to this subsection. A checker producing ordinary conformance results (Section 9.4.3) is not relied on as a verification. This links a validator to the authority model without selecting one: a validator is an actor, or part of a representation, whose results have the standing Section 9.4.3 gives them.
+A checker that produces a detection result relied on to satisfy a gate-required formal check is performing an AUTH-V act and is subject to this subsection. A checker whose output is recorded as a finding that an acceptance is invalid is also subject to it, through the CRC-59 bound above. A checker producing ordinary conformance results (Section 9.4.3) is not relied on as a verification. This links a validator to the authority model without selecting one: a validator is an actor, or part of a representation, whose results have the standing Section 9.4.3 gives them.
 
 ### 10.4 Identity versus substance, collectives, and evaluators
 
@@ -985,7 +1055,7 @@ A checker that produces a detection result relied on to satisfy a gate-required 
 
 ### 10.5 Self-approval routes, closed and open
 
-STEP-01 Section 6.3 listed eight circumvention patterns. STEP-03 closed three more (citation, correction, withdrawal). This step adds three. The table shows where each is caught, and what the catalog cannot catch.
+STEP-01 Section 6.3 listed eight circumvention patterns. STEP-03 closed three more (citation, correction, withdrawal). This step adds the routes through conferral and through the finding path (self-conferral, a second root, conflicted conferral or revocation, appointees of a revoked conferrer, a non-human verifier on an interpretive criterion, and an unreasoned finding of invalidity). The table shows where each is caught, and what the catalog cannot catch.
 
 | Route | Caught by | Detected as | Left to judgment |
 | --- | --- | --- | --- |
@@ -1000,20 +1070,26 @@ STEP-01 Section 6.3 listed eight circumvention patterns. STEP-03 closed three mo
 | Producer reaches acceptance through citation | CRC-06, CRC-07 (accepted set) | I, B | HJC-12 |
 | Meaning-changing edit passed off as a correction | CRC-55, CRC-56 | I | HJC-13 |
 | Producer withdraws or supersedes its own opposition | CRC-58, CRC-18, CRC-28 | I, F | HJC-19 |
-| Actor confers authority on itself | CRC-62 | I, B | HJC-23 |
-| Conflicted conferrer confers or revokes authority to enable or defeat an act | CRC-64 | F, E | HJC-23 |
+| Actor confers authority on itself, directly, through a role position or collective that includes it, or through a cycle | CRC-62 | I, B | HJC-23 |
+| Actor records a later "establishing act" or "root" to mint authority | CRC-61 (exactly one establishing act, first; later roots are ordinary conferrals) | I, B | HJC-22 |
+| Conflicted conferrer, at any link of the chain, confers authority to enable an act, or revokes or narrows a challenger's standing | CRC-64 (whole chain; challenger standing) | F, E | HJC-23 |
+| A revoked conferrer's earlier appointees keep authority | CRC-63 (prospective cascade), CRC-61 | I | HJC-23 |
 | A verifier that is a producer, or a non-human verifier on an interpretive criterion | CRC-13, CRC-15 | I, X | HJC-24 |
+| A cheap, unreasoned finding that an acceptance is invalid, to create requirements on dependents | CRC-59 (rule, evaluation point, elements examined; non-human decidability bound) | I (as a finding; re-typed), B | HJC-24 |
 
 ### 10.6 Known soft spots
 
 The Development Team can name these. They are offered as sampling targets (Section 14.4), not as a complete list.
 
-- **Conflicted conferral** is flagged, not invalidated (Section 10.2.3).
+- **Conflicted conferral** is flagged, not invalidated, though now evaluated over the whole chain and over revocation of a challenger's standing (Section 10.2.3). F/E may still be too weak against a determined proxy. The evidence and trigger for reconsidering are named (DP-04).
+- **Root multiplicity and establishing-act uniqueness** are bounded choices (UAD4-27). The project has exactly one establishing act, and it precedes every other recorded act. The rule is strict: a later act is never a second root. How a project begins its record so that establishment comes first is DM-03 and DR-03. A record that begins with other acts has no valid establishing act under this rule. Whether that is too strict for real projects is a sampling target.
+- **Root-grantee limit.** The establishing identity may be a root grantee only in the establishing act's own grants. A founder who omits a self-grant from that act cannot add it later. It needs a conferrer whose scope covers it, and the founder cannot be its own conferrer. This is deliberate, because the alternative reopens self-conferral, and it is a friction (DM-03).
+- **Cascade cost.** A revocation or renunciation cascades to downstream grants (Section 10.2.4). A conferrer who leaves the project, or who is revoked, strands its appointees until they are re-conferred. DM-07 and DP-01 carry the practice and the burden.
 - **Root legitimacy** is not checkable and not checked (HJC-22).
 - **Actor kind** is a recorded designation. Whether a human-designated identity is a human is HJC-21.
 - **Substantive independence of AI identities** that share an operator or model is judgment (HJC-12). The catalog defines no rule that treats a shared accountable position as sameness, because that would define AI actor identity, which PR-27 and PS-OQ-06 leave open.
 - **Notice receipt** (CRC-55) is a recorded event. Receipt is not checkable.
-- **A detector's own errors** are challengeable but do not suspend TRG-6. A mistaken finding costs dependents a requirement that a human must close.
+- **A detector's own errors** are challengeable but do not suspend TRG-6. A mistaken finding costs dependents a requirement that a human must close. The finding's required content (rule, evaluation point, elements examined) and the non-human decidability bound limit how cheaply that can happen (CRC-59; UAD4-29). A human AUTH-G finding that rests on judgment is still not limited by the decidability bound. It must still state its three elements.
 - **Human-only conferral** may add friction for teams that onboard many agents (DP-01, DM-02).
 
 ---
@@ -1044,7 +1120,7 @@ PR-27 names the configuration facets: model, reasoning effort, harness, tooling,
 | Element | Requirement |
 | --- | --- |
 | **Immediate derivation** (declared: UAD4-12) | Derived evidence identifies the items it derives from (EKR-11). Transitive lineage is computed from the recorded links (DR-01). Lineage is not recorded at passage, field, or transformation level |
-| **Source comparability** | Evidence items sharing an identified source are identifiable as sharing it. How two sources are determined to be the same is a representation question (DR-06) and a practice question (DM-05) |
+| **Source comparability** | Evidence items sharing an identified source are identifiable as sharing it. How two sources are determined to be the same is a representation question (DR-06) |
 | **Unrecorded lineage** | Cannot be discovered by any check. It is substantive independence and belongs to HJC-12 |
 
 ### 11.4 Consequence of insufficiency
@@ -1068,7 +1144,7 @@ PR-27 names the configuration facets: model, reasoning effort, harness, tooling,
 
 ### 11.5 What this section does not decide
 
-Representation of configuration records, how identities of sources are compared, and whether skills are generated projections of the protocol are routed (DR-06, DM-05, RJ-OQ-10, STEP-05 H-C, STEP-08). Burden of recording is a pilot question (DP-01).
+Representation of configuration records and how identities of sources are compared are routed (DR-06, RJ-OQ-10). Conventions for stating configuration are DM-05. Whether skills are generated projections of the protocol remains with STEP-05 (H-C) and STEP-08. A separate skill-name and version configuration element is not open for research. UAD4-11 holds that skills are instructions, and a separate element would need an accepted revision of this artifact (BDR-16). Burden of recording is a pilot question (DP-01).
 
 ---
 
@@ -1080,7 +1156,7 @@ Operationalizes D3, D5, D6, D7. This section shows where the boundary falls alon
 
 | Objective part | Judgment part | Handling |
 | --- | --- | --- |
-| A source is identified; the item is not solely a concurrence record; target and polarity recorded; negative findings carry their attempt record; derived evidence names its inputs (CRC-36, CRC-38). Descriptive elements present (CRC-37). Required slots filled (CRC-17). References resolve (CRC-40) | Relevance, sufficiency, persuasion, adequacy of the descriptive elements, adequacy of an attempt, independence of sources (HJC-01, HJC-02, HJC-06, HJC-12, HJC-26) | I for class-defining, F for descriptive, N on residue |
+| A source is identified; the item is not solely a concurrence record, where the record distinguishes it from sourced evidence; target and polarity recorded; negative findings carry their attempt record; derived evidence names its inputs (CRC-36, CRC-38). Descriptive elements present (CRC-37). Required slots filled (CRC-17). References resolve (CRC-40) | Relevance, sufficiency, persuasion, adequacy of the descriptive elements, adequacy of an attempt, independence of sources (HJC-01, HJC-02, HJC-06, HJC-12, HJC-26) | I for class-defining, F for descriptive, N on residue |
 
 Counter-evidence is evidence: the same checks apply, and polarity is per target (EKR-15). The duty to record contradicting information an actor holds (EKR-18) is not detectable from a record that lacks it (Section 6.5). Agent agreement is detectable as non-evidence only where the record distinguishes a concurrence record from sourced evidence (CRC-36); otherwise the remedy is challenge (STEP-02 Section 7.6).
 
@@ -1088,13 +1164,13 @@ Counter-evidence is evidence: the same checks apply, and polarity is per target 
 
 | Objective part | Judgment part | Handling |
 | --- | --- | --- |
-| A hypothesis carries recorded criteria (CRC-43). Reliance is marked and surfaced (CRC-47). A validation is by an independent authorized human and cites scope, criteria, results, responses (CRC-46). Consequential reliance is covered by an authorization recorded before the acceptance (CRC-19). Assumption-rooted items are identified (CRC-53) | Testability and adequacy of criteria; whether criteria are met; whether to validate; whether proceeding is warranted (HJC-10, HJC-11, HJC-14) | I for designation and validation, F for marks and identification, N on residue |
+| A hypothesis carries recorded criteria (CRC-43). Reliance is marked, and the dependent shows its unresolved assumptions (CRC-47). A validation is by an independent authorized human and cites scope, criteria, results, responses (CRC-46). Consequential reliance is covered by an authorization recorded before the acceptance (CRC-19). Assumption-rooted items are identified (CRC-53) | Testability and adequacy of criteria; whether criteria are met; whether to validate; whether proceeding is warranted (HJC-10, HJC-11, HJC-14) | I for designation and validation, F for marks and identification, N on residue |
 
 ### 12.3 Inference and value judgment
 
 | Objective part | Judgment part | Handling |
 | --- | --- | --- |
-| An inference cites, is grounded, and is not typed as evidence (CRC-44). An evaluative designation is not presented as observed fact (CRC-45) | Whether the inference is warranted; whether content is evaluative; whether an evaluative claim is warranted (HJC-05, HJC-18) | I for typing and grounding, N on residue |
+| An inference cites, is grounded, and is not typed as evidence (CRC-44). A claim with an evaluative designation is not recorded under an observed-fact or evidence-only form (CRC-45) | Whether the inference is warranted; whether content is evaluative; whether an evaluative claim is warranted (HJC-05, HJC-18) | I for typing and grounding, N on residue |
 
 ### 12.4 Challenge, disagreement, escalation
 
@@ -1116,7 +1192,7 @@ No conjunction of satisfied checks is an acceptance (BDR-14). The determination 
 
 | Objective part | Judgment part | Handling |
 | --- | --- | --- |
-| A correction designation on a standing item is effective only on independent confirmation (CRC-55). Five kinds of change are never corrections (CRC-56). Acts on another actor's item need AUTH-G (CRC-57). A withdrawal records its elements and its effects persist (CRC-58). Dependency links and redesignations are well-formed and confirmed (CRC-49, CRC-50). A trigger on a material dependency has a single open requirement with reasons, and a currency mark is not recorded over it (CRC-51). A requirement closes only by a qualified outcome addressing every reason (CRC-52). A finding of an invalid acceptance is a TRG-6 event (CRC-59) | Whether a revision alters meaning; whether a dependency is material or missing; whether a withdrawal rationale is genuine; whether a change undermines a dependent; the outcome (HJC-04, HJC-13, HJC-16, HJC-19) | I for designations and closures, F for missing requirements and findings, U while confirmation is pending, N on residue |
+| A correction designation on a standing item is effective only on independent confirmation (CRC-55). Five kinds of change are never corrections (CRC-56). Acts on another actor's item need AUTH-G (CRC-57). A withdrawal records its elements and its effects persist (CRC-58). Dependency links and redesignations are well-formed and confirmed (CRC-49, CRC-50). A trigger on a material dependency has a single open requirement with reasons, and a currency mark is not recorded over it (CRC-51). A requirement closes only by a qualified outcome that names every open reason and records a disposition for each (CRC-52). A finding of an invalid acceptance is a TRG-6 event only where it names the rule or rules violated, its evaluation point, and the record elements examined, and a non-human finding is bounded by decidability (CRC-59) | Whether a revision alters meaning; whether a dependency is material or missing; whether a withdrawal rationale is genuine; whether a change undermines a dependent; the outcome (HJC-04, HJC-13, HJC-16, HJC-19) | I for designations and closures, F for missing requirements and findings, U while confirmation is pending, N on residue |
 
 Exposure and the other derived conditions are DR-04. The catalog requires that they be derivable and that effect follows from the source rule regardless of whether they are shown (CRC-28, CRC-29).
 
@@ -1129,7 +1205,7 @@ GC-OQ-11 asks whether these two conditions become catalog rules. **Both do.**
 - **Handling: flagging (F).** Omitting the identification does not by itself make an acceptance invalid. The accepted validity conditions (STEP-03 Section 5.4) already require that every relied-on assumption and unvalidated hypothesis be covered by a conditional progression authorization (CRC-19). If an assumption-rooted item is relied on and the assumptions beneath it are uncovered, CRC-19 invalidates the acceptance. If they are covered, the missing identification is a visibility defect. This preserves STEP-03's list of validity conditions without adding to it.
 - **Declared:** UAD4-18.
 
-**Never-a-correction tripwires (CRC-56).** The five kinds of change are recognizable from successive recorded states (STEP-03 Section 10.3) and force the answer "supersession" regardless of the producer's or confirmer's designation.
+**Never-a-correction tripwires (CRC-56).** The five kinds of change are recognizable from the recorded history of the item and its changes (STEP-03 Section 10.3) and force the answer "supersession" regardless of the producer's or confirmer's designation.
 
 - **Handling: invalidating the correction _designation_ (I).** The change itself is a valid producer revision. A designation of correction on a never-correction change has no effect, the change stands as a supersession, and the attempt stays visible. A confirmation by an independent human does not rescue it, because the five kinds do not turn on judgment.
 - **Deferred computation:** the checks compare a change with the item it changes, which needs a notion of identity across change (DR-02, EK-OQ-12). The rule is fixed. How the relation is realized is STEP-05's.
@@ -1171,25 +1247,31 @@ Each question routed to STEP-04 is carried forward in its original wording and d
 | Recorded as unresolved and escalation-eligible (U, E) | GCO-25 |
 | Deferred to representation | GCO-22 |
 
+**Blocking eligibility of GCO-08 and GCO-09 is conditional.** CRC-18 and CRC-19 depend on derived conditions (exposure, open requirements, assumption-rooted basis items; DR-01, DR-04). B holds for a given representation only where that representation makes the derived condition available at the act (Section 5.4). The invalidating handling does not depend on it.
+
 **Semantic handling categories** are the seven of Section 9.2: invalidating, blocking candidate, flagging, escalating, recorded as unresolved, visible exception, and no automated conclusion. **They are semantic, not mechanisms** (BDR-11). **Where escalation is the handling,** it is the consequence of a matter that needs an authority's determination (GCO-25; CRC-59, CRC-64), never a way to resolve one (BDR-14).
 
 ### 13.2 GC-OQ-02. Authority grants: creation, scope, change, revocation, audit, and self-conferral
 
 **Carried forward.** "How are authority grants created, scoped, changed, revoked, and audited? Is self-conferral of AUTH-G over a scope an invalid action?" (STEP-03 Section 16.1; PS-OQ-05).
 
-**Disposition.** Disposed by rule in Section 10.2. **Creation:** granting is an act; conferral needs a human AUTH-G holder whose conferral scope covers what is conferred; non-root grants chain to a root (CRC-60, CRC-61). **Scope:** stated, resolvable, bounded by the conferrer's own (CRC-02, CRC-60, CRC-61). **Change:** widening is a new conferral, narrowing is revocation plus conferral (CRC-63). **Revocation:** by renunciation or by a human AUTH-G holder whose conferral scope covers the grant, effective when recorded, never retroactive (CRC-63). **Audit:** grants are cumulative records, authority basis cites the chain, as-of reconstruction is a representation requirement (CRC-41, DR-03, DR-08).
+**Disposition.** Disposed by rule in Section 10.2. **Creation:** granting is an act; conferral needs a human AUTH-G holder whose conferral scope covers what is conferred (CRC-60, CRC-61). A project has **exactly one establishing act**, which precedes every other recorded act. Root grants are only the grants it records, and every other grant chains acyclically, through an effective chain, to one (CRC-61; UAD4-27). **Scope:** stated, resolvable, bounded by the conferrer's own (CRC-02, CRC-60, CRC-61). **Change:** widening is a new conferral, narrowing is revocation plus conferral (CRC-63). **Revocation:** by renunciation or by a human AUTH-G holder whose conferral scope covers the grant, effective when recorded, never retroactive. Grants downstream of a revoked or narrowed grant **fall prospectively with the chain** and validate no act unless independently re-conferred. Acts performed while the whole chain was effective are not invalidated (CRC-63; UAD4-15, UAD4-30). **Audit:** grants are cumulative records, authority basis cites the chain, as-of reconstruction is a representation requirement (CRC-41, DR-03, DR-08).
 
-**Self-conferral of AUTH-G over a scope is invalid** (CRC-62), as is self-conferral of any class, including through a collective, a role position, or a cycle. This is a rule, not an interim constraint. STEP-03's interim position (a self-conferred grant is not a valid cure for an authority gap) stands and is now the special case of this rule.
+**Self-conferral of AUTH-G over a scope is invalid** (CRC-62), as is self-conferral of any class, including through a collective, a role position, or a cycle. This applies to every later grant. The establishing identity is a root grantee only for grants recorded by the establishing act itself, and CRC-62 does not treat that case as self-conferral. This is a rule, not an interim constraint. STEP-03's interim position (a self-conferred grant is not a valid cure for an authority gap) stands and is now the special case of this rule.
 
-**Routed.** Who holds conferral scopes, and establishment practice: STEP-06 (DM-02, DM-03). Scope vocabulary and as-of reconstruction: STEP-05 (DR-08). Strength of handling for conflicted conferral (flagged, not invalidated): STEP-07 (DP-04). Purpose of a conferral: judgment (HJC-23).
+**Conflicted conferral and revocation.** CRC-64 evaluates every link of the chain relied on, and covers revocation or narrowing of a grant held by an actor with standing to challenge, not only a holder with an open challenge. It remains flag and escalation (F, E), not invalidation (UAD4-14, UAD4-28).
+
+**Terms and reading.** Work assignment (provenance) and grant-bearing role-position appointment (conferral) are distinct terms (Section 10.2.5). The reading of PR-04 and GCR-08 against conferral is a tension, not a direct conflict, and is Moderator-visible (Section 3.3).
+
+**Routed.** Who holds conferral scopes, and establishment practice: STEP-06 (DM-02, DM-03). Scope vocabulary, record order, and as-of reconstruction: STEP-05 (DR-03, DR-08). Strength of handling for conflicted conferral and revocation (flagged, not invalidated): STEP-07 (DP-04), with the evidence and trigger DP-04 names and targeted Tech Lead review of that evidence before any strengthening is proposed. Purpose of a conferral: judgment (HJC-23).
 
 ### 13.3 GC-OQ-03. AI-held AUTH-V and the rule form for verifier independence
 
 **Carried forward.** "May AI agents hold AUTH-V, and what rule form carries verifier independence?" (STEP-03 Section 16.1; PS-OQ-08; PS-OQ-02 remainder).
 
-**Disposition.** A non-human actor **may** hold AUTH-V. Its verification satisfies a gate-required formal check only where every named criterion is designated decidable from the record, the verification states the record elements examined and its evaluation point, and the verifier is a producer of nothing verified (CRC-15, CRC-13). Otherwise its output is an advisory finding. Verifier independence is non-membership in the producers of every verified item, by identity, and the verification relied on joins the accepted set so the acceptor cannot be the verifier (CRC-07, CRC-13). **Verification never becomes acceptance.** No set of verifications is acceptance, validation, or progression (CRC-05, CRC-21, BDR-14). Section 10.3 gives the reasoning.
+**Disposition.** A non-human actor **may** hold AUTH-V. Its verification satisfies a gate-required formal check only where every named criterion is designated decidable from the record, the verification states the record elements examined and its evaluation point, and the verifier is a producer of nothing verified (CRC-15, CRC-13). Otherwise its output is an advisory finding. Verifier independence is non-membership in the producers of every verified item, by identity, and the verification relied on joins the accepted set so the acceptor cannot be the verifier (CRC-07, CRC-13). **Verification never becomes acceptance.** No set of verifications is acceptance, validation, or progression (CRC-05, CRC-21, BDR-14). The same decidability bound governs a non-human finding that an acceptance is invalid: such a finding counts under CRC-59 only where each rule asserted violated is decidable from the record and the finding states the elements examined and its evaluation point. Otherwise it stays advisory or request-like and does not itself trigger TRG-6 (CRC-15, CRC-59; UAD4-29). Section 10.3 gives the reasoning.
 
-**Routed.** Guidance on designating criteria as decidable: STEP-06 (DM-06). Adoption and effect of non-human verification: STEP-07 (DP-06). Substantive independence of a non-human verifier: judgment (HJC-12).
+**Routed.** Guidance on designating criteria as decidable: STEP-06 (DM-06). Guidance on stating the content of a finding: STEP-06 (DM-08). Recording and attribution of findings: STEP-05 (DR-09). Adoption and effect of non-human verification: STEP-07 (DP-06). Substantive independence of a non-human verifier: judgment (HJC-12).
 
 ### 13.4 GC-OQ-09. Protocol-effective authorization terms
 
@@ -1209,7 +1291,7 @@ Each question routed to STEP-04 is carried forward in its original wording and d
 
 **Disposition.** **Granularity:** configuration at the level of the five PR-27 facets, with "not determinable" a permitted visible statement (Section 11.2); lineage at immediate-derivation and source-comparability level (Section 11.3). **Consequence:** an absent configuration statement is **flagged**, does not invalidate the action, and is not a graded weakening. A statement that is present but inadequate **remains human judgment** (HJC-26). A gate definition may require more, and then a shortfall is an unsatisfied gate requirement. Class-defining provenance (source, attempt record, derived-from inputs) is different: its absence means the item is not evidence for that target. Section 11.4 gives the reasoning.
 
-**Routed.** Source comparability: STEP-05 (DR-06). Conventions: STEP-06 (DM-05). Burden: STEP-07 (DP-01). Skills as configuration: STEP-05 (H-C) and STEP-08.
+**Routed.** Source comparability: STEP-05 (DR-06). Conventions: STEP-06 (DM-05). Burden: STEP-07 (DP-01). Skills as configuration: UAD4-11 stands (skills are instructions), and a separate skill-name and version element would need an accepted revision of this artifact (BDR-16). The remaining skills questions stay with STEP-05 (H-C) and STEP-08.
 
 ### 13.7 EK-OQ-14. Which EKO conditions become machine-checkable rules; how violations are handled
 
@@ -1223,9 +1305,12 @@ Each question routed to STEP-04 is carried forward in its original wording and d
 | Invalidating for class-defining elements, flagging for descriptive ones | EKO-05, EKO-06, EKO-13 |
 | Invalidating only | EKO-07, EKO-14 |
 | Flagging only | EKO-03 |
-| Flagging a missing requirement, invalidating a currency mark or consequential reliance (F, I) | EKO-15, EKO-19 |
+| Flagging a missing requirement, invalidating a currency mark (F, I) | EKO-19 |
+| Flagging unmarked reliance (F); invalidating an _acceptance_ that relies under assumption without the required authorization (I, through CRC-19) | EKO-15 |
 
-Detected violations are handled by the categories of Section 9.2. EKR-41 stands: an implementation may block or flag an EKO-class violation and must not decide an EKJ-class question (BDR-05, BDR-14).
+**EKO-15 and consequential reliance.** CRC-19 invalidates an acceptance that relies under assumption without the required authorization. The accepted STEP-03 reading (Section 9.2 of that artifact) treats "progression" as progression through a gate or any consequential commitment. STEP-04 records that reading. It adds no new rule for a consequential commitment that is not an acceptance, and no such rule is claimed by the handling profile above. Enforcement detail for non-acceptance commitments, unless an accepted rule already covers it (for example CRC-48 for decisions), is routed (RJ-OQ-12). The EKO-15 row also mixes a CR check (the reliance marks on dependency links, CRC-47) and an RJC check (the recorded authorization, CRC-19). Section 6.3 splits them in its note. The primary disposition stays RJC.
+
+Detected violations are handled by the categories of Section 9.2. EKR-41 is restated and enforced through BDR-05 and BDR-14 (the accepted rule is preserved, Section 3.1): an implementation may block or flag an EKO-class violation and must not decide an EKJ-class question (BDR-05, BDR-14).
 
 ### 13.8 Upstream questions routed to STEP-04
 
@@ -1234,7 +1319,7 @@ Detected violations are handled by the categories of Section 9.2. EKR-41 stands:
 | **PS-OQ-02** Verification independence | Resolved by STEP-03 for gate-required checks (GCR-10). Catalogued as CRC-13. Non-human verification: GC-OQ-03 above. Where a gate does not require independent verification, a verification is an ordinary record. No change |
 | **PS-OQ-05** Grants created, scoped, changed, revoked, audited; is granting an action category | Disposed with GC-OQ-02. Granting is an act (CRC-60 to CRC-64). The ACT catalog is non-exhaustive. This step declares granting as an act without assigning it an `ACT-` number, since the catalog is expository (UAD4-13) |
 | **PS-OQ-08** AI-held AUTH-V | Disposed with GC-OQ-03 |
-| **PS-OQ-10** How invalid actions are surfaced and handled | Disposed in Section 9. Invalid actions never produce effect. Blocking prevents effect, never record. Detection is a formal-check result, advisory unless the producing actor holds the grant |
+| **PS-OQ-10** How invalid actions are surfaced and handled | Disposed in Section 9. Invalid actions never produce effect. Blocking may prevent reliance on an act, never the record of it. Detection is a formal-check result, advisory unless the producing actor holds the grant. A finding that an acceptance is invalid must meet CRC-59 |
 | **PS-OQ-13** Granularity of producing-configuration recording; invalidate or weaken | Disposed with EK-OQ-09 |
 
 ### 13.9 Open questions routed onward
@@ -1243,24 +1328,26 @@ Detected violations are handled by the categories of Section 9.2. EKR-41 stands:
 
 | ID | Question | Routed to | Notes |
 | --- | --- | --- | --- |
-| RJ-OQ-01 | How are record order, effective-from-recording, history preservation, and act-time versus standing evaluation realized? | STEP-05 | DR-03, DR-10. Needed by CRC-24, CRC-41, CRC-60 |
+| RJ-OQ-01 | How are record order, effective-from-recording, history preservation, and act-time versus standing evaluation realized? | STEP-05 | DR-03, DR-10. Needed by CRC-24, CRC-41, CRC-60, CRC-61, CRC-63 |
 | RJ-OQ-02 | How are actor kind, attribution integrity, and authentication of identity established and checked? | STEP-05, later implementation work | DR-07; HJC-21. Not a rule of this catalog |
-| RJ-OQ-03 | How are formal-check results and findings of invalidity recorded and attributed? | STEP-05; STEP-06 guidance | DR-09. Section 9.4.3 states only their standing |
+| RJ-OQ-03a | **Representation-owned part.** How are formal-check results and findings of invalidity recorded and attributed? | STEP-05 | DR-09. The content a CRC-59 finding must state is fixed by CRC-59. Section 9.4.3 states their standing |
+| RJ-OQ-03b | **Guidance-owned part.** What guidance helps actors state the required content of a formal-check result or finding, and type a bare assertion correctly? | STEP-06 | DM-08 |
 | RJ-OQ-04 | What is the scope vocabulary, and how are containment and as-of grant-chain reconstruction computed? | STEP-05 | DR-08; HJC-25 |
-| RJ-OQ-05 | Practice: who holds conferral scopes; project establishment and root practice; independence practice for small teams; configuration-statement conventions; designating criteria as decidable; grant review | STEP-06 | DM-02, DM-03, DM-04, DM-05, DM-06, DM-07 |
+| RJ-OQ-05 | Practice: who holds conferral scopes; project establishment and root practice (STEP-04 fixes the protocol effect, STEP-06 owns the practice); independence practice for small teams; configuration-statement conventions; designating criteria as decidable; grant review and re-conferral after a cascade | STEP-06 | DM-02, DM-03, DM-04, DM-05, DM-06, DM-07 |
 | RJ-OQ-06 | Burden of detection; whether blocking-eligible rules are better blocked or detected and flagged; adoption of non-human verification | STEP-07 (pilot) | DP-01, DP-02, DP-06. Pilot evidence, not requirements |
 | RJ-OQ-07 | Do teams need protocol-effective terms on authorizations or grants? | STEP-07; MOD-W Moderator | DP-03; GC-OQ-09 |
 | RJ-OQ-08 | Do pilot findings require reclassification of any entry? | STEP-07, then an accepted revision | DP-05; BDR-16 |
-| RJ-OQ-09 | Is flagging and escalation the right strength for conflicted conferral and revocation? | STEP-07; Tech Lead | DP-04 |
-| RJ-OQ-10 | How is source identity compared? Should skill name and version be a separate configuration element? | STEP-05 (comparison); STEP-08 (skills) | DR-06; `research/topics/agent-skills-and-protocol-relationship.md` |
+| RJ-OQ-09 | Is flagging and escalation the right strength for conflicted conferral and revocation? | STEP-07 (owner) | DP-04. Governance and review need: targeted Tech Lead review of the pilot evidence before any strengthening is proposed. The Tech Lead is not a step owner |
+| RJ-OQ-10 | How is source identity compared? | STEP-05 | DR-06. A separate skill-name and version configuration element is **not** routed here as an open research question. UAD4-11 decided that skills are instructions, and BDR-16 requires an accepted revision of this artifact to change it. `research/topics/agent-skills-and-protocol-relationship.md` remains available as input to such a revision |
 | RJ-OQ-11 | Are the five never-a-correction kinds adequate? | STEP-07 | DP-05 |
+| RJ-OQ-12 | For a consequential commitment that is not an acceptance, what enforcement detail applies when it relies under assumption without the required authorization? | STEP-06 (practice). Any rule would be a later accepted revision of semantics, Moderator-visible | CRC-19 covers acceptances only. STEP-03 Section 9.2 reading recorded (Section 3.3). No rule is added here |
 
 #### Inherited questions that remain with their owners, not duplicated here
 
 | ID | Question (short) | Routed to |
 | --- | --- | --- |
 | GC-OQ-04 | Representation of derived conditions, item identity across change, closure computation | STEP-05 |
-| GC-OQ-05 | Representation of collective identities and assignment relations | STEP-05 |
+| GC-OQ-05 | Representation of collective identities and work-assignment relations (not role-position appointment, Section 10.2.5) | STEP-05 |
 | GC-OQ-06 | Evidence categories and thresholds per gate; who holds scopes; role positions | STEP-06 |
 | GC-OQ-07 | Independence practice for teams of one or two (DM-04) | STEP-06 |
 | GC-OQ-08 | Burden and friction measures | STEP-07 |
@@ -1298,6 +1385,8 @@ The declaration was compiled by an **audit pass over the finished draft** agains
 
 This step's boundary work has an extra hazard. The work is about classification, so a classification choice is the easiest kind to make silently. The audit pass therefore re-read every entry of Sections 6 and 7 for the question "would a reasonable reader have put this on the other side of the line?"
 
+**Revision audit (v0.2).** QA sampling of v0.1 found choices that neither this audit pass nor the Tech Lead sampling had listed (QA4-01 to QA4-04). The revision declares them (UAD4-27 to UAD4-30, with UAD4-07, UAD4-13, UAD4-14, UAD4-15 revised) together with two further choices the recommended fixes introduced (UAD4-31, UAD4-32). Before submitting v0.2, the Development Team re-read every changed catalog entry, Section 10.2, and Section 9.4 for any new or changed choice about authority, independence, evidence standing, revalidation, or violation handling, and linked each to its declaration from the entry that applies it (Section 6.1). This re-read has the same limit as the original: the Development Team cannot certify completeness.
+
 ### 14.2 Declared decisions
 
 Level scale as in STEP-02 and STEP-03: **A** = architecture-level candidate (touches what counts as checkable, authority, identity, independence, evidence standing, revalidation, violation handling, or representation; recommend Tech Lead review before acceptance); **M** = model-level (a choice within a defined space; recommend confirmation); **L** = low (organizing or completing an accepted principle; listed for visibility).
@@ -1306,19 +1395,19 @@ Level scale as in STEP-02 and STEP-03: **A** = architecture-level candidate (tou
 | --- | --- | --- | --- | --- |
 | UAD4-01 | **What is objectively checkable** is defined by a three-part test (defined elements, record-only answer, no judgment inside) and an agreement corollary. A recorded designation is taken as given | STEP-01 Section 9.1 says "decided from the record alone, without interpreting the world." It does not say how to apply that to a condition | Gives the boundary a test that reviewers can apply and dispute. From: D6, STEP-01 Section 9, `mod-w/step-04.md` Scope and Tech Lead Recommendation 2 | **A** |
 | UAD4-02 | **Conservative classification.** Where it is doubtful whether a condition is objective, it is classified as judgment | D6 warns against both under-governance and false automation, without a tie-break | Over-claiming objectivity lets a mechanical check pretend to decide a judgment. From: D6, GR-4 | M |
-| UAD4-03 | **Composite conditions are split** into an objective core and a named residue. CR versus RJC is decided by whether the checked thing is a determination act | Upstream tables list composite conditions as one row (EKO-04, EKO-05) | Keeps the core from being presented as deciding the residue. From: STEP-02 Section 7.6, EKR-17, HJ-01 pairing | M |
+| UAD4-03 | **Composite conditions are split** into an objective core and a named residue. CR versus RJC is decided by what the rule requires of the record: the content-bearing record of a determination (RJC), or a record element, relation, or the validity facets of an act decided from record facts (CR), even where the act is a determination act (Section 5.1). A row joining both is RJC | Upstream tables list composite conditions as one row (EKO-04, EKO-05). The discriminator was not stated | Keeps the core from being presented as deciding the residue, and makes the Q5 test reproducible without reclassifying any row. From: STEP-02 Section 7.6, EKR-17, HJ-01 pairing | M |
 | UAD4-04 | **Recorded designations are taken as given**, and their effectiveness conditions are themselves candidate rules | STEP-04 scope says "beyond recorded designations" without defining it | Lets a check use a materiality or checkability designation without judging it, while keeping designations challengeable. From: GCR-34, GCR-51 | **A** |
 | UAD4-05 | **The recorded-judgment check** is limited to eight facets: existence, recorder identity, authority, capacity, required elements, timing, independence, direction | `mod-w/step-04.md` allows "an objective check may confirm that a judgment was recorded by an authorized actor" without enumerating what that can include | Bounds the middle pattern so it cannot grow into a check of substance. From: HJ pairings, GCO-08, GCO-11 | **A** |
-| UAD4-06 | **Two-layer violation model.** Protocol consequence is fixed by source rules. Handling is seven categories. Blocking prevents effect and never record. No handling prevents an opposition or conservative act from being recorded | PS-OQ-10 asks "blocked, flagged, or escalated"; STEP-01 Section 6.1 leaves block-or-flag to the implementation | Keeps handling from changing effect, and keeps a blocking practice from suppressing dissent. From: PR-11, GCR-23, WD-2, D6 | **A** |
-| UAD4-07 | **Standing of detection.** A detection result is a formal-check result, advisory, challengeable, and does not suspend a trigger it creates. A finding that an acceptance is invalid is recorded by an AUTH-V holder or a human AUTH-G holder and is the TRG-6 event | STEP-03 Section 4.7 makes "found invalid" a trigger without saying who finds | Connects a validator to the authority model without selecting one. From: PR-14, PR-15, EKR-39, GCR-23 | **A** |
-| UAD4-08 | **Catalog membership.** The classification of all 61 OBJ, EKO, and GCO conditions (Section 6.3), including EKO-15 read with STEP-03 Section 9.2, GCO-28 and EKO-19 read with narrowed TRG-2, GCO-22 deferred to representation, and no condition out of catalog | `mod-w/step-04.md` asks for classification; upstream tables label every condition objective | Membership is the main product of this step. From: Section 3.3 | **A** |
-| UAD4-09 | **Evidence elements are split.** Class-defining elements (identified source, not a concurrence record, target and polarity, attempt record, derived-from inputs) make an ineffective _designation_ when absent. Descriptive elements (category, basis, limitations, times) are flagged | EKR-14 says "expected"; EKO-05 says "records." STEP-01 PR-10 says required content invalidates | Reads the two together. Conservative invalidation (Tech Lead Recommendation 4). From: EKR-13, EKR-14, EKO-05, PR-10 | **A** |
+| UAD4-06 | **Two-layer violation model.** Protocol consequence is fixed by source rules. Handling is seven categories. Blocking may prevent reliance on an act and never the record of it. No handling prevents an opposition or conservative act from being recorded | PS-OQ-10 asks "blocked, flagged, or escalated"; STEP-01 Section 6.1 leaves block-or-flag to the implementation | Keeps handling from changing effect, and keeps a blocking practice from suppressing dissent. From: PR-11, GCR-23, WD-2, D6 | **A** |
+| UAD4-07 | **Standing of detection.** A detection result is a formal-check result, advisory, challengeable, and does not suspend a trigger it creates. A finding that an acceptance is invalid is recorded by an AUTH-V holder or a human AUTH-G holder and is the TRG-6 event, **provided it meets the content and non-human bounds declared at UAD4-29** | STEP-03 Section 4.7 makes "found invalid" a trigger without saying who finds or what a finding contains | Connects a validator to the authority model without selecting one. Applied at CRC-59 and Sections 9.4.3 and 9.4.5. From: PR-14, PR-15, EKR-39, GCR-23 | **A** |
+| UAD4-08 | **Catalog membership.** The classification of all 61 OBJ, EKO, and GCO conditions (Section 6.3), including EKO-15 read with STEP-03 Section 9.2, GCO-28 and EKO-19 read with narrowed TRG-2, GCO-22 deferred to representation, and no condition out of catalog. CRC-19 invalidates an acceptance that relies under assumption without the required authorization. This step adds no rule for a consequential commitment that is not an acceptance, and routes it (RJ-OQ-12) | `mod-w/step-04.md` asks for classification; upstream tables label every condition objective. STEP-03 Section 9.2 reads "progression" more widely than the acceptance condition it ties invalidity to | Membership is the main product of this step. Narrowing the claim avoids adding rule surface beyond the accepted acceptance-condition source. From: Section 3.3 | **A** |
+| UAD4-09 | **Evidence elements are split.** Class-defining elements (identified source, not a concurrence record where the record distinguishes sourced evidence from a concurrence or agreement record, target and polarity, attempt record, derived-from inputs) make an ineffective _designation_ when absent. Descriptive elements (category, basis, limitations, times) are flagged | EKR-14 says "expected"; EKO-05 says "records." STEP-01 PR-10 says required content invalidates | Reads the two together. Conservative invalidation (Tech Lead Recommendation 4). From: EKR-13, EKR-14, EKO-05, PR-10 | **A** |
 | UAD4-10 | **Timing of presumed materiality.** An item designated material at creation must carry class-specific provenance at creation. An item presumed material by a later citation is flagged. A non-material designation without rationale is ineffective | EKR-08 and EKR-35 do not say when the obligation attaches. STEP-03 Section 5.4 lists no validity condition for it | Prevents a later citation from retroactively invalidating an earlier valid creation, and keeps STEP-03's list of validity conditions unchanged. From: EKR-08, EKR-35, INV-10 | **A** |
 | UAD4-11 | **Producing-configuration granularity and consequence.** Five facets, "not determinable" permitted, no finer level, skills are instructions. An absent statement is flagged and not invalidating. A gate may require more. Class-defining provenance is a different matter | EK-OQ-09 | Section 11.4 | **A** |
 | UAD4-12 | **Lineage granularity.** Immediate derivation and source comparability. Not passage, field, or transformation level | EK-OQ-09 | Passage-level lineage would be a practice and representation choice. From: EKR-11 | M |
-| UAD4-13 | **Grants.** Granting is an act. Conferral requires a human holding AUTH-G whose conferral scope covers what is conferred. Non-root grants chain to a root recorded at project establishment. A conferral scope is a scope of AUTH-G, not a fifth class | PS-OQ-05; PS Section 4.3 says "who conferred it" without saying who may | Section 10.2.1. From: PR-01, PR-02, PR-04, PR-05, STEP-03 Section 5.2 (gate-definition scope), HA-1, HA-2 | **A** |
-| UAD4-14 | **Self-conferral is invalid**, including through a collective, a role position, or a cycle. Conferral or revocation by a conflicted producer is flagged and escalation-eligible, not invalid | GC-OQ-02; STEP-03 Section 8.6 interim | Section 10.2.3. From: GCR-05, GCR-08, GCR-40 | **A** |
-| UAD4-15 | **Grants take effect when recorded.** Revocation is prospective. Revocation is by the grantee or by a human AUTH-G holder whose conferral scope covers the grant. Acts under a revoked grant after revocation are invalid | GC-OQ-02 | Extends GCR-47 from authorizations, waivers, confirmations, and closures to grants. From: GCR-47, PR-01 | **A** |
+| UAD4-13 | **Grants.** Granting is an act. Conferral requires a human holding AUTH-G whose conferral scope covers what is conferred. Non-root grants chain to a root, with the root structure declared at UAD4-27. A conferral scope is a scope of AUTH-G, not a fifth class. **Reading of PR-04 and GCR-08:** those rules prohibit authority by mere transitivity, inheritance, delegation, role label, or work assignment. A conferral under CRC-61 is not delegation and not class-confers-class. It creates a new explicit grant by a human AUTH-G holder whose explicit conferral scope authorizes it. Holding a class confers nothing. This is a STEP-04 operationalization of GC-OQ-02 and not a direct conflict, and it is Moderator-visible because accepted upstream text did not name conferral scope (Section 3.3). **Terms:** work assignment (provenance, no authority) is distinct from grant-bearing role-position appointment (a conferral) (Section 10.2.5) | PS-OQ-05; PS Section 4.3 says "who conferred it" without saying who may. PR-04 and GCR-08 do not name conferral scope | Section 10.2.1. From: PR-01, PR-02, PR-04, PR-05, GCR-08, STEP-03 Section 5.2 (gate-definition scope), HA-1, HA-2 | **A** |
+| UAD4-14 | **Self-conferral is invalid** for every later grant, including through a collective, a role position, or a cycle. The establishing identity as a root grantee, for the establishing act's own grants only, is not self-conferral (UAD4-27). A grant-bearing role-position appointment is a conferral. Conferral or revocation by a conflicted producer is flagged and escalation-eligible, not invalid, with the chain-depth and standing-to-challenge scope declared at UAD4-28 | GC-OQ-02; STEP-03 Section 8.6 interim | Section 10.2.3. From: GCR-05, GCR-08, GCR-40 | **A** |
+| UAD4-15 | **Grants take effect when recorded.** Revocation is prospective. Revocation is by the grantee or by a human AUTH-G holder whose conferral scope covers the grant. Acts relying on a revoked grant after revocation are invalid. The cascade to downstream grants is declared at UAD4-30 | GC-OQ-02 | Extends GCR-47 from authorizations, waivers, confirmations, and closures to grants. From: GCR-47, PR-01 | **A** |
 | UAD4-16 | **Non-human AUTH-V.** Permitted for criteria designated decidable from the record. The verification records the elements examined and its evaluation point. The designation is a challengeable judgment | GC-OQ-03; GCR-11 interim | Section 10.3.1. The reproducibility element goes beyond OBJ-13. From: PR-14, GCR-10, GCR-11 | **A** |
 | UAD4-17 | **Absent elements.** Where a source rule makes an element a validity condition, absence is a violation. Where the source supplies a conservative default, it applies and the matter is recorded as unresolved. Otherwise unresolved with no conclusion | Upstream does not say how a check treats a missing element | Prevents absence from reading as satisfaction. From: PR-10, GCR-07, GCR-34, GCR-52 | **A** |
 | UAD4-18 | **Assumption-rooted identification** is a candidate rule with flagging handling. Validity force only through CRC-19 | GC-OQ-11 | Preserves STEP-03's list of validity conditions. From: GCR-66, STEP-03 Section 5.4 | M |
@@ -1326,22 +1415,30 @@ Level scale as in STEP-02 and STEP-03: **A** = architecture-level candidate (tou
 | UAD4-20 | **Protocol-effective terms are not adopted.** Review events stay non-effective. Terms on grants likewise | GC-OQ-09 | Adoption would revise GCR-42 and GCR-67. From: GCR-42, GCR-67 | **A** |
 | UAD4-21 | **Defective conservative acts** stay visible. A defective refusal or deferral is read as a recorded attempt for CRC-18, to prevent form defects from scrubbing refusals | GCR-19 requires reasons; PR-10 makes missing content invalid. Neither says what a defective refusal does to the standing record | Anti-shopping intent of GCR-39. From: PR-11, GCR-39 | **A** |
 | UAD4-22 | **Re-typing and authority gaps.** An output lacking required authority is re-typed by rule (CRC-04). An authority gap is recorded as unresolved and escalation-eligible (CRC-32) | EKR-04 states re-typing as a recording rule. GCR-40 states the gap as a visible condition | Makes both checkable. From: EKR-04, GCR-40 | M |
-| UAD4-23 | **Evaluation kinds and blocking eligibility.** Act-time, standing, historical. Blocking-eligible if act-time with all inputs in the record | D6 says implementations may block or flag, without saying which rules can be blocked | Describes the question a rule asks. Not a storage or timing choice | M |
+| UAD4-23 | **Evaluation kinds and blocking eligibility.** Act-time, standing, historical. Blocking-eligible if act-time with all inputs in the record. Where an input is a derived condition, eligibility holds only if the representation makes it available at the evaluation point (CRC-18, CRC-19). Blocking may prevent reliance on an act and never the record of it | D6 says implementations may block or flag, without saying which rules can be blocked | Describes the question a rule asks. Not a storage or timing choice | M |
 | UAD4-24 | **Newly named judgments.** HJC-21 to HJC-26 are named as the judgments at the edge of a check. GCO-08 pairs HJ-05 and EKJ-14 residual risk | STEP-01 Section 9.3 lists HJ-05 with no paired check | Makes the limits of CRC-01, CRC-03, CRC-15, CRC-38, CRC-39, CRC-60 to CRC-64 explicit. From: BDR-02, GCJ-03 | M |
 | UAD4-25 | **Derived groupings.** Catalog entries and judgment entries are groupings over accepted IDs. CRC-22 is a composite over other entries | Accepted tables list conditions one by one | Avoids duplicating the same decidable test. Sources remain listed (Section 15) | L |
-| UAD4-26 | **Visible exception semantics.** "Satisfied under exception" is a distinct result. CRC-13's verifier-independence requirement is waivable as a gate requirement. Its requirement that the acceptor did not perform the verification is not | GCR-46 lists six non-waivable conditions. GCR-10 makes verification a member of the accepted set | Keeps CRC-07 non-waivable. From: GCR-06, GCR-10, GCR-46 | M |
+| UAD4-26 | **Visible exception semantics.** "Satisfied under exception" is a distinct result. CRC-13's verifier-independence requirement is waivable as a gate requirement. Its requirement that the acceptor did not perform the verification is not. **Any gate requirement waivable under STEP-03 Section 9.4 can be covered by a valid CRC-20 exception**, including gate-required configuration facets and gate-defined stricter treatment (response) requirements. The six non-waivable conditions cannot (CRC-22) | GCR-46 lists six non-waivable conditions. GCR-10 makes verification a member of the accepted set. STEP-03 Sections 5.5 and 9.4 make stricter response rules waivable | Keeps CRC-07 non-waivable. Replaces a closed list in CRC-22 that disagreed with Section 11.4. From: GCR-06, GCR-10, GCR-46 | M |
+| UAD4-27 | **One establishing act; root grants; limited root-grantee case** (added in v0.2 for QA4-01). A PROD-W project has exactly one protocol-establishing act for its authority chain. It precedes every other recorded act of the project. Root grants arise only from it, and every other grant chains acyclically to one. The establishing identity may be a root grantee only for grants recorded by the establishing act itself. CRC-62 does not treat that case as self-conferral, and applies in full to any later grant, including a later grant by the establishing identity to itself. A later act marked as establishing or root is not a second root. Root legitimacy remains HJC-22 | PS-OQ-05 and STEP-03 Section 8.6 say nothing about roots. v0.1 defined a root as an act "at project establishment, before any act relies on it" without saying how many there are, who may record one, or how a root grantee relates to CRC-62 | Section 10.2.2. Prevents root minting through a later "establishing act," and keeps a team of one possible. Establishment practice stays DM-03. Record order stays DR-03. From: PR-01, PR-02, PR-05, GCR-40, HA-1, HA-2 | **A** |
+| UAD4-28 | **Conflicted conferral covers the whole chain and challenger standing** (added in v0.2 for QA4-02). CRC-64 evaluates every link of the CRC-61 chain relied on, not only the immediate conferrer. It also covers revocation or narrowing, including by cascade, of a grant held by any actor with standing to challenge the relevant item or set, whether or not a challenge is open. Handling stays F and E, not I. DP-04 names the evidence, trigger, and owner for reconsidering F/E versus I | v0.1 tested the immediate conferrer only, and flagged revocation only against a holder with an open challenge | Section 10.2.3. Closes a one-hop laundering path and a standing-suppression path without invalidating, because the artifact leaves the strength of handling to pilot evidence (DP-04). From: GCR-05 (by analogy), GCR-40, GCR-23 | **A** |
+| UAD4-29 | **A CRC-59 finding must be a formal-check result; non-human findings are bounded** (added in v0.2 for QA4-03). A finding that an acceptance is invalid names the rule or rules violated, states the evaluation point, and identifies the record elements examined. A bare assertion is not a CRC-59 finding and does not trigger TRG-6. It is typed as a challenge, counter-evidence, advisory finding, or revalidation request. A non-human AUTH-V holder may record a CRC-59 finding only where each rule asserted violated is decidable from the record (CRC-15 bound). A human AUTH-G finding states the same elements and is not limited by that bound where the human exercises authorized judgment. DR-09 keeps recording and attribution | STEP-03 Section 4.7 makes a finding a TRG-6 event without stating its content. v0.1 required none | Sections 9.4.3, 9.4.5, 10.3.1. A finding is cheaper than a revalidation request, which needs a stated basis, but has a stronger effect. This keeps detection standing and requires a reproducible basis. From: PR-14, PR-15, GCR-11, GCR-23, EKR-39 | **A** |
+| UAD4-30 | **Revocation cascades prospectively** (added in v0.2 for QA4-04). Grants downstream of a revoked or narrowed grant fall prospectively with the chain, to the extent the revoked or narrowed grant no longer covers what they confer. They validate no act after the recording unless independently re-conferred through a valid chain to a root. Acts performed while the whole chain was effective stand (GCR-47). Renunciation cascades in the same way | v0.1 declared prospective revocation but not what happens to grants the revoked holder had conferred. Two readings were open | Section 10.2.4. CRC-61 makes an effective chain to a root part of a grant's validity, so a cut chain cannot support a downstream grant. From: GCR-47, PR-01 | **A** |
+| UAD4-31 | **Direction is read from a closed list; an unlisted closure kind is unresolved** (added in v0.2 for QA4-05). CRC-09 reads the direction of a closure from CRC-27's three closure kinds (authority closure and challenger resolution of a challenge against a member of the set are favorable; withdrawal of the target with no successor is conservative). A closure whose kind is not listed, or is not named in the record, has direction recorded as unresolved and the matter is escalation-eligible. It is not interpreted | GCR-05 says "closure of a challenge in the set's favor" without saying which closure kinds favor the set | Section 6.2, CRC-09. Makes the independence rule reproducible from the record. From: GCR-05, GCR-18, GCR-26 | **A** |
+| UAD4-32 | **Record forms checked by CRC-52 and CRC-45** (added in v0.2 for QA4-05). CRC-52 checks that a closure names each open reason and records a disposition for each. Adequacy is HJC-16. CRC-45 checks the recorded evaluative designation and whether the record presents the claim under an observed-fact or evidence-only form. Whether content is evaluative or warranted is HJC-18 | EKR-28 and GCR-59 to GCR-63 do not say which record form is checked | Section 6.2. Satisfies the agreement corollary (Section 4.3) without changing either entry's classification. From: EKR-28, GCR-59, GCR-61 | M |
 
 ### 14.3 Recommended Tech Lead priority
 
 If review time is limited:
 
 1. **What counts as checkable:** UAD4-01, UAD4-04, UAD4-05, UAD4-08. These decide the line the whole step draws.
-2. **Violation handling and the standing of detection:** UAD4-06, UAD4-07, UAD4-17, UAD4-21.
-3. **Authority grants and verification:** UAD4-13, UAD4-14, UAD4-15, UAD4-16. These add rules in areas STEP-03 routed here and decide whether authority can expand through conferral or through a verifier.
+2. **Violation handling and the standing of detection:** UAD4-06, UAD4-07, UAD4-17, UAD4-21, UAD4-29.
+3. **Authority grants and verification:** UAD4-13, UAD4-14, UAD4-15, UAD4-16, UAD4-27, UAD4-28, UAD4-30, UAD4-31. These add rules in areas STEP-03 routed here and decide whether authority can expand through conferral or through a verifier.
 4. **Evidence standing and provenance:** UAD4-09, UAD4-10, UAD4-11.
-5. Then UAD4-20 (time terms) and UAD4-26.
+5. Then UAD4-20 (time terms), UAD4-26, and UAD4-32.
 
 Options for each, offered without preference: confirm as operationalization; promote to an architecture decision; return for revision. Several (UAD4-01, UAD4-06, UAD4-13) govern behavior that `mod-w/architecture.md` does not state. As with STEP-02's and STEP-03's declared choices, the rules would then live only in this product artifact. Whether any should be promoted is a Tech Lead and Moderator question.
+
+**Recommendation stated for the Moderator.** The Tech Lead revision brief recommends promoting UAD4-13, UAD4-14, and UAD4-15, as revised, to architecture decisions or decision records after STEP-04 acceptance. They define core authority-chain semantics: grant creation, root establishment, self-conferral, conflicted conferral, and revocation cascade. Their revised content is partly carried by UAD4-27, UAD4-28, and UAD4-30. Those would need to travel with them if promoted. **The Moderator decides promotion.** This revision does not edit `mod-w/architecture.md` and records no decision.
 
 ### 14.4 Sampling targets for the independent pass
 
@@ -1350,10 +1447,10 @@ For the Tech Lead or QA sampling MW-ADAPT-001 expects before acceptance. These a
 | Area | Probe |
 | --- | --- |
 | **What counts as checkable** | Pick any entry marked CR and ask whether two competent evaluators could disagree on a record. Pick any entry marked RJC and ask whether it reaches the substance of the judgment. Look for entries where the "decision test" depends on interpreting a source |
-| **Authority** | For every act in Sections 6 and 10: which grant does it need? Find any act that appears to need none. Check that the conferral scope (CRC-61) does not give AUTH-G a power STEP-01 did not name. Check that "human-only conferral" cannot be bypassed by assigning a role position |
-| **Independence** | Check CRC-62 and CRC-64 for a path by which an actor confers authority on a proxy and then performs a favorable act. Check CRC-15 for a non-human verifier that is the producer under another identity |
+| **Authority** | For every act in Sections 6 and 10: which grant does it need? Find any act that appears to need none. Check that the conferral scope (CRC-61) does not give AUTH-G a power STEP-01 did not name, and that the PR-04 and GCR-08 reading (Section 3.3) holds. Check that "human-only conferral" cannot be bypassed by a grant-bearing role-position appointment. Check that a project cannot acquire a second root, and that the strict first-act rule (Section 10.6) is not unworkable. Check that a revoked conferrer's appointees cannot keep acting (CRC-63) |
+| **Independence** | Check CRC-62 and CRC-64 for a path by which an actor confers authority on a proxy, directly or several links up the chain, and then performs a favorable act, or revokes a challenger's standing before a challenge is recorded. Check CRC-15 for a non-human verifier that is the producer under another identity |
 | **Evidence standing** | Check the class-defining versus descriptive split (UAD4-09) for any element that is placed on the wrong side. Check that a detection result cannot be presented as evidence, corroboration, or acceptance |
-| **Revalidation** | Check CRC-59 and UAD4-07: can a false finding of invalidity create a requirement cheaply? Check CRC-51 for any reason that can be dropped |
+| **Revalidation** | Check CRC-59 and UAD4-07, UAD4-29: can a false finding of invalidity create a requirement cheaply, now that a finding needs a rule, evaluation point, and elements examined, and a non-human finding needs a decidable rule? Check CRC-51 and CRC-52 for any reason that can be dropped |
 | **Violation handling** | Check that no handling in Section 9 prevents an opposition or conservative act from being recorded. Check that "blocking-eligible" cannot be read as "must block" |
 | **Hidden representation choices** | See the probe below |
 
@@ -1362,9 +1459,9 @@ For the Tech Lead or QA sampling MW-ADAPT-001 expects before acceptance. These a
 | Term or device | Where it could carry a representation choice | Treatment here |
 | --- | --- | --- |
 | "Record," "evaluation point," "recorded time," "order" | A store, a log, an ordering guarantee | Defined semantically (Section 4.1). Realization deferred (DR-03, DR-10) |
-| "Chain to root," "acyclic," "closure," "citation chain" | A graph structure, a graph store | Described as relations over recorded items. Computation deferred (DR-01, DR-08) |
+| "Chain to root," "acyclic," "closure," "citation chain," "establishing act precedes every other act," "falls with the chain" | A graph structure, a graph store, a log order | Described as relations over recorded items and as semantic ordering. Computation and order deferred (DR-01, DR-03, DR-08) |
 | "Handling category" (invalidating, blocking, flagging) | An enforcement mechanism or a state value | Stated as semantic effects (BDR-11). No value set |
-| "Formal-check result" | A record type | Defined as a semantic notion with an outcome set. How it is recorded is DR-09 |
+| "Formal-check result" | A record type, or a value set | Defined as a semantic notion. What a result may state is semantic and not a selected value set (BDR-11). The content a CRC-59 finding must state is fixed. How it is recorded is DR-09 |
 | "Actor kind" | An identity attribute | Treated as a recorded designation. Authentication deferred (DR-07) |
 | "Conferral scope" | A scope vocabulary | A scope of AUTH-G like STEP-03's gate-definition scope. No vocabulary. DR-08 |
 | Five configuration facets | A structured record | The facets are PR-27's. Content is stated, not structured |
@@ -1382,13 +1479,17 @@ The following were considered and deliberately left open. This is not a declarat
 - Which people hold conferral, gate-definition, or validation scopes, or any role catalog (DM-02).
 - Evidence categories, thresholds, or customer-evidence sufficiency (DM-01).
 - Protocol-effective terms (UAD4-20).
+- Invalidating, rather than flagging, conflicted conferral or revocation (considered at the revision and left to pilot evidence; DP-04, UAD4-28).
+- A rule for a consequential commitment that is not an acceptance, and an extension of CRC-19 to it (RJ-OQ-12).
+- Any root grant, or any establishing-identity self-grant, outside the single establishing act (UAD4-27).
+- Any edit to `mod-w/architecture.md`, including promotion of UAD4-13 to UAD4-15 (the Moderator decides; Section 14.3).
 - An override hierarchy among gate authority holders (GC-OQ-10).
 - Reclassification of any accepted STEP-01, STEP-02, or STEP-03 condition, other than the readings of Section 3.3.
 - Anything about external evaluator contracts (PS-OQ-11), the agent-skills hypotheses beyond the routing in Section 11.2, or speed-versus-rigor tradeoffs.
 
 ### 14.6 Note for the MW-ADAPT-001 re-evaluation
 
-MW-ADAPT-001 was re-evaluated at STEP-02 and applied with independent sampling at STEP-03. This step is the first whose subject is classification itself. The Development Team's report on the first half (did the declaration produce findings) is that the audit pass produced twenty-six declared choices, of which sixteen are self-assessed level A. The second half (did anything slip past) it cannot answer, for the reason in Section 14.1. The tension to watch is that a boundary artifact must make dozens of small classification calls, so its declaration lists categories of choice (UAD4-01, UAD4-08) and not every row. That is why Section 6.3 shows every row, so a reviewer can sample classification at the row level.
+MW-ADAPT-001 was re-evaluated at STEP-02 and applied with independent sampling at STEP-03. This step is the first whose subject is classification itself. The Development Team's report on the first half (did the declaration produce findings) is that the v0.1 audit pass produced twenty-six declared choices, of which sixteen were self-assessed level A. The second half (did anything slip past) it cannot answer, for the reason in Section 14.1. The record since v0.1 bears on it: QA sampling found four areas of unlisted choice (QA4-01 to QA4-04) that the audit pass and the Tech Lead sampling did not. The revision declares them, plus two further choices the recommended fixes introduced. **v0.2 therefore carries thirty-two declared choices, of which twenty-one are self-assessed level A.** This is offered to the Moderator as evidence for the MW-ADAPT-001 re-evaluation. The Development Team proposes no observation and edits no register. The Moderator decides separately. The tension to watch is that a boundary artifact must make dozens of small classification calls, so its declaration lists categories of choice (UAD4-01, UAD4-08) and not every row. That is why Section 6.3 shows every row, so a reviewer can sample classification at the row level.
 
 ---
 
@@ -1402,14 +1503,15 @@ Every accepted rule, action, and trigger identifier appears below with its dispo
 
 | IDs | Disposition | Entries |
 | --- | --- | --- |
-| PR-01, PR-02, PR-03, PR-04 | CR | CRC-02, CRC-60, CRC-61 |
+| PR-01, PR-02, PR-03 | CR | CRC-02, CRC-60, CRC-61 |
+| PR-04 | CR, read as in Section 3.3: no authority by mere transitivity, inheritance, delegation, role label, or work assignment. Conferral is a new explicit grant under a conferral scope (UAD4-13). Moderator-visible reading tension | CRC-02, CRC-60, CRC-61, CRC-62 |
 | PR-05 | CR | CRC-03, CRC-61 |
 | PR-06, PR-07, PR-08 | CR | CRC-01 |
 | PR-09 | CR | CRC-35 |
 | PR-10, PR-11 | CR (consequence of every entry) | Section 9; CRC-01, CRC-22, CRC-41 |
 | PR-12 | OOC | Section 6.5; CRC-21, CRC-22 |
 | PR-13 | CR | CRC-21 |
-| PR-14 | CR | CRC-05, CRC-13, CRC-15 |
+| PR-14 | CR | CRC-05, CRC-13, CRC-15, CRC-59 (non-human bound) |
 | PR-15 | CR | CRC-04, CRC-15 |
 | PR-16, PR-17, PR-18, PR-21 | CR | CRC-07, CRC-08 |
 | PR-19 | CR | CRC-12, CRC-13 |
@@ -1460,13 +1562,13 @@ Every accepted rule, action, and trigger identifier appears below with its dispo
 | EKR-35, EKR-36 | CR | CRC-35, CRC-49, CRC-50 |
 | EKR-37, EKR-38, EKR-39 | CR | CRC-51, CRC-52 |
 | EKR-40 | DR | CRC-54; DR-04 |
-| EKR-41 | OOC | Section 6.5; BDR-05, BDR-14 |
+| EKR-41 | OOC (restated and enforced through BDR-05 and BDR-14; preserved, not superseded) | Section 6.5; BDR-05, BDR-14 |
 | TRG-1 | CR | CRC-51; CRC-55, CRC-56 (supersession consequence); CRC-58 |
 | TRG-2 | CR (as narrowed) | CRC-29, CRC-51 |
 | TRG-3 | CR | CRC-51, CRC-57 |
 | TRG-4 | CR | CRC-51, CRC-55, CRC-56, CRC-57 |
 | TRG-5 | CR | CRC-49, CRC-51 |
-| TRG-6 | CR | CRC-51, CRC-59 |
+| TRG-6 | CR (a finding is the event only where it meets CRC-59) | CRC-51, CRC-59 |
 
 #### STEP-03: GCR
 
@@ -1474,10 +1576,10 @@ Every accepted rule, action, and trigger identifier appears below with its dispo
 | --- | --- | --- |
 | GCR-01, GCR-04 | CR | CRC-06, CRC-07 |
 | GCR-02, GCR-03 | CR | CRC-07 |
-| GCR-05 | CR | CRC-09, CRC-64 |
+| GCR-05 | CR (CRC-09: closed list of act kinds, closure kind read from CRC-27, UAD4-31). By analogy for CRC-64 (UAD4-14, UAD4-28) | CRC-09, CRC-64 |
 | GCR-06 | CR | CRC-10 |
 | GCR-07 | CR | CRC-14 |
-| GCR-08 | CR | CRC-07, CRC-62 |
+| GCR-08 | CR, read as in Section 3.3: delegation and work assignment convey no authority; a grant-bearing role-position appointment is a conferral under CRC-61 and CRC-62. Moderator-visible reading tension | CRC-07, CRC-62 |
 | GCR-09 | CR (presence); judgment (truth) | CRC-11; HJC-12 |
 | GCR-10 | CR | CRC-13, CRC-15 |
 | GCR-11 | CR | CRC-15 |
@@ -1492,7 +1594,7 @@ Every accepted rule, action, and trigger identifier appears below with its dispo
 | GCR-21 | CR | CRC-46 |
 | GCR-22 | CR | CRC-04 |
 | GCR-23, GCR-24 | CR | CRC-26 |
-| GCR-25, GCR-26 | CR | CRC-27 |
+| GCR-25, GCR-26 | CR | CRC-09, CRC-27 |
 | GCR-27 | OOC | Section 6.5 |
 | GCR-28 | CR | CRC-28 |
 | GCR-29 | DR | CRC-54; DR-04 |
@@ -1504,21 +1606,21 @@ Every accepted rule, action, and trigger identifier appears below with its dispo
 | GCR-36, GCR-41 | CR | CRC-33 |
 | GCR-37 | CR | CRC-31 |
 | GCR-38 | CR | CRC-07, CRC-18 |
-| GCR-40 | CR | CRC-32 |
+| GCR-40 | CR (authority gap, CRC-32); new rules built on it, not restatements (CRC-61, CRC-62, CRC-64; UAD4-13, UAD4-14, UAD4-27, UAD4-28) | CRC-32, CRC-61, CRC-62, CRC-64 |
 | GCR-42 | CR | CRC-19, CRC-23 |
 | GCR-43 | CR | CRC-23 |
 | GCR-44 | CR | CRC-23, CRC-47 |
 | GCR-45 | CR | CRC-20 |
 | GCR-46 | CR | CRC-10, CRC-20 |
-| GCR-47 | CR | CRC-19, CRC-24, CRC-60, CRC-63 |
+| GCR-47 | CR (extended to grants, with the prospective cascade of CRC-63; UAD4-15, UAD4-30) | CRC-19, CRC-24, CRC-60, CRC-61, CRC-63 |
 | GCR-48 | CR | CRC-20, CRC-23 |
 | GCR-49, GCR-54, GCR-55 | CR | CRC-57, CRC-58 |
 | GCR-50, GCR-51, GCR-52 | CR | CRC-55 |
 | GCR-53 | CR | CRC-56 |
 | GCR-56 | CR | CRC-57 |
-| GCR-57 | CR | CRC-59 |
+| GCR-57 | CR. GCR-57 states the acceptor's own withdrawal. A finding by someone else, its recorders, its required content, and the non-human bound are STEP-04 declared choices (UAD4-07, UAD4-29), not restatements of GCR-57 | CRC-59 |
 | GCR-58, GCR-62 | CR | CRC-51 |
-| GCR-59, GCR-60, GCR-61, GCR-63 | CR | CRC-52 |
+| GCR-59, GCR-60, GCR-61, GCR-63 | CR. Closure is read as naming and disposing of each open reason (record form; UAD4-32). Adequacy is HJC-16. A TRG-6 requirement from a CRC-59 finding closes by Tier 1 reaffirmation (GCR-60) | CRC-52 |
 | GCR-64 | CR | CRC-46 |
 | GCR-65 | CR | CRC-46, CRC-56 |
 | GCR-66 | CR | CRC-53 |
@@ -1636,8 +1738,8 @@ The checks in `mod-w/step-04.md` are unnumbered. They are numbered here in the o
 | AC4-06 | Rule catalog traces every entry to STEP-01, STEP-02, or STEP-03 IDs (`PR-`, `ACT-`, `OBJ-`, `HJ-`, `EKR-`, `EKO-`, `EKJ-`, `TRG-`, `GCR-`, `GCO-`, `GCJ-`) | Sources column of Section 6.2; Section 7.2; Section 15 |
 | AC4-07 | Classifies STEP-01 `OBJ-*`, STEP-02 `EKO-*`, and STEP-03 `GCO-*` as catalogued rules, recorded-judgment checks, deferred candidates, or out-of-catalog with rationale | Section 6.3 (61 rows). Section 6.5 for rules out of catalog |
 | AC4-08 | Carries forward and disposes `GC-OQ-01`: which GCO conditions become catalog rules and the handling categories | Section 13.1; Section 6.3; Section 9.2 |
-| AC4-09 | Carries forward and disposes `GC-OQ-02`: grant creation, scope, change, revocation, audit, self-conferral | Section 10.2; Section 13.2; CRC-60 to CRC-64 |
-| AC4-10 | Carries forward and disposes `GC-OQ-03`: AI-held AUTH-V and verifier independence, without verification becoming acceptance | Section 10.3; Section 13.3; CRC-13, CRC-15 |
+| AC4-09 | Carries forward and disposes `GC-OQ-02`: grant creation, scope, change, revocation, audit, self-conferral | Sections 3.3, 10.2 (10.2.2 to 10.2.5); Section 13.2; CRC-60 to CRC-64; DP-04; UAD4-13, UAD4-14, UAD4-15, UAD4-27, UAD4-28, UAD4-30. Creation (single establishing act), scope, change, revocation (prospective cascade), audit, and self-conferral are each disposed. The PR-04 and GCR-08 reading is Moderator-visible |
+| AC4-10 | Carries forward and disposes `GC-OQ-03`: AI-held AUTH-V and verifier independence, without verification becoming acceptance | Section 10.3; Section 13.3; CRC-13, CRC-15; CRC-59 (non-human finding bound); Sections 9.4.3, 9.4.5; UAD4-16, UAD4-29 |
 | AC4-11 | Carries forward and disposes `GC-OQ-09`: protocol-effective authorization terms | Section 12.8; Section 13.4 |
 | AC4-12 | Carries forward and disposes `GC-OQ-11`: assumption-rooted identification and never-a-correction tripwires | Section 12.7; Section 13.5; CRC-53, CRC-56 |
 | AC4-13 | Carries forward and disposes `EK-OQ-09`: configuration and lineage granularity; invalidate, weaken, flag, or judgment | Section 11; Section 13.6; CRC-38, CRC-39 |
@@ -1648,12 +1750,12 @@ The checks in `mod-w/step-04.md` are unnumbered. They are numbered here in the o
 | AC4-18 | States that mechanical detection may block, flag, escalate, or show invalidity only at the semantic level and must not decide contextual sufficiency or replace human gate acceptance | Sections 9.2, 9.8; BDR-14 |
 | AC4-19 | States that absence of a mechanical check does not make a requirement optional | BDR-07; Sections 1.4, 9.5 |
 | AC4-20 | Introduces no confidence scores, numeric sufficiency weights, or artificial precision | Section 9.7; BDR-14; Section 11.4 |
-| AC4-21 | Includes the Undecided Architecture Declaration with catalog membership, violation handling, configuration granularity, authority grants, verifier independence, and derived groupings | Section 14 (UAD4-08, UAD4-06, UAD4-11, UAD4-13, UAD4-16, UAD4-25) |
-| AC4-22 | Declaration followed by Tech Lead or QA sampling before Moderator acceptance, with a sampling note in the review record | **Not satisfiable by the Development Team.** Section 14.4 supplies targets. Section 2.3 records 3a and 3b as pending. The sampling note belongs to the review record |
-| AC4-23 | Remaining open questions routed without duplicating ownership | Section 13.9 |
+| AC4-21 | Includes the Undecided Architecture Declaration with catalog membership, violation handling, configuration granularity, authority grants, verifier independence, and derived groupings | Section 14 (UAD4-08, UAD4-06, UAD4-11, UAD4-13, UAD4-16, UAD4-25). Authority choices revised and added in v0.2: UAD4-13, UAD4-14, UAD4-15, UAD4-27, UAD4-28, UAD4-30. Detection and revalidation: UAD4-07, UAD4-29. Each is linked from the catalog entry that applies it (Section 6.1) |
+| AC4-22 | Declaration followed by Tech Lead or QA sampling before Moderator acceptance, with a sampling note in the review record | **Not satisfiable by the Development Team.** Section 14.4 supplies targets. Section 2.3 records the v0.1 reviews and the pending targeted re-review and re-sample of v0.2. The sampling note belongs to the review record |
+| AC4-23 | Remaining open questions routed without duplicating ownership | Section 13.9 (RJ-OQ-03a and RJ-OQ-03b split the original question into representation-owned and guidance-owned parts; RJ-OQ-09 owned by STEP-07 with Tech Lead review as a review need; RJ-OQ-10 aligned with BDR-16; RJ-OQ-12 added); Section 6.6 (DM-08, DP-04) |
 | AC4-24 | No schema language, storage model, workflow engine, validator implementation, lifecycle graph, serialized state vocabulary, protocol transport, CLI, prompt format, or runtime integration selected | Sections 1.3, 13.10, 14.4, 14.5; BDR-11, BDR-18 |
 | AC4-25 | Concrete transferability evidence encountered is proposed under research governance | Section 17.3 |
-| AC4-26 | Final acceptance is not recorded until Phase 3a, 3b, and 3c have occurred or been waived | Section 2.3. The Development Team records no acceptance |
+| AC4-26 | Final acceptance is not recorded until Phase 3a, 3b, and 3c have occurred or been waived | Section 2.3. The Development Team records no acceptance. Phase 3a re-review and 3b re-sample are pending, 3c is held, and 4a is the Moderator's |
 
 ---
 
@@ -1664,10 +1766,11 @@ The checks in `mod-w/step-04.md` are unnumbered. They are numbered here in the o
 | Date | Version | Change | Reason |
 | --- | --- | --- | --- |
 | 2026-10-02 | 0.1 | Initial rule/judgment boundary and candidate rule catalog produced under STEP-04 | Fourth PROD-W product artifact. Extends STEP-01, STEP-02, and STEP-03 without modifying them. Twenty-six decisions beyond accepted upstream artifacts are declared in Section 14 under MW-ADAPT-001 and routed to the Tech Lead. |
+| 2026-10-02 | 0.2 | **Narrow revision after QA return**, under the approved Tech Lead revision brief. Required: QA4-01 (one establishing act; root grants; limited root-grantee case), QA4-02 (conflicted conferral over the whole chain and challenger standing; DP-04 evidence, trigger, owner), QA4-03 (CRC-59 findings need rule, evaluation point, elements examined; non-human bound; CRC-04 wording), QA4-04 (prospective revocation cascade; work assignment versus role-position appointment; PR-04 and GCR-08 reading note). Same revision: QA4-05 to QA4-14 (record forms for CRC-52, CRC-09, CRC-45; derived-condition dependencies and conditional B tags; CRC-22 waivability rule; CR versus RJC discriminator explained; CRC-36 and EKO-04 qualifier; Section 6.3 Note column; UAD4 forward links; EKO-15 and consequential reliance narrowed; routing corrections; representation-neutral wording). Section 14 now declares thirty-two choices (UAD4-27 to UAD4-32 added; UAD4-03, 06, 07, 08, 09, 13, 14, 15, 23, 26 revised). Sections 1.5, 2.3, 3.3, 13, 15, and 16 updated for consistency | Returned by the Moderator for narrow revision (`MODERATOR-REVIEW-STEP-04-QA.md`), directed by the approved Tech Lead brief (`MODERATOR-REVIEW-STEP-04-REVISION-BRIEF.md`). The 61-row classification, boundary definitions, and catalog structure are not reopened. No row membership changed. Accepted STEP-01, STEP-02, and STEP-03 artifacts, and `mod-w/architecture.md`, are not edited. **No acceptance is recorded.** |
 
-### 17.2 Pre-submission checks
+### 17.2 Pre-submission checks (v0.1)
 
-The Development Team ran these document-native checks after assembling the draft. They were throwaway scripts and are not part of the deliverable. Each result can be reproduced by searching this file. The checks were run by the producer and confer no independence (PR-27, PR-28). No build, test, or validator exists for this repository, and none was selected or built.
+These are the v0.1 checks as originally recorded. The revision's checks are in Section 17.5. The Development Team ran these document-native checks after assembling the draft. They were throwaway scripts and are not part of the deliverable. Each result can be reproduced by searching this file. The checks were run by the producer and confer no independence (PR-27, PR-28). No build, test, or validator exists for this repository, and none was selected or built.
 
 | Check | Result |
 | --- | --- |
@@ -1682,7 +1785,7 @@ The Development Team ran these document-native checks after assembling the draft
 
 ### 17.3 Transferability evidence
 
-Concrete evidence emerged and is proposed, not accepted, under the research governance route: **MW-OBS-016** is appended to `research/mod-w-transferability/observations.md` with status _Proposed for Moderator review_. It records (1) that the work package pre-stated per-point review handling and no Phase 3a clarification was needed, (2) the document-native checks of Section 17.2 and what they found, (3) the six reading tensions of Section 3.3 across unedited accepted artifacts, and (4) how MW-ADAPT-001 behaved in a step whose subject is classification. It proposes no adaptation. The Moderator decides whether to accept, modify, or reject it.
+Concrete evidence emerged and is proposed, not accepted, under the research governance route: **MW-OBS-016** is appended to `research/mod-w-transferability/observations.md` with status _Proposed for Moderator review_. It records (1) that the work package pre-stated per-point review handling and no Phase 3a clarification was needed, (2) the document-native checks of Section 17.2 and what they found, (3) the six reading tensions of Section 3.3 across unedited accepted artifacts, and (4) how MW-ADAPT-001 behaved in a step whose subject is classification. It proposes no adaptation. The Moderator decides whether to accept, modify, or reject it. (The Moderator has since dispositioned it, as recorded in the review record. The v0.2 revision adds a seventh reading tension to Section 3.3, PR-04 and GCR-08 against conferral. It is not part of MW-OBS-016, and no observation is proposed here. The QA finding that sampling found choices the audit pass missed is noted for the Moderator in Section 14.6.)
 
 ### 17.4 Files changed in this delivery
 
@@ -1691,4 +1794,60 @@ Concrete evidence emerged and is proposed, not accepted, under the research gove
 
 `mod-w/domain-language.md` is not edited. The terms this artifact introduces are listed in Section 4.11 for the Moderator's later disposition. No accepted Product Definition, Architecture, Roadmap, STEP-01, STEP-02, or STEP-03 deliverable, no Step definition, and no MOD-W template was modified. Review and status records are the Moderator's and were not touched.
 
-**Acceptance status:** Not accepted. Submitted by the Development Team for Phase 3a Tech Lead review (with MW-ADAPT-001 sampling), Phase 3b QA, and Phase 3c Product Owner sign-off, unless the MOD-W Moderator waives any of them before final acceptance. Final acceptance is the MOD-W Moderator's decision.
+The 17.4 list is the v0.1 delivery. The v0.2 revision changed only `prod-w/rule-judgment-boundary.md` (Section 17.5).
+
+### 17.5 Revision (v0.2) record
+
+#### Where each finding was addressed
+
+| Finding | Changed areas |
+| --- | --- |
+| **QA4-01** Roots, establishing act, CRC-62 | CRC-61, CRC-62; Section 10.1, 10.2 table, 10.2.2, 10.5, 10.6; UAD4-27 (new), UAD4-13, UAD4-14 (revised); DM-03, DR-03; HJC-22; Sections 1.5, 13.2 |
+| **QA4-02** Conflicted conferral, chain depth, revocation limb, DP-04 | CRC-64; Section 10.2.3, 10.5, 10.6; UAD4-28 (new), UAD4-14 (revised); DP-04 (evidence, trigger, owner STEP-07); RJ-OQ-09; HJC-23; Sections 13.2, 14.4 |
+| **QA4-03** CRC-59 findings; non-human bound; CRC-04 wording | CRC-59, CRC-15, CRC-04, CRC-09 (list wording); Sections 4.4, 4.10, 9.2, 9.4.2, 9.4.3, 9.4.5, 10.3.1, 10.3.4; BDR-13; UAD4-29 (new), UAD4-07 (revised); HJC-24, HJC-16; DR-09, DM-08 (new); RJ-OQ-03a, RJ-OQ-03b; Sections 1.5, 12.6, 13.3, 15.1 |
+| **QA4-04** Cascade; PR-04 and GCR-08; assignment terms | CRC-61, CRC-62, CRC-63; Sections 3.3 (new reading row and terms paragraph), 4.11, 10.2.4, 10.2.5 (new); UAD4-30 (new), UAD4-13, UAD4-15 (revised); Sections 1.5, 13.2, 15.1 (PR-04, GCR-08, GCR-47 notes), 16 (AC4-09) |
+| **QA4-05** CRC-52, CRC-09, CRC-45 | CRC-52, CRC-09, CRC-45; Sections 8.2, 12.3, 12.6; UAD4-31, UAD4-32 (new) |
+| **QA4-06** Derived and view dependencies | CRC-18, CRC-19, CRC-47, CRC-52; DR-01, DR-04; Sections 5.4, 6.3, 13.1; UAD4-23 |
+| **QA4-07** CRC-22 waivable list | CRC-22, CRC-18; Section 9.6; UAD4-26 |
+| **QA4-08** CR versus RJC | Sections 4.5, 5.1, 5.2 (Q5), 6.3 (notes on GCO-12, GCO-20); UAD4-03. No row changes disposition |
+| **QA4-09** CRC-36, EKO-04 qualifier | CRC-36; Section 6.3 (EKO-04), 12.1; UAD4-09 |
+| **QA4-10** Section 6.3 Note column | Section 6.3 intro and Note cells for the rows QA named, and for the other rows whose note disagreed with their catalog pairing |
+| **QA4-11** UAD4 forward links | Section 6.1; the last column of every family table (renamed "Pair / deferral / declared") for each entry that applies a declared choice |
+| **QA4-12** Consequential reliance outside acceptance | Sections 3.3, 13.7; CRC-19, CRC-47; Section 6.3 (EKO-15 note); RJ-OQ-12 (new); UAD4-08 |
+| **QA4-13** Routing | RJ-OQ-03a and 03b, RJ-OQ-09, RJ-OQ-10, RJ-OQ-12; Sections 11.3, 11.5, 13.6; Section 6.5 (EKR-41); Section 15.1 |
+| **QA4-14** Representation-adjacent wording | Sections 4.10, 5.4, 9.2 (B row), 9.4.4, 12.7; BDR-09, BDR-11; UAD4-06, UAD4-23; Sections 1.5, 6.1, 13.8 |
+
+#### Where the revision follows the approved Tech Lead brief rather than QA's suggestion
+
+- **QA4-04, PR-04 and GCR-08.** QA left open whether this is a reading or a direct conflict. The brief decides it is a reading tension, and directs that it be acknowledged and routed as Moderator-visible. Section 3.3 and UAD4-13 do that.
+- **QA4-08, CR versus RJC.** QA suggested either reclassifying the facet rows or rewording Section 4.5. The brief directs an explanatory fix only. Section 5.1, Section 4.5, and Q5 now state the discriminator. No row is reclassified.
+- **QA4-12, non-acceptance commitments.** QA suggested adding the case to CRC-19 or narrowing the profile text. The brief directs narrowing only. CRC-19 is not extended. The routed question is RJ-OQ-12.
+- **QA4-02, strength of handling.** QA noted the Moderator might want to name what would move CRC-64 from F/E to I. The brief keeps F/E and names evidence, trigger, and owner (DP-04). It directs no invalidation.
+- **QA4-10 and QA4-11.** QA offered an alternative (define the column as "primary note only"; relax Section 6.1). The brief prefers filling references and keeping Section 6.1's promise. The revision does both of the latter.
+- **QA4-13, RJ-OQ-03.** The split adds a guidance item (DM-08) so that the guidance-owned part has a methodology entry in the register.
+
+#### Checks run on v0.2
+
+Document-native checks run by the producer after the revision. They confer no independence (PR-27, PR-28). They were throwaway scripts and are not part of the deliverable.
+
+| Check | Result |
+| --- | --- |
+| **Identifier coverage.** The 266 upstream identifiers still appear. PR, ACT, EKR, GCR, and TRG each still appear in Section 15.1 | 0 missing |
+| **Defined versus cited, new identifiers.** CRC (64), HJC (26), DR (10), DM (8), DP (6), UAD4 (32), BDR (18), RJ-OQ (13: 01, 02, 03a, 03b, 04 to 12), AC4 (26) | No undefined identifier cited. Every identifier except the AC4 leaf checks is cited at least twice. A stale unqualified RJ-OQ-03 reference found and corrected |
+| **Section references.** Each reference to a section of this file resolves to a heading | Resolved. The only unmatched references are the qualified upstream references recorded in 17.2 |
+| **Summary tables against the classification table.** Section 6.3 against Sections 1.5, 13.1, 13.7 | Unchanged: 61 rows, 48 catalogued rules, 12 recorded-judgment checks, 1 deferred. GCO 20, 7, 1. EKO 16, 4. OBJ 12, 1. No row membership changed. The handling profiles of 13.1 and 13.7 still cover every GCO and EKO condition once |
+| **UAD4 levels.** Section 14.2 against Section 14.6 | 32 declared: 21 A, 10 M, 1 L. UAD4-27 to UAD4-31 are A, UAD4-32 is M. Existing levels unchanged |
+| **Forward links.** Each entry that applies a declared choice names its UAD4 in the last column | CRC-04, 09, 13, 15, 19, 22, 25, 29, 32, 35 to 39, 45, 47, 51 to 54, 56, 59 to 64 link forward. Every UAD4 entry is cited from at least one catalog entry or other section that applies it |
+| **Forbidden-term scan.** Representation, tooling, and state-vocabulary terms in the added text | Hits only in non-selection statements (BDR-11, Section 14.4 probe) and in the expository use of "checker" and "representation" |
+| **Stale-wording scan.** "Superseded" for EKR-41, "successive recorded states," "prevents effect," "surfaced," "assignees," and a root defined as "before any act relies on it" | None remain, except the upstream question title in PS-OQ-10 ("surfaced and handled"), a negated use ("not superseded"), and text quoting v0.1 |
+
+**Not run.** Targeted Tech Lead re-review, targeted QA re-sample, and Product Owner sign-off. No validator exists or was built.
+
+#### Moderator-visible items
+
+1. **PR-04 and GCR-08 reading tension** (Section 3.3, UAD4-13). Acknowledged as a reading, not a direct conflict. Routed as Moderator-visible because the accepted upstream text did not name conferral scope. No upstream artifact is edited.
+2. **Promotion of UAD4-13, UAD4-14, UAD4-15 to architecture decisions** (Section 14.3). The Tech Lead recommends it, as revised, after acceptance. Their revised content is partly carried by UAD4-27, UAD4-28, and UAD4-30. The Moderator decides. `mod-w/architecture.md` is not edited.
+3. **MW-ADAPT-001 evidence** (Section 14.6). QA sampling found unlisted choices that the audit pass and the Tech Lead sampling did not. No observation is proposed here.
+4. **Soft spots introduced or sharpened by this revision** (Section 10.6). Strict first-act rule for the establishing act. Root-grantee limit. Cascade on renunciation. Each is a sampling target for the targeted re-review.
+
+**Acceptance status:** Not accepted. This v0.2 revision is returned for targeted Tech Lead re-review (with MW-ADAPT-001 sampling of the changed areas) and targeted QA re-sample. Phase 3c Product Owner sign-off is held. No waiver is recorded. Final acceptance is the MOD-W Moderator's decision.
