@@ -1157,8 +1157,8 @@ No standing local adaptation is authorized from this observation alone. The Phas
 **MOD-W area:** Step definition and setup review (Phase 1b), Development Team role (Phase 2a and 2b), MW-ADAPT-001, handling of accepted artifacts across steps  
 **Project stage:** STEP-04 implementation (fourth Development Team step)  
 **Observed by role:** Development Team (reporting on its own output)  
-**Classification (Proposed):** `TRANSFERS_WITH_REINTERPRETATION` for the document-native mechanical pre-review check (second step with evidence, following MW-OBS-015) and for the step-level pre-statement of per-point handling; `DOMAIN_COUPLED` recurrence for the blocking build gate (fourth step, no new classification); no new classification proposed for the reading tensions or for MW-ADAPT-001, which are recorded as evidence only  
-**Status:** Proposed for Moderator review  
+**Classification (Accepted, mixed):** `TRANSFERS_WITH_REINTERPRETATION` for the document-native mechanical pre-review check (second step with evidence, following MW-OBS-015) and for the step-level pre-statement of per-point handling; `DOMAIN_COUPLED` recurrence for the blocking build gate (fourth step, no new classification); no new classification for the reading tensions or for MW-ADAPT-001, which are recorded as evidence only  
+**Status:** Accepted  
 **Significance:** Low to Medium  
 **Related:** MW-OBS-008, MW-OBS-011, MW-OBS-012, MW-OBS-015, MW-ADAPT-001
 
@@ -1211,7 +1211,15 @@ The finding is deliberately small: one step, one producer, self-run checks, no i
 
 ### Moderator Disposition
 
-_Pending._
+**Accepted** as STEP-04 transferability evidence, confirmed by Frank McGuire (MOD-W Moderator) 2026-10-02 in `mod-w/reviews/MODERATOR-REVIEW-STEP-04-TECH-LEAD.md`.
+
+Classification accepted as:
+
+- `DOMAIN_COUPLED` recurrence for the blocking build gate's executable form in this fourth specification step, continuing MW-OBS-008, MW-OBS-012, and MW-OBS-015.
+- `TRANSFERS_WITH_REINTERPRETATION` for the document-native mechanical pre-review check, now including identifier-defined-but-uncited and unqualified-cross-reference checks.
+- `TRANSFERS_WITH_REINTERPRETATION` for the step-level pre-statement of per-point handling, limited to this evidence point and not yet a standing rule.
+
+No local adaptation is authorized from this observation. The reading-tension evidence and MW-ADAPT-001 classification-sampling evidence are accepted as evidence only; they do not modify accepted product artifacts or canonical MOD-W.
 
 ---
 
