@@ -1,9 +1,9 @@
 ---
 artifact:
   type: architecture
-  version: 0.1
+  version: 0.2
   created: 2026-09-30
-  updated: 2026-09-30
+  updated: 2026-10-03
   status: Accepted
   governed_by: MOD-W v5.0.1
 source:
@@ -43,10 +43,10 @@ Future implementations of PROD-W in separate projects will operate under PROD-W 
 
 | Product requirement | Architecture decision(s) | Notes |
 | --- | --- | --- |
-| FR-1 Roles and authority | D1, D4, D8 | Separates actors, roles, authority grants, and human gate authority. |
+| FR-1 Roles and authority | D1, D4, D8, D10 | Separates actors, roles, authority grants, and human gate authority. |
 | FR-2 Governance semantics for progression | D1, D2, D5 | Protocol semantics govern actions over time; schemas and state remain subordinate. |
 | FR-3 Evidence requirements | D3, D6, D7 | Evidence requirements distinguish checkable presence/provenance from human sufficiency judgment. |
-| FR-4 Self-approval invalid | D4, D6 | Independent authority identity must be distinguishable from producer identity. |
+| FR-4 Self-approval invalid | D4, D6, D10 | Independent authority identity must be distinguishable from producer identity. |
 | FR-5 Unresolved disagreement visible | D5, D7 | Disagreement is modeled as an attributable condition, not automatically forced into consensus. |
 | FR-6 Provenance tracking | D3, D6, D7 | Provenance is a conceptual layer attached to claims, evidence, challenges, decisions, and gates. |
 | FR-7 Hypothesis validation or visible assumption handling | D3, D5, D7 | Hypotheses remain distinct from assumptions and decisions. |
@@ -253,6 +253,36 @@ Product intent
 
 ---
 
+### D10 - Authority Grants Are Conferred by Human-Held Conferral Scope from a Single Establishing Act
+
+**Status:** Accepted  
+**Related Requirements:** FR-1, FR-4
+
+**Context:** D4 separates authority grants from role labels but does not say how grants are created, ended, or chained. STEP-01 (`prod-w/protocol-semantics.md`) defines a grant and defers creation, revocation, and self-conferral. STEP-03 routed them to STEP-04. `prod-w/rule-judgment-boundary.md` declared the choices as UAD4-13, UAD4-14, and UAD4-15, with the revised content of UAD4-27, UAD4-28, and UAD4-30. The MOD-W Moderator promoted them on 2026-10-03.
+
+**Decision:**
+
+- Granting is a recorded, attributable act. Conferral requires a human holding AUTH-G whose conferral scope covers the class and scope conferred. A conferral scope is a scope of AUTH-G and not a fifth authority class. It is not delegation and not class-confers-class, and PR-04 and GCR-08 are read that way. The reading remains Moderator-visible.
+- A project has exactly one establishing act for its authority chain, recorded by an identified human, preceding every other recorded act of the project. Root grants are only the grants that act records. A root grant has no conferrer. Every other grant chains acyclically to a root grant, and each link must be effective at the act that relies on the grant. A later act marked establishing or root is not a second root.
+- Self-conferral is invalid for every later grant: to the conferring identity, to a role position or collective that includes it, or through a cycle of conferral. The establishing identity may be a root grantee only in the establishing act's own grants. Appointment to a role position that carries grants is a conferral. Work assignment is provenance and confers nothing.
+- Grants take effect when recorded, never retroactively. A revocation or narrowing is made by the grantee or by a human whose conferral scope covers the grant. Grants downstream of a revoked or narrowed grant fall prospectively with the chain, to the extent the grant no longer covers what they confer. Acts performed while the whole chain was effective stand. Narrowing is an act on the grant and not a revocation plus a conferral.
+- Conferral by a conflicted producer, at any link of the chain, and revocation or narrowing that affects the standing of an actor able to challenge, are flagged and escalation-eligible. They are not invalid in this decision. Whether that handling is strong enough is a pilot question.
+
+**Rationale:** A role label alone cannot say who may create authority. Without a bounded root, a chain rule, and an end rule, self-approval can be routed through grants. Human-only conferral keeps consequential authority decisions explicit and human (HA-1, HA-2).
+
+**Consequences:**
+
+- A representation must be able to reconstruct who held what authority as of a point in time, including the chain to a root and which downstream grants have fallen.
+- A project has no path to a second establishing act. If every root grant is revoked or renounced, no valid chain can exist again. For a project with one root grantee this is terminal, and a renunciation by that grantee also takes down any successor it conferred.
+- Removal of a grant holder runs one way. Revocation need not come from a holder in the grant's chain. A descendant that revokes an ancestor cuts its own chain. A covering peer can remove a subtree. A rogue sole root grantee cannot be removed without removing its appointees.
+- The establishing identity cannot extend its own authority by any route that passes through a grant it conferred. In a project with one root grantee, everything that identity needs for itself must be in the establishing act.
+- Who holds conferral scopes, and how a project carries out establishment, are methodology and not decided here. Record order and scope containment are representation questions and are not decided here.
+- Root legitimacy, and the purpose of a conferral or revocation, are judgments and not checked.
+
+**Detail:** `prod-w/rule-judgment-boundary.md` Sections 10.2 and 10.6, CRC-60 to CRC-64, UAD4-13, UAD4-14, UAD4-15, UAD4-27, UAD4-28, UAD4-30.
+
+---
+
 ## Decision Index
 
 | ID | Title | Status | Requirements |
@@ -266,6 +296,7 @@ Product intent
 | D7 | Provenance and Dependencies Support Revalidation | Accepted | FR-6, FR-7, WD-6 |
 | D8 | External Evaluators Are Advisory Interfaces Unless Explicitly Granted Authority | Accepted | FR-1, FR-3, FR-5 |
 | D9 | Working Product Artifacts Live Under `prod-w/` in `prod-w-dev` | Accepted | Repository relationship |
+| D10 | Authority Grants Are Conferred by Human-Held Conferral Scope from a Single Establishing Act | Accepted | FR-1, FR-4 |
 
 ---
 
@@ -304,4 +335,4 @@ These remain deliberately open:
 | --- | --- | --- | --- |
 | 2026-09-30 | Initial architecture draft | D1-D9 | First Tech Lead architecture-planning phase after Product Definition acceptance. |
 | 2026-09-30 | Moderator accepted architecture clarifications and repository staging boundary | D1-D9 | MOD-W Moderator approved architecture planning; MOD-W governance artifacts now live under `mod-w/`, while `prod-w/` remains reserved for concrete product artifacts. |
-
+| 2026-10-03 | Moderator promoted UAD4-13, UAD4-14, UAD4-15 (with UAD4-27, UAD4-28, UAD4-30 and the QA5-02 consequences) from `prod-w/rule-judgment-boundary.md` to an architecture decision, at the Moderator's direction and outside the usual review flow | D10 (new); D4 unchanged | Authority grant creation, chaining, ending, and self-conferral were governed only by a product artifact draft. Record: `mod-w/reviews/MODERATOR-REVIEW-STEP-04-FOLD-IN.md`. |
