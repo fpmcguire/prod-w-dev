@@ -1151,8 +1151,72 @@ No standing local adaptation is authorized from this observation alone. The Phas
 
 ---
 
+## MW-OBS-016 - Fourth Specification Step: The Work Package Pre-States Per-Point Handling, Reading Tensions Across Unedited Accepted Artifacts Surface at Catalog Time, and Mechanical Linkage Checks Found Orphaned Declaration Entries
+
+**Date:** 2026-10-02  
+**MOD-W area:** Step definition and setup review (Phase 1b), Development Team role (Phase 2a and 2b), MW-ADAPT-001, handling of accepted artifacts across steps  
+**Project stage:** STEP-04 implementation (fourth Development Team step)  
+**Observed by role:** Development Team (reporting on its own output)  
+**Classification (Proposed):** `TRANSFERS_WITH_REINTERPRETATION` for the document-native mechanical pre-review check (second step with evidence, following MW-OBS-015) and for the step-level pre-statement of per-point handling; `DOMAIN_COUPLED` recurrence for the blocking build gate (fourth step, no new classification); no new classification proposed for the reading tensions or for MW-ADAPT-001, which are recorded as evidence only  
+**Status:** Proposed for Moderator review  
+**Significance:** Low to Medium  
+**Related:** MW-OBS-008, MW-OBS-011, MW-OBS-012, MW-OBS-015, MW-ADAPT-001
+
+### MOD-W Mechanism or Assumption
+
+Phase 2a has the Development Team restate the Step and propose a plan for Moderator approval. Phase 2b has it run a blocking build gate. MW-OBS-008, MW-OBS-012, and MW-OBS-015 recorded that for specification deliverables the build gate has no executable instantiation, that the plan gate was bypassed by a directive to implement directly, and that "Phase 3a" named two different reviews. MW-OBS-015 asked whether the plan-gate pattern warranted a standing disposition and whether setup review and deliverable review should be distinguished in Step files. The STEP work packages (`mod-w/step-04.md` Out of Scope and Expected File Changes) treat accepted product artifacts as not modified by later steps unless the Moderator separately authorizes it. STEP-03 Section 3.4 recorded a reading hazard that follows from that when a later artifact refines an earlier one without editing it. MW-ADAPT-001 requires a declaration of undecided architecture choices, followed by independent sampling.
+
+### Observation
+
+**1. The work package pre-stated per-point handling.** `mod-w/step-04.md` (Governance Context) lists each MOD-W review point with its expected handling: 2a "Development Team may proceed directly from this work package unless the Moderator requests a separate plan checkpoint"; 3a "Tech Lead review ... must include MW-ADAPT-001 sampling unless QA is explicitly assigned"; 3b and 3c "expected ... unless the Moderator explicitly waives it before final acceptance." `mod-w/reviews/MODERATOR-REVIEW-STEP-04-SETUP.md` repeats the table and records the setup approval separately from the deliverable acceptance. No plan checkpoint was held, as before, and no clarification request about Phase 3a was needed. In STEP-03 the same ambiguity cost a clarification request (MW-OBS-015 item 4). One step is not enough to say the table caused the difference.
+
+**2. The build gate was again not instantiated.** The repository still has no build, test, or CI configuration, and the deliverable is a normative specification. The substituted checks were document-native: identifier resolution, cross-reference resolution, a forbidden-term scan, and a re-read against the acceptance checks.
+
+**3. What the substituted checks found.** The deliverable (`prod-w/rule-judgment-boundary.md`) was checked by throwaway scripts after assembly. (a) All 266 STEP-01, STEP-02, and STEP-03 rule, action, condition, judgment, trigger, and invalid-action identifiers resolved in the document, with none missing. (b) A defined-versus-cited check on the artifact's own new identifiers found seven that were defined and cited nowhere else (DM-04, UAD4-02, UAD4-03, UAD4-12, UAD4-22, UAD4-23, BDR-15): declared choices not linked from the place where the choice is applied. (c) A section-reference check found two unqualified references that resolved to sections of an upstream artifact and not of the deliverable. (d) A check of the summary tables against the classification table found no count mismatches (61 conditions: 48 catalogued rules, 12 recorded-judgment checks, 1 deferred). The Development Team's drafting and audit pass, which was not scripted, found two further defects: a composite acceptance-validity rule that contradicted the exception rule, and a grant-revocation rule that did not say who may revoke. All were corrected, and a re-run found none of (b) or (c). The checks and the re-read were run by the producer and are not independent.
+
+**4. Reading tensions across unedited accepted artifacts.** Building a catalog required applying STEP-01, STEP-02, and STEP-03 together to each of 61 conditions. The Development Team found six places where the literal text of one accepted artifact points one way and a later accepted artifact refines or contradicts it without an edit (`prod-w/rule-judgment-boundary.md` Section 3.3): a contradicting claim creating a requirement (STEP-02 TRG-2, EKR-37, EKO-19 against STEP-03 Section 3.3); EKO-15's authorization requirement against STEP-03 Section 9.2; "expected to carry" against "records" for evidence elements (EKR-14 against EKO-05); the composite EKO-04; the timing of presumed materiality (EKR-08, EKR-35 against STEP-01 INV-10); and the "none" pairing of HJ-05 against STEP-03 GCJ-03. At least eight of the 61 conditions are affected. STEP-03 had named one of the six as a known reading hazard. None was a direct conflict. Each was handled as a declared reading, not as an edit, and the catalog carries a "read together with" note on the affected rows. The producer found these. Whether others remain is not something it can show.
+
+**5. MW-ADAPT-001 in a step whose subject is classification.** The declaration lists 26 choices, 16 self-assessed as architecture-level candidates. The step makes more than a hundred classification calls (61 source conditions, 64 catalog entries, 26 judgment entries), most too small to list. The artifact lists categories of choice in the declaration and shows every classification row in a table, so that independent sampling can sample at the row level (`prod-w/rule-judgment-boundary.md` Sections 6.3 and 14.6). The sampling has not occurred. Whether the declaration is sufficient for a boundary artifact is untested.
+
+### Evidence
+
+- `mod-w/step-04.md` Governance Context; `mod-w/reviews/MODERATOR-REVIEW-STEP-04-SETUP.md` (Governance Sequencing); `.claude/settings.json` and repository contents (no build or test configuration)
+- `prod-w/rule-judgment-boundary.md` Sections 3.3, 6.3, 14.1, 14.6, and 17.2 (the checks and their results)
+- `research/mod-w-transferability/observations.md` MW-OBS-015 (item 4 and follow-up), MW-OBS-012, MW-OBS-008
+- `prod-w/gate-challenge-revalidation-semantics.md` Sections 3.3 and 3.4 (the earlier reading-hazard statement)
+
+### Effect on Work
+
+- The step proceeded without friction from the missing plan and build gates, and without a Phase 3a clarification request.
+- The linkage check found a defect class (declared choices not cited from where they apply) that matters to MW-ADAPT-001: a reviewer sampling for unlisted choices benefits from being able to follow each declared choice to where it is applied.
+- Reconciling six readings cost time inside the Development Team's own step. The cost grows with the number of accepted artifacts a step must apply together.
+
+### Local Adaptation Required
+
+None proposed. Offered for Moderator consideration: (a) treat a per-point handling table in the Step file, with the setup review and deliverable review named separately, as the standing form of plan-gate disposition, instead of a per-step note; (b) add "identifier defined but never cited" and "unqualified cross-reference to another artifact" to the document-native pre-review check named in MW-OBS-015; (c) decide, as STEP-03 Section 3.4 asked, whether a one-line pointer annotation in an accepted artifact is authorized when a later accepted artifact refines it, now that a downstream step has had to adjudicate six readings.
+
+### Interpretation
+
+This is recurrence evidence for the `DOMAIN_COUPLED` build gate and a second document-native instantiation of the mechanical pre-review check. It is a first piece of evidence about how the work packages' rule that accepted product artifacts are not edited behaves when each step refines the previous one: the refinements accumulate as readings, and the cost falls on the step that applies all of them.
+
+The finding is deliberately small: one step, one producer, self-run checks, no independent comparison. It does not show that the pre-stated handling table caused the absence of a clarification request, does not show how many readings remain undiscovered, and does not show that MW-ADAPT-001 is sufficient or insufficient.
+
+**Conclusion (deliberately limited):** four steps, one deliverable type, one project. The plan-gate bypass is a repeated, now pre-stated pattern. No defect has been traced to it.
+
+### Follow-up
+
+- Moderator decides whether the plan-gate pattern now warrants a standing disposition, and whether the per-point handling table should be named as its form.
+- Observe whether the Tech Lead or QA sampling of STEP-04 finds unlisted choices, and whether it samples at the classification-row level.
+- Observe at STEP-05 whether the representation evaluation re-encounters any of the six readings, and whether the one-line pointer question needs a decision.
+
+### Moderator Disposition
+
+_Pending._
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-016`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-017`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.
