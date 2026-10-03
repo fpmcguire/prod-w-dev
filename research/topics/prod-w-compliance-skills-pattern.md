@@ -10,6 +10,7 @@ references:
   - mod-w/templates/MOD-W.md
   - mod-w/product.md (PE-1, PE-2, PE-3, HA-1, HA-2)
   - prod-w/rule-judgment-boundary.md
+  - research/topics/product-definition-skill.md
 ---
 
 # PROD-W Compliance Skills Pattern

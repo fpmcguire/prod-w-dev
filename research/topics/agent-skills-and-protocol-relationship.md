@@ -83,12 +83,12 @@ These are readings of accepted `prod-w-dev` material, offered as inference.
 
 ## Routing
 
-| Item | Routed to | Note |
-| --- | --- | --- |
-| If skills are used, is skill name and version part of the recorded producing configuration? | STEP-04, as an input to EK-OQ-09 (PS-OQ-13) | Presence of producing configuration is already required (EKR-12, EKO-03). Only granularity is open. |
-| H-C: skills as generated projections | STEP-05 | Depends on the representation evaluation. Do not treat as selecting one. |
-| Disposition of H-A, H-B, H-C | STEP-08 | Incorporated, deferred, or rejected. |
-| Experiment result (below) | `research/mod-w-transferability/observations.md` | Recorded as a transferability observation. |
+| Item                                                                                        | Routed to                                        | Note                                                                                                |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
+| If skills are used, is skill name and version part of the recorded producing configuration? | STEP-04, as an input to EK-OQ-09 (PS-OQ-13)      | Presence of producing configuration is already required (EKR-12, EKO-03). Only granularity is open. |
+| H-C: skills as generated projections                                                        | STEP-05                                          | Depends on the representation evaluation. Do not treat as selecting one.                            |
+| Disposition of H-A, H-B, H-C                                                                | STEP-08                                          | Incorporated, deferred, or rejected.                                                                |
+| Experiment result (below)                                                                   | `research/mod-w-transferability/observations.md` | Recorded as a transferability observation.                                                          |
 
 ## Planned experiment
 
@@ -136,3 +136,7 @@ These are readings of accepted `prod-w-dev` material, offered as inference.
 ## Future research question
 
 > **Can a reusable procedure be carried across harnesses without weakening the independence that the governance relies on?**
+
+## Related
+
+- `research/topics/product-definition-skill.md`: a research topic on a product-definition skill, planned for a separate repository and PROD-W v2. It plans nothing here and does not settle H-A, H-B or H-C.
