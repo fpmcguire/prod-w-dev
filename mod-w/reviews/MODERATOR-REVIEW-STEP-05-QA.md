@@ -11,8 +11,10 @@ artifact:
   review_artifacts:
     - mod-w/reviews/QA-REVIEW-STEP-05.md
     - prod-w/representation-options.md
-  review_status: QA_REVIEW_APPROVED_TEXT_CORRECTION_PASS_DIRECTED
+  review_status: QA_REVIEW_APPROVED_V0_1_SENT_TO_PRODUCT_OWNER_WITH_SOFT_SPOTS
 ---
+
+> **Superseded in part by the Addendum (2026-10-04) at the end of this record.** The correction pass directed below is no longer required before Product Owner sign-off. The original text is kept unchanged for the record.
 
 # MOD-W Moderator Review: STEP-05 QA Review
 
@@ -94,5 +96,40 @@ Of the two paths QA offered (correction pass, or carry QAS5-01 to QAS5-07 as nam
 ## Conclusion
 
 The QA review is approved. STEP-05 is returned to the Tech Lead for a text-only correction pass covering QAS5-01 to QAS5-03 as required and QAS5-04 to QAS5-07 as recommended. No waiver is recorded and no acceptance is recorded.
+
+---
+
+## Addendum (2026-10-04): v0.1 Sent to Product Owner Now
+
+**Decision.** The MOD-W Moderator directs that `prod-w/representation-options.md` **v0.1, as it stands**, goes to the Product Owner for Phase 3c review now. This changes the earlier decision in this record, which held Product Owner sign-off until a text-only correction pass was made. The Moderator chose the second path QA offered: carry QAS5-01 to QAS5-07 as named soft spots.
+
+**What changes.**
+
+| Item | Earlier decision | Now |
+| --- | --- | --- |
+| Correction pass before Product Owner sign-off | Required (QAS5-01 to QAS5-03), recommended (QAS5-04 to QAS5-07) | **Not required before Product Owner sign-off.** No correction is directed now |
+| QAS5-01 to QAS5-07 | To be fixed | **Carried as named soft spots.** None is closed. The Product Owner is told of each |
+| Targeted QA and Tech Lead re-check | Pending after corrections | Applies only if the artifact is corrected later |
+| 3c Product Owner sign-off | Held | Released for v0.1 |
+
+**What does not change.**
+
+- The QA review stands as the Phase 3b record for v0.1. The Tech Lead review of v0.1 and the Tech Lead's approval of the correction direction (`TECH-LEAD-REVIEW-STEP-05-QA-DIRECTION.md`) stand as records. Neither is withdrawn.
+- No review is waived. Final Moderator acceptance is **not recorded**. STEP-05 is not accepted.
+- **RQ-01 and RQ-02 remain not decided.** QAS5-03 bears on whether the QA5-03 definition closes the evaluator-divergence path as worded. The Product Owner is not asked to endorse that definition as worded, and the Moderator will not dispose RQ-01 on it unless it is reworded and re-checked.
+- RX-1 (RQ-18, P-2), scope containment and record order (RQ-03, RQ-04), MW-OBS-017, and promotion of any UAD5 choice remain not decided.
+- The same-vendor limit stands (PR-27, PR-28). Product Owner sign-off should be read with that limit.
+
+**Consequence the Moderator accepts.** If the artifact is corrected after Product Owner sign-off, the sign-off needs re-confirmation. QAS5-01 to QAS5-03 are known and uncorrected at sign-off. A sign-off on v0.1 covers v0.1 only.
+
+**Updated gate state.**
+
+| MOD-W point | Standing |
+| --- | --- |
+| 2b Development Team work product | v0.1 stands. No correction directed now |
+| 3a Tech Lead review | Complete for v0.1 |
+| 3b QA | Complete for v0.1. Findings QAS5-01 to QAS5-07 carried as soft spots |
+| 3c Product Owner sign-off | **Released.** Pending |
+| 4a Moderator final acceptance | Pending. **Not recorded here** |
 
 MOD-W v5.0.1
