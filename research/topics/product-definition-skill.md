@@ -112,7 +112,7 @@ Not recorded in a rule file in either repository, and not binding.
 
 - `research/topics/agent-skills-and-protocol-relationship.md` (H-A to H-C stay open; this note does not settle them).
 - `research/topics/prod-w-compliance-skills-pattern.md`.
-- `research/observations/MW-OBS-DRAFT-product-owner-definition-mode.md` (unregistered draft observation on the thin Product Owner definition mode; separate from this note).
+- `research/topics/product-owner-definition-mode.md` (research note on the thin Product Owner definition mode, kept as a note by Moderator decision, 2026-10-03; not a register entry; separate from this note).
 
 ## Governance
 
