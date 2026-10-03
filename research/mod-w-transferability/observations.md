@@ -4,8 +4,8 @@ artifact:
   kind: observations
   version: 0.1
   created: 2026-09-30
-  updated: 2026-10-02
-  evidence_as_of: 2026-10-02
+  updated: 2026-10-03
+  evidence_as_of: 2026-10-03
 context:
   project: prod-w-dev
   status: research
@@ -1220,6 +1220,65 @@ Classification accepted as:
 - `TRANSFERS_WITH_REINTERPRETATION` for the step-level pre-statement of per-point handling, limited to this evidence point and not yet a standing rule.
 
 No local adaptation is authorized from this observation. The reading-tension evidence and MW-ADAPT-001 classification-sampling evidence are accepted as evidence only; they do not modify accepted product artifacts or canonical MOD-W.
+
+---
+
+## MW-OBS-017 - Fifth Specification Step: A "Read These Files First" Instruction Meets About 980 KB of Accepted Inputs, Section Numbers Collide Across Artifacts, and the STEP-04 Readings Reappear as Constraints on a Representation Memo
+
+**Date:** 2026-10-03  
+**MOD-W area:** Step definition (Phase 1), Development Team role (Phase 2b), MW-ADAPT-001, handling of accepted artifacts across steps  
+**Project stage:** STEP-05 implementation (fifth Development Team step; the first whose product artifact evaluates options and does not specify semantics)  
+**Observed by role:** Development Team (reporting on its own output)  
+**Classification (Proposed):** `TRANSFERS_WITH_REINTERPRETATION` for the "read the inputs first" instruction and for the document-native mechanical pre-review check; `NOT_YET_TESTED` for the effect of the reading-coverage gap on defects  
+**Status:** Proposed  
+**Significance:** Low to Medium  
+**Related:** MW-OBS-011, MW-OBS-015, MW-OBS-016, MW-ADAPT-001
+
+### MOD-W Mechanism or Assumption
+
+A MOD-W step lists inputs the Development Team reads before work (here, `mod-w/step-05.md` "Read these files first"). The assumption is that a producer can read the listed inputs and that the reading is a precondition a reviewer can take for granted. MW-ADAPT-001 and the Tech Lead sampling then look for choices the producer did not list.
+
+### Observation
+
+**1. The input list exceeds what one pass can read.** The files named for STEP-05 are about 981 KB on disk (`rule-judgment-boundary.md` 528 KB, `gate-challenge-revalidation-semantics.md` 173 KB, `evidence-knowledge-model.md` 104 KB, `protocol-semantics.md` 69 KB, `product.md` 49 KB, `architecture.md` 24 KB, `domain-language.md` 22 KB, `roadmap.md` 11 KB), before the review records. `rule-judgment-boundary.md` is larger than a single read of the file allows. The Development Team read the STEP-04 artifact in ranges and read parts of STEP-02 and STEP-03 and of the product definition by search and row extraction only. The memo carries a reading-coverage statement (Section 2.4) so a reviewer knows which statements are about extracted text.
+
+**2. Section numbers collide across artifacts.** `prod-w/representation-options.md` cites `prod-w/rule-judgment-boundary.md` many times, and both use Sections 9, 10, and 12. A mechanical check found four references that read as references to the memo's own sections (for example "Section 9.2" and "Section 9.6") when they meant the boundary artifact. They were qualified with the file name.
+
+**3. The STEP-04 readings reappear.** The memo's analysis of which record elements must be discrete re-met the STEP-04 declared choices as constraints: the class-defining versus descriptive split of evidence elements (UAD4-09), conferral scope and the reading of PR-04 and GCR-08 (UAD4-13), the closed list of closure kinds for direction (UAD4-31), and the record form behind CRC-45 (UAD4-32, QA5-03). The MW-OBS-016 follow-up asked whether the representation evaluation would re-encounter the readings. For these four it did. It did not touch the others, because this step classifies nothing.
+
+**4. Document-native checks were used again.** A throwaway script resolved identifiers and scanned for barred terms, and a re-read found a wrong citation, a numbering gap, and the four collisions above. The checks were run by the producer.
+
+### Evidence
+
+- `mod-w/step-05.md` ("Read these files first" in the work package prompt; Inputs); file sizes of the inputs as listed above
+- `prod-w/representation-options.md` Sections 2.4, 9, 10.1, 10.2, 18.2
+- `prod-w/rule-judgment-boundary.md` Sections 3.3 and 14.2 (UAD4-09, UAD4-13, UAD4-31, UAD4-32)
+- `research/mod-w-transferability/observations.md` MW-OBS-015, MW-OBS-016 (follow-up)
+
+### Effect on Work
+
+- Reading by range and extraction was enough to produce the draft. Whether it was enough to avoid misstating an accepted rule is not known and is for Tech Lead and QA sampling.
+- The cost of applying all accepted artifacts together grew again (MW-OBS-016). A step that must cite five accepted artifacts needs a way for a reader to tell which artifact a section number belongs to.
+
+### Local Adaptation Required
+
+None proposed. Offered for Moderator consideration: (a) a reading-coverage line in the production note as the standing form for steps whose inputs exceed a single pass; (b) a convention that cross-references to another artifact carry its file name.
+
+### Interpretation
+
+This is small evidence from one step, one producer, and self-run checks, with no independent comparison. It does not show that the reading gap caused any defect, and it does not show that coverage statements would help a reviewer. The input growth is a trend across steps (each accepted artifact is larger than the one before it) and is likely to continue.
+
+**Conclusion (deliberately limited):** the "read first" instruction transfers, but at this input size it needs a coverage statement to mean what a reviewer takes it to mean.
+
+### Follow-up
+
+- Moderator decides whether a reading-coverage line should become standard in the production note.
+- Observe at STEP-06 whether the input list is again larger than one pass and whether a reviewer uses the coverage statement.
+- Observe whether Tech Lead or QA sampling of STEP-05 finds a misstated accepted rule among the statements the coverage statement marks as extracted.
+
+### Moderator Disposition
+
+*Proposed. Awaiting Moderator disposition. Not blocking on STEP-05.*
 
 ---
 
