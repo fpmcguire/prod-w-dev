@@ -1282,6 +1282,66 @@ This is small evidence from one step, one producer, and self-run checks, with no
 
 ---
 
+## MW-OBS-018 - Sixth Specification Step: One Identifier Carries Two Meanings Across a Work Package and an Accepted Register, Draft Files Predated the Setup Approval and Contradicted Accepted Text, and an Identifier-Existence Check Passed Where Hand-Reading Found Errors
+
+**Date:** 2026-10-04  
+**MOD-W area:** Step definition (Phase 1), Development Team role (Phase 2b), handling of accepted artifacts across steps, document-native pre-review checks  
+**Project stage:** STEP-06 implementation (sixth Development Team step; the first that produces practitioner guidance and not specification)  
+**Observed by role:** Development Team (reporting on its own output)  
+**Classification (Proposed):** `TRANSFERS_WITH_REINTERPRETATION` for the document-native mechanical pre-review check (continuing MW-OBS-015 to MW-OBS-017), with a stated limit on what it can find; `NOT_YET_TESTED` for the effect of the reading-coverage statement  
+**Status:** Proposed  
+**Significance:** Low to Medium  
+**Related:** MW-OBS-011, MW-OBS-015, MW-OBS-016, MW-OBS-017
+
+### MOD-W Mechanism or Assumption
+
+A MOD-W step file names the identifiers a step carries forward from accepted artifacts, and the Development Team treats the step file and the accepted artifacts as consistent. A step's setup approval precedes Development Team product work. A document-native mechanical check (resolve identifiers, scan barred terms) is run by the producer before review.
+
+### Observation
+
+**1. One identifier, two meanings.** `mod-w/step-06.md` (Scope) lists DM-07 as "recovery by new project and carry-over practice". The accepted register in `prod-w/rule-judgment-boundary.md` Section 6.6 defines DM-07 as "grant review practice and role rotation, including re-conferral after a revocation or renunciation cascades downstream", and Section 10.6 and architecture D10 route "what carries into a new project" to DM-07 as well. `prod-w/representation-options.md` RQ-15 uses the step file's reading. The two readings are compatible, since the register routes both topics to DM-07. A reader who checks only one source sees a different item. The Development Team covered both and recorded the difference (`prod-w/methodology-guidance.md` §18.4, MG-N1).
+
+**2. Draft files predated the setup approval and contradicted accepted text.** Three untracked files (`prod-w/methodology-guidance.md`, `prod-w/role-charters.md`, `prod-w/templates.md`) existed at the start of the STEP-06 implementation task, marked "Draft v0.1", with file times (2026-10-04 00:55) earlier than `mod-w/step-06.md` and the Moderator setup approval (01:10). The repository does not record who produced them. Compared with the accepted artifacts they adopted "Product Skeptic" as a role position (protocol-semantics Section 4.7 names it an open research hypothesis), attached the wrong meanings to DM-06 and DM-07, used gate slots and conditional progression elements that differ from gate-challenge-revalidation-semantics Sections 5.2 and 9.2, and omitted the independence declaration. They were replaced by v0.2.
+
+**3. The identifier-existence check passed where reading found errors.** A script resolved every cited rule identifier in the four STEP-06 files (191 distinct identifiers) against the accepted artifacts, and all resolved. Hand-reading the cited passages then found errors that an existence check cannot find: a mis-stated trigger definition (TRG-1 as "withdrawal with no successor" when the accepted text is "withdrawal, or a meaning-altering supersession"), a Tier 2 closure rule stated as carrying to a successor, a person shown amending a gate definition without holding the gate-definition scope, and a closing note shown as an act in a project with no remaining authority. These were corrected before handoff.
+
+**4. The reading-coverage follow-up recurred.** MW-OBS-017 asked whether STEP-06's inputs would again exceed one pass and whether a reviewer uses a coverage statement. The accepted inputs are about 1.26 MB (`rule-judgment-boundary.md` 528 KB, `gate-challenge-revalidation-semantics.md` 173 KB, `representation-options.md` 142 KB, `evidence-knowledge-model.md` 104 KB). The guidance carries a reading-coverage table (`prod-w/methodology-guidance.md` §20.3). Whether a reviewer uses it is not yet observed.
+
+### Evidence
+
+- `mod-w/step-06.md` (Scope, DM-07 line); `prod-w/rule-judgment-boundary.md` Sections 6.6 and 10.6; `mod-w/architecture.md` D10 Consequences; `prod-w/representation-options.md` Section 15.1 (RQ-15)
+- File times of the three draft files and of `mod-w/step-06.md` at the start of the task
+- `prod-w/methodology-guidance.md` §§18.4, 20.2, 20.3; `prod-w/role-charters.md` change notes; `prod-w/templates.md` change notes
+- `research/mod-w-transferability/observations.md` MW-OBS-015 to MW-OBS-017
+
+### Effect on Work
+
+- Covering both readings of DM-07 cost little. A reviewer who read only the step file would have expected only the recovery topic.
+- Replacing the early drafts cost a full rewrite. Reading the accepted text first would have avoided it, and no gate in the current sequence would have stopped the drafts being written first.
+- The existence check alone would have let four substantive errors through to review.
+
+### Local Adaptation Required
+
+None proposed. Offered for Moderator consideration: (a) have a step file cite an accepted register's identifier by quoting its definition, so a difference is visible at setup; (b) record, in the setup review, whether any Development Team drafts already exist when the work package is approved; (c) add to the document-native pre-review check a note that identifier resolution checks existence and not meaning, and that cited passages still need reading.
+
+### Interpretation
+
+This is small evidence from one step, one producer, and self-run checks, with no independent comparison. It does not show that the early drafts were produced outside MOD-W process, because their provenance is unknown. It does not show that quoting definitions in step files would have helped.
+
+**Conclusion (deliberately limited):** the document-native check transfers and is cheap, but it finds existence and format defects, not meaning defects. A step that depends on accepted semantics needs the cited text read as well as resolved.
+
+### Follow-up
+
+- Moderator decides whether quoting a register definition in the step file should become standard.
+- Observe at STEP-07 whether the identifier-existence check is again run alone, and whether reviewers find meaning errors it passed.
+- Observe whether Tech Lead or QA sampling of STEP-06 finds a misstated accepted rule beyond those corrected.
+
+### Moderator Disposition
+
+*Proposed. Awaiting Moderator disposition. Not blocking on STEP-06.*
+
+---
+
 ## Open Observation Log
 
 Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-017`, etc.), include concrete evidence, and use an appropriate classification.
