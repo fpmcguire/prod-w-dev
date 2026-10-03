@@ -10,7 +10,7 @@ artifact:
     - prod-w/role-charters.md
     - prod-w/templates.md
     - prod-w/worked-examples.md
-  status: SUBMITTED - awaiting Moderator routing
+  status: SUBMITTED - accepted for Tech Lead review (see mod-w/reviews/MODERATOR-REVIEW-STEP-06-PRE-TECH-LEAD.md)
 ---
 
 # Development Team Handoff: STEP-06 v0.2
