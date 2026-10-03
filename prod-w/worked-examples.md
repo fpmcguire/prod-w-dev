@@ -2,7 +2,7 @@
 artifact:
   type: methodology-worked-examples
   id: PROD-W-WE
-  version: 0.1
+  version: 0.2
   created: 2026-10-04
   updated: 2026-10-04
   status: Draft - Development Team work product for STEP-06. Not reviewed. Not accepted.
@@ -23,7 +23,7 @@ context:
 
 # PROD-W Worked Examples
 
-**Status:** Draft v0.1. Development Team work product for STEP-06. Not reviewed. Not accepted.
+**Status:** Draft v0.2. Development Team work product for STEP-06. Not reviewed. Not accepted.
 
 ---
 
@@ -391,5 +391,6 @@ Following WE-1, the team has an accepted Discovery decision **D-1** (Tier 1: a c
 | Date | Version | Change | Reason |
 | --- | --- | --- | --- |
 | 2026-10-04 | 0.1 | Initial worked examples (WE-1 to WE-8), all hypothetical methodology examples | STEP-06 Development Team work product; provides inputs for STEP-07 without being pilot results |
+| 2026-10-04 | 0.2 | Metadata and status aligned to the STEP-06 v0.2 package. The worked examples are first-version content (WE-1 to WE-8); no example text was changed. | Tech Lead finding TLR6-01 (non-blocking version/status inconsistency) |
 
 MOD-W v5.0.1
