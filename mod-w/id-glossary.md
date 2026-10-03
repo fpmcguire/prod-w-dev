@@ -23,7 +23,7 @@
 | **WD-n** | Principle: workflow and decisions     | WD-6 dependent decisions need revalidation                                                                                |
 | **A-n**  | Key assumption, subject to validation | A-5 material claims are distinct from background knowledge                                                                |
 | **OQ-n** | Product-level open question           | OQ-2 what is sufficient customer evidence                                                                                 |
-| **E-n**  | Experiment or evaluation area         | E-2 user applicability                                                                                                    |
+| **E-n**  | Evidence expectation (what the project will collect evidence of)         | E-2 user applicability                                                                                                    |
 
 ### 1.1 Requirement identifiers and acceptance criteria
 
@@ -86,7 +86,7 @@ Note: "D-nn" (QA defect) is not "Dn" (architecture decision), and "A-n" (product
 
 | Prefix           | Meaning                                                                                               | Examples                                                                           |
 | ---------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| **MW-OBS-nnn**   | Observation of how MOD-W behaved here, with a classification and a Moderator disposition. 012 so far. | MW-OBS-010 role separation loses enforcement when both roles write normative prose |
+| **MW-OBS-nnn**   | Observation of how MOD-W behaved here, with a classification and a Moderator disposition. 016 so far. | MW-OBS-010 role separation loses enforcement when both roles write normative prose |
 | **MW-ADAPT-nnn** | Moderator-authorized local adaptation of how MOD-W is applied. 001 so far.                            | MW-ADAPT-001 Undecided Architecture Declaration                                    |
 
 Classification vocabulary used by observations: `TRANSFERS_UNCHANGED`, `TRANSFERS_WITH_REINTERPRETATION`, `REQUIRES_LOCAL_ADAPTATION`, `DOMAIN_COUPLED`, `NOT_YET_TESTED`.
