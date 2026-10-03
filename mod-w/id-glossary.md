@@ -9,21 +9,21 @@
 
 ## 1. Product Definition (`mod-w/product.md`)
 
-| Prefix   | Meaning                               | Examples                                                                                                                  |
-| -------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **G-n**  | Primary goal                          | G-3 machine-readable protocol                                                                                             |
-| **RG-n** | Research goal                         | RG-1 evaluate MOD-W transferability                                                                                       |
-| **NG-n** | Non-goal                              | NG-1 no premature technology selection; NG-4 research hypotheses are not requirements                                     |
-| **FR-n** | Functional requirement                | FR-3 evidence requirements; FR-4 self-approval invalid; FR-6 provenance; FR-7 hypothesis validation or visible assumption |
-| **GR-n** | Governance requirement                | GR-2 assumptions visible; GR-7 gate exceptions visible                                                                    |
-| **RR-n** | Research requirement                  | RR-1 document transferability evidence                                                                                    |
-| **PE-n** | Principle: evidence                   | PE-2 agent agreement is not independent evidence                                                                          |
-| **HA-n** | Principle: human authority            | HA-1 consequential decisions need an authorized human                                                                     |
-| **AH-n** | Principle: assumptions and hypotheses | AH-3 counter-evidence is first-class                                                                                      |
-| **WD-n** | Principle: workflow and decisions     | WD-6 dependent decisions need revalidation                                                                                |
-| **A-n**  | Key assumption, subject to validation | A-5 material claims are distinct from background knowledge                                                                |
-| **OQ-n** | Product-level open question           | OQ-2 what is sufficient customer evidence                                                                                 |
-| **E-n**  | Evidence expectation (what the project will collect evidence of)         | E-2 user applicability                                                                                                    |
+| Prefix   | Meaning                                                          | Examples                                                                                                                  |
+| -------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **G-n**  | Primary goal                                                     | G-3 machine-readable protocol                                                                                             |
+| **RG-n** | Research goal                                                    | RG-1 evaluate MOD-W transferability                                                                                       |
+| **NG-n** | Non-goal                                                         | NG-1 no premature technology selection; NG-4 research hypotheses are not requirements                                     |
+| **FR-n** | Functional requirement                                           | FR-3 evidence requirements; FR-4 self-approval invalid; FR-6 provenance; FR-7 hypothesis validation or visible assumption |
+| **GR-n** | Governance requirement                                           | GR-2 assumptions visible; GR-7 gate exceptions visible                                                                    |
+| **RR-n** | Research requirement                                             | RR-1 document transferability evidence                                                                                    |
+| **PE-n** | Principle: evidence                                              | PE-2 agent agreement is not independent evidence                                                                          |
+| **HA-n** | Principle: human authority                                       | HA-1 consequential decisions need an authorized human                                                                     |
+| **AH-n** | Principle: assumptions and hypotheses                            | AH-3 counter-evidence is first-class                                                                                      |
+| **WD-n** | Principle: workflow and decisions                                | WD-6 dependent decisions need revalidation                                                                                |
+| **A-n**  | Key assumption, subject to validation                            | A-5 material claims are distinct from background knowledge                                                                |
+| **OQ-n** | Product-level open question                                      | OQ-2 what is sufficient customer evidence                                                                                 |
+| **E-n**  | Evidence expectation (what the project will collect evidence of) | E-2 user applicability                                                                                                    |
 
 ### 1.1 Requirement identifiers and acceptance criteria
 
