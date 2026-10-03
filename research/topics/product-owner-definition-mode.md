@@ -101,4 +101,4 @@ None proposed. Offered for Moderator consideration only:
 ### Moderator decisions
 
 - **Register or note:** kept as a research note (Moderator, 2026-10-03). It is not appended to `research/mod-w-transferability/observations.md`.
-- **Identifier deviation (R-IDs against the typed identifiers in `product.md`):** open. Resolution options and a recommendation were put to the Moderator on 2026-10-03. No decision is recorded here.
+- **Identifier deviation (R-IDs against the typed identifiers in `product.md`):** resolved by the Moderator on 2026-10-03 as an accepted terminology reinterpretation, not an adaptation. It is recorded in `mod-w/id-glossary.md` Section 1.1. `mod-w/product.md` is unchanged and no crosswalk exists.
