@@ -1,7 +1,7 @@
 ---
 artifact:
   type: architecture
-  version: 0.2
+  version: 0.3
   created: 2026-09-30
   updated: 2026-10-03
   status: Accepted
@@ -41,18 +41,18 @@ Future implementations of PROD-W in separate projects will operate under PROD-W 
 
 ## Requirement to Architecture Mapping
 
-| Product requirement | Architecture decision(s) | Notes |
-| --- | --- | --- |
-| FR-1 Roles and authority | D1, D4, D8, D10 | Separates actors, roles, authority grants, and human gate authority. |
-| FR-2 Governance semantics for progression | D1, D2, D5 | Protocol semantics govern actions over time; schemas and state remain subordinate. |
-| FR-3 Evidence requirements | D3, D6, D7 | Evidence requirements distinguish checkable presence/provenance from human sufficiency judgment. |
-| FR-4 Self-approval invalid | D4, D6, D10 | Independent authority identity must be distinguishable from producer identity. |
-| FR-5 Unresolved disagreement visible | D5, D7 | Disagreement is modeled as an attributable condition, not automatically forced into consensus. |
-| FR-6 Provenance tracking | D3, D6, D7 | Provenance is a conceptual layer attached to claims, evidence, challenges, decisions, and gates. |
-| FR-7 Hypothesis validation or visible assumption handling | D3, D5, D7 | Hypotheses remain distinct from assumptions and decisions. |
-| Governance requirements | D1-D8 | Human authority and machine-checkable rules are explicitly separated. |
-| G-3 Machine-readable protocol | D2, D6, D8 | Representation is deferred; semantic contracts come first. |
-| Acceptance Criterion 4 MOD-W transferability evidence | D9 | Architecture-phase transferability evidence is recorded separately under research governance. |
+| Product requirement                                       | Architecture decision(s) | Notes                                                                                            |
+| --------------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------ |
+| FR-1 Roles and authority                                  | D1, D4, D8, D10          | Separates actors, roles, authority grants, and human gate authority.                             |
+| FR-2 Governance semantics for progression                 | D1, D2, D5               | Protocol semantics govern actions over time; schemas and state remain subordinate.               |
+| FR-3 Evidence requirements                                | D3, D6, D7               | Evidence requirements distinguish checkable presence/provenance from human sufficiency judgment. |
+| FR-4 Self-approval invalid                                | D4, D6, D10              | Independent authority identity must be distinguishable from producer identity.                   |
+| FR-5 Unresolved disagreement visible                      | D5, D7                   | Disagreement is modeled as an attributable condition, not automatically forced into consensus.   |
+| FR-6 Provenance tracking                                  | D3, D6, D7               | Provenance is a conceptual layer attached to claims, evidence, challenges, decisions, and gates. |
+| FR-7 Hypothesis validation or visible assumption handling | D3, D5, D7               | Hypotheses remain distinct from assumptions and decisions.                                       |
+| Governance requirements                                   | D1-D8                    | Human authority and machine-checkable rules are explicitly separated.                            |
+| G-3 Machine-readable protocol                             | D2, D6, D8               | Representation is deferred; semantic contracts come first.                                       |
+| Acceptance Criterion 4 MOD-W transferability evidence     | D9                       | Architecture-phase transferability evidence is recorded separately under research governance.    |
 
 ---
 
@@ -273,9 +273,11 @@ Product intent
 **Consequences:**
 
 - A representation must be able to reconstruct who held what authority as of a point in time, including the chain to a root and which downstream grants have fallen.
-- A project has no path to a second establishing act. If every root grant is revoked or renounced, no valid chain can exist again. For a project with one root grantee this is terminal, and a renunciation by that grantee also takes down any successor it conferred.
+- A project has no path to a second establishing act. If every root grant is revoked or renounced, no valid chain can exist again. For a project with one root grantee this is terminal, and a renunciation by that grantee also takes down any successor it conferred. Recovery is by a new project. There is no break-glass, because one would be a way to mint a root. What carries into a new project is not defined here.
 - Removal of a grant holder runs one way. Revocation need not come from a holder in the grant's chain. A descendant that revokes an ancestor cuts its own chain. A covering peer can remove a subtree. A rogue sole root grantee cannot be removed without removing its appointees.
-- The establishing identity cannot extend its own authority by any route that passes through a grant it conferred. In a project with one root grantee, everything that identity needs for itself must be in the establishing act.
+- The establishing identity cannot extend its own authority by any route that passes through a grant it conferred. In a project where that identity is the only root grantee, everything it needs for itself must be in the establishing act.
+- Root grants are not flagged as conflicted conferral. Authority the establishing identity places in the establishing act is not flagged, even where the grantee later accepts that identity's work. Such a proxy is caught only by challenge, and the pilot is asked for evidence (DP-04).
+- This decision does not settle GC-OQ-10 or Product OQ-7 (whether top authority is reviewable or overridable). The removal rule above narrows the space for an answer and does not give one.
 - Who holds conferral scopes, and how a project carries out establishment, are methodology and not decided here. Record order and scope containment are representation questions and are not decided here.
 - Root legitimacy, and the purpose of a conferral or revocation, are judgments and not checked.
 
@@ -285,18 +287,18 @@ Product intent
 
 ## Decision Index
 
-| ID | Title | Status | Requirements |
-| --- | --- | --- | --- |
-| D1 | Protocol Semantics Are Normative | Accepted | FR-1-FR-7 |
-| D2 | Protocol, Schema, and State Remain Separate | Accepted | FR-2, G-3 |
-| D3 | Knowledge Classes Are First-Class Domain Concepts | Accepted | FR-3, FR-6, FR-7 |
-| D4 | Authority Is Modeled Separately from Role Labels | Accepted | FR-1, FR-4 |
-| D5 | Disagreement Is a Preserved Condition, Not Necessarily a State Name | Accepted | FR-5, FR-7 |
-| D6 | Objectively Checkable Governance Is Separated from Human Judgment | Accepted | FR-3, FR-4, FR-6, G-3 |
-| D7 | Provenance and Dependencies Support Revalidation | Accepted | FR-6, FR-7, WD-6 |
-| D8 | External Evaluators Are Advisory Interfaces Unless Explicitly Granted Authority | Accepted | FR-1, FR-3, FR-5 |
-| D9 | Working Product Artifacts Live Under `prod-w/` in `prod-w-dev` | Accepted | Repository relationship |
-| D10 | Authority Grants Are Conferred by Human-Held Conferral Scope from a Single Establishing Act | Accepted | FR-1, FR-4 |
+| ID  | Title                                                                                       | Status   | Requirements            |
+| --- | ------------------------------------------------------------------------------------------- | -------- | ----------------------- |
+| D1  | Protocol Semantics Are Normative                                                            | Accepted | FR-1-FR-7               |
+| D2  | Protocol, Schema, and State Remain Separate                                                 | Accepted | FR-2, G-3               |
+| D3  | Knowledge Classes Are First-Class Domain Concepts                                           | Accepted | FR-3, FR-6, FR-7        |
+| D4  | Authority Is Modeled Separately from Role Labels                                            | Accepted | FR-1, FR-4              |
+| D5  | Disagreement Is a Preserved Condition, Not Necessarily a State Name                         | Accepted | FR-5, FR-7              |
+| D6  | Objectively Checkable Governance Is Separated from Human Judgment                           | Accepted | FR-3, FR-4, FR-6, G-3   |
+| D7  | Provenance and Dependencies Support Revalidation                                            | Accepted | FR-6, FR-7, WD-6        |
+| D8  | External Evaluators Are Advisory Interfaces Unless Explicitly Granted Authority             | Accepted | FR-1, FR-3, FR-5        |
+| D9  | Working Product Artifacts Live Under `prod-w/` in `prod-w-dev`                              | Accepted | Repository relationship |
+| D10 | Authority Grants Are Conferred by Human-Held Conferral Scope from a Single Establishing Act | Accepted | FR-1, FR-4              |
 
 ---
 
@@ -331,8 +333,9 @@ These remain deliberately open:
 
 ## Change Log
 
-| Date | Change | Affected D-IDs | Reason |
-| --- | --- | --- | --- |
-| 2026-09-30 | Initial architecture draft | D1-D9 | First Tech Lead architecture-planning phase after Product Definition acceptance. |
-| 2026-09-30 | Moderator accepted architecture clarifications and repository staging boundary | D1-D9 | MOD-W Moderator approved architecture planning; MOD-W governance artifacts now live under `mod-w/`, while `prod-w/` remains reserved for concrete product artifacts. |
+| Date       | Change                                                                                                                                                                                                                                        | Affected D-IDs          | Reason                                                                                                                                                                      |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-09-30 | Initial architecture draft                                                                                                                                                                                                                    | D1-D9                   | First Tech Lead architecture-planning phase after Product Definition acceptance.                                                                                            |
+| 2026-09-30 | Moderator accepted architecture clarifications and repository staging boundary                                                                                                                                                                | D1-D9                   | MOD-W Moderator approved architecture planning; MOD-W governance artifacts now live under `mod-w/`, while `prod-w/` remains reserved for concrete product artifacts.        |
 | 2026-10-03 | Moderator promoted UAD4-13, UAD4-14, UAD4-15 (with UAD4-27, UAD4-28, UAD4-30 and the QA5-02 consequences) from `prod-w/rule-judgment-boundary.md` to an architecture decision, at the Moderator's direction and outside the usual review flow | D10 (new); D4 unchanged | Authority grant creation, chaining, ending, and self-conferral were governed only by a product artifact draft. Record: `mod-w/reviews/MODERATOR-REVIEW-STEP-04-FOLD-IN.md`. |
+| 2026-10-03 | Moderator applied Product Owner conditions C-2 and C-3 to D10 Consequences (root grants not flagged; recovery by new project; GC-OQ-10 and Product OQ-7 not settled). Decision text unchanged                                                 | D10                     | Product Owner sign-off, `mod-w/reviews/PRODUCT-OWNER-SIGNOFF-STEP-04.md`. Review of this edit waived. Record: `mod-w/reviews/MODERATOR-REVIEW-STEP-04-ACCEPTANCE.md`.       |
