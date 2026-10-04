@@ -4,8 +4,8 @@ artifact:
   id: PROD-W-RO
   version: 0.1
   created: 2026-10-03
-  updated: 2026-10-03
-  status: Draft - Development Team work product for STEP-05. Not reviewed. Not accepted.
+  updated: 2026-10-04
+  status: Accepted with recorded conditions - STEP-05 product artifact.
   produced_by: Development Team
   produced_under: STEP-05
 source:
@@ -31,7 +31,7 @@ context:
 **Product:** PROD-W - Moderated AI-Assisted Product Development Workflow
 **Artifact:** Evaluation of candidate technical representations against the accepted protocol semantics, evidence model, gate semantics, and rule/judgment boundary
 **Produced under:** STEP-05
-**Status:** Draft v0.1. Development Team work product (MOD-W point 2b). Tech Lead review, QA, and Product Owner sign-off have not occurred. Not accepted.
+**Status:** Accepted with recorded conditions as the STEP-05 product artifact. See `mod-w/reviews/MODERATOR-REVIEW-STEP-05-ACCEPTANCE.md`.
 
 ---
 
@@ -1195,7 +1195,7 @@ The question of what "recorded" means across branches and local drafts is kept a
 | AC5-22 | Does not implement or select a final schema language, storage model, workflow engine, validator, lifecycle graph, state vocabulary, transport, CLI, prompt format, agent harness, runtime integration, database, API, or publication package | 1.3 (ROR-01); 12.5; 12.6; 13; 14.4 (Exclusions) | Met |
 | AC5-23 | Does not introduce confidence scores, numeric sufficiency weights, or artificial precision | 1.3 (ROR-06); 4.3; 5; 12.4 | Met. Qualitative fit labels are unweighted and unranked (UAD5-03) |
 | AC5-24 | Any concrete transferability evidence is proposed under the research governance process | 18.3; `research/mod-w-transferability/observations.md` | Met by a proposed entry (MW-OBS-017). The Moderator decides its disposition |
-| AC5-25 | STEP-05 final acceptance is not recorded until Phase 3a, 3b, and 3c have occurred or been waived | 2.3 | Not a property of this memo. The memo records itself as Draft. Held by the Moderator |
+| AC5-25 | STEP-05 final acceptance is not recorded until Phase 3a, 3b, and 3c have occurred or been waived | 2.3; `mod-w/reviews/MODERATOR-REVIEW-STEP-05-ACCEPTANCE.md` | Satisfied by the Moderator review sequence, not by Development Team self-assessment |
 
 ### 17.1 Acceptance checks the Development Team believes are only partly satisfied or limited
 
@@ -1212,6 +1212,7 @@ The question of what "recorded" means across branches and local drafts is kept a
 | Date | Change | Reason |
 | --- | --- | --- |
 | 2026-10-03 | Initial draft v0.1 | STEP-05 work package approved by the MOD-W Moderator (`mod-w/reviews/MODERATOR-REVIEW-STEP-05-SETUP.md`). Development Team authorized to implement |
+| 2026-10-04 | Metadata status updated to accepted with recorded conditions | Align artifact header with STEP-05 final acceptance in `mod-w/reviews/MODERATOR-REVIEW-STEP-05-ACCEPTANCE.md`; no analysis content changed |
 
 ### 18.2 Pre-submission checks
 
