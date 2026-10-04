@@ -1342,8 +1342,68 @@ This is small evidence from one step, one producer, and self-run checks, with no
 
 ---
 
+## MW-OBS-019 - Seventh Specification Step: "Implementation" as Pilot Execution Is Coherent as a Work Package, a Pilot Written by One Author Cannot Test Role Independence, and a Product That Is a View of the Method Under Test Makes the Pilot Reflexive
+
+**Date:** 2026-10-04  
+**MOD-W area:** Development Team role (Phase 2b), step definition (Phase 1), review sequence (3a to 3c)  
+**Project stage:** STEP-07 implementation (the first step whose work product is a pilot trial)  
+**Observed by role:** Development Team (reporting on its own output)  
+**Classification (Proposed):** `TRANSFERS_WITH_REINTERPRETATION` for treating pilot execution as "implementation" in a methodology product; `NOT_YET_TESTED` for QA review of filled records as an analogue to software testing and for Product Owner sign-off on method usability, because neither review has occurred  
+**Status:** Proposed  
+**Significance:** Medium  
+**Related:** MW-OBS-006, MW-OBS-018
+
+### MOD-W Mechanism or Assumption
+
+The Development Team produces a work product that a Tech Lead, QA, and a Product Owner review independently, and the product roles inside a pilot are subject matter that confers no authority over the MOD-W step (`mod-w/step-07.md`, Governance Context).
+
+### Observation
+
+**1. Pilot execution fits the implementation slot.** `mod-w/step-07.md` gave the Development Team a bounded scope, required outputs, acceptance checks, and a review sequence, and the Development Team could run the step as written. The product of the step is a set of filled records, a trial narrative, an issue log, and findings, which stand where code, tests, and a defect list would stand in a software step. No MOD-W mechanism had to be changed.
+
+**2. One author cannot test role independence.** The step permits simulated product roles. In writing, the boundary held: every record that attributes an act to a human position carries a simulated marker, and no MOD-W authority was claimed for it. In substance, one AI session wrote every position, so independence between positions was by recorded identity only, and the pilot's gate outcomes were scripted (`prod-w/proof-of-concept-records.md` §0; `prod-w/proof-of-concept-issues.md` ISS-01). MOD-W's own review roles are separate from the Development Team, and that separation is what the pilot could not reproduce inside the product. The pilot therefore carried a limits section on its own independence that a software step would not need.
+
+**3. The product was a view of the method under test.** The pilot opportunity (a hand-derived reading aid for PROD-W records) was chosen so its evidence could be real and verifiable from the repository. That made the pilot reflexive: evidence about the product was also evidence about the method's reading burden (`prod-w/proof-of-concept-issues.md` ISS-18). MOD-W has no mechanism that names this overlap between a product and the method that governs it.
+
+**4. The issue log routed without resolving.** Twenty-two issues were logged and routed to the six routes the step names. None was fixed in the work product. The routing step cost little. Whether Tech Lead and Moderator find the routes right is not yet observed.
+
+### Evidence
+
+- `mod-w/step-07.md` (Governance Context; Required Outputs; Acceptance Checks)
+- `prod-w/proof-of-concept-records.md` §0 and Appendix S
+- `prod-w/proof-of-concept-issues.md` ISS-01, ISS-18, and the routing table
+- `prod-w/proof-of-concept-trial.md` §3, §10
+
+### Effect on Work
+
+- Treating the step as an implementation step needed no adaptation.
+- The simulation allowance cost a labeling discipline (SIMULATED, SCRIPTED) and a large limits section. It also removed several questions the Product Owner asked STEP-07 to test.
+- Choosing a reflexive opportunity avoided inventing evidence and narrowed what the findings can say.
+
+### Local Adaptation Required
+
+None proposed. Offered for Moderator consideration: (a) record, at setup, whether a pilot step expects real human actors for the product roles, since the step's allowance for simulation leaves independence questions untestable; (b) have QA's sampling in a pilot step explicitly check the simulation labels.
+
+### Interpretation
+
+This is evidence from one step and one author, with no review yet. It does not show that QA or Product Owner review transfers, and it does not show that a pilot with real human actors would fare differently.
+
+**Conclusion (deliberately limited):** pilot execution transfers as implementation. A pilot that one author writes for every role cannot test the independence the method is about, and a step that depends on that test needs real second actors.
+
+### Follow-up
+
+- Observe whether Tech Lead, QA, and Product Owner review find the simulation labels sufficient.
+- Observe whether QA's sampling of filled records works as an analogue to software testing.
+- Moderator decides whether a later pilot should use real human actors.
+
+### Moderator Disposition
+
+*Proposed. Awaiting Moderator disposition. Not blocking on STEP-07.*
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-017`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-020`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.
