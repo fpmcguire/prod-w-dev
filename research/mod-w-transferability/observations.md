@@ -4,8 +4,8 @@ artifact:
   kind: observations
   version: 0.1
   created: 2026-09-30
-  updated: 2026-10-03
-  evidence_as_of: 2026-10-03
+  updated: 2026-10-07
+  evidence_as_of: 2026-10-07
 context:
   project: prod-w-dev
   status: research
@@ -1402,8 +1402,83 @@ This is evidence from one step and one author, with no review yet. It does not s
 
 ---
 
+## MW-OBS-020 - Moderator Gate Navigation Burden Recurs Across Steps
+
+**Date:** 2026-10-07  
+**MOD-W area:** Moderator role, review sequence, gate transition support, project-record hygiene  
+**Project stage:** STEP-07 provisional approval and transition planning after STEP-05 to STEP-07 review records  
+**Observed by role:** MOD-W Moderator  
+**Classification (Proposed):** `REQUIRES_LOCAL_ADAPTATION` for default gate-transition summaries and next-role prompts in this project; `NOT_YET_TESTED` for whether the adaptation should become a MOD-W-wide practice  
+**Status:** Proposed  
+**Significance:** Medium  
+**Related:** MW-OBS-017, MW-OBS-018, MW-OBS-019
+
+### MOD-W Mechanism or Assumption
+
+MOD-W uses explicit gates, role reviews, approvals, waivers, and final acceptance records. The workflow assumes that the Moderator can determine the next required gate from the step file, review records, roadmap, and repository state, and then instruct the appropriate role or agent to proceed.
+
+In practice, a documentation-heavy methodology project creates many closely related review states: setup approval, Development Team work product, Tech Lead review, Moderator approval of Tech Lead review, QA review, Moderator approval of QA review, Product Owner sign-off, provisional approval, final acceptance, carried-forward human pilot work, commits, and tags.
+
+### Observation
+
+The HITL Moderator reports recurring uncertainty about when Moderator reviews and approvals are needed. The Moderator regularly asks the agent for a summary of:
+
+- the next gate;
+- what has already been completed;
+- what still needs to be reviewed;
+- the prompt for the next gate role.
+
+The Moderator also reports a repeated approval pattern: after approving a plan, review, provisional state, or completed step, the Moderator asks the agent to record the approval and commit the changes so the repository is clean for the next gate.
+
+This is not a failure of a single artifact. It is a workflow burden created by a review-heavy governance model whose state is distributed across multiple files and commits. The burden becomes visible when the Moderator must repeatedly ask for gate-state reconstruction and next-role prompt generation.
+
+### Evidence
+
+- User-provided Moderator statement on 2026-10-07: "As HITL Moderator, I do not know when Moderator reviews and approvals are needed. I regularly ask the agent, 'What is the next gate, give me a summary of what has been completed, what needs to be reviewed, and the prompt for the next gate role.'"
+- The same statement notes a repeated post-approval command pattern: "record approval of plan, next review, or completed, and then commit changes for clean next gate."
+- STEP-07 produced several distinct review records and a provisional approval rather than final acceptance: `mod-w/reviews/TECH-LEAD-REVIEW-STEP-07.md`, `mod-w/reviews/MODERATOR-REVIEW-STEP-07-TECH-LEAD.md`, `mod-w/reviews/QA-REVIEW-STEP-07.md`, `mod-w/reviews/MODERATOR-REVIEW-STEP-07-QA.md`, `mod-w/reviews/PRODUCT-OWNER-SIGNOFF-STEP-07.md`, and `mod-w/reviews/MODERATOR-REVIEW-STEP-07-PROVISIONAL-APPROVAL.md`.
+- The roadmap/status cleanup after external review showed that gate state can drift from the roadmap and artifact metadata unless a record-hygiene step follows approval.
+
+### Effect on Work
+
+- The Moderator spends attention reconstructing workflow state instead of judging the substance of the next approval.
+- The agent becomes an informal gate navigator, generating next-gate summaries and role prompts on demand.
+- Repeated approval-and-commit instructions reveal that "clean repository for the next gate" is an operational need, not just a convenience.
+- Without a default transition summary, gate-state drift can persist until an external reviewer notices it.
+
+### Local Adaptation Required
+
+Proposed local adaptation for `prod-w-dev`: after any Moderator approval, rejection, provisional approval, waiver, or final acceptance, the agent should by default provide a short gate-transition summary:
+
+1. current gate state;
+2. completed reviews or approvals;
+3. pending reviews, waivers, or human actions;
+4. next recommended gate;
+5. a ready-to-use prompt for the next gate role;
+6. whether a commit, tag, push, or roadmap/status metadata update is needed.
+
+The agent should also ask before committing or pushing unless the Moderator has already explicitly requested that action. This preserves MOD-W authority while reducing gate-navigation burden.
+
+### Interpretation
+
+This is evidence that MOD-W's explicit review sequence transfers to a methodology/protocol project, but the burden of navigating that sequence increases when work products are records and reviews rather than code changes with a familiar CI/release path.
+
+The finding does not prove that MOD-W itself must change. It supports a local operating convention for `prod-w-dev`: gate transitions should come with a concise "where we are / what is next / prompt for next role" summary.
+
+### Follow-up
+
+- Moderator decides whether to adopt the gate-transition summary as a standing local practice for `prod-w-dev`.
+- Observe in STEP-08 whether a default next-gate summary reduces repeated Moderator clarification requests.
+- If useful, consider whether the practice belongs in a future MOD-W template or guidance update.
+
+### Moderator Disposition
+
+*Proposed. Awaiting Moderator disposition. Not blocking on STEP-07 or STEP-08.*
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-020`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-021`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.
