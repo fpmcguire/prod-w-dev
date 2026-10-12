@@ -4,8 +4,8 @@ artifact:
   kind: observations
   version: 0.1
   created: 2026-09-30
-  updated: 2026-10-07
-  evidence_as_of: 2026-10-07
+  updated: 2026-10-12
+  evidence_as_of: 2026-10-12
 context:
   project: prod-w-dev
   status: research
@@ -1470,6 +1470,16 @@ The finding does not prove that MOD-W itself must change. It supports a local op
 - Moderator decides whether to adopt the gate-transition summary as a standing local practice for `prod-w-dev`.
 - Observe in STEP-08 whether a default next-gate summary reduces repeated Moderator clarification requests.
 - If useful, consider whether the practice belongs in a future MOD-W template or guidance update.
+
+### Additional Evidence, Appended 2026-10-12 (Cross-Project)
+
+Appended under Historical Integrity. The observation above is unchanged.
+
+- **Source.** On 2026-10-12 the Moderator supplied written observations from a separate MOD-W project (archived verbatim at `research/conversations/2026-10-12-mod-w-project-workflow-observations.md`; routed in `research/topics/moderator-workflow-observations.md`). Observations 1 and 6 there report the same pattern: after each role finishes, the Moderator asks which role is next, decides, has the decision recorded, commits, and asks for the next role's prompt.
+- **Bearing on the interpretation.** The Interpretation above attributes the increased burden to work products that are "records and reviews rather than code changes". The source mentions code review, build and tests, which suggests a software project, but it does not state the domain. If it is a software project, the burden is not specific to non-software work, which weakens that part of the interpretation. This is unresolved until the domain is confirmed.
+- **Differences from the proposed adaptation.** The source proposes (a) committing on every approval, where the adaptation above says to ask before committing unless already requested; (b) a separate path for rejections: record the decision, do not commit, and give a revision prompt for the same gate; (c) logging first, then committing and adding the hash; (d) spelling out every cited identifier in plain language (compare MW-OBS-014 and MW-OBS-018).
+- **Limits.** Same human Moderator in both projects. No artifacts from the other project are available here. The source's proposals are not evidence. Only its reports of what happened are.
+- **Recording approved.** The Moderator approved appending this evidence on 2026-10-12. This does not dispose of MW-OBS-020. The disposition below remains pending.
 
 ### Moderator Disposition
 

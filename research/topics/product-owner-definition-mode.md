@@ -3,7 +3,7 @@ artifact:
   type: research-note
   version: 0.1
   created: 2026-10-03
-  updated: 2026-10-03
+  updated: 2026-10-12
   evidence_as_of: 2026-10-03
 context:
   project: prod-w-dev
@@ -102,3 +102,7 @@ None proposed. Offered for Moderator consideration only:
 
 - **Register or note:** kept as a research note (Moderator, 2026-10-03). It is not appended to `research/mod-w-transferability/observations.md`.
 - **Identifier deviation (R-IDs against the typed identifiers in `product.md`):** resolved by the Moderator on 2026-10-03 as an accepted terminology reinterpretation, not an adaptation. It is recorded in `mod-w/id-glossary.md` Section 1.1. `mod-w/product.md` is unchanged and no crosswalk exists.
+
+### Later evidence (appended 2026-10-12)
+
+A second MOD-W project run by the same Moderator reports the same gap. Product ideation happened outside the workflow, and the Product Owner converted the result into `product.md` format afterwards, with no log entries or identifiers for that earlier work. See Observations 3 and 4 in `research/conversations/2026-10-12-mod-w-project-workflow-observations.md` and the routing note `research/topics/moderator-workflow-observations.md`. This note's text above is unchanged.

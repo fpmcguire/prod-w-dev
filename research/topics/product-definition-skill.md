@@ -3,8 +3,8 @@ artifact:
   type: research-note
   version: 0.1
   created: 2026-10-03
-  updated: 2026-10-03
-  evidence_as_of: 2026-10-03
+  updated: 2026-10-12
+  evidence_as_of: 2026-10-12
 context:
   project: prod-w-dev
   status: Proposed (research only)
@@ -108,9 +108,41 @@ Not recorded in a rule file in either repository, and not binding.
 - Where a shared skill lives, given it belongs to neither repository. Currently answered by the plan: its own repository, for PROD-W v2.
 - The naming points listed above.
 
+## Update, 2026-10-12: Moderator observations from a second MOD-W project
+
+Source: Observation 4 in `research/conversations/2026-10-12-mod-w-project-workflow-observations.md`. Routing note: `research/topics/moderator-workflow-observations.md`.
+
+**What the source records**
+
+- **Decision:** "Create a new skill, Discover-W." The name is now chosen, where the 2026-10-03 entry above listed `discover-w` and `product-define-w` as undecided working names. This is consistent with the plan above: the skill is built in its own repository and considered for PROD-W v2. Nothing is added to this repository, and D1 and D2 stay withdrawn.
+- **Purpose:** the skill interrogates the Moderator and helps them brainstorm. Its output is a `product.md` that MOD-W or PROD-W can import.
+- **Motivation (evidence):** product ideation for the other project happened outside both workflows, often over several hours, and the Product Owner then converted the result into the MOD-W `product.md` format. That work left no log entries and no requirement or acceptance-criterion identifiers. This adds a second project's evidence to `research/topics/product-owner-definition-mode.md`.
+- **Additional intended outputs:** a baseline log entry, so the project history does not start with a gap; requirement and acceptance-criterion identifiers with plain-language wording from the start.
+
+**Naming conflict, not resolved here**
+
+The source states: "Naming convention: all Mod and Prod skills end in '-W'." This conflicts with two points in "Naming, as a working convention" above:
+
+- the `prod-w-` **prefix** pattern for PROD-W-owned skills (`prod-w-[domain]-[check|assessment|gate]`) in `research/topics/prod-w-compliance-skills-pattern.md`;
+- the open question of a `mod-w-` prefix for MOD-W-only skills.
+
+A literal reading of "all end in -W" would rename the compliance pattern. A narrower reading would apply the suffix only to skills shared by both workflows, which is what the convention above already says. The Moderator decides which reading applies. That note belongs to the Tech Lead and is not edited here.
+
+**New open questions (from the source, merged with those below where they overlap)**
+
+- **Format contract:** is `product.md` identical for MOD-W and PROD-W, or does PROD-W need extra sections (for example, feasibility hypotheses)? This is related to the open question below about how claims are marked.
+- **Interview areas:** problem, users, value, scope, constraints, risks, success criteria, non-goals. Compare the three entry paths (domain, pain point, concept) in the proposal above.
+- **Roles:** one role, or the same role, handoff and closing-protocol pattern as the other workflows?
+- **Moderator control:** summarize and ask for acceptance before writing `product.md`? This would mirror MOD-W's Phase 0a gate.
+- **Prototyping path:** does Claude Designer prototyping come after Discover-W, and how do its results return to `product.md`?
+- **Re-entry:** can an existing `product.md` be sent back to refine or extend it?
+
+**Unchanged by this update:** the four "Findings from checking against the repository" above still apply. Finding 3 matters most: when the person defining the product is also its source, their statements are testimony and are not independent of the claim (EKO-04, EKJ-04).
+
 ## Related
 
 - `research/topics/agent-skills-and-protocol-relationship.md` (H-A to H-C stay open; this note does not settle them).
+- `research/topics/moderator-workflow-observations.md` (routing note for the 2026-10-12 cross-project observations).
 - `research/topics/prod-w-compliance-skills-pattern.md`.
 - `research/topics/product-owner-definition-mode.md` (research note on the thin Product Owner definition mode, kept as a note by Moderator decision, 2026-10-03; not a register entry; separate from this note).
 
