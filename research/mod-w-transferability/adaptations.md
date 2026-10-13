@@ -118,6 +118,33 @@ A generated file, `status.md`, is kept at the repository root. It is a local pro
 6. **Lowercase name.** It is a generated file, not a canonical MOD-W artifact. The name follows MOD-W's convention that supporting artifacts are lowercase-kebab-case.
 7. **Agents are told by the Tech Lead.** `mod-w/templates/MOD-W.md` assigns the root `CLAUDE.md` ("Dev Team config for Claude Code") and `AGENTS.md` ("Tech Lead config for Codex") to the Tech Lead. The Tech Lead adds the instructions in rules 4 and 5 to both files, so that Claude Code and Codex read and maintain `status.md`. Neither root file exists in `prod-w-dev` yet. Canonical Phase 0c expects the Tech Lead to author both, so creating them also closes that gap. Until then, only the Claude Code session's own memory carries the routine. (Moderator direction, 2026-10-13.)
 
+### Amendment 1 — 2026-10-13: Rules from the Second-Project Trial
+
+**Authorized by:** Frank McGuire (MOD-W Moderator), 2026-10-13.  
+**Source:** the Tech Lead of `kira-n-calvin-memory`, where the Moderator started the same trial on 2026-10-13, wrote a "`status.md` workflow clarification" for that project's root agent files. The Moderator relayed it to this session, and it is quoted under "Source text" below. Rules 1 to 7 above stay in force. Rules 4 and 5 are refined, and rules 8 to 12 are added:
+
+- **Rule 4, refined: the active role is responsible.** The role active at a gate transition overwrites `status.md`. A gate transition is a Moderator approval, a rejection, a scope change, or a role handoff. No background process updates the file. Keeping it current is part of that role's gate-transition responsibility.
+- **Rule 5, refined: read, then verify.** Every role reads `status.md` first at the start of a session, then checks the relevant details against the authoritative records and git.
+- **Rule 8. Owners.** The "what is waiting" section names the owner of each outstanding item.
+- **Rule 9. Approval.** On Moderator approval, the active role records the approval, updates `status.md`, and makes a Conventional Commit without asking again. It does not push or tag unless asked.
+- **Rule 10. Rejection.** Rejected work is recorded in `status.md` and in the appropriate authoritative record. The rejected work product is not committed. **Local refinement:** the rejection record and `status.md` are committed on their own, for example `docs(mod-w): record rejection of ...`. This keeps rejections in the audit trail, and stops them being lost or swept into the next approval's commit. The Moderator approved this refinement on 2026-10-13; it differs from the source text, which leaves the rejection uncommitted.
+- **Rule 11. No role switch mid-work.** Do not switch roles while another role is still working. Finish or explicitly pause the current role, reach a clear gate transition, update `status.md`, then hand off.
+- **Rule 12. Urgent switch.** If an urgent switch cannot be avoided, first overwrite `status.md` to name the incomplete work, the remaining tasks, the current owner, and the new next action. This keeps unfinished work from being mistaken for approved work, the failure MW-OBS-018 recorded when draft files predated a setup approval and contradicted accepted text.
+
+**Source text (verbatim, as relayed by the Moderator, 2026-10-13):**
+
+> ### `status.md` workflow clarification
+>
+> - `status.md` is a generated orientation file, not an authoritative record. If it conflicts with the roadmap, step files, QA, sign-off, review records, or Git, those authoritative sources govern.
+> - Every role reads `status.md` first at the start of a session, then verifies relevant details against the authoritative records and Git.
+> - The active role overwrites—not appends to—`status.md` at every gate transition: Moderator approval, rejection, scope change, or role handoff.
+> - Each update records the next action and ready prompt first, followed by the current state, outstanding work and owner, open Moderator decisions, recently completed work, and base commit.
+> - On Moderator approval, the active role records the approval, updates `status.md`, and makes a Conventional Commit without asking again. It does not push or tag unless requested.
+> - Rejected work is recorded in `status.md` and the appropriate authoritative record, but it is not committed.
+> - `status.md` is not updated by a background process. Keeping it current is part of the active role’s gate-transition responsibility.
+> - Do not switch roles while another role is still working. Finish or explicitly pause the current role, reach a clear gate transition, update `status.md`, and then hand off.
+> - If an urgent switch is unavoidable, first overwrite `status.md` to identify the incomplete work, remaining tasks, current owner, and new next action. This prevents unfinished work from being mistaken for approved work.
+
 ### Reason
 
 MW-OBS-020 records that the Moderator repeatedly asks for the current gate, completed and pending reviews, and the next role's prompt. The cross-project evidence shows the same burden in a software MOD-W project. The 2026-10-13 note extends it to resuming a project after working on others. In both cases the state exists but is spread across several files, and reconstructing it costs Moderator attention.
@@ -147,6 +174,8 @@ Re-evaluate at STEP-08:
 - Would a "Current position" section at the top of `mod-w/roadmap.md` serve as well without a new file?
 
 If it proves useful in this project and in a second one, record it as a candidate for canonical MOD-W, with this evidence.
+
+**Second-project trial.** The Moderator started the same trial in `kira-n-calvin-memory`, a software MOD-W project, on 2026-10-13. That project's Tech Lead independently tightened the rules (Amendment 1). At STEP-08, compare the two trials. Limits: same Moderator, likely the same model families, and that project's records are not in this repository.
 
 ### Moderator Rationale
 
