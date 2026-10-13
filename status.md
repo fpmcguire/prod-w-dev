@@ -1,37 +1,44 @@
 # Status — prod-w-dev
 
-Generated file (MW-ADAPT-002). Overwritten at each gate transition. Not authoritative: `mod-w/roadmap.md`, step files, and `mod-w/reviews/` govern.
+Generated file under MW-ADAPT-002 (generated project status file). Overwritten at each gate transition. Derived, not authoritative: `mod-w/roadmap.md`, step files, and `mod-w/reviews/` govern if they disagree.
 
-**Updated:** 2026-10-13 · **Based on commit:** `4a03573`
+**Updated:** 2026-10-13 · **Based on commit:** `dc66864`
 
 ## Next action
 
-STEP-08 setup by the Tech Lead. Prompt:
+Moderator review of the STEP-08 (research synthesis and hypothesis disposition) setup. Prompt:
 
-> Tech Lead: begin STEP-08 setup. Read `mod-w/roadmap.md` (STEP-08), `research/mod-w-transferability/observations.md` (MW-OBS-001 to MW-OBS-021), `assessment.md`, `adaptations.md`, and `research/topics/moderator-workflow-observations.md`. First, create the root `CLAUDE.md` and `AGENTS.md`, which MOD-W assigns to you and which do not yet exist here. Each must tell agents to read `status.md` first and to regenerate it at every gate transition (MW-ADAPT-002 rule 7). Then draft `mod-w/step-08.md`: scope, required outputs, acceptance checks, and the list of hypotheses and observations to dispose, including the pending MW-OBS-020 disposition, the MW-ADAPT-002 trial review, and the deferred canonical MOD-W proposals. Write each identifier you cite with its plain-language meaning. Do not change accepted artifacts. Stop for Moderator review of the setup.
+> MOD-W Moderator: review draft `mod-w/step-08.md`. Decide whether STEP-08 (research synthesis and hypothesis disposition) may begin as bounded synthesis work while STEP-07 (proof-of-concept product opportunity trial) remains provisional. Confirm the scope, required outputs, acceptance checks, dependency limits, and review sequence; then approve, revise, or reject the setup without treating setup approval as a substantive research disposition.
 
-Check first: can STEP-08 start while STEP-07 is provisional?
+## Where the project stands
 
-## Where we are
-
-- STEP-01 to STEP-06: Accepted.
-- STEP-07 (proof-of-concept trial): Provisional. Completion and AC-3 (proof of concept) wait on a pilot with real human participants.
-- STEP-08 (research synthesis and hypothesis disposition): Planned, not set up.
+- STEP-01 (protocol semantics and authority model), STEP-02 (evidence, knowledge, and provenance model), STEP-03 (gate, challenge, disagreement, and revalidation semantics), STEP-04 (machine-checkable rules versus human judgment), STEP-05 (representation options), and STEP-06 (methodology guidance and templates): Accepted.
+- STEP-07 (proof-of-concept product opportunity trial): Provisional; completion and AC-3 (product acceptance criterion 3, proof of concept) await a real-human pilot and reviews.
+- Root `AGENTS.md` and `CLAUDE.md`: approved by the MOD-W Moderator on 2026-10-13.
+- STEP-08 (research synthesis and hypothesis disposition): setup drafted under separate Moderator review.
 - STEP-09 (publication package): Planned.
 
 ## Waiting on
 
-- **Moderator dispositions:** MW-OBS-007, MW-OBS-014, MW-OBS-017, MW-OBS-018, MW-OBS-019, MW-OBS-020.
-- **Real-human pilot** for STEP-07.
-- **`research/mod-w-transferability/assessment.md`** has not been updated since 2026-09-30. It is due at the next stage gate.
+- STEP-08 (research synthesis and hypothesis disposition) setup review and decision on whether bounded work may precede STEP-07 (proof-of-concept product opportunity trial) final acceptance — owner: MOD-W Moderator.
+- Real-human STEP-07 (proof-of-concept product opportunity trial) pilot execution — owner: not yet assigned by the MOD-W Moderator.
+- Real-human pilot review path — owners: Tech Lead, QA, Product Owner, and MOD-W Moderator after pilot execution, unless the Moderator records another sequence.
 
 ## Open decisions
 
-- Skill naming is under discussion, not decided. The current preference is `defining-products-w`, with `-w` for shared skills (`research/topics/product-definition-skill.md`).
+- Moderator dispositions for MW-OBS-007 (higher-depth review surfaced governance-state drift), MW-OBS-014 (informal cross-model review caught different reviewer failures), MW-OBS-017 (large accepted-input and reading-coverage burden), MW-OBS-018 (identifier ambiguity and limits of mechanical checks), MW-OBS-019 (pilot execution and simulated-independence limits), and MW-OBS-020 (gate-navigation and resumption burden).
+- MW-ADAPT-002 (generated project status file) trial outcome and canonical MOD-W proposals 1–8.
+- Appendix A and routed skill/context research hypotheses assigned to STEP-08 (research synthesis and hypothesis disposition).
+- Skill naming remains under discussion; `defining-products-w` is a preference, not a decision.
 
 ## Recently done
 
-- 2026-10-13: Moderator routed the `status.md` agent instructions to the Tech Lead (root `CLAUDE.md` and `AGENTS.md`); added to the next-action prompt.
-- 2026-10-13: MW-ADAPT-002 (`status.md`) authorized as a trial; this file created.
-- 2026-10-13: Resumption-burden note added to MW-OBS-020; register status lines fixed; MW-OBS-014 deduplicated.
-- 2026-10-12 to 2026-10-13: Cross-project workflow observations integrated; commit-on-approval decision recorded; MW-OBS-021 accepted.
+- 2026-10-13: MOD-W Moderator approved root `AGENTS.md` and `CLAUDE.md`, including their application of MW-ADAPT-002 Amendment 1 (generated project status file workflow clarification); approval recorded for conventional commit.
+- 2026-10-13: Revised root `AGENTS.md` and `CLAUDE.md` to apply MW-ADAPT-002 Amendment 1 (generated project status file workflow clarification).
+- 2026-10-13: Created draft root `AGENTS.md` and `CLAUDE.md` for prod-w-dev.
+- 2026-10-13: Drafted `mod-w/step-08.md` with dependencies on STEP-07 (proof-of-concept product opportunity trial) provisional evidence made explicit.
+- 2026-10-13: Assessed STEP-08 (research synthesis and hypothesis disposition) as executable now only for bounded synthesis and recommendations; real-human conclusions remain blocked.
+
+## Base commit
+
+`dc66864`
