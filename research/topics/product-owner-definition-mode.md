@@ -73,7 +73,7 @@ MOD-W's Phase 0a is "Moderator + Product Owner produce approved `product.md`" (`
 - `mod-w/templates/PRODUCT.md`, `STEP-XX.md`, `document-lifecycle.md` (Traceability Model), `ai-agents.md`, `prompt-guidelines.md`
 - `mod-w/product.md` (identifier scheme and section list)
 - `mod-w/agents/`, `mod-w/rules/`, `mod-w/skills/` (empty on disk and untracked by git, 2026-10-03)
-- `research/mod-w-transferability/observations.md` (MW-OBS-001, MW-OBS-002), `research/observations/MW-OBS-014-informal-cross-model-review.md`
+- `research/mod-w-transferability/observations.md` (MW-OBS-001, MW-OBS-002, MW-OBS-014)
 - Canonical MOD-W at commit `1eb5e1a`, read 2026-10-03 via GitHub: `README.md`, `prompts/product-owner.md`, `docs/ceremonies.md`, `docs/moderator-checklist.md`, `docs/roles.md`, `docs/artifacts.md`, `docs/role-tooling-matrix.md`, `articles/modw-with-gemini.md`, and the `prompts/`, `agents/` and `rules/` directory listings, at https://github.com/fpmcguire/mod-w. **Not archived in this repository.**
 
 ### Contradictory Evidence, Preserved

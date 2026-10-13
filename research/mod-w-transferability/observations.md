@@ -779,7 +779,7 @@ A scoped Tech Lead review of `prod-w/protocol-semantics.md` for architecture-lev
 **Project stage:** STEP-02 implementation (second Development Team step)  
 **Observed by role:** Development Team (reporting on its own output)  
 **Classification (Proposed):** `REQUIRES_LOCAL_ADAPTATION`  
-**Status:** Proposed for Moderator review  
+**Status:** Accepted 2026-10-01 (see Moderator Disposition; Status line corrected 2026-10-13, as it had not been updated at acceptance)  
 **Significance:** Medium  
 **Related:** MW-OBS-010, MW-ADAPT-001, MW-OBS-009
 
@@ -845,7 +845,7 @@ Current disposition for the adaptation is recorded in `research/mod-w-transferab
 **Project stage:** STEP-02 implementation (second Development Team step)  
 **Observed by role:** Development Team  
 **Classification (Proposed):** `DOMAIN_COUPLED` for the blocking build gate (recurrence of MW-OBS-008's accepted classification); no new classification proposed for the plan gate  
-**Status:** Proposed for Moderator review  
+**Status:** Accepted 2026-10-01 (see Moderator Disposition; Status line corrected 2026-10-13, as it had not been updated at acceptance)  
 **Significance:** Low to Medium  
 **Related:** MW-OBS-008, MW-OBS-010
 
@@ -910,7 +910,7 @@ The accepted interpretation is limited: the blocking build gate again had no exe
 **Project stage:** STEP-02 follow-up review  
 **Observed by role:** Tech Lead (self-observation after Moderator correction)  
 **Classification (Proposed):** `TRANSFERS_WITH_REINTERPRETATION` for verification reporting; `DOMAIN_COUPLED` for executable-test wording when used without qualification  
-**Status:** Proposed for Moderator review  
+**Status:** Accepted 2026-10-01 (see Moderator Disposition; Status line corrected 2026-10-13, as it had not been updated at acceptance)  
 **Significance:** Low to Medium  
 **Related:** MW-OBS-003, MW-OBS-008, MW-OBS-012
 
