@@ -1480,6 +1480,7 @@ Appended under Historical Integrity. The observation above is unchanged.
 - **Differences from the proposed adaptation.** The source proposes (a) committing on every approval, where the adaptation above says to ask before committing unless already requested; (b) a separate path for rejections: record the decision, do not commit, and give a revision prompt for the same gate; (c) logging first, then committing and adding the hash; (d) spelling out every cited identifier in plain language (compare MW-OBS-014 and MW-OBS-018).
 - **Limits.** Same human Moderator in both projects. No artifacts from the other project are available here. The source's proposals are not evidence. Only its reports of what happened are.
 - **Recording approved.** The Moderator approved appending this evidence on 2026-10-12. This does not dispose of MW-OBS-020. The disposition below remains pending.
+- **Commit-policy decision, 2026-10-13.** The Moderator issued a standing instruction to commit on approval by default in `prod-w-dev`. This satisfies the "unless the Moderator has already explicitly requested that action" condition in the proposed adaptation above. Pushing and tagging still need a request. Recorded in `research/topics/moderator-workflow-observations.md`.
 
 ### Moderator Disposition
 

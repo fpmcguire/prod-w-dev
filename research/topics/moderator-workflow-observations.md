@@ -3,7 +3,7 @@ artifact:
   type: research-note
   version: 0.1
   created: 2026-10-12
-  updated: 2026-10-12
+  updated: 2026-10-13
   evidence_as_of: 2026-10-12
 context:
   project: prod-w-dev
@@ -102,7 +102,7 @@ The following are proposals for upstream MOD-W. Under the Canonical MOD-W Protec
 ## Open questions for the Moderator
 
 1. Should the cross-project evidence change MW-OBS-020's proposed classification or interpretation when it is disposed?
-2. Commit on approval by default, or ask first (the tension above)?
+2. Commit on approval by default, or ask first (the tension above)? *Answered 2026-10-13: commit on approval by default. See below.*
 3. Was the second project a software project? The answer changes how item 1 bears on MW-OBS-020.
 4. Should a spell-out rule be trialled in STEP-08 as a local practice? That would need a proposed adaptation in `adaptations.md` first.
 5. Which naming convention governs skills (see `product-definition-skill.md`)?
@@ -118,6 +118,15 @@ The MOD-W Moderator approved the observation-related updates on 2026-10-12:
 - the later-evidence section appended to `research/topics/product-owner-definition-mode.md`.
 
 **Scope of the approval.** It accepts these records into the research record. It does not dispose of MW-OBS-020, which remains Proposed. It does not answer the open questions above, adopt any proposal for canonical MOD-W, or authorize a local adaptation.
+
+## Moderator decision, 2026-10-13: commit on approval
+
+The MOD-W Moderator decided on 2026-10-13: **commit on approval by default.**
+
+- **Applies to:** `prod-w-dev`. When the Moderator approves a change, the agent records the approval and makes a conventional commit without asking first.
+- **Relation to MW-OBS-020.** The proposed adaptation there says to ask before committing "unless the Moderator has already explicitly requested that action". This decision is that explicit request, given as a standing instruction. It resolves the tension recorded in "1 and 6" above.
+- **Not covered:** pushing, tagging, and rejected work. Pushing and tagging still need a request. A rejection is recorded but not committed, as the source proposes; this part is a reading, not a stated decision.
+- **Not a disposition.** MW-OBS-020 remains Proposed, and no entry is added to `adaptations.md`.
 
 ## Related
 
