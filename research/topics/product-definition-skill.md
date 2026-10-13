@@ -3,7 +3,7 @@ artifact:
   type: research-note
   version: 0.1
   created: 2026-10-03
-  updated: 2026-10-12
+  updated: 2026-10-13
   evidence_as_of: 2026-10-12
 context:
   project: prod-w-dev
@@ -103,7 +103,7 @@ Not recorded in a rule file in either repository, and not binding.
 
 ## Open questions
 
-- One skill, or two (`discover-w` to find the problem, a later `define-w` to write the file)?
+- One skill, or two (`discover-w` to find the problem, a later `define-w` to write the file)? *Answered by the Moderator 2026-10-04: a single skill. See the 2026-10-13 update below.*
 - How are claims marked in the output if STEP-05 selects no representation?
 - Where a shared skill lives, given it belongs to neither repository. Currently answered by the plan: its own repository, for PROD-W v2.
 - The naming points listed above.
@@ -114,7 +114,7 @@ Source: Observation 4 in `research/conversations/2026-10-12-mod-w-project-workfl
 
 **What the source records**
 
-- **Decision:** "Create a new skill, Discover-W." The name is now chosen, where the 2026-10-03 entry above listed `discover-w` and `product-define-w` as undecided working names. This is consistent with the plan above: the skill is built in its own repository and considered for PROD-W v2. Nothing is added to this repository, and D1 and D2 stay withdrawn.
+- **Decision:** "Create a new skill, Discover-W." The name is now chosen, where the 2026-10-03 entry above listed `discover-w` and `product-define-w` as undecided working names. This is consistent with the plan above: the skill is built in its own repository and considered for PROD-W v2. Nothing is added to this repository, and D1 and D2 stay withdrawn. *Correction, 2026-10-13: "the name is now chosen" was wrong. A Moderator decision of 2026-10-04, not in this repository until 2026-10-13, had already named the skill `defining-products-w`. See the 2026-10-13 update below.*
 - **Purpose:** the skill interrogates the Moderator and helps them brainstorm. Its output is a `product.md` that MOD-W or PROD-W can import.
 - **Motivation (evidence):** product ideation for the other project happened outside both workflows, often over several hours, and the Product Owner then converted the result into the MOD-W `product.md` format. That work left no log entries and no requirement or acceptance-criterion identifiers. This adds a second project's evidence to `research/topics/product-owner-definition-mode.md`.
 - **Additional intended outputs:** a baseline log entry, so the project history does not start with a gap; requirement and acceptance-criterion identifiers with plain-language wording from the start.
@@ -139,8 +139,37 @@ A literal reading of "all end in -W" would rename the compliance pattern. A narr
 
 **Unchanged by this update:** the four "Findings from checking against the repository" above still apply. Finding 3 matters most: when the person defining the product is also its source, their statements are testimony and are not independent of the claim (EKO-04, EKJ-04).
 
+## Update, 2026-10-13: first draft and the 2026-10-04 decisions
+
+Source: `research/topics/product-definition-skill-first-draft.md`, a derived note supplied by the Moderator. The underlying claude.ai conversation is not archived. The note's identifiers (ISS-06, ISS-11, S-1, S-3, G §7, Template 11, evidence model Section 4.2, UAD4-11, EKR-19, EKJ-01) and the "about fourteen prompts" figure were checked against `prod-w/` and are present.
+
+**Moderator decisions of 2026-10-04, recorded here for the first time**
+
+1. **Single skill.** This answers the "one skill, or two" open question.
+2. **Name `defining-products-w`, a gerund.** The `-w` suffix marks skills shared by MOD-W and PROD-W. This settles the gerund-or-noun question in "Naming, as a working convention" above, for this skill at least.
+3. **Materiality in plain words:** "Would this change your decision if it were false?", recorded as `yes`, `no` or `not asked`, and never answered for the user (EKJ-01).
+
+**Status:** a draft, version 0.1.2-draft, exists outside this repository. It has not been run against its six test prompts, and no reviewer outside the Claude family has seen it.
+
+**Name conflict, for the Moderator.** The 2026-10-12 source document says "Create a new skill, **Discover-W**" and "all Mod and Prod skills end in '-W'". The 2026-10-04 decision says `defining-products-w`, with `-w` marking shared skills only. The two documents differ on:
+
+- **The skill's name:** `discover-w` or `defining-products-w`.
+- **The scope of the suffix:** every skill, or only skills shared by MOD-W and PROD-W. The 2026-10-04 reading matches the existing working convention above and leaves the `prod-w-` prefix pattern in `prod-w-compliance-skills-pattern.md` intact.
+
+Neither document says it supersedes the other. Nothing is renamed here.
+
+**How the draft bears on the 2026-10-12 open questions**
+
+- **Roles:** answered by decision 1 (single skill).
+- **Moderator control:** partly answered. The draft never writes approved, accepted, validated or verified into the file, and it follows `brainstorming`'s approval rule. Whether the user approves before the file is written is not stated in the note.
+- **Format contract:** partly answered. The output uses MOD-W v5.0.1 `PRODUCT.md` section order plus marked PROD-W additions, so it is one file and not two variants.
+- **Baseline log entry, identifiers with plain-language wording, the prototyping path, re-entry:** not addressed by the note.
+
+**Recording approved.** The MOD-W Moderator approved recording this update, the first-draft note, and the correction to the 2026-10-12 update on 2026-10-13. The name conflict above remains open.
+
 ## Related
 
+- `research/topics/product-definition-skill-first-draft.md` (the first draft, 2026-10-13).
 - `research/topics/agent-skills-and-protocol-relationship.md` (H-A to H-C stay open; this note does not settle them).
 - `research/topics/moderator-workflow-observations.md` (routing note for the 2026-10-12 cross-project observations).
 - `research/topics/prod-w-compliance-skills-pattern.md`.

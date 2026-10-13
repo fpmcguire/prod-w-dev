@@ -4,7 +4,7 @@ artifact:
   version: 0.1
   created: 2026-10-12
   updated: 2026-10-13
-  evidence_as_of: 2026-10-12
+  evidence_as_of: 2026-10-13
 context:
   project: prod-w-dev
   status: research
@@ -30,7 +30,7 @@ It does not reopen any accepted Step and does not change the roadmap. It does no
 
 ### Limits of the source
 
-- **Domain unknown.** The source says "a new Mod W project" and mentions code review, build and tests, which suggests software. It does not state the domain. Readings below that depend on domain are marked.
+- **Domain unknown.** The source says "a new Mod W project" and mentions code review, build and tests, which suggests software. It does not state the domain. Readings below that depend on domain are marked. *Resolved 2026-10-13: software. See "Source project identified" below.*
 - **Same Moderator.** Both projects have the same human Moderator. The second project is a different setting, but the observer is the same person.
 - **No artifacts.** The source names no repository, files or commits from the other project. Its claims cannot be checked from here.
 - **Proposals included.** Each observation mixes what happened with proposed changes. Only the "Observation" parts are evidence. The "Idea", "Decision" and "For consideration" parts are proposals.
@@ -103,7 +103,7 @@ The following are proposals for upstream MOD-W. Under the Canonical MOD-W Protec
 
 1. Should the cross-project evidence change MW-OBS-020's proposed classification or interpretation when it is disposed?
 2. Commit on approval by default, or ask first (the tension above)? *Answered 2026-10-13: commit on approval by default. See below.*
-3. Was the second project a software project? The answer changes how item 1 bears on MW-OBS-020.
+3. Was the second project a software project? The answer changes how item 1 bears on MW-OBS-020. *Answered 2026-10-13: yes. See below.*
 4. Should a spell-out rule be trialled in STEP-08 as a local practice? That would need a proposed adaptation in `adaptations.md` first.
 5. Which naming convention governs skills (see `product-definition-skill.md`)?
 
@@ -127,6 +127,25 @@ The MOD-W Moderator decided on 2026-10-13: **commit on approval by default.**
 - **Relation to MW-OBS-020.** The proposed adaptation there says to ask before committing "unless the Moderator has already explicitly requested that action". This decision is that explicit request, given as a standing instruction. It resolves the tension recorded in "1 and 6" above.
 - **Not covered:** pushing, tagging, and rejected work. Pushing and tagging still need a request. A rejection is recorded but not committed, as the source proposes; this part is a reading, not a stated decision.
 - **Not a disposition.** MW-OBS-020 remains Proposed, and no entry is added to `adaptations.md`.
+
+## Source project identified, 2026-10-13
+
+The Moderator stated on 2026-10-13 that the "new Mod W project" in the source is one of two repositories:
+
+| Repository | Created | Last push | Code base | MOD-W artifacts |
+|---|---|---|---|---|
+| `https://github.com/fpmcguire/kira-n-calvin-memory` | 2026-10-10 | 2026-10-13 | Angular/TypeScript application (TypeScript, HTML, SCSS); Playwright e2e tests | `mod-w/` with product, architecture, architecture notes, design spec, roadmap, STEP-01 to STEP-06, QA, review, sign-off, `evidence/`; top-level `prototype/` |
+| `https://github.com/fpmcguire/idp-align` | 2026-09-21 | 2026-09-27 | Angular/TypeScript application; Playwright e2e tests | `mod-w/` with product, architecture, roadmap, STEP-01 to STEP-10, cross-validation, `validation/`; described as a "MOD-W v5.0.1 proof-of-implementation and CAV ... research prototype" |
+
+Read from the public GitHub API (repository metadata, language breakdown, top-level and `mod-w/` listings) on 2026-10-13. File contents were not read.
+
+**Domain: software, whichever repository it is.** Both are conventional software projects with executable code and end-to-end tests. This settles the domain question in "1 and 6" above.
+
+**Probably `kira-n-calvin-memory`.** It is new (created two days before the source's compile date), it was active on 2026-10-12, and its `prototype/` folder fits the source's Claude Designer prototyping path (Observation 3). `idp-align` had no pushes after 2026-09-27. This is an inference. The Moderator did not say which.
+
+**Bearing on MW-OBS-020.** The gate-navigation burden recurred in a software MOD-W project. That weakens MW-OBS-020's reading that the burden grows because work products are "records and reviews rather than code changes". It favours a reading that the burden comes from MOD-W's gate structure in general. The limits still apply: same Moderator, a self-report, and no workflow-log entries from the other repository were read.
+
+**Recording approved.** The MOD-W Moderator approved recording this section and the matching MW-OBS-020 line on 2026-10-13. This is not a disposition of MW-OBS-020.
 
 ## Related
 
