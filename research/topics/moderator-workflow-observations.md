@@ -98,6 +98,7 @@ The following are proposals for upstream MOD-W. Under the Canonical MOD-W Protec
 5. The role sequence defined once, so each role can name its successor. Source: 1.
 6. An "options and ramifications" section in `ARCHITECTURE.md` and a "roadmap rationale" section in `ROADMAP.md`, with the architecture accepted before the roadmap. Source: 3.
 7. A defined hand-off from the Claude Designer prototyping path to the Tech Lead. Source: 3. `mod-w/templates/ARCHITECTURE-NOTES.md` already provides a prototype-to-Tech-Lead channel. Whether it covers this was not checked.
+8. A `status.md` duty in the Tech Lead role prompt: the Tech Lead writes the read-first and regenerate-on-gate instructions for `status.md` into the root `CLAUDE.md` and `AGENTS.md`, which MOD-W already assigns to the Tech Lead. Source: Moderator direction, 2026-10-13; trialled locally as MW-ADAPT-002. The canonical Tech Lead prompt (upstream `prompts/tech-lead.md` and `mod-w/templates/root-agents.md`) is not changed here.
 
 ## Open questions for the Moderator
 

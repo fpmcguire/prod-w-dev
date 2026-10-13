@@ -2,13 +2,13 @@
 
 Generated file (MW-ADAPT-002). Overwritten at each gate transition. Not authoritative: `mod-w/roadmap.md`, step files, and `mod-w/reviews/` govern.
 
-**Updated:** 2026-10-13 · **Based on commit:** `a541778` (plus the commit that adds this file)
+**Updated:** 2026-10-13 · **Based on commit:** `4a03573`
 
 ## Next action
 
 STEP-08 setup by the Tech Lead. Prompt:
 
-> Tech Lead: begin STEP-08 setup. Read `mod-w/roadmap.md` (STEP-08), `research/mod-w-transferability/observations.md` (MW-OBS-001 to MW-OBS-021), `assessment.md`, `adaptations.md`, and `research/topics/moderator-workflow-observations.md`. Draft `mod-w/step-08.md`: scope, required outputs, acceptance checks, and the list of hypotheses and observations to dispose, including the pending MW-OBS-020 disposition, the MW-ADAPT-002 trial review, and the deferred canonical MOD-W proposals. Write each identifier you cite with its plain-language meaning. Do not change accepted artifacts. Stop for Moderator review of the setup.
+> Tech Lead: begin STEP-08 setup. Read `mod-w/roadmap.md` (STEP-08), `research/mod-w-transferability/observations.md` (MW-OBS-001 to MW-OBS-021), `assessment.md`, `adaptations.md`, and `research/topics/moderator-workflow-observations.md`. First, create the root `CLAUDE.md` and `AGENTS.md`, which MOD-W assigns to you and which do not yet exist here. Each must tell agents to read `status.md` first and to regenerate it at every gate transition (MW-ADAPT-002 rule 7). Then draft `mod-w/step-08.md`: scope, required outputs, acceptance checks, and the list of hypotheses and observations to dispose, including the pending MW-OBS-020 disposition, the MW-ADAPT-002 trial review, and the deferred canonical MOD-W proposals. Write each identifier you cite with its plain-language meaning. Do not change accepted artifacts. Stop for Moderator review of the setup.
 
 Check first: can STEP-08 start while STEP-07 is provisional?
 
@@ -31,6 +31,7 @@ Check first: can STEP-08 start while STEP-07 is provisional?
 
 ## Recently done
 
+- 2026-10-13: Moderator routed the `status.md` agent instructions to the Tech Lead (root `CLAUDE.md` and `AGENTS.md`); added to the next-action prompt.
 - 2026-10-13: MW-ADAPT-002 (`status.md`) authorized as a trial; this file created.
 - 2026-10-13: Resumption-burden note added to MW-OBS-020; register status lines fixed; MW-OBS-014 deduplicated.
 - 2026-10-12 to 2026-10-13: Cross-project workflow observations integrated; commit-on-approval decision recorded; MW-OBS-021 accepted.

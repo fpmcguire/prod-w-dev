@@ -116,6 +116,7 @@ A generated file, `status.md`, is kept at the repository root. It is a local pro
 4. **Updated at every gate transition.** The agent regenerates it as part of the commit-on-approval routine (Moderator decision, 2026-10-13, recorded in `research/topics/moderator-workflow-observations.md`). It is also refreshed at the end of a working session whenever state has changed.
 5. **Read first.** On returning to the project, the Moderator or agent reads `status.md` before anything else.
 6. **Lowercase name.** It is a generated file, not a canonical MOD-W artifact. The name follows MOD-W's convention that supporting artifacts are lowercase-kebab-case.
+7. **Agents are told by the Tech Lead.** `mod-w/templates/MOD-W.md` assigns the root `CLAUDE.md` ("Dev Team config for Claude Code") and `AGENTS.md` ("Tech Lead config for Codex") to the Tech Lead. The Tech Lead adds the instructions in rules 4 and 5 to both files, so that Claude Code and Codex read and maintain `status.md`. Neither root file exists in `prod-w-dev` yet. Canonical Phase 0c expects the Tech Lead to author both, so creating them also closes that gap. Until then, only the Claude Code session's own memory carries the routine. (Moderator direction, 2026-10-13.)
 
 ### Reason
 
@@ -135,7 +136,7 @@ This is a local experimental adaptation. Canonical MOD-W v5.0.1 is unchanged.
 
 ### Interaction with Other Adaptations
 
-None with MW-ADAPT-001. It depends on the commit-on-approval decision (2026-10-13) for its update trigger.
+None with MW-ADAPT-001. It depends on the commit-on-approval decision (2026-10-13) for its update trigger, and on the Tech Lead's root `CLAUDE.md` and `AGENTS.md` (rule 7) to reach every agent.
 
 ### Re-evaluation Condition
 
