@@ -4,8 +4,8 @@ artifact:
   kind: observations
   version: 0.1
   created: 2026-09-30
-  updated: 2026-10-12
-  evidence_as_of: 2026-10-12
+  updated: 2026-10-13
+  evidence_as_of: 2026-10-13
 context:
   project: prod-w-dev
   status: research
@@ -1487,8 +1487,88 @@ Appended under Historical Integrity. The observation above is unchanged.
 
 ---
 
+## MW-OBS-021 - MOD-W's Explicit Workflow May Scaffold Scrum-Adjacent Practice for Newcomers, but the Educational Claim Is Untested
+
+**Date:** 2026-10-13  
+**MOD-W area:** Role guidance, gate sequencing, acceptance criteria, incremental delivery, methodology positioning  
+**Project stage:** Cross-project methodology reflection; outside any Step  
+**Observed by role:** MOD-W Moderator  
+**Classification (Accepted):** `NOT_YET_TESTED`  
+**Status:** Accepted  
+**Significance:** Medium  
+**Related:** MW-OBS-020
+
+### MOD-W Mechanism or Assumption
+
+MOD-W makes product ownership, specialist responsibilities, acceptance criteria, evidence, review points, unresolved blockers, and approval transitions explicit. Its role prompts and records provide more procedural direction than Scrum itself, including a Moderator, role-owned artifacts, specialist handoffs, and sequential gates.
+
+Scrum also uses a Product Owner, a team producing increments, explicit goals, inspection, and adaptation, but it relies on a self-managing cross-functional Scrum Team and named events rather than MOD-W's approval chain. MOD-W therefore overlaps with some Scrum concepts without being an implementation of Scrum.
+
+### Observation
+
+During a cross-project discussion, the Moderator asked how closely MOD-W follows Scrum and whether MOD-W could be described as guidance for "Scrum noobies." The resulting working interpretation was:
+
+- MOD-W can make several practices that challenge newcomers concrete: who owns product decisions, what acceptance means, how scope changes are recorded, what remains blocked, and what evidence is needed before work advances.
+- Its templates and gates may act as training scaffolding where Scrum deliberately leaves teams to organize much of their own working method.
+- The same scaffolding can teach non-Scrum habits if it is presented without qualification. Moderator approvals, specialist-to-specialist handoffs, document ownership boundaries, and sequential gates can reduce the self-management and cross-functional collaboration expected of a Scrum Team.
+- A defensible positioning is therefore not "MOD-W teaches Scrum," but "MOD-W may help newcomers practise selected Scrum-adjacent product-delivery concepts while adding governance beyond Scrum."
+
+The discussion also suggested a possible progression: use explicit MOD-W guidance initially, then reduce unnecessary handoffs and approvals as a team demonstrates that it can make sound decisions collaboratively. This is a proposal, not an observed outcome.
+
+### Evidence
+
+- Moderator statement in a cross-project discussion on 2026-10-13: topics such as MOD-W's relationship to Scrum are being retained as observations while PROD-W is developed, and the Moderator asked that this interpretation be recorded in `prod-w-dev`.
+- MW-OBS-020 records that explicit gate navigation and next-role prompts are repeatedly requested by the same Moderator. That is evidence that procedural guidance is used; it is not evidence about Scrum novices or learning outcomes.
+- `mod-w/templates/MOD-W.md` and the role/Step templates provide explicit role, handoff, review, and approval structure.
+- No novice cohort, Scrum team, training exercise, comparison group, or learning assessment is recorded in this repository.
+- The source discussion itself is not archived in this repository. This limits independent checking of the wording and context.
+
+### Contradictory Evidence, Preserved
+
+- The recurring request for next-gate guidance in MW-OBS-020 can be read as evidence that MOD-W is difficult to navigate, not that it teaches newcomers effectively.
+- Explicit gates may substitute compliance with a sequence for understanding empirical product development.
+- Specialist handoffs and approval authority can conflict with Scrum's cross-functional, self-managing team model.
+- The observer is the methodology's Moderator, not a novice Scrum participant. No learner reported improved understanding or performance.
+- "Training wheels" may be an attractive metaphor while hiding the cost of later unlearning governance habits that Scrum does not require.
+
+### Effect on Work
+
+- No accepted PROD-W artifact, canonical MOD-W template, role charter, or workflow rule changes because of this observation.
+- The possible educational positioning is now available for later evaluation rather than being promoted directly into product claims or guidance.
+- Any future public description should distinguish Scrum-adjacent scaffolding from Scrum conformance.
+
+### Local Adaptation Required
+
+None proposed. An observation about possible teaching value is insufficient grounds to change the workflow.
+
+### Interpretation
+
+MOD-W plausibly provides procedural scaffolding for concepts that also matter in Scrum: product ownership, incremental work, explicit acceptance, inspection of evidence, and adaptation after review. Its additional governance may help a newcomer see responsibilities and decision boundaries that would otherwise remain implicit.
+
+That plausibility is not evidence of educational effectiveness. MOD-W could equally increase dependence on prescribed gates or create a mistaken picture of Scrum as a sequence of specialist approvals. The claim remains `NOT_YET_TESTED` until newcomers use it in a setting where learning and team behavior are observed.
+
+**Conclusion (deliberately limited):** MOD-W may be described as structured guidance for practising selected Scrum-adjacent concepts, provided it is explicitly not represented as Scrum. Whether it helps Scrum newcomers is a hypothesis for testing, not an established benefit.
+
+### Follow-up
+
+- Compare MOD-W's roles, events, artifacts, and decision rights directly with the then-current Scrum Guide before publishing any Scrum-related positioning.
+- In a future pilot, record participants' prior Scrum experience and observe whether MOD-W improves their ability to explain product ownership, acceptance, inspection, adaptation, and team self-management.
+- Record which MOD-W gates help comprehension and which encourage unnecessary handoffs or approval-seeking.
+- Test whether reducing gates after demonstrated competence preserves traceability while increasing team self-management.
+- Ask a Scrum practitioner independent of MOD-W to review any resulting guidance.
+
+### Moderator Disposition
+
+**Accepted** by Frank McGuire (MOD-W Moderator) 2026-10-13.
+
+Classification accepted as `NOT_YET_TESTED` for the claim that MOD-W helps Scrum newcomers. The Scrum-adjacent positioning is accepted as a hypothesis for later testing, not as an established benefit or a product claim.
+
+No local adaptation is authorized from this observation. No accepted PROD-W artifact, canonical MOD-W template, or workflow rule changes.
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-021`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-022`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.
