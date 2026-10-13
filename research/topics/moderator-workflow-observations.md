@@ -105,7 +105,7 @@ The following are proposals for upstream MOD-W. Under the Canonical MOD-W Protec
 2. Commit on approval by default, or ask first (the tension above)? *Answered 2026-10-13: commit on approval by default. See below.*
 3. Was the second project a software project? The answer changes how item 1 bears on MW-OBS-020. *Answered 2026-10-13: yes. See below.*
 4. Should a spell-out rule be trialled in STEP-08 as a local practice? That would need a proposed adaptation in `adaptations.md` first.
-5. Which naming convention governs skills (see `product-definition-skill.md`)?
+5. Which naming convention governs skills (see `product-definition-skill.md`)? *Answered 2026-10-13: `defining-products-w`; the `-w` suffix marks shared skills only.*
 
 ## Moderator decision, 2026-10-12
 

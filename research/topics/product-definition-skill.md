@@ -84,7 +84,7 @@ Nothing was written under D1 or D2. There is no roadmap edit, no adaptations-reg
 Not recorded in a rule file in either repository, and not binding.
 
 - All skill names: lowercase letters, numbers and hyphens. This satisfies both the Agent Skills rule and MOD-W's lowercase-kebab-case file naming.
-- A `-w` suffix for skills shared by both projects, for example `discover-w` (a working name, not decided).
+- A `-w` suffix for skills shared by both projects, for example `discover-w` (a working name, not decided). *Confirmed by the Moderator 2026-10-13: the suffix marks shared skills only. See the 2026-10-13 update below.*
 - A `prod-w-` prefix for PROD-W-owned skills, as in `research/topics/prod-w-compliance-skills-pattern.md`, whose pattern is `prod-w-[domain]-[check|assessment|gate]`.
 - Open: a `mod-w-` prefix for MOD-W-only skills. If adopted, it removes the ambiguity that a bare `-w` suffix and the `prod-w-` prefix both use the letter w, because a skill owned by one project would always carry that project's prefix.
 - Open: noun, verb or gerund names. The compliance note uses noun phrases. Anthropic's guide, as relayed, prefers gerunds and asks for one pattern per collection.
@@ -157,6 +157,8 @@ Source: `research/topics/product-definition-skill-first-draft.md`, a derived not
 - **The scope of the suffix:** every skill, or only skills shared by MOD-W and PROD-W. The 2026-10-04 reading matches the existing working convention above and leaves the `prod-w-` prefix pattern in `prod-w-compliance-skills-pattern.md` intact.
 
 Neither document says it supersedes the other. Nothing is renamed here.
+
+**Resolved by the Moderator, 2026-10-13.** The skill's name is `defining-products-w`, and the `-w` suffix marks skills shared by MOD-W and PROD-W only. The 2026-10-04 decision stands. The 2026-10-12 wording ("Discover-W"; "all Mod and Prod skills end in '-W'") is not adopted. The `prod-w-` prefix pattern in `prod-w-compliance-skills-pattern.md` is unaffected. Whether MOD-W-only skills take a `mod-w-` prefix is still open.
 
 **How the draft bears on the 2026-10-12 open questions**
 
