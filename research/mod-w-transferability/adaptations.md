@@ -4,8 +4,8 @@ artifact:
   kind: adaptations
   version: 0.1
   created: 2026-09-30
-  updated: 2026-10-01
-  evidence_as_of: 2026-10-01
+  updated: 2026-10-13
+  evidence_as_of: 2026-10-13
 context:
   project: prod-w-dev
   status: research
@@ -26,7 +26,10 @@ Local adaptations are authorized by the Moderator and must be supported by evide
 
 ## Current Status
 
-**One local adaptation has been authorized: `MW-ADAPT-001`** (below), authorized by Frank McGuire (MOD-W Moderator) on 2026-09-30 per `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 4.
+**Two local adaptations have been authorized:**
+
+- `MW-ADAPT-001` (below), authorized by Frank McGuire (MOD-W Moderator) on 2026-09-30 per `mod-w/reviews/MODERATOR-DELTA-REVIEW-STEP-01.md` Section 4.
+- `MW-ADAPT-002` (below), a trial authorized by Frank McGuire (MOD-W Moderator) on 2026-10-13.
 
 The project otherwise continues to:
 
@@ -87,6 +90,66 @@ Re-evaluate at the STEP-02 gate: did the declaration section produce any finding
 ### Moderator Rationale
 
 Authorized on the same date as STEP-01 acceptance. The adaptation is cheap, reversible, targeted at a demonstrated failure mode (PR-27), and produced by the role best placed to know what it decided. It does not substitute for, and does not need to wait on, disposition of MW-OBS-008's build-gate options (A/B remain open).
+
+---
+
+## MW-ADAPT-002 — Generated Project Status File (`status.md`)
+
+**Date:** 2026-10-13  
+**Source observation:** MW-OBS-020, including its cross-project evidence and resumption-burden note appended 2026-10-12 and 2026-10-13  
+**Affected MOD-W area:** Moderator role, gate transitions, project-record hygiene  
+**Proposed by:** Claude Code session at the Moderator's request (2026-10-13)  
+**Authorized by:** Frank McGuire (MOD-W Moderator), 2026-10-13, as a trial  
+**Status:** Active (trial)
+
+### Canonical MOD-W Behavior
+
+MOD-W v5.0.1 has no artifact that states where a project currently is. `mod-w/templates/ROADMAP.md` tracks status per Step, and `mod-w/templates/MOD-W.md` lists `step-xx.md`, `review.md` and `qa.md` for "the current Step". Nothing records which gate is current within a Step, what is pending, or which role acts next. The Moderator reconstructs that from the roadmap, step files, review records and git history.
+
+### Local Adaptation
+
+A generated file, `status.md`, is kept at the repository root. It is a local process change that adds an artifact. It changes no gate, role or approval.
+
+1. **Content, in this order:** next action, with a ready-to-use prompt for the next role where there is one; where the project stands; what is waiting and on whom; open Moderator decisions; recently done; the commit the file was based on.
+2. **Overwritten, not appended.** History stays in git, `mod-w/reviews/` and the research registers. The file stays within about one screen.
+3. **Derived, never authoritative.** If it disagrees with `mod-w/roadmap.md`, a step file or a review record, those govern and `status.md` is corrected.
+4. **Updated at every gate transition.** The agent regenerates it as part of the commit-on-approval routine (Moderator decision, 2026-10-13, recorded in `research/topics/moderator-workflow-observations.md`). It is also refreshed at the end of a working session whenever state has changed.
+5. **Read first.** On returning to the project, the Moderator or agent reads `status.md` before anything else.
+6. **Lowercase name.** It is a generated file, not a canonical MOD-W artifact. The name follows MOD-W's convention that supporting artifacts are lowercase-kebab-case.
+
+### Reason
+
+MW-OBS-020 records that the Moderator repeatedly asks for the current gate, completed and pending reviews, and the next role's prompt. The cross-project evidence shows the same burden in a software MOD-W project. The 2026-10-13 note extends it to resuming a project after working on others. In both cases the state exists but is spread across several files, and reconstructing it costs Moderator attention.
+
+This adaptation implements the persistent part of MW-OBS-020's proposed gate-transition summary. It does not authorize the rest of that proposal. MW-OBS-020 remains Proposed.
+
+### Scope and Reversibility
+
+Applies to `prod-w-dev` only. It is a trial and can be reversed by deleting `status.md`, since no other artifact depends on it. The Moderator may run the same trial in `kira-n-calvin-memory`, but that is outside this register.
+
+The known risk is drift. A stale `status.md` misleads most at the moment it is relied on. Rules 3 and 4 above, and the recorded base commit, are the mitigation.
+
+### Effect on Canonical MOD-W
+
+This is a local experimental adaptation. Canonical MOD-W v5.0.1 is unchanged.
+
+### Interaction with Other Adaptations
+
+None with MW-ADAPT-001. It depends on the commit-on-approval decision (2026-10-13) for its update trigger.
+
+### Re-evaluation Condition
+
+Re-evaluate at STEP-08:
+
+- Did `status.md` reduce the Moderator's requests to reconstruct gate state, and did it shorten resumption after time away?
+- Did it drift from the roadmap or review records? How often, and was the drift caught?
+- Would a "Current position" section at the top of `mod-w/roadmap.md` serve as well without a new file?
+
+If it proves useful in this project and in a second one, record it as a candidate for canonical MOD-W, with this evidence.
+
+### Moderator Rationale
+
+Authorized 2026-10-13 as a trial. It is cheap and reversible, and it targets a burden recorded in MW-OBS-020 that has recurred across projects. The Moderator chose the lowercase name `status.md` because it is a generated file.
 
 ---
 
