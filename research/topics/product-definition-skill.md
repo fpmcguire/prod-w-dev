@@ -84,9 +84,9 @@ Nothing was written under D1 or D2. There is no roadmap edit, no adaptations-reg
 Not recorded in a rule file in either repository, and not binding.
 
 - All skill names: lowercase letters, numbers and hyphens. This satisfies both the Agent Skills rule and MOD-W's lowercase-kebab-case file naming.
-- A `-w` suffix for skills shared by both projects, for example `discover-w` (a working name, not decided). *Confirmed by the Moderator 2026-10-13: the suffix marks shared skills only. See the 2026-10-13 update below.*
+- A `-w` suffix for skills shared by both projects, for example `discover-w` (a working name, not decided). *Moderator's current preference, 2026-10-13: the suffix marks shared skills only. Under discussion, not decided. See the 2026-10-13 update below.*
 - A `prod-w-` prefix for PROD-W-owned skills, as in `research/topics/prod-w-compliance-skills-pattern.md`, whose pattern is `prod-w-[domain]-[check|assessment|gate]`.
-- Open: a `mod-w-` prefix for MOD-W-only skills. If adopted, it removes the ambiguity that a bare `-w` suffix and the `prod-w-` prefix both use the letter w, because a skill owned by one project would always carry that project's prefix. *Adopted by the Moderator 2026-10-13.*
+- Open: a `mod-w-` prefix for MOD-W-only skills. If adopted, it removes the ambiguity that a bare `-w` suffix and the `prod-w-` prefix both use the letter w, because a skill owned by one project would always carry that project's prefix. *Moderator's current preference, 2026-10-13. Under discussion, not decided.*
 - Open: noun, verb or gerund names. The compliance note uses noun phrases. Anthropic's guide, as relayed, prefers gerunds and asks for one pattern per collection.
 
 **File-naming mismatches found** (so the rule is stated beside the convention):
@@ -114,7 +114,7 @@ Source: Observation 4 in `research/conversations/2026-10-12-mod-w-project-workfl
 
 **What the source records**
 
-- **Decision:** "Create a new skill, Discover-W." The name is now chosen, where the 2026-10-03 entry above listed `discover-w` and `product-define-w` as undecided working names. This is consistent with the plan above: the skill is built in its own repository and considered for PROD-W v2. Nothing is added to this repository, and D1 and D2 stay withdrawn. *Correction, 2026-10-13: "the name is now chosen" was wrong. A Moderator decision of 2026-10-04, not in this repository until 2026-10-13, had already named the skill `defining-products-w`. See the 2026-10-13 update below.*
+- **Decision:** "Create a new skill, Discover-W." The name is now chosen, where the 2026-10-03 entry above listed `discover-w` and `product-define-w` as undecided working names. This is consistent with the plan above: the skill is built in its own repository and considered for PROD-W v2. Nothing is added to this repository, and D1 and D2 stay withdrawn. *Correction, 2026-10-13: "the name is now chosen" was wrong. A Moderator decision of 2026-10-04, not in this repository until 2026-10-13, had already named the skill `defining-products-w`. See the 2026-10-13 update below. Naming as a whole remains under discussion (Moderator, 2026-10-13).*
 - **Purpose:** the skill interrogates the Moderator and helps them brainstorm. Its output is a `product.md` that MOD-W or PROD-W can import.
 - **Motivation (evidence):** product ideation for the other project happened outside both workflows, often over several hours, and the Product Owner then converted the result into the MOD-W `product.md` format. That work left no log entries and no requirement or acceptance-criterion identifiers. This adds a second project's evidence to `research/topics/product-owner-definition-mode.md`.
 - **Additional intended outputs:** a baseline log entry, so the project history does not start with a gap; requirement and acceptance-criterion identifiers with plain-language wording from the start.
@@ -143,10 +143,10 @@ A literal reading of "all end in -W" would rename the compliance pattern. A narr
 
 Source: `research/topics/product-definition-skill-first-draft.md`, a derived note supplied by the Moderator. The underlying claude.ai conversation is not archived. The note's identifiers (ISS-06, ISS-11, S-1, S-3, G §7, Template 11, evidence model Section 4.2, UAD4-11, EKR-19, EKJ-01) and the "about fourteen prompts" figure were checked against `prod-w/` and are present.
 
-**Moderator decisions of 2026-10-04, recorded here for the first time**
+**Moderator decisions of 2026-10-04, recorded here for the first time** (as stated in the draft note; for item 2, see the naming status below)
 
 1. **Single skill.** This answers the "one skill, or two" open question.
-2. **Name `defining-products-w`, a gerund.** The `-w` suffix marks skills shared by MOD-W and PROD-W. This settles the gerund-or-noun question in "Naming, as a working convention" above, for this skill at least.
+2. **Name `defining-products-w`, a gerund.** The `-w` suffix marks skills shared by MOD-W and PROD-W. This is the draft's working name. Naming remains under discussion (Moderator, 2026-10-13), so it does not settle the gerund-or-noun question in "Naming, as a working convention" above.
 3. **Materiality in plain words:** "Would this change your decision if it were false?", recorded as `yes`, `no` or `not asked`, and never answered for the user (EKJ-01).
 
 **Status:** a draft, version 0.1.2-draft, exists outside this repository. It has not been run against its six test prompts, and no reviewer outside the Claude family has seen it.
@@ -158,9 +158,9 @@ Source: `research/topics/product-definition-skill-first-draft.md`, a derived not
 
 Neither document says it supersedes the other. Nothing is renamed here.
 
-**Resolved by the Moderator, 2026-10-13.** The skill's name is `defining-products-w`, and the `-w` suffix marks skills shared by MOD-W and PROD-W only. The 2026-10-04 decision stands. The 2026-10-12 wording ("Discover-W"; "all Mod and Prod skills end in '-W'") is not adopted. The `prod-w-` prefix pattern in `prod-w-compliance-skills-pattern.md` is unaffected. Whether MOD-W-only skills take a `mod-w-` prefix is still open.
+**Moderator's current preference, 2026-10-13 (discussion, not a decision).** The skill's working name is `defining-products-w`, and the `-w` suffix would mark skills shared by MOD-W and PROD-W only. This follows the 2026-10-04 draft rather than the 2026-10-12 wording ("Discover-W"; "all Mod and Prod skills end in '-W'"). The `prod-w-` prefix pattern in `prod-w-compliance-skills-pattern.md` is unaffected.
 
-**Skill naming convention, decided by the Moderator 2026-10-13:**
+**Skill naming convention under discussion (Moderator's current preference, 2026-10-13):**
 
 | Skill used by | Form | Example |
 |---|---|---|
@@ -168,7 +168,7 @@ Neither document says it supersedes the other. Nothing is renamed here.
 | PROD-W only | `prod-w-` prefix | `prod-w-[domain]-[check\|assessment\|gate]` (`prod-w-compliance-skills-pattern.md`) |
 | MOD-W only | `mod-w-` prefix | none yet |
 
-All names use lowercase letters, numbers and hyphens. The convention is recorded in this research note only. It is not a rule file in either repository, and canonical MOD-W is not changed.
+All names use lowercase letters, numbers and hyphens. **This is a discussion position, not a decision or a convention in force.** It is recorded in this research note only. It is not a rule file in either repository, and canonical MOD-W is not changed.
 
 **How the draft bears on the 2026-10-12 open questions**
 
