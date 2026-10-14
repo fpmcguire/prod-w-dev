@@ -156,6 +156,22 @@ Read from the public GitHub API (repository metadata, language breakdown, top-le
 - `research/topics/model-depth-tech-lead-self-review.md`
 - `mod-w/id-glossary.md`
 
+## 2026-10-14 update: source Observation 7
+
+The Moderator supplied an updated version of the cross-project source with a new Observation 7: a design specification and numbered component inventory did not yield a packaged component library, a live component gallery, or complete tokenization in the Kira-n-Calvin Memory project.
+
+The source's number is not used as a repository identifier because `MW-OBS-007` already means higher-depth review surfaced governance-state drift. The repository record is `MW-OBS-022`.
+
+The Moderator accepted a narrowed reading on 2026-10-14:
+
+- the observed absence of a living, reviewable component surface is useful cross-project evidence;
+- a shared component library is conditional on material reuse or durable design-system scope, not mandatory for every MOD-W project;
+- implementation choices remain project architecture decisions;
+- when reusable components or a durable design system are materially in scope, relevant steps should provide a reviewable component-state surface, accessibility evidence, and traceability to applicable Design Specification identifiers;
+- PROD-W may evaluate cross-product consistency as a product concern but should not prescribe a component library.
+
+This acceptance changes no canonical MOD-W template, accepted PROD-W artifact, or local workflow rule. It records an evidence-backed, conditional improvement hypothesis for later synthesis.
+
 ## Governance
 
 This note lives in `research/topics/` and requires no gate.

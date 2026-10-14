@@ -208,3 +208,27 @@ No manual repetition by the moderator, a complete audit trail with commit links,
 4. **Role sequence defined once.** So each role can name its successor (Observation 1).
 5. **Templates with required explanation sections.** Architecture options and ramifications, roadmap rationale (Observation 3).
 6. **Discover-W as the entry point.** Producing `product.md` plus a baseline log entry (Observation 4).
+
+---
+
+## Update supplied 2026-10-14
+
+The Moderator supplied an updated source document dated 2026-10-14. It adds Observations 7 and 8. Observation 7 is preserved below because the Moderator reviewed and accepted a narrowed disposition for it on 2026-10-14. Observation 8 remains under discussion and is not incorporated here yet.
+
+## Observation 7: Shared component library with a reviewable gallery for cross-app consistency (improvement)
+
+### Observation
+A Mod W project can produce a design spec with tokens and a numbered component inventory (e.g. DS-001 to DS-009), but the components live inside one app and the only living reference is a markdown file. In the Kira-n-Calvin Memory project, only color and font tokens were CSS custom properties; spacing, radius, and elevation were specified but not tokenized in the global styles, and there is no packaged library or component gallery.
+
+### Idea
+Add a shared component library to the workflow, plus a reviewable gallery of its components. Mod W specifies the requirement, not the tool.
+
+- The designer role's spec lists tokens and components; the tech lead's architecture decides which components belong in the shared library and which stay in the app.
+- Every shared component has a gallery entry showing its states and variants, reviewable by the moderator at the gate, with an accessibility check.
+- Spacing, radius, and elevation become tokens alongside color and typography, so apps built through Mod W share one visual vocabulary.
+- The tech lead chooses the implementation and records it in `architecture.md` with options and ramifications.
+
+The source discusses build, adopt, and hybrid sourcing; Angular CLI libraries, path aliases, and monorepo packaging; custom galleries, Storybook, Compodoc, and test-based review surfaces. It asks whether gallery coverage should be an acceptance criterion, how Design Specification identifiers map to gallery entries, whether maintenance cost is justified, and whether the proposal belongs to MOD-W or PROD-W.
+
+### Expected benefit
+Consistent UI across apps, a visual review surface for moderators without forcing a specific external tool, and components that outlive a single project.

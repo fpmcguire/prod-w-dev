@@ -1570,8 +1570,74 @@ No local adaptation is authorized from this observation. No accepted PROD-W arti
 
 ---
 
+## MW-OBS-022 - Reusable UI Systems Need a Living Review Surface, but a Shared Library Is Conditional
+
+**Date:** 2026-10-14
+**MOD-W area:** Designer and Prototyper output, Tech Lead architecture, step acceptance evidence, QA accessibility review
+**Project stage:** Cross-project methodology reflection; outside any PROD-W Step
+**Observed by role:** MOD-W Moderator
+**Classification (Accepted):** `NOT_YET_TESTED`
+**Status:** Accepted
+**Significance:** Medium
+**Related:** MW-OBS-020; cross-project workflow source Observation 7
+
+### MOD-W Mechanism or Assumption
+
+MOD-W permits an approved `design-spec.md` to define visual behavior, component states and variants, and accessibility expectations. The Tech Lead owns technical component decomposition and architecture. Steps cite applicable Design Specification identifiers, and QA checks approved design intent. MOD-W does not require a packaged component library or a live component gallery.
+
+### Observation
+
+In the Kira-n-Calvin Memory software project, the design specification contained design tokens and a numbered component inventory, but the implemented components lived only inside one application. The only consolidated reference was Markdown. Color and font were exposed as CSS custom properties, while specified spacing, radius, and elevation were not comparably tokenized. No packaged component library or live component gallery existed.
+
+This is concrete evidence that a written component inventory does not by itself create a reusable UI system or a reviewable living representation of component states. It is not evidence that every MOD-W project needs either one.
+
+### Evidence
+
+- Moderator-supplied cross-project workflow observations, updated 2026-10-14 and archived at `research/conversations/2026-10-12-mod-w-project-workflow-observations.md`.
+- `mod-w/templates/MOD-W.md`: the optional Prototype Ceremony, bounded authority of `design-spec.md`, Tech Lead architecture handoff, Design Specification traceability, and QA review of approved design intent.
+- `mod-w/templates/root-agents.md`: technical matters remain under Tech Lead authority; steps cite relevant Design Specification identifiers.
+- The source reports the Kira-n-Calvin Memory implementation state. This repository did not independently inspect that project's component files for this disposition.
+
+### Contradictory Evidence and Limits
+
+- Evidence comes from one software project and the same human Moderator who governs this repository.
+- A single application may not justify the packaging and maintenance cost of a shared library.
+- A gallery can itself become a separately maintained product.
+- Complete tokenization is not automatically beneficial; the useful token boundary depends on the design system and architecture.
+- MOD-W already provides authority and traceability hooks. The missing element may be project-specific acceptance evidence rather than a canonical workflow defect.
+
+### Effect on Work
+
+No accepted PROD-W artifact, canonical MOD-W template, or local workflow rule changes. The observation adds a conditional design-system and verification hypothesis for later synthesis.
+
+### Local Adaptation Required
+
+None. The evidence does not justify requiring a component library or gallery in `prod-w-dev`, whose principal deliverables are normative documents.
+
+### Interpretation
+
+When reusable components or a durable design system are materially in scope, the Tech Lead should decide whether a shared library is warranted. Relevant steps should provide a reviewable component-state surface, accessibility evidence, and traceability to applicable Design Specification identifiers. The mechanism remains project-specific and may be a custom gallery, Storybook, another tool, or suitable equivalent evidence.
+
+The component library itself is a technical architecture choice. MOD-W should not globally mandate one. PROD-W may evaluate cross-product consistency as a product concern but should not prescribe a component-library implementation.
+
+**Conclusion (deliberately limited):** a living review surface is a strong conditional requirement when MOD-W governs a reusable UI system; neither a packaged library nor a particular gallery tool is established as a universal MOD-W requirement.
+
+### Follow-up
+
+- In a future project with material component reuse, test whether Design Specification identifier-to-gallery traceability improves Moderator and QA review.
+- Compare the maintenance cost and defect-detection value of a custom gallery, Storybook, or equivalent evidence.
+- Observe whether a shared-library decision is made explicitly in architecture rather than emerging accidentally during implementation.
+
+### Moderator Disposition
+
+**Accepted** by Frank McGuire (MOD-W Moderator) 2026-10-14.
+
+Classification accepted as `NOT_YET_TESTED`. The observed gap is accepted as cross-project evidence, and the recommended response is accepted only as a conditional hypothesis: use a reviewable component-state surface when reusable components or a durable design system are materially in scope. No universal shared-library requirement, canonical MOD-W change, PROD-W implementation prescription, or local adaptation is authorized.
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-022`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-023`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.

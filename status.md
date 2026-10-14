@@ -2,13 +2,13 @@
 
 Generated file under MW-ADAPT-002 (generated project status file). Overwritten at each gate transition. Derived, not authoritative: `mod-w/roadmap.md`, step files, and `mod-w/reviews/` govern if they disagree.
 
-**Updated:** 2026-10-13 · **Based on commit:** `dc66864`
+**Updated:** 2026-10-14 · **Based on commit:** `127adf3`
 
 ## Next action
 
-Moderator review of the STEP-08 (research synthesis and hypothesis disposition) setup. Prompt:
+Continue the bounded Moderator detour by discussing source Observation 8 (a proposed pseudo-MVP fast lane), without disposing the separate STEP-08 setup. Prompt:
 
-> MOD-W Moderator: review draft `mod-w/step-08.md`. Decide whether STEP-08 (research synthesis and hypothesis disposition) may begin as bounded synthesis work while STEP-07 (proof-of-concept product opportunity trial) remains provisional. Confirm the scope, required outputs, acceptance checks, dependency limits, and review sequence; then approve, revise, or reject the setup without treating setup approval as a substantive research disposition.
+> MOD-W Moderator: refine source Observation 8 by deciding whether its need is already covered by MOD-W's optional Prototype Ceremony, what minimum product authority must precede a runnable spike, whether the output is throwaway or a Reference Implementation, how it differs from a PROD-W proof-of-concept trial, and what continue, revise, or stop gate should close it. Do not authorize retrospective compliance through requirements backfill.
 
 ## Where the project stands
 
@@ -16,11 +16,13 @@ Moderator review of the STEP-08 (research synthesis and hypothesis disposition) 
 - STEP-07 (proof-of-concept product opportunity trial): Provisional; completion and AC-3 (product acceptance criterion 3, proof of concept) await a real-human pilot and reviews.
 - Root `AGENTS.md` and `CLAUDE.md`: approved by the MOD-W Moderator on 2026-10-13.
 - STEP-08 (research synthesis and hypothesis disposition): setup drafted under separate Moderator review.
+- Cross-project source Observation 7 (shared component library and reviewable gallery): accepted as MW-OBS-022 (reusable UI systems need a living review surface, but a shared library is conditional); no local adaptation or canonical template change authorized.
 - STEP-09 (publication package): Planned.
 
 ## Waiting on
 
 - STEP-08 (research synthesis and hypothesis disposition) setup review and decision on whether bounded work may precede STEP-07 (proof-of-concept product opportunity trial) final acceptance — owner: MOD-W Moderator.
+- Source Observation 8 (proposed pseudo-MVP fast lane) discussion and disposition — owner: MOD-W Moderator.
 - Real-human STEP-07 (proof-of-concept product opportunity trial) pilot execution — owner: not yet assigned by the MOD-W Moderator.
 - Real-human pilot review path — owners: Tech Lead, QA, Product Owner, and MOD-W Moderator after pilot execution, unless the Moderator records another sequence.
 
@@ -30,9 +32,11 @@ Moderator review of the STEP-08 (research synthesis and hypothesis disposition) 
 - MW-ADAPT-002 (generated project status file) trial outcome and canonical MOD-W proposals 1–8.
 - Appendix A and routed skill/context research hypotheses assigned to STEP-08 (research synthesis and hypothesis disposition).
 - Skill naming remains under discussion; `defining-products-w` is a preference, not a decision.
+- Whether source Observation 8 should be narrowed into a feasibility-spike variant of the existing Prototype Ceremony, and its precise authority, evidence, and exit rules.
 
 ## Recently done
 
+- 2026-10-14: MOD-W Moderator accepted the narrowed recommendation for source Observation 7; recorded as MW-OBS-022 with `NOT_YET_TESTED` classification and no authorized adaptation or canonical change.
 - 2026-10-13: MOD-W Moderator approved root `AGENTS.md` and `CLAUDE.md`, including their application of MW-ADAPT-002 Amendment 1 (generated project status file workflow clarification); approval recorded for conventional commit.
 - 2026-10-13: Revised root `AGENTS.md` and `CLAUDE.md` to apply MW-ADAPT-002 Amendment 1 (generated project status file workflow clarification).
 - 2026-10-13: Created draft root `AGENTS.md` and `CLAUDE.md` for prod-w-dev.
@@ -41,4 +45,4 @@ Moderator review of the STEP-08 (research synthesis and hypothesis disposition) 
 
 ## Base commit
 
-`dc66864`
+`127adf3`
