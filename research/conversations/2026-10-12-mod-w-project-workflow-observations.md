@@ -213,7 +213,7 @@ No manual repetition by the moderator, a complete audit trail with commit links,
 
 ## Update supplied 2026-10-14
 
-The Moderator supplied an updated source document dated 2026-10-14. It adds Observations 7 and 8. Observation 7 is preserved below because the Moderator reviewed and accepted a narrowed disposition for it on 2026-10-14. Observation 8 remains under discussion and is not incorporated here yet.
+The Moderator supplied an updated source document dated 2026-10-14. It adds Observations 7 and 8. Both are preserved below following Moderator review and acceptance of bounded interpretations on 2026-10-14.
 
 ## Observation 7: Shared component library with a reviewable gallery for cross-app consistency (improvement)
 
@@ -232,3 +232,27 @@ The source discusses build, adopt, and hybrid sourcing; Angular CLI libraries, p
 
 ### Expected benefit
 Consistent UI across apps, a visual review surface for moderators without forcing a specific external tool, and components that outlive a single project.
+
+---
+
+## Observation 8: A quick pseudo-MVP lane before the detailed workflow (new capability)
+
+### Observation
+Mod W's step-by-step gates give control and traceability but take time. Sometimes the moderator wants something running quickly, to see and react to before committing to the full process.
+
+### Idea
+Add an intermediate fast path that produces a rough, working pseudo-MVP, after which the product returns to the detailed Mod W workflow. The name is open; following the "-W" convention it could be something like *Spike-W*.
+
+- **Input:** `product.md` from Discover-W (Observation 4), optionally the Claude Designer prototype.
+- **Output:** a runnable app plus a short note on what was learned, what worked, and which shortcuts were taken.
+- **Return to Mod W:** the product owner and tech lead use the pseudo-MVP as a baseline, backfill R and AC codes, and the normal gates start from there.
+
+### For consideration
+- **Guardrails.** The pseudo-MVP is a reference, not production code. Decide early whether it is thrown away or refactored, so it does not quietly become the codebase.
+- **What stays mandatory.** A log entry, a baseline commit, and a stated list of shortcuts, so the history does not start with a gap.
+- **Difference from Prod W.** Prod W validates feasibility; the pseudo-MVP produces something users can try. The boundary needs defining.
+- **Moderator gate.** One explicit decision at the end of the fast lane: continue into Mod W, revise, or stop.
+- **Fit with Observation 5.** Seeing something real early is where many useful changes come from, so the fast lane supports mid-development steering.
+
+### Expected benefit
+Faster feedback on whether the product is worth building in detail, without giving up the control and traceability of the full workflow.

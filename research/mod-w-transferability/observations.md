@@ -1636,8 +1636,82 @@ Classification accepted as `NOT_YET_TESTED`. The observed gap is accepted as cro
 
 ---
 
+## MW-OBS-023 - Rapid Visualization Is Partly Covered, but Technical Exploration Lacks an Explicit Governed Path
+
+**Date:** 2026-10-14
+**MOD-W area:** Prototype Ceremony, Reference Implementation, pre-architecture feasibility evidence, Git workflow, exploratory deployment
+**Project stage:** Cross-project methodology reflection; outside any PROD-W Step
+**Observed by role:** MOD-W Moderator
+**Classification (Accepted):** `NOT_YET_TESTED`
+**Status:** Accepted
+**Significance:** Medium
+**Related:** MW-OBS-020, MW-OBS-022; cross-project workflow source Observation 8
+
+### MOD-W Mechanism or Assumption
+
+MOD-W provides an optional Prototype Ceremony when visual, interaction, chart, animation, or real-time product risk warrants prototyping before architecture. Prototype work is evidence, and candidate implementation produced outside the Development Team is a Reference Implementation that never automatically becomes production. Existing work may be backfilled as reference evidence, but authoritative adoption requires the applicable gates to be re-executed.
+
+MOD-W does not explicitly define a branch-isolated exploratory build for technical feasibility, a deployed prototype review-surface lifecycle, or a shared close-out protocol for rapid visualization and technical spikes.
+
+### Observation
+
+In a separate software MOD-W project, the Moderator reported wanting something runnable quickly in order to see and react before committing to the detailed workflow. The source proposed a rough "pseudo-MVP" lane followed by requirements and acceptance-criteria backfill.
+
+During review in this repository, the Moderator clarified that the intended purposes are rapid product visualization and technical feasibility testing. The Moderator also identified Git branches as a likely isolation mechanism and asked how deployable Claude Design prototypes, custom component galleries, and Storybook could participate.
+
+Rapid visualization substantially overlaps MOD-W's existing Prototype Ceremony. Technical feasibility testing is adjacent but not explicit. The proposed backfill mechanism cannot confer retrospective compliance: learned requirements may inform later authoritative artifacts, but exploratory implementation must not become approved production work merely through documentation or branch merging.
+
+### Evidence
+
+- Moderator-supplied source Observation 8, archived at `research/conversations/2026-10-12-mod-w-project-workflow-observations.md`.
+- Moderator clarification on 2026-10-14 that the intended cases are rapid product visualization and technical feasibility testing, with Git branches suggested for isolation.
+- `mod-w/templates/MOD-W.md`: optional Prototype Ceremony, Architecture Handoff, Reference Implementation rules, and prohibition on retroactive approval.
+- `mod-w/templates/root-agents.md`: prototype inspection, Reference Implementation disposition, and backfill boundary.
+- MW-OBS-022: conditional need for a living component review surface when reusable UI systems are materially in scope.
+
+### Contradictory Evidence and Limits
+
+- No branch-isolated Exploratory Build protocol has been run or measured under MOD-W.
+- The existing Prototype Ceremony may already be sufficient if its review and deployment metadata are made explicit locally in a project.
+- Branching isolates history but does not itself establish authority, safety, evidential standing, or production readiness.
+- A new ceremony can add overhead and invite exploratory branches to become long-lived shadow products.
+- The evidence comes from one other software project and discussion with the same Moderator; no independent team has evaluated the proposed protocol.
+
+### Effect on Work
+
+A research design note, `research/topics/exploratory-build-protocol.md`, is authorized to specify and evaluate a possible shared protocol with two exploration types: rapid product visualization and technical feasibility testing.
+
+No canonical MOD-W template, accepted PROD-W artifact, or local workflow rule changes. No new `-W` workflow is created.
+
+### Local Adaptation Required
+
+None authorized. A research design and future trial must precede any adaptation proposal.
+
+### Interpretation
+
+The need should not be framed as a general fast production lane or "pseudo-MVP." Rapid visualization should extend the existing Prototype Ceremony. Technical feasibility may warrant an adjacent, bounded spike path before architecture is finalized. Their common governance can be explored as an optional branch-isolated Exploratory Build protocol.
+
+An exploration should begin with a minimal charter, produce a reproducible review surface and evidence record, and close with `STOP`, `REVISE`, `PROCEED`, or `TRIAL`. Its output remains prototype evidence or a Reference Implementation. Normal MOD-W gates remain mandatory for adoption.
+
+**Conclusion (deliberately limited):** the gap and proposed direction are coherent enough for research design, but the protocol's value, cost, and correct relationship to the Prototype Ceremony are not yet tested.
+
+### Follow-up
+
+- Develop the bounded protocol in `research/topics/exploratory-build-protocol.md` without changing canonical templates.
+- Trial it in a suitable future software project and record branch lifecycle, review value, adoption pressure, and overhead.
+- Determine whether one protocol with two types is clearer than separate visualization and technical-spike ceremonies.
+- Route any user-facing product hypothesis test to PROD-W rather than treating prototype interaction as product validation automatically.
+
+### Moderator Disposition
+
+**Accepted** by Frank McGuire (MOD-W Moderator) 2026-10-14.
+
+Classification accepted as `NOT_YET_TESTED`. The Moderator authorizes research design of a branch-isolated Exploratory Build protocol for rapid visualization and technical feasibility testing. This is not authorization for a local adaptation, canonical MOD-W change, new `-W` workflow, production fast lane, retrospective approval, or change to accepted PROD-W artifacts.
+
+---
+
 ## Open Observation Log
 
-Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-023`, etc.), include concrete evidence, and use an appropriate classification.
+Future observations will be added to this register as they occur. Each will follow the template structure above, be assigned a sequential ID (`MW-OBS-024`, etc.), include concrete evidence, and use an appropriate classification.
 
 The register is append-only; accepted observations are not removed or rewritten, though disposition may be updated based on new evidence.

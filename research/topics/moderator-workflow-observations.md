@@ -172,6 +172,22 @@ The Moderator accepted a narrowed reading on 2026-10-14:
 
 This acceptance changes no canonical MOD-W template, accepted PROD-W artifact, or local workflow rule. It records an evidence-backed, conditional improvement hypothesis for later synthesis.
 
+## 2026-10-14 update: source Observation 8
+
+The updated source also proposes a quick "pseudo-MVP" lane. After discussion, the Moderator clarified the intended cases as rapid product visualization and technical feasibility testing and suggested Git branches as an isolation mechanism.
+
+The source's number is not used as a repository identifier because `MW-OBS-008` already concerns normative-specification implementation and the absent blocking build gate. The repository record is `MW-OBS-023`.
+
+The Moderator accepted the observation as `NOT_YET_TESTED` and authorized research design only:
+
+- rapid visualization is treated as a refinement of the existing Prototype Ceremony;
+- technical feasibility is treated as a possible adjacent spike path;
+- a shared, branch-isolated Exploratory Build protocol may be designed and later trialled;
+- output remains evidence or a Reference Implementation and cannot gain production standing through backfill or branch merging;
+- no local adaptation, canonical template change, new `-W` workflow, or accepted PROD-W change is authorized.
+
+The proposed protocol, artifact boundaries, Storybook/custom-gallery path, safety floor, and trial questions are recorded in `research/topics/exploratory-build-protocol.md`.
+
 ## Governance
 
 This note lives in `research/topics/` and requires no gate.
